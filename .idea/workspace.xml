@@ -3,30 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="b2cec123-402a-4553-98ef-7a084d7fa9c2" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/_includes/head.html" afterPath="$PROJECT_DIR$/_includes/head.html" />
-      <change beforePath="$PROJECT_DIR$/_site/BUG-TRACKING-1/index.html" afterPath="$PROJECT_DIR$/_site/BUG-TRACKING-1/index.html" />
-      <change beforePath="$PROJECT_DIR$/_site/BUG-TRACKING-2/index.html" afterPath="$PROJECT_DIR$/_site/BUG-TRACKING-2/index.html" />
-      <change beforePath="$PROJECT_DIR$/_site/BUG-TRACKING-3/index.html" afterPath="$PROJECT_DIR$/_site/BUG-TRACKING-3/index.html" />
-      <change beforePath="$PROJECT_DIR$/_site/BUG-TRACKING-4/index.html" afterPath="$PROJECT_DIR$/_site/BUG-TRACKING-4/index.html" />
-      <change beforePath="$PROJECT_DIR$/_site/BUG-TRACKING-5/index.html" afterPath="$PROJECT_DIR$/_site/BUG-TRACKING-5/index.html" />
-      <change beforePath="$PROJECT_DIR$/_site/Coffee-ES6/index.html" afterPath="$PROJECT_DIR$/_site/Coffee-ES6/index.html" />
-      <change beforePath="$PROJECT_DIR$/_site/JENKINS-BUILD/index.html" afterPath="$PROJECT_DIR$/_site/JENKINS-BUILD/index.html" />
-      <change beforePath="$PROJECT_DIR$/_site/JOOQ/index.html" afterPath="$PROJECT_DIR$/_site/JOOQ/index.html" />
-      <change beforePath="$PROJECT_DIR$/_site/NEXUS-3XX-MAVEN-NPM/index.html" afterPath="$PROJECT_DIR$/_site/NEXUS-3XX-MAVEN-NPM/index.html" />
-      <change beforePath="$PROJECT_DIR$/_site/NGINX-CACHE-PROBLEM/index.html" afterPath="$PROJECT_DIR$/_site/NGINX-CACHE-PROBLEM/index.html" />
-      <change beforePath="$PROJECT_DIR$/_site/OAuth2-Social/index.html" afterPath="$PROJECT_DIR$/_site/OAuth2-Social/index.html" />
-      <change beforePath="$PROJECT_DIR$/_site/TEAMUP-BOT-START/index.html" afterPath="$PROJECT_DIR$/_site/TEAMUP-BOT-START/index.html" />
-      <change beforePath="$PROJECT_DIR$/_site/TEAMUP-BOT-TIP/index.html" afterPath="$PROJECT_DIR$/_site/TEAMUP-BOT-TIP/index.html" />
-      <change beforePath="$PROJECT_DIR$/_site/ZUM-Pilot-jeonghoon/index.html" afterPath="$PROJECT_DIR$/_site/ZUM-Pilot-jeonghoon/index.html" />
-      <change beforePath="$PROJECT_DIR$/_site/ZUM-Pilot-ryudung/index.html" afterPath="$PROJECT_DIR$/_site/ZUM-Pilot-ryudung/index.html" />
-      <change beforePath="$PROJECT_DIR$/_site/ZUM-Pilot-youngwoo/index.html" afterPath="$PROJECT_DIR$/_site/ZUM-Pilot-youngwoo/index.html" />
-      <change beforePath="$PROJECT_DIR$/_site/ZUM-Pilot/index.html" afterPath="$PROJECT_DIR$/_site/ZUM-Pilot/index.html" />
+      <change beforePath="$PROJECT_DIR$/_site/404.html" afterPath="$PROJECT_DIR$/_site/404.html" />
+      <change beforePath="$PROJECT_DIR$/_site/about/index.html" afterPath="$PROJECT_DIR$/_site/about/index.html" />
+      <change beforePath="$PROJECT_DIR$/_site/contact/index.html" afterPath="$PROJECT_DIR$/_site/contact/index.html" />
+      <change beforePath="$PROJECT_DIR$/_site/contact/message-sent/index.html" afterPath="$PROJECT_DIR$/_site/contact/message-sent/index.html" />
       <change beforePath="$PROJECT_DIR$/_site/feed.xml" afterPath="$PROJECT_DIR$/_site/feed.xml" />
-      <change beforePath="$PROJECT_DIR$/_site/first/index.html" afterPath="$PROJECT_DIR$/_site/first/index.html" />
-      <change beforePath="$PROJECT_DIR$/_site/portaldevteam2017/index.html" afterPath="$PROJECT_DIR$/_site/portaldevteam2017/index.html" />
-      <change beforePath="$PROJECT_DIR$/_site/spring_cloud_stream_rabbitmq_01/index.html" afterPath="$PROJECT_DIR$/_site/spring_cloud_stream_rabbitmq_01/index.html" />
-      <change beforePath="$PROJECT_DIR$/_site/spring_cloud_stream_rabbitmq_02/index.html" afterPath="$PROJECT_DIR$/_site/spring_cloud_stream_rabbitmq_02/index.html" />
-      <change beforePath="$PROJECT_DIR$/_site/talk_1/index.html" afterPath="$PROJECT_DIR$/_site/talk_1/index.html" />
+      <change beforePath="$PROJECT_DIR$/_site/index.html" afterPath="$PROJECT_DIR$/_site/index.html" />
+      <change beforePath="$PROJECT_DIR$/_site/tags/index.html" afterPath="$PROJECT_DIR$/_site/tags/index.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -353,7 +336,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1528794084777</updated>
-      <workItem from="1528794086533" duration="4743000" />
+      <workItem from="1528794086533" duration="4831000" />
     </task>
     <task id="LOCAL-00001" summary="- post 문법 에러 수정&#10;- 깨진 이미지 추가">
       <created>1528806441741</created>
@@ -404,11 +387,18 @@
       <option name="project" value="LOCAL" />
       <updated>1528809110496</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="- 공유 이미지 변경">
+      <created>1528809649124</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1528809649125</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4743000" />
+    <option name="totallyTimeSpent" value="4831000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
