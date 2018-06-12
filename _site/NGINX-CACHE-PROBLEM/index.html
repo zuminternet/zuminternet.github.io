@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/BlogPosting">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>ZUM 기술 블로그</title>
+    <meta name="title" content="ZUM 기술 블로그"/>
+    <meta name="description" content="운영 중 발생한 Nginx Cache 트러블슈팅 사례">
+
+    <!-- Social: Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@zum_com">
+    <meta name="twitter:title" content="zum.com 운영 중 발생한 Nginx Cache 트러블슈팅 사례 | ZUM tech">
+    <meta name="twitter:description" content="운영 중 발생한 Nginx Cache 트러블슈팅 사례">
+    
+    <meta property="twitter:image:src" content="/images/portal/post/2016-11-08-NGINX-CACHE-PROBLEM/django-nginx-image.jpg">
+    
+
+
+
+    <!-- Social: Facebook / Open Graph -->
+    <meta property="og:url" content="http://localhost:4000/NGINX-CACHE-PROBLEM/">
+    <meta property="og:title" content="zum.com 운영 중 발생한 Nginx Cache 트러블슈팅 사례 | ZUM tech">
+    
+    <meta property="og:image" content="/images/portal/post/2016-11-08-NGINX-CACHE-PROBLEM/django-nginx-image.jpg">
+    
+    <meta property="og:description" content="운영 중 발생한 Nginx Cache 트러블슈팅 사례">
+    <meta property="og:site_name" content="ZUM 기술 블로그">
+
+    <!-- Social: Google+ / Schema.org  -->
+    <meta itemprop="name" content="zum.com 운영 중 발생한 Nginx Cache 트러블슈팅 사례 | ZUM tech"/>
+    <meta itemprop="description" content="운영 중 발생한 Nginx Cache 트러블슈팅 사례">
+    <meta itemprop="image" content="http://localhost:4000/assets/img/blog-image.png"/>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" href="/assets/img/icons/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/assets/img/icons/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/img/icons/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/img/icons/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/img/icons/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/img/icons/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/img/icons/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/icons/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/img/icons/apple-touch-icon-152x152.png" />
+
+    <!-- Windows 8 Tile Icons -->
+    <meta name="application-name" content="ZUM tech Blog">
+    <meta name="msapplication-TileColor" content="#0562DC">
+    <meta name="msapplication-square70x70logo" content="smalltile.png" />
+    <meta name="msapplication-square150x150logo" content="mediumtile.png" />
+    <meta name="msapplication-wide310x150logo" content="widetile.png" />
+    <meta name="msapplication-square310x310logo" content="largetile.png" />
+    
+    <!-- Android Lolipop Theme Color -->
+    <meta name="theme-color" content="">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:300,400,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="canonical" href="http://localhost:4000/NGINX-CACHE-PROBLEM/">
+    <link rel="alternate" type="application/rss+xml" title="ZUM 기술 블로그" href="http://localhost:4000/feed.xml" />
+</head>
+
+    <body class="has-push-menu">
+        
+
+
+
+
+
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" display="none" version="1.1"><defs><symbol id="icon-menu" viewBox="0 0 1024 1024"><path class="path1" d="M128 213.333h768q17.667 0 30.167 12.5t12.5 30.167-12.5 30.167-30.167 12.5h-768q-17.667 0-30.167-12.5t-12.5-30.167 12.5-30.167 30.167-12.5zM128 725.333h768q17.667 0 30.167 12.5t12.5 30.167-12.5 30.167-30.167 12.5h-768q-17.667 0-30.167-12.5t-12.5-30.167 12.5-30.167 30.167-12.5zM128 469.333h768q17.667 0 30.167 12.5t12.5 30.167-12.5 30.167-30.167 12.5h-768q-17.667 0-30.167-12.5t-12.5-30.167 12.5-30.167 30.167-12.5z"/></symbol><symbol id="icon-search" viewBox="0 0 951 1024"><path class="path1" d="M658.286 475.429q0-105.714-75.143-180.857t-180.857-75.143-180.857 75.143-75.143 180.857 75.143 180.857 180.857 75.143 180.857-75.143 75.143-180.857zM950.857 950.857q0 29.714-21.714 51.429t-51.429 21.714q-30.857 0-51.429-21.714l-196-195.429q-102.286 70.857-228 70.857-81.714 0-156.286-31.714t-128.571-85.714-85.714-128.571-31.714-156.286 31.714-156.286 85.714-128.571 128.571-85.714 156.286-31.714 156.286 31.714 128.571 85.714 85.714 128.571 31.714 156.286q0 125.714-70.857 228l196 196q21.143 21.143 21.143 51.429z"/></symbol><symbol id="icon-close" viewBox="0 0 1000 1000"><path d="M969.8,870.3c27,27.7,27,71.8,0,99.1C955.7,983,937.9,990,920,990c-17.9,0-35.7-7-49.7-20.7L500,599L129.6,969.4C115.6,983,97.8,990,79.9,990s-35.7-7-49.7-20.7c-27-27.3-27-71.4,0-99.1L400.9,500L30.3,129.3c-27-27.3-27-71.4,0-99.1c27.3-27,71.8-27,99.4,0L500,400.9L870.4,30.2c27.7-27,71.8-27,99.4,0c27,27.7,27,71.8,0,99.1L599.1,500L969.8,870.3z"/></symbol><symbol id="icon-twitter" viewBox="0 0 951 1024"><path class="path1" d="M925.714 233.143q-38.286 56-92.571 95.429 0.571 8 0.571 24 0 74.286-21.714 148.286t-66 142-105.429 120.286-147.429 83.429-184.571 31.143q-154.857 0-283.429-82.857 20 2.286 44.571 2.286 128.571 0 229.143-78.857-60-1.143-107.429-36.857t-65.143-91.143q18.857 2.857 34.857 2.857 24.571 0 48.571-6.286-64-13.143-106-63.714t-42-117.429v-2.286q38.857 21.714 83.429 23.429-37.714-25.143-60-65.714t-22.286-88q0-50.286 25.143-93.143 69.143 85.143 168.286 136.286t212.286 56.857q-4.571-21.714-4.571-42.286 0-76.571 54-130.571t130.571-54q80 0 134.857 58.286 62.286-12 117.143-44.571-21.143 65.714-81.143 101.714 53.143-5.714 106.286-28.571z"/></symbol><symbol id="icon-facebook" viewBox="0 0 585 1024"><path class="path1" d="M548 6.857v150.857h-89.714q-49.143 0-66.286 20.571t-17.143 61.714v108h167.429l-22.286 169.143h-145.143v433.714h-174.857v-433.714h-145.714v-169.143h145.714v-124.571q0-106.286 59.429-164.857t158.286-58.571q84 0 130.286 6.857z"/></symbol><symbol id="icon-google-plus" viewBox="0 0 951 1024"><path class="path1" d="M420 454.857q0 20.571 18.286 40.286t44.286 38.857 51.714 42 44 59.429 18.286 81.143q0 51.429-27.429 98.857-41.143 69.714-120.571 102.571t-170.286 32.857q-75.429 0-140.857-23.714t-98-78.571q-21.143-34.286-21.143-74.857 0-46.286 25.429-85.714t67.714-65.714q74.857-46.857 230.857-57.143-18.286-24-27.143-42.286t-8.857-41.714q0-20.571 12-48.571-26.286 2.286-38.857 2.286-84.571 0-142.571-55.143t-58-139.714q0-46.857 20.571-90.857t56.571-74.857q44-37.714 104.286-56t124.286-18.286h238.857l-78.857 50.286h-74.857q42.286 36 64 76t21.714 91.429q0 41.143-14 74t-33.714 53.143-39.714 37.143-34 35.143-14 37.714zM336.571 400q21.714 0 44.571-9.429t37.714-24.857q30.286-32.571 30.286-90.857 0-33.143-9.714-71.429t-27.714-74-48.286-59.143-66.857-23.429q-24 0-47.143 11.143t-37.429 30q-26.857 33.714-26.857 91.429 0 26.286 5.714 55.714t18 58.857 29.714 52.857 42.857 38.286 55.143 14.857zM337.714 898.857q33.143 0 63.714-7.429t56.571-22.286 41.714-41.714 15.714-62.286q0-14.286-4-28t-8.286-24-15.429-23.714-16.857-20-22-19.714-20.857-16.571-23.714-17.143-20.857-14.857q-9.143-1.143-27.429-1.143-30.286 0-60 4t-61.429 14.286-55.429 26.286-39.143 42.571-15.429 60.286q0 40 20 70.571t52.286 47.429 68 25.143 72.857 8.286zM800.571 398.286h121.714v61.714h-121.714v125.143h-60v-125.143h-121.143v-61.714h121.143v-124h60v124z"/></symbol><symbol id="icon-clock" viewBox="0 0 1000 1000"><path d="M500,10C229.8,10,10,229.8,10,500c0,270.2,219.8,490,490,490c270.2,0,490-219.8,490-490C990,229.8,770.2,10,500,10z M500,910.2c-226.2,0-410.2-184-410.2-410.2c0-226.2,184-410.2,410.2-410.2c226.2,0,410.2,184,410.2,410.2C910.2,726.1,726.2,910.2,500,910.2z M753.1,374c8.2,11.9,5.2,28.1-6.6,36.3L509.9,573.7c-4.4,3.1-9.6,4.6-14.8,4.6c-4.1,0-8.3-1-12.1-3c-8.6-4.5-14-13.4-14-23.1V202.5c0-14.4,11.7-26.1,26.1-26.1c14.4,0,26.1,11.7,26.1,26.1v300l195.6-135.1C728.7,359.2,744.9,362.1,753.1,374z"/></symbol><symbol id="icon-calendar" viewBox="0 0 1000 1000"><path d="M920,500v420H80V500H920 M990,430H10v490c0,38.7,31.3,70,70,70h840c38.7,0,70-31.3,70-70V430L990,430z"/><path d="M850,80v105c0,57.9-47.2,105-105,105c-58,0-105-47.1-105-105V80H360v105c0,57.9-47.2,105-105,105c-58,0-105-47.1-105-105V80C72.8,80,10,142.7,10,220v140h980V220C990,142.7,927.2,80,850,80z"/><path d="M255,10c-19.3,0-35,15.8-35,35v140c0,19.2,15.7,35,35,35c19.3,0,35-15.8,35-35V45C290,25.8,274.3,10,255,10z"/><path d="M745,10c-19.3,0-35,15.8-35,35v140c0,19.2,15.7,35,35,35c19.3,0,35-15.8,35-35V45C780,25.8,764.3,10,745,10z"/></symbol><symbol id="icon-github" viewBox="0 0 12 14"><path d="M6 1q1.633 0 3.012 0.805t2.184 2.184 0.805 3.012q0 1.961-1.145 3.527t-2.957 2.168q-0.211 0.039-0.312-0.055t-0.102-0.234q0-0.023 0.004-0.598t0.004-1.051q0-0.758-0.406-1.109 0.445-0.047 0.801-0.141t0.734-0.305 0.633-0.52 0.414-0.82 0.16-1.176q0-0.93-0.617-1.609 0.289-0.711-0.062-1.594-0.219-0.070-0.633 0.086t-0.719 0.344l-0.297 0.187q-0.727-0.203-1.5-0.203t-1.5 0.203q-0.125-0.086-0.332-0.211t-0.652-0.301-0.664-0.105q-0.352 0.883-0.062 1.594-0.617 0.68-0.617 1.609 0 0.664 0.16 1.172t0.41 0.82 0.629 0.523 0.734 0.305 0.801 0.141q-0.305 0.281-0.383 0.805-0.164 0.078-0.352 0.117t-0.445 0.039-0.512-0.168-0.434-0.488q-0.148-0.25-0.379-0.406t-0.387-0.187l-0.156-0.023q-0.164 0-0.227 0.035t-0.039 0.090 0.070 0.109 0.102 0.094l0.055 0.039q0.172 0.078 0.34 0.297t0.246 0.398l0.078 0.18q0.102 0.297 0.344 0.48t0.523 0.234 0.543 0.055 0.434-0.027l0.18-0.031q0 0.297 0.004 0.691t0.004 0.426q0 0.141-0.102 0.234t-0.312 0.055q-1.812-0.602-2.957-2.168t-1.145-3.527q0-1.633 0.805-3.012t2.184-2.184 3.012-0.805zM2.273 9.617q0.023-0.055-0.055-0.094-0.078-0.023-0.102 0.016-0.023 0.055 0.055 0.094 0.070 0.047 0.102-0.016zM2.516 9.883q0.055-0.039-0.016-0.125-0.078-0.070-0.125-0.023-0.055 0.039 0.016 0.125 0.078 0.078 0.125 0.023zM2.75 10.234q0.070-0.055 0-0.148-0.062-0.102-0.133-0.047-0.070 0.039 0 0.141t0.133 0.055zM3.078 10.562q0.062-0.062-0.031-0.148-0.094-0.094-0.156-0.023-0.070 0.062 0.031 0.148 0.094 0.094 0.156 0.023zM3.523 10.758q0.023-0.086-0.102-0.125-0.117-0.031-0.148 0.055t0.102 0.117q0.117 0.047 0.148-0.047zM4.016 10.797q0-0.102-0.133-0.086-0.125 0-0.125 0.086 0 0.102 0.133 0.086 0.125 0 0.125-0.086zM4.469 10.719q-0.016-0.086-0.141-0.070-0.125 0.023-0.109 0.117t0.141 0.062 0.109-0.109z"></path></symbol><symbol id="icon-medium" viewBox="0 0 1000 1000"><path d="M336.5,240.2v641.5c0,9.1-2.3,16.9-6.8,23.2s-11.2,9.6-20,9.6c-6.2,0-12.2-1.5-18-4.4L37.3,782.7c-7.7-3.6-14.1-9.8-19.4-18.3S10,747.4,10,739V115.5c0-7.3,1.8-13.5,5.5-18.6c3.6-5.1,8.9-7.7,15.9-7.7c5.1,0,13.1,2.7,24.1,8.2l279.5,140C335.9,238.6,336.5,239.5,336.5,240.2L336.5,240.2z M371.5,295.5l292,473.6l-292-145.5V295.5z M990,305.3v576.4c0,9.1-2.6,16.5-7.7,22.1c-5.1,5.7-12,8.5-20.8,8.5s-17.3-2.4-25.7-7.1L694.7,784.9L990,305.3z M988.4,239.7c0,1.1-46.8,77.6-140.3,229.4C754.6,621,699.8,709.8,683.8,735.7L470.5,389l177.2-288.2c6.2-10.2,15.7-15.3,28.4-15.3c5.1,0,9.8,1.1,14.2,3.3l295.9,147.7C987.6,237.1,988.4,238.2,988.4,239.7L988.4,239.7z"/></symbol><symbol id="icon-instagram" viewBox="0 0 489.84 489.84"><path d="M249.62,50.46c65.4,0,73.14.25,99,1.43C372.47,53,385.44,57,394.07,60.32a75.88,75.88,0,0,1,28.16,18.32,75.88,75.88,0,0,1,18.32,28.16c3.35,8.63,7.34,21.6,8.43,45.48,1.18,25.83,1.43,33.57,1.43,99s-0.25,73.14-1.43,99c-1.09,23.88-5.08,36.85-8.43,45.48a81.11,81.11,0,0,1-46.48,46.48c-8.63,3.35-21.6,7.34-45.48,8.43-25.82,1.18-33.57,1.43-99,1.43s-73.15-.25-99-1.43c-23.88-1.09-36.85-5.08-45.48-8.43A75.88,75.88,0,0,1,77,423.86,75.88,75.88,0,0,1,58.69,395.7c-3.35-8.63-7.34-21.6-8.43-45.48-1.18-25.83-1.43-33.57-1.43-99s0.25-73.14,1.43-99c1.09-23.88,5.08-36.85,8.43-45.48A75.88,75.88,0,0,1,77,78.64a75.88,75.88,0,0,1,28.16-18.32c8.63-3.35,21.6-7.34,45.48-8.43,25.83-1.18,33.57-1.43,99-1.43m0-44.13c-66.52,0-74.86.28-101,1.47s-43.87,5.33-59.45,11.38A120.06,120.06,0,0,0,45.81,47.44,120.06,120.06,0,0,0,17.56,90.82C11.5,106.4,7.36,124.2,6.17,150.27s-1.47,34.46-1.47,101,0.28,74.86,1.47,101,5.33,43.87,11.38,59.45a120.06,120.06,0,0,0,28.25,43.38,120.06,120.06,0,0,0,43.38,28.25c15.58,6.05,33.38,10.19,59.45,11.38s34.46,1.47,101,1.47,74.86-.28,101-1.47,43.87-5.33,59.45-11.38a125.24,125.24,0,0,0,71.63-71.63c6.05-15.58,10.19-33.38,11.38-59.45s1.47-34.46,1.47-101-0.28-74.86-1.47-101-5.33-43.87-11.38-59.45a120.06,120.06,0,0,0-28.25-43.38,120.06,120.06,0,0,0-43.38-28.25C394.47,13.13,376.67,9,350.6,7.8s-34.46-1.47-101-1.47h0Z" transform="translate(-4.7 -6.33)" /><path d="M249.62,125.48A125.77,125.77,0,1,0,375.39,251.25,125.77,125.77,0,0,0,249.62,125.48Zm0,207.41a81.64,81.64,0,1,1,81.64-81.64A81.64,81.64,0,0,1,249.62,332.89Z" transform="translate(-4.7 -6.33)"/><circle cx="375.66" cy="114.18" r="29.39" /></symbol><symbol id="icon-linkedin" viewBox="0 0 12 14"><path d="M2.727 4.883v7.742h-2.578v-7.742h2.578zM2.891 2.492q0.008 0.57-0.395 0.953t-1.059 0.383h-0.016q-0.641 0-1.031-0.383t-0.391-0.953q0-0.578 0.402-0.957t1.051-0.379 1.039 0.379 0.398 0.957zM12 8.187v4.437h-2.57v-4.141q0-0.82-0.316-1.285t-0.988-0.465q-0.492 0-0.824 0.27t-0.496 0.668q-0.086 0.234-0.086 0.633v4.32h-2.57q0.016-3.117 0.016-5.055t-0.008-2.313l-0.008-0.375h2.57v1.125h-0.016q0.156-0.25 0.32-0.438t0.441-0.406 0.68-0.34 0.895-0.121q1.336 0 2.148 0.887t0.813 2.598z"></path></symbol><symbol id="icon-heart" viewBox="0 0 34 30"><path d="M17,29.7 L16.4,29.2 C3.5,18.7 0,15 0,9 C0,4 4,0 9,0 C13.1,0 15.4,2.3 17,4.1 C18.6,2.3 20.9,0 25,0 C30,0 34,4 34,9 C34,15 30.5,18.7 17.6,29.2 L17,29.7 Z M9,2 C5.1,2 2,5.1 2,9 C2,14.1 5.2,17.5 17,27.1 C28.8,17.5 32,14.1 32,9 C32,5.1 28.9,2 25,2 C21.5,2 19.6,4.1 18.1,5.8 L17,7.1 L15.9,5.8 C14.4,4.1 12.5,2 9,2 Z" id="Shape"></path></symbol></defs></svg>
+
+        <header class="bar-header">
+    <a id="menu">
+        <svg id="open" class="icon-menu"><use xlink:href="#icon-menu"></use></svg>
+    </a>
+    <a id="search" class="dosearch">
+        <svg class="icon-search"><use xlink:href="#icon-search"></use></svg>
+    </a>
+    <h1 class="logo">
+        <a href="/">
+            ZUM tech
+        </a>
+    </h1>
+</header>
+
+<div id="mask" class="overlay"></div>
+
+<aside id="sidebar">
+    <nav id="navigation">
+      <h2>Menu</h2>
+      <ul>
+          <li><a href="http://localhost:4000">Home</a></li>
+          <li><a href="http://zuminternet.com" target="_blank">Contact</a></li>
+        <li><a class="feed" href="http://localhost:4000/feed.xml" title="Atom/RSS feed">Feed</a></li>
+      </ul>
+    </nav>
+</aside>
+<div class="search-wrapper">
+    <div class="search-form">
+        <input type="text" class="search-field" placeholder="Search">
+        <svg class="icon-remove-sign"><use xlink:href="#icon-close"></use></svg>
+        <ul class="search-results search-list"></ul>
+    </div>
+</div>
+
+
+        <section class="post">
+
+            <article role="article" id="post" class="post-content" itemprop="articleBody">
+                <p itemprop="post-info" class="post-info">
+                    
+                        <svg id="date" class="icon-calendar"><use xlink:href="#icon-calendar"></use></svg>
+                        <time itemprop="datePublished" datetime="2016-11-08T00:00:00+09:00" class="date">
+                            
+
+
+November 8, 2016
+
+                        </time>
+                    
+                    <svg id="clock" class="icon-clock"><use xlink:href="#icon-clock"></use></svg>
+                    <span>7 min to read</span>
+                </p>
+                <h1 class="post-title" itemprop="name">zum.com 운영 중 발생한 Nginx Cache 트러블슈팅 사례</h1>
+            <p/>
+                <p>안녕하세요? <br />
+저는 <a href="http://zum.com/">zum.com</a>의 메인페이지 운영 및 개발을 담당하는 포털개발팀의 이동욱입니다. <br />
+이번 시간에는 제가 최근에 zum.com을 운영하면서 실수했었던 내용들 중, Nginx에 관련된 내용들을 정리하였습니다. <br />
+(Nginx외에도 정말 많은 실수를 했지만 이번엔 Nginx만 하였습니다^^;) <br /></p>
+
+<p>본문 시작전에 간단히 zum.com의 서버구조를 소개드리면, <br /></p>
+
+<p><img src="/images/portal/post/2016-11-08-NGINX-CACHE-PROBLEM/줌닷컴구조.png" alt="줌닷컴구조" /></p>
+
+<p align="center">(아주 간단하게 그린 줌닷컴 구조)</p>
+<p><br /><br /></p>
+
+<p>L4를 Load Balancer로 사용하여 28대의 서버에 균등하게 요청을 분배하고 있습니다. <br />
+이때 각 서버는 Nginx와 Tomcat을 함께 가지고 있으며, Nginx를 <strong>리버스 프록시 서버</strong>로 사용하고 있습니다. <br /><br />
+<strong>리버스 프록시 서버란?</strong> <br />
+일정 수준 이상의 규모를 가진 웹 서비스에서는 웹 서버(Nginx)와 웹 어플리케이션 서버 (Tomcat)를 분리하여 웹 서버를 프록시 서버로 두어 <strong>사용자의 요청을 캐시하여</strong> 동일한 요청이 오면 웹 어플리케이션 서버에 전달하지 않고 웹 서버에 캐시된 내용을 바로 전달하도록 하여 성능상의 이점을 얻기 위해 사용합니다.<br />
+예를 들어 zum.com이란 도메인의 요청이 오게되면 리버스 프록시 서버(Nginx)에서 해당 요청을 받아 캐시된 데이터가 있다면 캐시된 데이터를 바로 전달하고, 없다면 Tomcat에 처리를 의뢰 하는 것을 얘기합니다. <br />
+여기서 얘기하는 리버스는 <strong>역전</strong> 이 아닌 <strong>뒷쪽</strong> 이란 뜻입니다.<br />
+자세한 내용은 <a href="http://www.joinc.co.kr/w/man/12/proxy">joinc님의 포스팅</a>을 참조하시면 더욱 이해하기 쉬우실 것 같습니다. <br /></p>
+
+<h3 id="시작-전에">시작 전에..</h3>
+<p>아래에서 사용한 예제 코드의 경우 모두 <a href="https://github.com/jojoldu/blog-code/tree/master/server/nginx-cache">Github</a>에서 확인할 수 있으며, 내용들은 모두 제 <a href="http://jojoldu.tistory.com/60">개인 블로그</a>에도 동시 포스팅 되었음을 미리 말씀드립니다. <br />
+예제를 실행하기 위해선 Java8, Nginx, CentOS가 설치되어 있어야만 합니다. <br />
+혹시나 Nginx가 설치되어있는지 확인이 필요하다면 아래와 같은 명령어로 확인이 가능합니다. <br /></p>
+
+<p><strong>Nginx 실행여부 확인</strong></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ps auxww |grep nginx
+</code></pre></div></div>
+<p><img src="/images/portal/post/2016-11-08-NGINX-CACHE-PROBLEM/nginx확인.png" alt="Nginx 확인" />
+<br />
+위와 같이 master process와 worker process가 표시된다면 현재 nginx가 서버에서 구동중입니다. 구동중인 nginx 프로세스가 없다면 설치를 하시면 됩니다.<br /><br />
+모든 예제는 실제 서비스와 유사한 형태의 코드로 작성하였습니다. <br />
+문제 자체를 이해하는데는 오히려 실제 서비스 코드보다 간략화된 예제코드가 더 쉽게 이해될 것 같습니다. <br />
+하나하나 문제가 되었던 사건들을 소개하겠습니다. <br /></p>
+
+<h3 id="1-1-캐시-파라미터-문제">1-1. 캐시 파라미터 문제</h3>
+<p>최근 zum.com에서는 두들 캠페인을 진행하였습니다. <br /></p>
+
+<p><img src="/images/portal/post/2016-11-08-NGINX-CACHE-PROBLEM/두들캠페인.png" alt="두들 캠페인" /></p>
+
+<p>(화면 좌측의 더 넓은 검색 부분입니다.)<br /><br />
+사용자가 zum.com을 방문시 gif 파일을 통해 애니메이션이 시작하도록 하는 캠페인이였습니다. <br />
+기능에 대한 상세 기능은 아래와 같습니다.</p>
+
+<ul>
+  <li>사용자가 방문할때마다 애니메이션이 <strong>새로</strong> 시작되어야 한다.</li>
+  <li>애니메이션이 끝나면 <strong>새로고침 해야만</strong> 다시 애니메이션이 시작되어야 한다.</li>
+</ul>
+
+<p>보기엔 크게 문제가 없어보이는 기능이라, 코드는 아래와 같이 작성하였습니다. <br /></p>
+
+<p><img src="/images/portal/post/2016-11-08-NGINX-CACHE-PROBLEM/샘플코드1.png" alt="예제코드1" />
+<br />
+어려울것 하나 없는 기능이기에 바로 코드를 수정하고 개발서버에서 테스트를 진행하는데, 이상하게도 <strong>새로고침하면 gif 애니메이션이 시작하지 않았습니다.</strong></p>
+
+<p><img src="/images/portal/post/2016-11-08-NGINX-CACHE-PROBLEM/엉엉.png" alt="엉엉" /></p>
+
+<p>(엉엉 ㅠㅠㅠ)<br /><br />
+이유를 찾아보니 gif의 경우 웹 브라우저에 <strong>캐시 된 이후에는 애니메이션의 마지막 이미지만</strong> 볼 수 있던 것입니다. <br />
+1회성 애니메이션은 기획상 안됐기에, 결국 <strong>새로고침 할때마다 gif를 새로 부르는 수밖에</strong> 없다는 결론을 내렸습니다. <br />
+그래서 아주 간단하게 다음과 같이 호출 시간을 파라미터로 하도록 코드를 수정하였습니다.</p>
+
+<p><img src="/images/portal/post/2016-11-08-NGINX-CACHE-PROBLEM/샘플코드2.png" alt="예제코드2" />
+<br />
+현재시간을 파라미터 t에 할당하여 호출하도록 하였습니다. <br />
+이렇게 될 경우 매번 호출때마다 <strong>현재 시간을 사용하므로 파라미터가 달라져 브라우저 캐시를 회피</strong> 할 수 있으며, 계속해서 새롭게 gif 파일을 호출할 수 있습니다. <br />
+기능 작동과 QA서버 테스트를 마치고 실서버 배포후 가벼운 마음으로 퇴근한 저는 3시간만에 다시 회사로 복귀하게 되었습니다.<br />
+어떤 문제 때문에 저녁에 다시 출근하게 된 것일까요?<br /><br />
+웹 서버를 조금이라도 운영해보신 분들은 현재 저 코드가 어마어마한 문제를 안고 있다는 것을 알고 계실 것입니다. <br /></p>
+
+<p>일반적으로 웹 사이트는 성능상 이점을 얻기 위해 gif/image/css/js 등과 같은 <strong>정적 자원(static resource)은 Nginx와 같은 웹 서버에서 캐시</strong> 하여 Tomcat의 부담을 줄이고 있습니다. <br /></p>
+
+<p><img src="/images/portal/post/2016-11-08-NGINX-CACHE-PROBLEM/proxy-conf.png" alt="proxy.conf" /></p>
+
+<p>(예제 Nginx 캐시 설정) <br /><br />
+이렇게 설정되었을 경우 Nginx에서는 css,js,gif,png,jpg,jpeg파일은 <strong>전부 캐시를 하게 됩니다.</strong> <br />
+저 전부라는 표현이 중요합니다. <br />
+즉, 바뀐 <strong>파라미터에 따라 다 캐시하게 됩니다.</strong> <br />
+한번 확인을 해보겠습니다. <br />
+서버의 <code class="highlighter-rouge">/etc/nginx/nginx.conf</code> 혹은 <code class="highlighter-rouge">/etc/nginx/conf.d/proxy.conf</code> 와 같이 설정파일을 열어 캐시 디렉토리 위치를 확인 후,</p>
+
+<p><img src="/images/portal/post/2016-11-08-NGINX-CACHE-PROBLEM/nginx-conf.png" alt="nginx.conf" /></p>
+
+<p align="center">(여기 예제에서는 nginx.conf에 설정해두었습니다.)</p>
+<p><br /><br />
+캐시 파일 저장소로 지정된 <code class="highlighter-rouge">/data/cache/nginx/cache</code>를 확인해보겠습니다. <br /></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>grep -rnw '찾고자하는 디렉토리 위치' -e "찾는 텍스트명"
+</code></pre></div></div>
+
+<p><img src="/images/portal/post/2016-11-08-NGINX-CACHE-PROBLEM/캐시파일리스트.png" alt="캐시파일 리스트" />
+<br />
+doodle.gif파일만 조회하였는데 여러개가 매치된 것을 확인할 수 있습니다. <br />
+좀 더 극적으로 확인하기 위해 해당 프로젝트를 새로고침을 좀 더 해보겠습니다. <br />
+몇 번의 새로고침 후에 다시 조회 명령어를 입력하면! <br /></p>
+
+<p><img src="/images/portal/post/2016-11-08-NGINX-CACHE-PROBLEM/캐시파일리스트2.png" alt="캐시파일 리스트2" />
+<br />
+훨씬 더 많은 캐시파일이 만들어진 것을 확인할 수 있습니다. <br />
+해당 파일들을 하나하나 열어보시면 각 파일들의 key가 파라미터에 따라 다르다는 것을 확인할 수 있습니다. <br /></p>
+
+<p><img src="/images/portal/post/2016-11-08-NGINX-CACHE-PROBLEM/캐시파일확인.png" alt="캐시파일 확인" /></p>
+
+<p>즉, 일일 천만PV의 zum.com 서비스이기에 <strong>쉴틈 없이 캐시파일이 생성되어 3시간만에 디스크의 용량이 가득차버린 것</strong> 입니다. <br /></p>
+
+<p><img src="/images/portal/post/2016-11-08-NGINX-CACHE-PROBLEM/안돼.png" alt="안돼 제발.." /></p>
+
+<p>(안돼!!)<br /><br /></p>
+
+<h3 id="1-2-캐시-파라미터-해결">1-2. 캐시 파라미터 해결</h3>
+<p>위와 같은 문제를 해결하기 위해선 <strong>gif파일을 Nginx에서 캐시하지 않도록 설정에서 제외</strong> 하는 방법이 있습니다. <br />
+하지만 이 방법은 Tomcat의 부담이 너무나 커지기에 사용할 수 없습니다. <br />
+(혹시나 자사의 서비스가 gif파일이 많지 않고, 사용자가 많지 않다면 gif를 캐시 설정에서 제외하는 방법도 좋은 방법입니다.) <br />
+차안으로 생각한 방법이 1~1000의 랜덤한 숫자의 파라미터를 할당하는 것입니다. <br /></p>
+
+<p><img src="/images/portal/post/2016-11-08-NGINX-CACHE-PROBLEM/랜덤숫자.png" alt="제한된 랜덤 파라미터" />
+<br />
+위 방법을 사용한 이유는 다음과 같습니다. <br /></p>
+<ul>
+  <li>하루에 100회 이상 새로고침 하는 사용자가 많이 없기에 대부분의 사용자는 애니메이션이 재시작 되는 것을 확인 가능.</li>
+  <li>Nginx에서 캐시되는 gif는 최대 1000개이므로, 실제 디스크에서 차지하는 양은 30MB (gif 크기가 약 30kb 이하) 이므로 크게 부담이 없음.</li>
+  <li>해당 gif는 정기적으로 교체될 것이니 사용자 브라우저의 캐시를 대부분 무시가능</li>
+</ul>
+
+<p>적용한 이후로는 예상한대로 크게 디스크와 트래픽에 부담없이 두들(gif) 이벤트가 계속 진행중입니다. <br />
+완전한 해결책이라고 할수는 없지만 비슷한 고민이 있으시다면 대체제로 고려해볼만한 해결책이라고 생각합니다!</p>
+
+<h3 id="2-1-404-캐시-문제">2-1. 404 캐시 문제</h3>
+<p>이번 문제는 404 캐시문제입니다. <br />
+zum.com의 신규 로고와 관련해서 전체적인 이미지 교체 작업을 진행후, 실서버에 배포를 하였는데 몇몇 이미지가 노출되지 않았습니다. <br />
+(여기서는 예제로 해당 이미지명을 <strong>zum.png</strong> 로 하겠습니다.) <br />
+개발자 도구를 통해 확인해 보니 해당 이미지 파일만 404이며, 다른 정적파일들은 모두 200을 전달하고 있었습니다. <br /></p>
+
+<p><img src="/images/portal/post/2016-11-08-NGINX-CACHE-PROBLEM/404.png" alt="404" /></p>
+
+<p align="center">(zum.png만 404)</p>
+<p><br /><br /></p>
+
+<p><img src="/images/portal/post/2016-11-08-NGINX-CACHE-PROBLEM/nginx요청.png" alt="Nginx에 요청" /></p>
+
+<p>(서버에서 Nginx에 직접 요청도 404)<br /></p>
+
+<p>QA서버에서 테스트시에는 문제가 없었기에, 실서버 Tomcat쪽에 문제가 있는건가 싶어 Tomcat에 직접 요청을 해보았습니다.</p>
+
+<p><img src="/images/portal/post/2016-11-08-NGINX-CACHE-PROBLEM/톰캣요청.png" alt="톰캣에 직접 요청" /></p>
+
+<p>(Tomcat에 직접 요청)<br /></p>
+
+<p>Tomcat이 8080포트를 사용하고 있기에 (Nginx는 80포트) 직접 이미지를 호출하니 정상적으로 넘어오는 것이 확인되었습니다. <br /></p>
+
+<p>그렇다면 <strong>Tomcat에서는 이미지를 정상적으로 넘겨주지만, Nginx에서 문제가 있는 것으로 추측</strong> 됩니다. <br />
+하나하나 따져보겠습니다. <br /></p>
+<ul>
+  <li>Tomcat에 이미지가 없다?
+    <ul>
+      <li>Tomcat에 직접 요청해서 이미지가 있는 것을 확인</li>
+    </ul>
+  </li>
+  <li>Nginx 기능에 문제가 있다?
+    <ul>
+      <li>다른 이미지들은 정상적으로 가져오기 때문에 전체의 문제는 아님</li>
+    </ul>
+  </li>
+  <li>Nginx가 404를 캐시했다?
+    <ul>
+      <li><strong>가능성 있음!</strong></li>
+    </ul>
+  </li>
+</ul>
+
+<p><br />
+마지막 추측에 대해 생각해보았습니다. <br />
+Nginx는 40x나 50x라 하더라도 캐시를 할 수 있습니다. <br />
+실제로 해당 요청에 응답할 내용이 없는 것이 정상일 경우가 있는데, 그때마다 Tomcat에 요청 주는것도 부담이기 때문입니다. <br />
+위 가정을 검증하기 위해 zum.png 파일을 어떻게 캐시하고 있는지 확인해보겠습니다. <br />
+캐시 파일 저장소로 지정된 <code class="highlighter-rouge">/data/cache/nginx/cache</code>를 아래 명령어로 검색해보면, <br /></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>grep -rnw '찾고자하는 디렉토리 위치' -e "찾는 텍스트명"
+</code></pre></div></div>
+<p><br />
+<img src="/images/portal/post/2016-11-08-NGINX-CACHE-PROBLEM/404캐시.png" alt="404캐시 파일" /></p>
+
+<p>(zum.png를 캐시한 내용을 확인)<br />
+보시는 것처럼 <strong>404 코드를 캐시</strong> 한 것을 확인할 수 있습니다. <br />
+(위 명령어로 zum.png를 캐시한 파일을 검색하여, vim으로 오픈한 것입니다.)  <br /></p>
+
+<p>즉, Tomcat에 신규 버전이 배포되기 전에 서버에서 이미지를 호출하게 될 경우 Nginx에서는 이미지가 없는 상태인 404를 캐시하게 되고, <strong>배포된 이후에도 캐시는 존재하기 때문에 Tomcat에 재요청 없이 곧바로 404를 전달</strong> 시켜준 것입니다. <br /></p>
+
+<p>문제를 찾았으니 해결은 아주 쉽게 됩니다! <br /></p>
+
+<h3 id="2-2-404-캐시-문제-해결">2-2. 404 캐시 문제 해결</h3>
+<p>잘못된 캐시를 수정하는 것은 아주 쉽습니다. <br />
+해당 캐시 내용을 지우기만 하면, 해당 요청에 대한 <strong>캐시 내용이 없기에 Tomcat에 요청하게 되고 정상적인 내용을 다시 캐시</strong> 하게 됩니다. <br />
+캐시 파일을 지워보겠습니다. <br /></p>
+
+<p><img src="/images/portal/post/2016-11-08-NGINX-CACHE-PROBLEM/캐시삭제.png" alt="캐시삭제" /></p>
+
+<p>(해당 캐시파일을 삭제!)<br /></p>
+
+<p><img src="/images/portal/post/2016-11-08-NGINX-CACHE-PROBLEM/캐시성공.png" alt="캐시성공" /></p>
+
+<p>(성공적으로 캐시되어 이미지가 호출)<br /><br /></p>
+
+<p>정상적인 내용을 캐시한 것을 확인후 배포를 마칠 수 있었습니다! <br /></p>
+
+<h3 id="마무리">마무리</h3>
+<p>최근에 제가 발생시키고 해결했던 Nginx에 관한 2가지 문제를 소개드렸습니다. <br />
+다른 분들이 보시기엔 어떻게 이런 일을 실수할 수 있느냐며 생각하실 것 같아 기록할까 말까 참 많은 고민을 했었습니다. <br />
+하지만 이런 이슈 내용들을 부끄럽더라도 계속 공유해야 저나, 신입사원 분들이 같은 실수를 안할 것이라는 생각에 작성할 수 있었습니다. <br />
+앞으로도 이런 실수들을 계속해서 기록해나가겠습니다.<br />
+긴글 끝까지 읽어주셔서 감사합니다.</p>
+
+<p><img src="/images/portal/post/2016-11-08-NGINX-CACHE-PROBLEM/타사의이모티콘.png" alt="타사의 이모티콘" /></p>
+
+<p>(타사의 이모티콘으로 마무리하는 더 넓은 마음, 더 넓은 검색 zum!)</p>
+
+            </article>
+
+            <div class="progress-bar" data-minutes="7">
+                <span class="time-completed"></span>
+                <span class="time-remaining"></span>
+                <div class="bar">
+                    <span class="completed" style="width:0%;"></span>
+                    <span class="remaining" style="width:100%;"></span>
+                </div>
+            </div>
+
+            <!--<section class="share">-->
+    <!--<h3>Share</h3>-->
+    <!--<a aria-label="Compartilhar no Twitter" href="https://twitter.com/intent/tweet?text=&quot;&quot;%20http://localhost:4000/NGINX-CACHE-PROBLEM/%20via%20&#64;@zum_com&hashtags=server,nginx,cache,"-->
+    <!--onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">-->
+        <!--<svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg>-->
+    <!--</a>-->
+    <!--<a aria-label="Compartilhar no Facebook"href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/NGINX-CACHE-PROBLEM/"-->
+    <!--onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook">-->
+        <!--<svg class="icon icon-facebook"><use xlink:href="#icon-facebook"></use></svg>-->
+    <!--</a>-->
+    <!--<a aria-label="Share on Google Plus" href="https://plus.google.com/share?url=http://localhost:4000/NGINX-CACHE-PROBLEM/"-->
+    <!--onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google+">-->
+        <!--<svg class="icon icon-google-plus"><use xlink:href="#icon-google-plus"></use></svg>-->
+    <!--</a>-->
+<!--</section>-->
+
+            <section class="author" itemprop="author">
+  <div class="details" itemscope itemtype="http://schema.org/Person">
+    <img itemprop="image" class="img-rounded" src="/images/portal/author/jojoldu.png" alt="">
+    <p class="def">포털개발팀 이동욱 담당</p>
+    <h3 class="name">
+      <a itemprop="name" href="https://github.com/zuminternet">ZUM tech</a>
+    </h3>
+    <p class="desc">Front-End & Back-End Developer.</p>
+    <p>
+      
+      <a itemprop="github" href="https://github.com/zuminternet" title="Github">
+        <svg><use xlink:href="#icon-github"></use></svg>
+      </a>
+      
+      
+      <a itemprop="facebook" href="https://www.facebook.com/zumcom" title="Facebook">
+        <svg><use xlink:href="#icon-facebook"></use></svg>
+      </a>
+      
+      
+      <a itemprop="twitter" href="https://twitter.com/@zum_com" title="Twitter">
+        <svg><use xlink:href="#icon-twitter"></use></svg>
+      </a>
+      
+      
+      
+      
+    </p>
+  </div>
+</section>
+
+            <!--<section class="comments">
+    <h3>Comments</h3>
+    <div id="disqus_thread"></div>
+</section>
+<script type="text/javascript">
+    var disqus_loaded = false;
+
+    function load_disqus()
+    {
+        disqus_loaded = true;
+        var disqus_shortname = 'disqus_username';
+        var disqus_title = '';
+        var disqus_url = '/NGINX-CACHE-PROBLEM/';
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        var ldr = document.getElementById('disqus_loader');
+    };
+    window.onscroll = function(e) {
+        if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 800)) {
+            //hit bottom of page
+            if (disqus_loaded==false)
+                load_disqus()
+        }
+    };
+</script>
+-->
+            <footer>
+    <p>
+      
+      <a itemprop="github" href="https://github.com/zuminternet" title="Github">
+        <svg><use xlink:href="#icon-github"></use></svg>
+      </a>
+      
+      
+      <a itemprop="facebook" href="https://www.facebook.com/zumcom" title="Facebook">
+        <svg><use xlink:href="#icon-facebook"></use></svg>
+      </a>
+      
+      
+      <a itemprop="twitter" href="https://twitter.com/@zum_com" title="Twitter">
+        <svg><use xlink:href="#icon-twitter"></use></svg>
+      </a>
+      
+      
+      
+      
+    </p>
+    <ul>
+
+        <!---->
+          <!--<li><a href="http://localhost:4000">Home</a></li>-->
+        <!---->
+          <!--<li><a href="http://localhost:4000">Contact</a></li>-->
+        <!---->
+
+        <li><a href="http://localhost:4000">Home</a></li>
+        <li><a href="http://zuminternet.com" target="_blank">Contact</a></li>
+        <li><a class="feed" href="http://localhost:4000/feed.xml" title="Atom/RSS feed">Feed</a></li>
+    </ul>
+</footer>
+<script src="/assets/js/main.js"></script>
+// <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-XXXXXXXX-X', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  
+
+
+        </section>
+    </body>
+</html>

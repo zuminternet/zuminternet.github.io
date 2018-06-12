@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/BlogPosting">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>ZUM 기술 블로그</title>
+    <meta name="title" content="ZUM 기술 블로그"/>
+    <meta name="description" content="웹 서비스(Spring Framework)의 세션을 Membase(현재의 Couchbase)로 관리하면서 발생한 이슈입니다. 이슈를 해결해 나가는 과정을 기록으로 남깁니다.">
+
+    <!-- Social: Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@zum_com">
+    <meta name="twitter:title" content="버그 트래킹 일지(2) - 로그를 보자! | ZUM tech">
+    <meta name="twitter:description" content="웹 서비스(Spring Framework)의 세션을 Membase(현재의 Couchbase)로 관리하면서 발생한 이슈입니다. 이슈를 해결해 나가는 과정을 기록으로 남깁니다.">
+    
+    <meta property="twitter:image:src" content="/images/portal/post/2017-02-22-BUG-TRACKING-2/couchbaseuseram.png">
+    
+
+
+
+    <!-- Social: Facebook / Open Graph -->
+    <meta property="og:url" content="http://localhost:4000/BUG-TRACKING-2/">
+    <meta property="og:title" content="버그 트래킹 일지(2) - 로그를 보자! | ZUM tech">
+    
+    <meta property="og:image" content="/images/portal/post/2017-02-22-BUG-TRACKING-2/couchbaseuseram.png">
+    
+    <meta property="og:description" content="웹 서비스(Spring Framework)의 세션을 Membase(현재의 Couchbase)로 관리하면서 발생한 이슈입니다. 이슈를 해결해 나가는 과정을 기록으로 남깁니다.">
+    <meta property="og:site_name" content="ZUM 기술 블로그">
+
+    <!-- Social: Google+ / Schema.org  -->
+    <meta itemprop="name" content="버그 트래킹 일지(2) - 로그를 보자! | ZUM tech"/>
+    <meta itemprop="description" content="웹 서비스(Spring Framework)의 세션을 Membase(현재의 Couchbase)로 관리하면서 발생한 이슈입니다. 이슈를 해결해 나가는 과정을 기록으로 남깁니다.">
+    <meta itemprop="image" content="http://localhost:4000/assets/img/blog-image.png"/>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" href="/assets/img/icons/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/assets/img/icons/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/img/icons/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/img/icons/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/img/icons/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/img/icons/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/img/icons/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/icons/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/img/icons/apple-touch-icon-152x152.png" />
+
+    <!-- Windows 8 Tile Icons -->
+    <meta name="application-name" content="ZUM tech Blog">
+    <meta name="msapplication-TileColor" content="#0562DC">
+    <meta name="msapplication-square70x70logo" content="smalltile.png" />
+    <meta name="msapplication-square150x150logo" content="mediumtile.png" />
+    <meta name="msapplication-wide310x150logo" content="widetile.png" />
+    <meta name="msapplication-square310x310logo" content="largetile.png" />
+    
+    <!-- Android Lolipop Theme Color -->
+    <meta name="theme-color" content="">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:300,400,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="canonical" href="http://localhost:4000/BUG-TRACKING-2/">
+    <link rel="alternate" type="application/rss+xml" title="ZUM 기술 블로그" href="http://localhost:4000/feed.xml" />
+</head>
+
+    <body class="has-push-menu">
+        
+
+
+
+
+
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" display="none" version="1.1"><defs><symbol id="icon-menu" viewBox="0 0 1024 1024"><path class="path1" d="M128 213.333h768q17.667 0 30.167 12.5t12.5 30.167-12.5 30.167-30.167 12.5h-768q-17.667 0-30.167-12.5t-12.5-30.167 12.5-30.167 30.167-12.5zM128 725.333h768q17.667 0 30.167 12.5t12.5 30.167-12.5 30.167-30.167 12.5h-768q-17.667 0-30.167-12.5t-12.5-30.167 12.5-30.167 30.167-12.5zM128 469.333h768q17.667 0 30.167 12.5t12.5 30.167-12.5 30.167-30.167 12.5h-768q-17.667 0-30.167-12.5t-12.5-30.167 12.5-30.167 30.167-12.5z"/></symbol><symbol id="icon-search" viewBox="0 0 951 1024"><path class="path1" d="M658.286 475.429q0-105.714-75.143-180.857t-180.857-75.143-180.857 75.143-75.143 180.857 75.143 180.857 180.857 75.143 180.857-75.143 75.143-180.857zM950.857 950.857q0 29.714-21.714 51.429t-51.429 21.714q-30.857 0-51.429-21.714l-196-195.429q-102.286 70.857-228 70.857-81.714 0-156.286-31.714t-128.571-85.714-85.714-128.571-31.714-156.286 31.714-156.286 85.714-128.571 128.571-85.714 156.286-31.714 156.286 31.714 128.571 85.714 85.714 128.571 31.714 156.286q0 125.714-70.857 228l196 196q21.143 21.143 21.143 51.429z"/></symbol><symbol id="icon-close" viewBox="0 0 1000 1000"><path d="M969.8,870.3c27,27.7,27,71.8,0,99.1C955.7,983,937.9,990,920,990c-17.9,0-35.7-7-49.7-20.7L500,599L129.6,969.4C115.6,983,97.8,990,79.9,990s-35.7-7-49.7-20.7c-27-27.3-27-71.4,0-99.1L400.9,500L30.3,129.3c-27-27.3-27-71.4,0-99.1c27.3-27,71.8-27,99.4,0L500,400.9L870.4,30.2c27.7-27,71.8-27,99.4,0c27,27.7,27,71.8,0,99.1L599.1,500L969.8,870.3z"/></symbol><symbol id="icon-twitter" viewBox="0 0 951 1024"><path class="path1" d="M925.714 233.143q-38.286 56-92.571 95.429 0.571 8 0.571 24 0 74.286-21.714 148.286t-66 142-105.429 120.286-147.429 83.429-184.571 31.143q-154.857 0-283.429-82.857 20 2.286 44.571 2.286 128.571 0 229.143-78.857-60-1.143-107.429-36.857t-65.143-91.143q18.857 2.857 34.857 2.857 24.571 0 48.571-6.286-64-13.143-106-63.714t-42-117.429v-2.286q38.857 21.714 83.429 23.429-37.714-25.143-60-65.714t-22.286-88q0-50.286 25.143-93.143 69.143 85.143 168.286 136.286t212.286 56.857q-4.571-21.714-4.571-42.286 0-76.571 54-130.571t130.571-54q80 0 134.857 58.286 62.286-12 117.143-44.571-21.143 65.714-81.143 101.714 53.143-5.714 106.286-28.571z"/></symbol><symbol id="icon-facebook" viewBox="0 0 585 1024"><path class="path1" d="M548 6.857v150.857h-89.714q-49.143 0-66.286 20.571t-17.143 61.714v108h167.429l-22.286 169.143h-145.143v433.714h-174.857v-433.714h-145.714v-169.143h145.714v-124.571q0-106.286 59.429-164.857t158.286-58.571q84 0 130.286 6.857z"/></symbol><symbol id="icon-google-plus" viewBox="0 0 951 1024"><path class="path1" d="M420 454.857q0 20.571 18.286 40.286t44.286 38.857 51.714 42 44 59.429 18.286 81.143q0 51.429-27.429 98.857-41.143 69.714-120.571 102.571t-170.286 32.857q-75.429 0-140.857-23.714t-98-78.571q-21.143-34.286-21.143-74.857 0-46.286 25.429-85.714t67.714-65.714q74.857-46.857 230.857-57.143-18.286-24-27.143-42.286t-8.857-41.714q0-20.571 12-48.571-26.286 2.286-38.857 2.286-84.571 0-142.571-55.143t-58-139.714q0-46.857 20.571-90.857t56.571-74.857q44-37.714 104.286-56t124.286-18.286h238.857l-78.857 50.286h-74.857q42.286 36 64 76t21.714 91.429q0 41.143-14 74t-33.714 53.143-39.714 37.143-34 35.143-14 37.714zM336.571 400q21.714 0 44.571-9.429t37.714-24.857q30.286-32.571 30.286-90.857 0-33.143-9.714-71.429t-27.714-74-48.286-59.143-66.857-23.429q-24 0-47.143 11.143t-37.429 30q-26.857 33.714-26.857 91.429 0 26.286 5.714 55.714t18 58.857 29.714 52.857 42.857 38.286 55.143 14.857zM337.714 898.857q33.143 0 63.714-7.429t56.571-22.286 41.714-41.714 15.714-62.286q0-14.286-4-28t-8.286-24-15.429-23.714-16.857-20-22-19.714-20.857-16.571-23.714-17.143-20.857-14.857q-9.143-1.143-27.429-1.143-30.286 0-60 4t-61.429 14.286-55.429 26.286-39.143 42.571-15.429 60.286q0 40 20 70.571t52.286 47.429 68 25.143 72.857 8.286zM800.571 398.286h121.714v61.714h-121.714v125.143h-60v-125.143h-121.143v-61.714h121.143v-124h60v124z"/></symbol><symbol id="icon-clock" viewBox="0 0 1000 1000"><path d="M500,10C229.8,10,10,229.8,10,500c0,270.2,219.8,490,490,490c270.2,0,490-219.8,490-490C990,229.8,770.2,10,500,10z M500,910.2c-226.2,0-410.2-184-410.2-410.2c0-226.2,184-410.2,410.2-410.2c226.2,0,410.2,184,410.2,410.2C910.2,726.1,726.2,910.2,500,910.2z M753.1,374c8.2,11.9,5.2,28.1-6.6,36.3L509.9,573.7c-4.4,3.1-9.6,4.6-14.8,4.6c-4.1,0-8.3-1-12.1-3c-8.6-4.5-14-13.4-14-23.1V202.5c0-14.4,11.7-26.1,26.1-26.1c14.4,0,26.1,11.7,26.1,26.1v300l195.6-135.1C728.7,359.2,744.9,362.1,753.1,374z"/></symbol><symbol id="icon-calendar" viewBox="0 0 1000 1000"><path d="M920,500v420H80V500H920 M990,430H10v490c0,38.7,31.3,70,70,70h840c38.7,0,70-31.3,70-70V430L990,430z"/><path d="M850,80v105c0,57.9-47.2,105-105,105c-58,0-105-47.1-105-105V80H360v105c0,57.9-47.2,105-105,105c-58,0-105-47.1-105-105V80C72.8,80,10,142.7,10,220v140h980V220C990,142.7,927.2,80,850,80z"/><path d="M255,10c-19.3,0-35,15.8-35,35v140c0,19.2,15.7,35,35,35c19.3,0,35-15.8,35-35V45C290,25.8,274.3,10,255,10z"/><path d="M745,10c-19.3,0-35,15.8-35,35v140c0,19.2,15.7,35,35,35c19.3,0,35-15.8,35-35V45C780,25.8,764.3,10,745,10z"/></symbol><symbol id="icon-github" viewBox="0 0 12 14"><path d="M6 1q1.633 0 3.012 0.805t2.184 2.184 0.805 3.012q0 1.961-1.145 3.527t-2.957 2.168q-0.211 0.039-0.312-0.055t-0.102-0.234q0-0.023 0.004-0.598t0.004-1.051q0-0.758-0.406-1.109 0.445-0.047 0.801-0.141t0.734-0.305 0.633-0.52 0.414-0.82 0.16-1.176q0-0.93-0.617-1.609 0.289-0.711-0.062-1.594-0.219-0.070-0.633 0.086t-0.719 0.344l-0.297 0.187q-0.727-0.203-1.5-0.203t-1.5 0.203q-0.125-0.086-0.332-0.211t-0.652-0.301-0.664-0.105q-0.352 0.883-0.062 1.594-0.617 0.68-0.617 1.609 0 0.664 0.16 1.172t0.41 0.82 0.629 0.523 0.734 0.305 0.801 0.141q-0.305 0.281-0.383 0.805-0.164 0.078-0.352 0.117t-0.445 0.039-0.512-0.168-0.434-0.488q-0.148-0.25-0.379-0.406t-0.387-0.187l-0.156-0.023q-0.164 0-0.227 0.035t-0.039 0.090 0.070 0.109 0.102 0.094l0.055 0.039q0.172 0.078 0.34 0.297t0.246 0.398l0.078 0.18q0.102 0.297 0.344 0.48t0.523 0.234 0.543 0.055 0.434-0.027l0.18-0.031q0 0.297 0.004 0.691t0.004 0.426q0 0.141-0.102 0.234t-0.312 0.055q-1.812-0.602-2.957-2.168t-1.145-3.527q0-1.633 0.805-3.012t2.184-2.184 3.012-0.805zM2.273 9.617q0.023-0.055-0.055-0.094-0.078-0.023-0.102 0.016-0.023 0.055 0.055 0.094 0.070 0.047 0.102-0.016zM2.516 9.883q0.055-0.039-0.016-0.125-0.078-0.070-0.125-0.023-0.055 0.039 0.016 0.125 0.078 0.078 0.125 0.023zM2.75 10.234q0.070-0.055 0-0.148-0.062-0.102-0.133-0.047-0.070 0.039 0 0.141t0.133 0.055zM3.078 10.562q0.062-0.062-0.031-0.148-0.094-0.094-0.156-0.023-0.070 0.062 0.031 0.148 0.094 0.094 0.156 0.023zM3.523 10.758q0.023-0.086-0.102-0.125-0.117-0.031-0.148 0.055t0.102 0.117q0.117 0.047 0.148-0.047zM4.016 10.797q0-0.102-0.133-0.086-0.125 0-0.125 0.086 0 0.102 0.133 0.086 0.125 0 0.125-0.086zM4.469 10.719q-0.016-0.086-0.141-0.070-0.125 0.023-0.109 0.117t0.141 0.062 0.109-0.109z"></path></symbol><symbol id="icon-medium" viewBox="0 0 1000 1000"><path d="M336.5,240.2v641.5c0,9.1-2.3,16.9-6.8,23.2s-11.2,9.6-20,9.6c-6.2,0-12.2-1.5-18-4.4L37.3,782.7c-7.7-3.6-14.1-9.8-19.4-18.3S10,747.4,10,739V115.5c0-7.3,1.8-13.5,5.5-18.6c3.6-5.1,8.9-7.7,15.9-7.7c5.1,0,13.1,2.7,24.1,8.2l279.5,140C335.9,238.6,336.5,239.5,336.5,240.2L336.5,240.2z M371.5,295.5l292,473.6l-292-145.5V295.5z M990,305.3v576.4c0,9.1-2.6,16.5-7.7,22.1c-5.1,5.7-12,8.5-20.8,8.5s-17.3-2.4-25.7-7.1L694.7,784.9L990,305.3z M988.4,239.7c0,1.1-46.8,77.6-140.3,229.4C754.6,621,699.8,709.8,683.8,735.7L470.5,389l177.2-288.2c6.2-10.2,15.7-15.3,28.4-15.3c5.1,0,9.8,1.1,14.2,3.3l295.9,147.7C987.6,237.1,988.4,238.2,988.4,239.7L988.4,239.7z"/></symbol><symbol id="icon-instagram" viewBox="0 0 489.84 489.84"><path d="M249.62,50.46c65.4,0,73.14.25,99,1.43C372.47,53,385.44,57,394.07,60.32a75.88,75.88,0,0,1,28.16,18.32,75.88,75.88,0,0,1,18.32,28.16c3.35,8.63,7.34,21.6,8.43,45.48,1.18,25.83,1.43,33.57,1.43,99s-0.25,73.14-1.43,99c-1.09,23.88-5.08,36.85-8.43,45.48a81.11,81.11,0,0,1-46.48,46.48c-8.63,3.35-21.6,7.34-45.48,8.43-25.82,1.18-33.57,1.43-99,1.43s-73.15-.25-99-1.43c-23.88-1.09-36.85-5.08-45.48-8.43A75.88,75.88,0,0,1,77,423.86,75.88,75.88,0,0,1,58.69,395.7c-3.35-8.63-7.34-21.6-8.43-45.48-1.18-25.83-1.43-33.57-1.43-99s0.25-73.14,1.43-99c1.09-23.88,5.08-36.85,8.43-45.48A75.88,75.88,0,0,1,77,78.64a75.88,75.88,0,0,1,28.16-18.32c8.63-3.35,21.6-7.34,45.48-8.43,25.83-1.18,33.57-1.43,99-1.43m0-44.13c-66.52,0-74.86.28-101,1.47s-43.87,5.33-59.45,11.38A120.06,120.06,0,0,0,45.81,47.44,120.06,120.06,0,0,0,17.56,90.82C11.5,106.4,7.36,124.2,6.17,150.27s-1.47,34.46-1.47,101,0.28,74.86,1.47,101,5.33,43.87,11.38,59.45a120.06,120.06,0,0,0,28.25,43.38,120.06,120.06,0,0,0,43.38,28.25c15.58,6.05,33.38,10.19,59.45,11.38s34.46,1.47,101,1.47,74.86-.28,101-1.47,43.87-5.33,59.45-11.38a125.24,125.24,0,0,0,71.63-71.63c6.05-15.58,10.19-33.38,11.38-59.45s1.47-34.46,1.47-101-0.28-74.86-1.47-101-5.33-43.87-11.38-59.45a120.06,120.06,0,0,0-28.25-43.38,120.06,120.06,0,0,0-43.38-28.25C394.47,13.13,376.67,9,350.6,7.8s-34.46-1.47-101-1.47h0Z" transform="translate(-4.7 -6.33)" /><path d="M249.62,125.48A125.77,125.77,0,1,0,375.39,251.25,125.77,125.77,0,0,0,249.62,125.48Zm0,207.41a81.64,81.64,0,1,1,81.64-81.64A81.64,81.64,0,0,1,249.62,332.89Z" transform="translate(-4.7 -6.33)"/><circle cx="375.66" cy="114.18" r="29.39" /></symbol><symbol id="icon-linkedin" viewBox="0 0 12 14"><path d="M2.727 4.883v7.742h-2.578v-7.742h2.578zM2.891 2.492q0.008 0.57-0.395 0.953t-1.059 0.383h-0.016q-0.641 0-1.031-0.383t-0.391-0.953q0-0.578 0.402-0.957t1.051-0.379 1.039 0.379 0.398 0.957zM12 8.187v4.437h-2.57v-4.141q0-0.82-0.316-1.285t-0.988-0.465q-0.492 0-0.824 0.27t-0.496 0.668q-0.086 0.234-0.086 0.633v4.32h-2.57q0.016-3.117 0.016-5.055t-0.008-2.313l-0.008-0.375h2.57v1.125h-0.016q0.156-0.25 0.32-0.438t0.441-0.406 0.68-0.34 0.895-0.121q1.336 0 2.148 0.887t0.813 2.598z"></path></symbol><symbol id="icon-heart" viewBox="0 0 34 30"><path d="M17,29.7 L16.4,29.2 C3.5,18.7 0,15 0,9 C0,4 4,0 9,0 C13.1,0 15.4,2.3 17,4.1 C18.6,2.3 20.9,0 25,0 C30,0 34,4 34,9 C34,15 30.5,18.7 17.6,29.2 L17,29.7 Z M9,2 C5.1,2 2,5.1 2,9 C2,14.1 5.2,17.5 17,27.1 C28.8,17.5 32,14.1 32,9 C32,5.1 28.9,2 25,2 C21.5,2 19.6,4.1 18.1,5.8 L17,7.1 L15.9,5.8 C14.4,4.1 12.5,2 9,2 Z" id="Shape"></path></symbol></defs></svg>
+
+        <header class="bar-header">
+    <a id="menu">
+        <svg id="open" class="icon-menu"><use xlink:href="#icon-menu"></use></svg>
+    </a>
+    <a id="search" class="dosearch">
+        <svg class="icon-search"><use xlink:href="#icon-search"></use></svg>
+    </a>
+    <h1 class="logo">
+        <a href="/">
+            ZUM tech
+        </a>
+    </h1>
+</header>
+
+<div id="mask" class="overlay"></div>
+
+<aside id="sidebar">
+    <nav id="navigation">
+      <h2>Menu</h2>
+      <ul>
+          <li><a href="http://localhost:4000">Home</a></li>
+          <li><a href="http://zuminternet.com" target="_blank">Contact</a></li>
+        <li><a class="feed" href="http://localhost:4000/feed.xml" title="Atom/RSS feed">Feed</a></li>
+      </ul>
+    </nav>
+</aside>
+<div class="search-wrapper">
+    <div class="search-form">
+        <input type="text" class="search-field" placeholder="Search">
+        <svg class="icon-remove-sign"><use xlink:href="#icon-close"></use></svg>
+        <ul class="search-results search-list"></ul>
+    </div>
+</div>
+
+
+        <section class="post">
+
+            <article role="article" id="post" class="post-content" itemprop="articleBody">
+                <p itemprop="post-info" class="post-info">
+                    
+                        <svg id="date" class="icon-calendar"><use xlink:href="#icon-calendar"></use></svg>
+                        <time itemprop="datePublished" datetime="2017-02-22T00:00:00+09:00" class="date">
+                            
+
+
+February 22, 2017
+
+                        </time>
+                    
+                    <svg id="clock" class="icon-clock"><use xlink:href="#icon-clock"></use></svg>
+                    <span>9 min to read</span>
+                </p>
+                <h1 class="post-title" itemprop="name">버그 트래킹 일지(2) - 로그를 보자!</h1>
+            <p/>
+                <p>주니어개발자의 버그 트래킹 일지입니다!</p>
+
+<p>주 내용은 웹 서비스의 세션을 Membase(현재의 Couchbase)로 관리하면서 발생한 이슈입니다. 이슈를 해결해 나가는 과정을 기록으로 남깁니다.</p>
+
+<p><a href="http://localhost:4000/BUG-TRACKING-1">버그 트래킹 일지(1) - 시작은 사전지식 확보부터</a><br />
+<strong>버그 트래킹 일지(2) - 로그를 보자!</strong> <br />
+<a href="http://localhost:4000/BUG-TRACKING-3">버그 트래킹 일지(3) - 임시방편보단 장기적으로</a><br />
+<a href="http://localhost:4000/BUG-TRACKING-4">버그 트래킹 일지(4) - 의심하고 또 의심하자</a><br />
+<a href="http://localhost:4000/BUG-TRACKING-5">버그 트래킹 일지(5) - 대망의 적용 배포 그리고 결론</a></p>
+
+<h3 id="버그트래킹-환경">버그트래킹 환경</h3>
+
+<ul>
+  <li>
+    <p>Membase Server</p>
+
+    <ul>
+      <li>Version : 1.7.2</li>
+      <li>
+        <p>Node</p>
+
+        <ul>
+          <li>4개</li>
+          <li>노드당 Replica 2개</li>
+          <li>노드당 할당 메모리 2GB</li>
+        </ul>
+      </li>
+      <li>
+        <p>Bucket</p>
+
+        <ul>
+          <li>1개</li>
+          <li>메모리 8GB(노드당 메모리 * 노드 수)</li>
+        </ul>
+      </li>
+      <li>
+        <p>각 서버 스팩</p>
+
+        <ul>
+          <li>RAM 8GB</li>
+          <li>HDD 30GB</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>WEB Server</p>
+
+    <ul>
+      <li>Spring Boot Web Application(version 1.2)
+        <ul>
+          <li>SpyMemCached(version 2.7.3)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="로그를-보자">로그를 보자</h2>
+
+<p>장애 발생 상황 이후 유일한 단서는 로그! 평소에 이슈를 처리하기 위한 로그를 잘 작성해놓았다면 조금 더 수월하게 이슈를 해결해 나갈 수 있을 것 입니다.</p>
+
+<p>대부분의 이슈는 로그에 답이 있을 것이라고 생각합니다. 그 로그가 무엇을 의미하는 것인지 모를 뿐..</p>
+
+<hr />
+
+<h2 id="장애-원인-분석---어플리케이션-out-of-memory">장애 원인 분석 - 어플리케이션 Out Of Memory</h2>
+
+<p><strong>특정 서버가 <code class="highlighter-rouge">Out Of Memory</code> 문제를 일으키며, 최초 로그인 문제 발생</strong></p>
+
+<ul>
+  <li>어플리케이션 상 로그</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java">	<span class="n">net</span><span class="o">.</span><span class="na">spy</span><span class="o">.</span><span class="na">memcached</span><span class="o">.</span><span class="na">OperationTimeoutException</span><span class="o">:</span> <span class="n">Timeout</span> <span class="n">waiting</span> <span class="k">for</span> <span class="n">value</span>
+	</code></pre></figure>
+
+<ul>
+  <li>Membase 로그</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java">	<span class="n">Hard</span> <span class="n">Out</span> <span class="n">Of</span> <span class="n">Memory</span><span class="o">.</span> <span class="n">Bucket</span> <span class="s">"***"</span> <span class="n">on</span> <span class="n">node</span> <span class="o">***.***.***.***</span> <span class="n">is</span> <span class="n">full</span><span class="o">.</span> <span class="n">All</span> <span class="n">memory</span> <span class="n">allocated</span> <span class="n">to</span> <span class="k">this</span> <span class="n">bucket</span> <span class="n">is</span> <span class="n">used</span> <span class="k">for</span> <span class="n">metadata</span><span class="o">.</span>
+	</code></pre></figure>
+
+<p>서버 로그를 확인해보니 발생한 특정 서버의 문제는 <code class="highlighter-rouge">Out Of Memory</code>였습니다.</p>
+
+<p>‘그동안 문제가 없었고, 큰 트래픽의 변화도 없었는데 어째서?’라고 생각하고 Membase의 처음부터 다시 생각을 해보았습니다.</p>
+
+<p>일단 하루 데이터 수치를 기준으로 최소 필요 메모리양을 계산해보았습니다.</p>
+
+<p><code class="highlighter-rouge">(키크기(60바이트) + 메타 데이터(60바이트))*(332K)/ 4(노드수) * 3 (복제본수)</code> = <code class="highlighter-rouge">약 30MB</code></p>
+
+<p>Membase가 가지고 있어야 하는 데이터는 많이 여유롭습니다. 계산 필요없이 Membase Console로만 보아도 Membase가 가지고 있는 메모리는 적다는 것을 쉽게 알 수 있습니다.</p>
+
+<p><img src="/images/portal/post/2017-02-22-BUG-TRACKING-2/couchbaseuseram.png" alt="램 사용량" /></p>
+
+<p>그렇다면 저장되는 value 데이터로 인한 <code class="highlighter-rouge">Out Of Memory</code>일 가능성이 매우 크다고 생각됩니다. 저장되는 데이터는 메모리 캐쉬 솔루션인 <code class="highlighter-rouge">memcached</code>에 의해 메모리에 저장되고 있습니다. 그러나 사용하는 버전에서는 Memcached의 실시간 모니터링이 불가능했기 때문에 통계 로그를 통해 메모리를 확인해야 했습니다.</p>
+
+<p>Membase에서 제공하는 통계로는 일주일 단위로 제공되었고, 다행히 장애 당시 로그를 백업해두었습니다. <br />로그의 용량은 무려 300MB!.. 사람이 보긴 힘들겠다고 생각하여 파싱하여 CSV로 정리하는 간단한 콘솔 프로그램을 만들었씁니다.(필요하면 귀찮아하지말고 만드는 개발자!!)</p>
+
+<p><img src="/images/portal/post/2017-02-22-BUG-TRACKING-2/console.png" alt="콘솔" /></p>
+
+<p>2016년 10월 28일(장애 발생 당일)과 2017년 01월 04일(안정화)의 Membase 로그를 추출하였고, 다수의 이상 항목이 발견되어 뽑아보았습니다.</p>
+
+<h3 id="로그-분석">로그 분석</h3>
+
+<h4 id="이상-로그">이상 로그</h4>
+
+<p><strong>1. 계속 줄어드는 free memory</strong></p>
+
+<p><img src="/images/portal/post/2017-02-22-BUG-TRACKING-2/memorystatus.png" alt="현상" /></p>
+
+<figure class="highlight"><pre><code class="language-text" data-lang="text">&lt;Node - 1&gt;
+free_memory -&gt;
+    장애 직전 : 71368704
+    안정화 후 : 2002853888
+&lt;Node - 2&gt;
+free_memory -&gt;
+    장애 직전 : 110706688
+    안정화 후 : 3659141120
+&lt;Node - 3&gt;
+free_memory -&gt;
+    장애 직전 : 67575808
+    안정화 후 : 3229872128
+&lt;Node - 4&gt;
+free_memory -&gt;
+    장애 직전 : 95576064
+    안정화 후 : 3940560896</code></pre></figure>
+
+<p>장애 직전을 보았을 때 1번 서버뿐 아니라 모든 서버에서 free memory가 부족한 상태였습니다. (장애 상황에서는 1번 서버의 free memory가 64MB 밑으로 떨어졌습니다.)</p>
+
+<p><strong>2. 장애 직전 / 안정화 후 100배 이상 차이가 나는 diskqueue memory</strong></p>
+
+<figure class="highlight"><pre><code class="language-text" data-lang="text">ep_diskqueue_items -&gt; 641450407/633768
+ep_diskqueue_memory -&gt; 56447635816/55771584
+ep_diskqueue_pending -&gt; 201470649572/128580374</code></pre></figure>
+
+<p>각 항목에 대한 설명은 <a href="https://developer.couchbase.com/documentation/server/current/cli/cbstats/cbstats-memory.html">[memory : couchbase doc]</a>와 <a href="https://developer.couchbase.com/documentation/server/current/cli/cbstats-intro.html">[cbstats : couchbase doc]</a>에서 확인 가능하지만, Membase Server 1.7.2 이후로 굉장히 많은 수정사항이 업데이트되며 사라지거나 새로 생긴 통계 항목들이 많기 때문에 정확한 확인이 어려웠습니다.</p>
+
+<h4 id="로그-수치-분석">로그 수치 분석</h4>
+
+<p>지속적인 <code class="highlighter-rouge">Free Memory</code> 하강을 처음에는 메모리 반환 작업이 정상적으로 수행되지 못하는 것을 의심하였으나 ep engine은 정상적인 주기로 동작하고 있는 것을 확인했습니다.</p>
+
+<figure class="highlight"><pre><code class="language-text" data-lang="text">ep_exp_pager_stime            3600
+ep_item_flush_expired         1240193940</code></pre></figure>
+
+<p>이 현상은 Membase의 <code class="highlighter-rouge">expire</code> 데이터 처리 방식으로 어느 정도 설명이 가능합니다.</p>
+
+<p><a href="https://developer.couchbase.com/documentation/server/4.0/developer-guide/expiry.html">카우치베이스 공식 문서</a>에 의하면, expire된 데이터는 즉시 삭제되는 것이 아니고 메타 데이터에 저장된 expire 정보를 토대로 API로 요청이 있을 때 <code class="highlighter-rouge">expiry pager</code>에 의해 메모리에서 해제된다는 것 입니다.</p>
+
+<p>그렇지만, 일정 시간이 지났을 경우 안정화되야하는 메모리가 지속적으로 떨어졌다는 문제는 여전합니다. 이 문제는 <code class="highlighter-rouge">diskqueue memory</code> 로그 수치를 보았을 때 예상이 가능했습니다. 로그를 더 자세히 확인한 결과 wirte diskqueue가 지속적으로 쌓이고 있다는 것을 확인했고, 그래서 데이터를 쓰는 속도보다 조금 더 빠르게, 쓰기 요청이 쌓이고 있다는 예상을 할 수 있었습니다.</p>
+
+<p>그래서 데이터 쓰기 요청을 쌓는 API 요청 수치를 Membase Console을 통해 확인해보았습니다.</p>
+
+<p><strong>신규 Key 값에 대한 통계 수치</strong></p>
+
+<p><img src="/images/portal/post/2017-02-22-BUG-TRACKING-2/new_item.png" alt="램 사용량" /></p>
+
+<p>트래픽 대비 일반적인 신규 Key 값을 갖습니다.(약간 높다고는 생각)</p>
+
+<p><strong>Update Operation 통계 수치</strong></p>
+
+<p><img src="/images/portal/post/2017-02-22-BUG-TRACKING-2/update_item.png" alt="램 사용량" /></p>
+
+<p>membase에서 관리되는 Value가 사용자의 세션이기 때문에 사용자가 새로고침을 했을 경우에 expire를 갱신하는 update 쿼리가 발생했을 것으로 생각됩니다.</p>
+
+<p><strong>Set Operation 통계 수치</strong></p>
+
+<p><img src="/images/portal/post/2017-02-22-BUG-TRACKING-2/set_item.png" alt="램 사용량" /></p>
+
+<p>신규 Key 값에 대한 수치보다 몇 배가 되는 Set Operation이 발생하는 이상 현상을 발견했습니다! 다시 보니 Update Operation도 많다고 생각되어 집니다.</p>
+
+<p><strong>아무리보아도 어플리케이션의 동작 로직에 문제가 있다는 의심이 되었습니다.</strong></p>
+
+<h3 id="어플리케이션-membase-간-요청-개선을-개선해보자">어플리케이션-Membase 간 요청 개선을 개선해보자!</h3>
+
+<h4 id="1-불필요한-요청-제거">1. 불필요한 요청 제거</h4>
+
+<p>첫번째로 테스트 환경을 구성하여 단일 사용자 접속시 그래프가 어떻게 그려지는지 확인을 해보았습니다.</p>
+
+<p><strong>New User</strong></p>
+
+<p><img src="/images/portal/post/2017-02-22-BUG-TRACKING-2/newuser.png" alt="단일 사용자 테스트1" /></p>
+
+<p><strong>Set</strong></p>
+
+<p><img src="/images/portal/post/2017-02-22-BUG-TRACKING-2/set.png" alt="단일 사용자 테스트1" /></p>
+
+<p><strong>Update</strong></p>
+
+<p><img src="/images/portal/post/2017-02-22-BUG-TRACKING-2/update.png" alt="단일 사용자 테스트1" /></p>
+
+<p><strong>Get</strong></p>
+
+<p><img src="/images/portal/post/2017-02-22-BUG-TRACKING-2/get.png" alt="단일 사용자 테스트1" /></p>
+
+<p>단일 첫 접속 대비 너무 많은 요청이 가고 있다는 것을 확인하여 <code class="highlighter-rouge">Debuger</code>를 통해 요청 트래픽을 알보았습니다.</p>
+
+<p>문제는 Spring Security의 <code class="highlighter-rouge">fillterChaninMap</code> 이였습니다. 과거 동적 요청이 거의 없었던 시절 개발되었던 프로젝트에서 동적 요청이 다수 추가되었지만, 필터는 업데이트되지 않았기 때문입니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">filterChainMap</span><span class="o">.</span><span class="na">put</span><span class="o">((</span><span class="n">String</span><span class="o">)</span> <span class="n">urlMatcher</span><span class="o">.</span><span class="na">compile</span><span class="o">(</span><span class="s">"/**"</span><span class="o">),</span> <span class="n">filters</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p><em>(resource 요청을 제외한 모든 트래픽이 Security fillter를 거침)</em></p>
+
+<p>수정 후</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">filterChainMap</span><span class="o">.</span><span class="na">put</span><span class="o">((</span><span class="n">String</span><span class="o">)</span> <span class="n">urlMatcher</span><span class="o">.</span><span class="na">compile</span><span class="o">(</span><span class="s">"/~~~/**"</span><span class="o">),</span> <span class="n">Lists</span><span class="o">.&lt;</span><span class="n">Filter</span><span class="o">&gt;</span><span class="n">newArrayList</span><span class="o">());</span>
+<span class="n">filterChainMap</span><span class="o">.</span><span class="na">put</span><span class="o">((</span><span class="n">String</span><span class="o">)</span> <span class="n">urlMatcher</span><span class="o">.</span><span class="na">compile</span><span class="o">(</span><span class="s">"/**"</span><span class="o">),</span> <span class="n">filters</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">동적 요청</code> 처리하지 않도록 빈 필터를 적용해봅니다.</p>
+
+<p>다시 테스트!</p>
+
+<p><strong>New User</strong></p>
+
+<p><img src="/images/portal/post/2017-02-22-BUG-TRACKING-2/newuser2.png" alt="단일 사용자 테스트2" /></p>
+
+<p><strong>Set</strong></p>
+
+<p><img src="/images/portal/post/2017-02-22-BUG-TRACKING-2/set2.png" alt="단일 사용자 테스트2" /></p>
+
+<p><strong>Update</strong></p>
+
+<p><img src="/images/portal/post/2017-02-22-BUG-TRACKING-2/update2.png" alt="단일 사용자 테스트2" /></p>
+
+<p><strong>Get</strong></p>
+
+<p><img src="/images/portal/post/2017-02-22-BUG-TRACKING-2/get2.png" alt="단일 사용자 테스트2" /></p>
+
+<p>눈에 띄게 요청 빈도가 떨어졌습니다. 사용자 체류시간과 활동을 알아야 정확히 통계를 낼 수 있기 때문에, 정확한 수치를 낼 수는 없지만 많은 트래픽이 이 부분에서 감소할 수 있을 거라고 생각합니다.</p>
+
+<p>회의를 거친 끝에 가장 많이 사용되는 사용자 세션과 전혀 연관 없는 것으로 확인된 일부 <code class="highlighter-rouge">동적 요청</code>을 처리하지 않도록 빈 필터를 적용하기로 했습니다.</p>
+
+<h4 id="2-touch-command를-활용">2. Touch Command를 활용</h4>
+
+<p>위에서 설명했 듯 <code class="highlighter-rouge">Membase</code>를 어플리케이션은 <code class="highlighter-rouge">SpringSecurity</code>의 <code class="highlighter-rouge">SecurityContextPersistenceFilter</code>에서 사용하는 <code class="highlighter-rouge">SecurityContextRepository</code>를 통해 <code class="highlighter-rouge">Membase</code>와 교류를 하고 있고 우리는 <code class="highlighter-rouge">SecurityContextRepository</code>를 상속한 <code class="highlighter-rouge">MemcachedSecurityContextRepository</code>를 구현해서 사용하고 있습니다.</p>
+
+<p><code class="highlighter-rouge">SecurityContextRepository</code>의 핵심 로직은 <code class="highlighter-rouge">loadContext</code>와 <code class="highlighter-rouge">saveContext</code>입니다.</p>
+
+<p>Spring Docs에서는 <code class="highlighter-rouge">loadContext</code>는 보안 콘텍스트를 로드하는 역할을 하도록 명시되어 있고, <code class="highlighter-rouge">saveContext</code>는 보안 콘텍스트를 저장하는 역할을 하도록 명시되어 있습니다.</p>
+
+<p>눈 여겨 볼 부분은 <code class="highlighter-rouge">saveContext</code> 입니다.</p>
+
+<p><code class="highlighter-rouge">saveContext</code>은 보안 콘텍스트를 저장하는 역할을 하지만, 이미 데이터가 있을 경우 expire를 갱신하는 역할을 수행할 수도 있습니다. 그리고 expire를 갱신할 때 사용할 수 있는 mamcached의 유용한 기능이 바로 <code class="highlighter-rouge">touch</code> 입니다.</p>
+
+<p><code class="highlighter-rouge">touch</code> 기능은 <code class="highlighter-rouge">Membase 1.7</code>에서부터 적용이 되었으며, <code class="highlighter-rouge">spymemcached 2.7</code>로 자바로 공식 지원을 하고 있습니다.</p>
+
+<p>Couchbase 공식 홈페이지에서 <code class="highlighter-rouge">touch</code> 기능을 아래와 같이 설명하고 있습니다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Touch
+
+
+We have heard from quite a few projects owners that they’d like the ability to have items with a sliding window of expiration. For example, instead of having an item expire after five minutes of mutating (which is how you specify an object’s time-to-live today), we’d like it to expire after five minutes of inactivity.
+
+
+If you’re familiar with LRU caches (such as memcached), you should note that this is semantically quite different from LRU. With an LRU, we effectively don’t care about old data. The use cases for touch require us to actively disable access to inactive data on a user-defined schedule.
+
+
+The touch command can be used to adjust expiration on an existing key without touching the value. It uses the same type of expiration definition all mutation commands use, but doesn’t actually touch the data.
+
+
+Similar to touch we added a gat (get-and-touch) command that returns the data and adjusts the expiration at the same time. For most use cases, gat is probably more appropriate than touch, but it really depends on how you build your application.
+</code></pre></div></div>
+
+<p>이 내용의 핵심은</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The touch command can be used to adjust expiration on an existing key without touching the value. It uses the same type of expiration definition all mutation commands use, but doesn’t actually touch the data.
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">touch</code> 명령을 사용한다면, 실제로 데이터를 건드리지않고, 키 값의 만기를 저장할 수 있다는 내용입니다. 또한 <code class="highlighter-rouge">get-and-touch</code> 기능으로 조회와 만기 수정을 한번에 할 수 있는 기능도 제공합니다.</p>
+
+<p>이 기능을 보았을 때 의아한 점이 생기게 되었습니다.</p>
+
+<p><em>TEST CODE<br />(Disk Queue를 보기 위하여 일시적으로 많은 데이터 전송)</em></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">memcachedClient</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="s">"TEST1"</span><span class="o">,</span> <span class="mi">10000</span><span class="o">,</span> <span class="s">"TEST DATA"</span><span class="o">);</span>
+<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">10</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+    <span class="n">memcachedClient</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="s">"TEST1"</span><span class="o">,</span><span class="mi">10000</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><strong>Update</strong></p>
+
+<p><img src="/images/portal/post/2017-02-22-BUG-TRACKING-2/update3.png" alt="단일 사용자 테스트3" /></p>
+
+<p><strong>Disk Wirte Queue</strong></p>
+
+<p><img src="/images/portal/post/2017-02-22-BUG-TRACKING-2/diskqueue3.png" alt="단일 사용자 테스트3" /></p>
+
+<p>현재의 expire를 갱신하는데에는 disk queue를 사용하고 있고, 이 말은 expire를 갱신하는데에 set operation을 사용하고 있다는 점 입니다. 이 부분에 touch 기능을 사용한다면 조금 더 서버 성능에 개선이 가능해보였습니다.</p>
+
+<p>다시 테스트!</p>
+
+<p><em>TEST CODE<br />(Disk Queue를 보기 위하여 일시적으로 많은 데이터 전송)</em></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">memcachedClient</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="s">"TEST2"</span><span class="o">,</span> <span class="mi">10000</span><span class="o">,</span> <span class="s">"TEST DATA"</span><span class="o">);</span>
+<span class="k">for</span><span class="o">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">10</span><span class="o">;</span><span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+    <span class="n">memcachedClient</span><span class="o">.</span><span class="na">getAndTouch</span><span class="o">(</span><span class="s">"TEST2"</span><span class="o">,</span><span class="mi">10000</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><strong>Update</strong></p>
+
+<p><img src="/images/portal/post/2017-02-22-BUG-TRACKING-2/update4.png" alt="단일 사용자 테스트4" /></p>
+
+<p><strong>Disk Wirte Queue</strong></p>
+
+<p><img src="/images/portal/post/2017-02-22-BUG-TRACKING-2/diskqueue4.png" alt="단일 사용자 테스트4" /></p>
+
+<p>즉 서버의 Disk Write Queue를 사용하지 않을 수 있으며, 서버의 부담을 덜어줄 수 있습니다. 확인해볼 결과 현재도 <code class="highlighter-rouge">touch</code> 기능을 일부 사용하고 있으나, 해당 어플리케이션의 주요 로직에서는 적용되어 있지 않았습니다.</p>
+
+<p>개선할 현재의 로직 입니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">...</span>
+<span class="k">if</span><span class="o">(!</span><span class="n">trustResolver</span><span class="o">.</span><span class="na">isAnonymous</span><span class="o">(</span><span class="n">context</span><span class="o">.</span><span class="na">getAuthentication</span><span class="o">()))</span> <span class="o">{</span>
+    <span class="n">memcachedSession</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">MEMCACHE_SECURITY_CONTEXT_KEY</span><span class="o">,</span> <span class="n">context</span><span class="o">);</span>
+    <span class="o">...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>수정 후</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">...</span>
+<span class="k">if</span><span class="o">(!</span><span class="n">trustResolver</span><span class="o">.</span><span class="na">isAnonymous</span><span class="o">(</span><span class="n">context</span><span class="o">.</span><span class="na">getAuthentication</span><span class="o">()))</span> <span class="o">{</span>
+    <span class="k">if</span><span class="o">(</span><span class="n">memcachedSession</span><span class="o">.</span><span class="na">getAndTouch</span><span class="o">(</span><span class="n">MEMCACHE_SECURITY_CONTEXT_KEY</span><span class="o">)</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">memcachedSession</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="n">MEMCACHE_SECURITY_CONTEXT_KEY</span><span class="o">,</span> <span class="n">context</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="o">...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<hr />
+
+<p>로그를 분석하여 첫번째 문제점인 불필요한 요청이 많다는 것을 알 수 있었고, 그것을 개선해나가는 과정을 작성했습니다. 아마 로그가 없었다면, 훨씬 더 오랜기간이 걸렸을 것 입니다. 로그는 정말 중요한 것 같습니다! (APM 도입이 시급한데 ㅜㅜ)</p>
+
+<p>다음에 계속..<a href="http://localhost:4000/BUG-TRACKING-3">버그 트래킹 일지(3) - 임시방편보단 장기적으로</a><br /></p>
+
+            </article>
+
+            <div class="progress-bar" data-minutes="9">
+                <span class="time-completed"></span>
+                <span class="time-remaining"></span>
+                <div class="bar">
+                    <span class="completed" style="width:0%;"></span>
+                    <span class="remaining" style="width:100%;"></span>
+                </div>
+            </div>
+
+            <!--<section class="share">-->
+    <!--<h3>Share</h3>-->
+    <!--<a aria-label="Compartilhar no Twitter" href="https://twitter.com/intent/tweet?text=&quot;&quot;%20http://localhost:4000/BUG-TRACKING-2/%20via%20&#64;@zum_com&hashtags=membase,bugtracking,resource,io,nosql,"-->
+    <!--onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">-->
+        <!--<svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg>-->
+    <!--</a>-->
+    <!--<a aria-label="Compartilhar no Facebook"href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/BUG-TRACKING-2/"-->
+    <!--onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook">-->
+        <!--<svg class="icon icon-facebook"><use xlink:href="#icon-facebook"></use></svg>-->
+    <!--</a>-->
+    <!--<a aria-label="Share on Google Plus" href="https://plus.google.com/share?url=http://localhost:4000/BUG-TRACKING-2/"-->
+    <!--onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google+">-->
+        <!--<svg class="icon icon-google-plus"><use xlink:href="#icon-google-plus"></use></svg>-->
+    <!--</a>-->
+<!--</section>-->
+
+            <section class="author" itemprop="author">
+  <div class="details" itemscope itemtype="http://schema.org/Person">
+    <img itemprop="image" class="img-rounded" src="/images/portal/author/kingbbode.png" alt="">
+    <p class="def">포털개발팀 권용근 담당</p>
+    <h3 class="name">
+      <a itemprop="name" href="https://github.com/zuminternet">ZUM tech</a>
+    </h3>
+    <p class="desc">zum.com service <br/> Front-End & Back-End Developer.</p>
+    <p>
+      
+      <a itemprop="github" href="https://github.com/zuminternet" title="Github">
+        <svg><use xlink:href="#icon-github"></use></svg>
+      </a>
+      
+      
+      <a itemprop="facebook" href="https://www.facebook.com/zumcom" title="Facebook">
+        <svg><use xlink:href="#icon-facebook"></use></svg>
+      </a>
+      
+      
+      <a itemprop="twitter" href="https://twitter.com/@zum_com" title="Twitter">
+        <svg><use xlink:href="#icon-twitter"></use></svg>
+      </a>
+      
+      
+      
+      
+    </p>
+  </div>
+</section>
+
+            <!--<section class="comments">
+    <h3>Comments</h3>
+    <div id="disqus_thread"></div>
+</section>
+<script type="text/javascript">
+    var disqus_loaded = false;
+
+    function load_disqus()
+    {
+        disqus_loaded = true;
+        var disqus_shortname = 'disqus_username';
+        var disqus_title = '';
+        var disqus_url = '/BUG-TRACKING-2/';
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        var ldr = document.getElementById('disqus_loader');
+    };
+    window.onscroll = function(e) {
+        if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 800)) {
+            //hit bottom of page
+            if (disqus_loaded==false)
+                load_disqus()
+        }
+    };
+</script>
+-->
+            <footer>
+    <p>
+      
+      <a itemprop="github" href="https://github.com/zuminternet" title="Github">
+        <svg><use xlink:href="#icon-github"></use></svg>
+      </a>
+      
+      
+      <a itemprop="facebook" href="https://www.facebook.com/zumcom" title="Facebook">
+        <svg><use xlink:href="#icon-facebook"></use></svg>
+      </a>
+      
+      
+      <a itemprop="twitter" href="https://twitter.com/@zum_com" title="Twitter">
+        <svg><use xlink:href="#icon-twitter"></use></svg>
+      </a>
+      
+      
+      
+      
+    </p>
+    <ul>
+
+        <!---->
+          <!--<li><a href="http://localhost:4000">Home</a></li>-->
+        <!---->
+          <!--<li><a href="http://localhost:4000">Contact</a></li>-->
+        <!---->
+
+        <li><a href="http://localhost:4000">Home</a></li>
+        <li><a href="http://zuminternet.com" target="_blank">Contact</a></li>
+        <li><a class="feed" href="http://localhost:4000/feed.xml" title="Atom/RSS feed">Feed</a></li>
+    </ul>
+</footer>
+<script src="/assets/js/main.js"></script>
+// <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-XXXXXXXX-X', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  
+
+
+        </section>
+    </body>
+</html>

@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/BlogPosting">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>ZUM 기술 블로그</title>
+    <meta name="title" content="ZUM 기술 블로그"/>
+    <meta name="description" content="포털개발팀 1년 회고 및 팀문화에 대해서">
+
+    <!-- Social: Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@zum_com">
+    <meta name="twitter:title" content="포털개발팀 1년 회고 및 팀문화에 대해서 | ZUM tech">
+    <meta name="twitter:description" content="포털개발팀 1년 회고 및 팀문화에 대해서">
+    
+    <meta property="twitter:image:src" content="/images/portal/post/2017-7-2-portaldevteam2017/20170520_board.JPG">
+    
+
+
+
+    <!-- Social: Facebook / Open Graph -->
+    <meta property="og:url" content="http://localhost:4000/portaldevteam2017/">
+    <meta property="og:title" content="포털개발팀 1년 회고 및 팀문화에 대해서 | ZUM tech">
+    
+    <meta property="og:image" content="/images/portal/post/2017-7-2-portaldevteam2017/20170520_board.JPG">
+    
+    <meta property="og:description" content="포털개발팀 1년 회고 및 팀문화에 대해서">
+    <meta property="og:site_name" content="ZUM 기술 블로그">
+
+    <!-- Social: Google+ / Schema.org  -->
+    <meta itemprop="name" content="포털개발팀 1년 회고 및 팀문화에 대해서 | ZUM tech"/>
+    <meta itemprop="description" content="포털개발팀 1년 회고 및 팀문화에 대해서">
+    <meta itemprop="image" content="http://localhost:4000/assets/img/blog-image.png"/>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" href="/assets/img/icons/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/assets/img/icons/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/img/icons/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/img/icons/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/img/icons/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/img/icons/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/img/icons/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/icons/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/img/icons/apple-touch-icon-152x152.png" />
+
+    <!-- Windows 8 Tile Icons -->
+    <meta name="application-name" content="ZUM tech Blog">
+    <meta name="msapplication-TileColor" content="#0562DC">
+    <meta name="msapplication-square70x70logo" content="smalltile.png" />
+    <meta name="msapplication-square150x150logo" content="mediumtile.png" />
+    <meta name="msapplication-wide310x150logo" content="widetile.png" />
+    <meta name="msapplication-square310x310logo" content="largetile.png" />
+    
+    <!-- Android Lolipop Theme Color -->
+    <meta name="theme-color" content="">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:300,400,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="canonical" href="http://localhost:4000/portaldevteam2017/">
+    <link rel="alternate" type="application/rss+xml" title="ZUM 기술 블로그" href="http://localhost:4000/feed.xml" />
+</head>
+
+    <body class="has-push-menu">
+        
+
+
+
+
+
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" display="none" version="1.1"><defs><symbol id="icon-menu" viewBox="0 0 1024 1024"><path class="path1" d="M128 213.333h768q17.667 0 30.167 12.5t12.5 30.167-12.5 30.167-30.167 12.5h-768q-17.667 0-30.167-12.5t-12.5-30.167 12.5-30.167 30.167-12.5zM128 725.333h768q17.667 0 30.167 12.5t12.5 30.167-12.5 30.167-30.167 12.5h-768q-17.667 0-30.167-12.5t-12.5-30.167 12.5-30.167 30.167-12.5zM128 469.333h768q17.667 0 30.167 12.5t12.5 30.167-12.5 30.167-30.167 12.5h-768q-17.667 0-30.167-12.5t-12.5-30.167 12.5-30.167 30.167-12.5z"/></symbol><symbol id="icon-search" viewBox="0 0 951 1024"><path class="path1" d="M658.286 475.429q0-105.714-75.143-180.857t-180.857-75.143-180.857 75.143-75.143 180.857 75.143 180.857 180.857 75.143 180.857-75.143 75.143-180.857zM950.857 950.857q0 29.714-21.714 51.429t-51.429 21.714q-30.857 0-51.429-21.714l-196-195.429q-102.286 70.857-228 70.857-81.714 0-156.286-31.714t-128.571-85.714-85.714-128.571-31.714-156.286 31.714-156.286 85.714-128.571 128.571-85.714 156.286-31.714 156.286 31.714 128.571 85.714 85.714 128.571 31.714 156.286q0 125.714-70.857 228l196 196q21.143 21.143 21.143 51.429z"/></symbol><symbol id="icon-close" viewBox="0 0 1000 1000"><path d="M969.8,870.3c27,27.7,27,71.8,0,99.1C955.7,983,937.9,990,920,990c-17.9,0-35.7-7-49.7-20.7L500,599L129.6,969.4C115.6,983,97.8,990,79.9,990s-35.7-7-49.7-20.7c-27-27.3-27-71.4,0-99.1L400.9,500L30.3,129.3c-27-27.3-27-71.4,0-99.1c27.3-27,71.8-27,99.4,0L500,400.9L870.4,30.2c27.7-27,71.8-27,99.4,0c27,27.7,27,71.8,0,99.1L599.1,500L969.8,870.3z"/></symbol><symbol id="icon-twitter" viewBox="0 0 951 1024"><path class="path1" d="M925.714 233.143q-38.286 56-92.571 95.429 0.571 8 0.571 24 0 74.286-21.714 148.286t-66 142-105.429 120.286-147.429 83.429-184.571 31.143q-154.857 0-283.429-82.857 20 2.286 44.571 2.286 128.571 0 229.143-78.857-60-1.143-107.429-36.857t-65.143-91.143q18.857 2.857 34.857 2.857 24.571 0 48.571-6.286-64-13.143-106-63.714t-42-117.429v-2.286q38.857 21.714 83.429 23.429-37.714-25.143-60-65.714t-22.286-88q0-50.286 25.143-93.143 69.143 85.143 168.286 136.286t212.286 56.857q-4.571-21.714-4.571-42.286 0-76.571 54-130.571t130.571-54q80 0 134.857 58.286 62.286-12 117.143-44.571-21.143 65.714-81.143 101.714 53.143-5.714 106.286-28.571z"/></symbol><symbol id="icon-facebook" viewBox="0 0 585 1024"><path class="path1" d="M548 6.857v150.857h-89.714q-49.143 0-66.286 20.571t-17.143 61.714v108h167.429l-22.286 169.143h-145.143v433.714h-174.857v-433.714h-145.714v-169.143h145.714v-124.571q0-106.286 59.429-164.857t158.286-58.571q84 0 130.286 6.857z"/></symbol><symbol id="icon-google-plus" viewBox="0 0 951 1024"><path class="path1" d="M420 454.857q0 20.571 18.286 40.286t44.286 38.857 51.714 42 44 59.429 18.286 81.143q0 51.429-27.429 98.857-41.143 69.714-120.571 102.571t-170.286 32.857q-75.429 0-140.857-23.714t-98-78.571q-21.143-34.286-21.143-74.857 0-46.286 25.429-85.714t67.714-65.714q74.857-46.857 230.857-57.143-18.286-24-27.143-42.286t-8.857-41.714q0-20.571 12-48.571-26.286 2.286-38.857 2.286-84.571 0-142.571-55.143t-58-139.714q0-46.857 20.571-90.857t56.571-74.857q44-37.714 104.286-56t124.286-18.286h238.857l-78.857 50.286h-74.857q42.286 36 64 76t21.714 91.429q0 41.143-14 74t-33.714 53.143-39.714 37.143-34 35.143-14 37.714zM336.571 400q21.714 0 44.571-9.429t37.714-24.857q30.286-32.571 30.286-90.857 0-33.143-9.714-71.429t-27.714-74-48.286-59.143-66.857-23.429q-24 0-47.143 11.143t-37.429 30q-26.857 33.714-26.857 91.429 0 26.286 5.714 55.714t18 58.857 29.714 52.857 42.857 38.286 55.143 14.857zM337.714 898.857q33.143 0 63.714-7.429t56.571-22.286 41.714-41.714 15.714-62.286q0-14.286-4-28t-8.286-24-15.429-23.714-16.857-20-22-19.714-20.857-16.571-23.714-17.143-20.857-14.857q-9.143-1.143-27.429-1.143-30.286 0-60 4t-61.429 14.286-55.429 26.286-39.143 42.571-15.429 60.286q0 40 20 70.571t52.286 47.429 68 25.143 72.857 8.286zM800.571 398.286h121.714v61.714h-121.714v125.143h-60v-125.143h-121.143v-61.714h121.143v-124h60v124z"/></symbol><symbol id="icon-clock" viewBox="0 0 1000 1000"><path d="M500,10C229.8,10,10,229.8,10,500c0,270.2,219.8,490,490,490c270.2,0,490-219.8,490-490C990,229.8,770.2,10,500,10z M500,910.2c-226.2,0-410.2-184-410.2-410.2c0-226.2,184-410.2,410.2-410.2c226.2,0,410.2,184,410.2,410.2C910.2,726.1,726.2,910.2,500,910.2z M753.1,374c8.2,11.9,5.2,28.1-6.6,36.3L509.9,573.7c-4.4,3.1-9.6,4.6-14.8,4.6c-4.1,0-8.3-1-12.1-3c-8.6-4.5-14-13.4-14-23.1V202.5c0-14.4,11.7-26.1,26.1-26.1c14.4,0,26.1,11.7,26.1,26.1v300l195.6-135.1C728.7,359.2,744.9,362.1,753.1,374z"/></symbol><symbol id="icon-calendar" viewBox="0 0 1000 1000"><path d="M920,500v420H80V500H920 M990,430H10v490c0,38.7,31.3,70,70,70h840c38.7,0,70-31.3,70-70V430L990,430z"/><path d="M850,80v105c0,57.9-47.2,105-105,105c-58,0-105-47.1-105-105V80H360v105c0,57.9-47.2,105-105,105c-58,0-105-47.1-105-105V80C72.8,80,10,142.7,10,220v140h980V220C990,142.7,927.2,80,850,80z"/><path d="M255,10c-19.3,0-35,15.8-35,35v140c0,19.2,15.7,35,35,35c19.3,0,35-15.8,35-35V45C290,25.8,274.3,10,255,10z"/><path d="M745,10c-19.3,0-35,15.8-35,35v140c0,19.2,15.7,35,35,35c19.3,0,35-15.8,35-35V45C780,25.8,764.3,10,745,10z"/></symbol><symbol id="icon-github" viewBox="0 0 12 14"><path d="M6 1q1.633 0 3.012 0.805t2.184 2.184 0.805 3.012q0 1.961-1.145 3.527t-2.957 2.168q-0.211 0.039-0.312-0.055t-0.102-0.234q0-0.023 0.004-0.598t0.004-1.051q0-0.758-0.406-1.109 0.445-0.047 0.801-0.141t0.734-0.305 0.633-0.52 0.414-0.82 0.16-1.176q0-0.93-0.617-1.609 0.289-0.711-0.062-1.594-0.219-0.070-0.633 0.086t-0.719 0.344l-0.297 0.187q-0.727-0.203-1.5-0.203t-1.5 0.203q-0.125-0.086-0.332-0.211t-0.652-0.301-0.664-0.105q-0.352 0.883-0.062 1.594-0.617 0.68-0.617 1.609 0 0.664 0.16 1.172t0.41 0.82 0.629 0.523 0.734 0.305 0.801 0.141q-0.305 0.281-0.383 0.805-0.164 0.078-0.352 0.117t-0.445 0.039-0.512-0.168-0.434-0.488q-0.148-0.25-0.379-0.406t-0.387-0.187l-0.156-0.023q-0.164 0-0.227 0.035t-0.039 0.090 0.070 0.109 0.102 0.094l0.055 0.039q0.172 0.078 0.34 0.297t0.246 0.398l0.078 0.18q0.102 0.297 0.344 0.48t0.523 0.234 0.543 0.055 0.434-0.027l0.18-0.031q0 0.297 0.004 0.691t0.004 0.426q0 0.141-0.102 0.234t-0.312 0.055q-1.812-0.602-2.957-2.168t-1.145-3.527q0-1.633 0.805-3.012t2.184-2.184 3.012-0.805zM2.273 9.617q0.023-0.055-0.055-0.094-0.078-0.023-0.102 0.016-0.023 0.055 0.055 0.094 0.070 0.047 0.102-0.016zM2.516 9.883q0.055-0.039-0.016-0.125-0.078-0.070-0.125-0.023-0.055 0.039 0.016 0.125 0.078 0.078 0.125 0.023zM2.75 10.234q0.070-0.055 0-0.148-0.062-0.102-0.133-0.047-0.070 0.039 0 0.141t0.133 0.055zM3.078 10.562q0.062-0.062-0.031-0.148-0.094-0.094-0.156-0.023-0.070 0.062 0.031 0.148 0.094 0.094 0.156 0.023zM3.523 10.758q0.023-0.086-0.102-0.125-0.117-0.031-0.148 0.055t0.102 0.117q0.117 0.047 0.148-0.047zM4.016 10.797q0-0.102-0.133-0.086-0.125 0-0.125 0.086 0 0.102 0.133 0.086 0.125 0 0.125-0.086zM4.469 10.719q-0.016-0.086-0.141-0.070-0.125 0.023-0.109 0.117t0.141 0.062 0.109-0.109z"></path></symbol><symbol id="icon-medium" viewBox="0 0 1000 1000"><path d="M336.5,240.2v641.5c0,9.1-2.3,16.9-6.8,23.2s-11.2,9.6-20,9.6c-6.2,0-12.2-1.5-18-4.4L37.3,782.7c-7.7-3.6-14.1-9.8-19.4-18.3S10,747.4,10,739V115.5c0-7.3,1.8-13.5,5.5-18.6c3.6-5.1,8.9-7.7,15.9-7.7c5.1,0,13.1,2.7,24.1,8.2l279.5,140C335.9,238.6,336.5,239.5,336.5,240.2L336.5,240.2z M371.5,295.5l292,473.6l-292-145.5V295.5z M990,305.3v576.4c0,9.1-2.6,16.5-7.7,22.1c-5.1,5.7-12,8.5-20.8,8.5s-17.3-2.4-25.7-7.1L694.7,784.9L990,305.3z M988.4,239.7c0,1.1-46.8,77.6-140.3,229.4C754.6,621,699.8,709.8,683.8,735.7L470.5,389l177.2-288.2c6.2-10.2,15.7-15.3,28.4-15.3c5.1,0,9.8,1.1,14.2,3.3l295.9,147.7C987.6,237.1,988.4,238.2,988.4,239.7L988.4,239.7z"/></symbol><symbol id="icon-instagram" viewBox="0 0 489.84 489.84"><path d="M249.62,50.46c65.4,0,73.14.25,99,1.43C372.47,53,385.44,57,394.07,60.32a75.88,75.88,0,0,1,28.16,18.32,75.88,75.88,0,0,1,18.32,28.16c3.35,8.63,7.34,21.6,8.43,45.48,1.18,25.83,1.43,33.57,1.43,99s-0.25,73.14-1.43,99c-1.09,23.88-5.08,36.85-8.43,45.48a81.11,81.11,0,0,1-46.48,46.48c-8.63,3.35-21.6,7.34-45.48,8.43-25.82,1.18-33.57,1.43-99,1.43s-73.15-.25-99-1.43c-23.88-1.09-36.85-5.08-45.48-8.43A75.88,75.88,0,0,1,77,423.86,75.88,75.88,0,0,1,58.69,395.7c-3.35-8.63-7.34-21.6-8.43-45.48-1.18-25.83-1.43-33.57-1.43-99s0.25-73.14,1.43-99c1.09-23.88,5.08-36.85,8.43-45.48A75.88,75.88,0,0,1,77,78.64a75.88,75.88,0,0,1,28.16-18.32c8.63-3.35,21.6-7.34,45.48-8.43,25.83-1.18,33.57-1.43,99-1.43m0-44.13c-66.52,0-74.86.28-101,1.47s-43.87,5.33-59.45,11.38A120.06,120.06,0,0,0,45.81,47.44,120.06,120.06,0,0,0,17.56,90.82C11.5,106.4,7.36,124.2,6.17,150.27s-1.47,34.46-1.47,101,0.28,74.86,1.47,101,5.33,43.87,11.38,59.45a120.06,120.06,0,0,0,28.25,43.38,120.06,120.06,0,0,0,43.38,28.25c15.58,6.05,33.38,10.19,59.45,11.38s34.46,1.47,101,1.47,74.86-.28,101-1.47,43.87-5.33,59.45-11.38a125.24,125.24,0,0,0,71.63-71.63c6.05-15.58,10.19-33.38,11.38-59.45s1.47-34.46,1.47-101-0.28-74.86-1.47-101-5.33-43.87-11.38-59.45a120.06,120.06,0,0,0-28.25-43.38,120.06,120.06,0,0,0-43.38-28.25C394.47,13.13,376.67,9,350.6,7.8s-34.46-1.47-101-1.47h0Z" transform="translate(-4.7 -6.33)" /><path d="M249.62,125.48A125.77,125.77,0,1,0,375.39,251.25,125.77,125.77,0,0,0,249.62,125.48Zm0,207.41a81.64,81.64,0,1,1,81.64-81.64A81.64,81.64,0,0,1,249.62,332.89Z" transform="translate(-4.7 -6.33)"/><circle cx="375.66" cy="114.18" r="29.39" /></symbol><symbol id="icon-linkedin" viewBox="0 0 12 14"><path d="M2.727 4.883v7.742h-2.578v-7.742h2.578zM2.891 2.492q0.008 0.57-0.395 0.953t-1.059 0.383h-0.016q-0.641 0-1.031-0.383t-0.391-0.953q0-0.578 0.402-0.957t1.051-0.379 1.039 0.379 0.398 0.957zM12 8.187v4.437h-2.57v-4.141q0-0.82-0.316-1.285t-0.988-0.465q-0.492 0-0.824 0.27t-0.496 0.668q-0.086 0.234-0.086 0.633v4.32h-2.57q0.016-3.117 0.016-5.055t-0.008-2.313l-0.008-0.375h2.57v1.125h-0.016q0.156-0.25 0.32-0.438t0.441-0.406 0.68-0.34 0.895-0.121q1.336 0 2.148 0.887t0.813 2.598z"></path></symbol><symbol id="icon-heart" viewBox="0 0 34 30"><path d="M17,29.7 L16.4,29.2 C3.5,18.7 0,15 0,9 C0,4 4,0 9,0 C13.1,0 15.4,2.3 17,4.1 C18.6,2.3 20.9,0 25,0 C30,0 34,4 34,9 C34,15 30.5,18.7 17.6,29.2 L17,29.7 Z M9,2 C5.1,2 2,5.1 2,9 C2,14.1 5.2,17.5 17,27.1 C28.8,17.5 32,14.1 32,9 C32,5.1 28.9,2 25,2 C21.5,2 19.6,4.1 18.1,5.8 L17,7.1 L15.9,5.8 C14.4,4.1 12.5,2 9,2 Z" id="Shape"></path></symbol></defs></svg>
+
+        <header class="bar-header">
+    <a id="menu">
+        <svg id="open" class="icon-menu"><use xlink:href="#icon-menu"></use></svg>
+    </a>
+    <a id="search" class="dosearch">
+        <svg class="icon-search"><use xlink:href="#icon-search"></use></svg>
+    </a>
+    <h1 class="logo">
+        <a href="/">
+            ZUM tech
+        </a>
+    </h1>
+</header>
+
+<div id="mask" class="overlay"></div>
+
+<aside id="sidebar">
+    <nav id="navigation">
+      <h2>Menu</h2>
+      <ul>
+          <li><a href="http://localhost:4000">Home</a></li>
+          <li><a href="http://zuminternet.com" target="_blank">Contact</a></li>
+        <li><a class="feed" href="http://localhost:4000/feed.xml" title="Atom/RSS feed">Feed</a></li>
+      </ul>
+    </nav>
+</aside>
+<div class="search-wrapper">
+    <div class="search-form">
+        <input type="text" class="search-field" placeholder="Search">
+        <svg class="icon-remove-sign"><use xlink:href="#icon-close"></use></svg>
+        <ul class="search-results search-list"></ul>
+    </div>
+</div>
+
+
+        <section class="post">
+
+            <article role="article" id="post" class="post-content" itemprop="articleBody">
+                <p itemprop="post-info" class="post-info">
+                    
+                        <svg id="date" class="icon-calendar"><use xlink:href="#icon-calendar"></use></svg>
+                        <time itemprop="datePublished" datetime="2017-07-02T00:00:00+09:00" class="date">
+                            
+
+
+July 2, 2017
+
+                        </time>
+                    
+                    <svg id="clock" class="icon-clock"><use xlink:href="#icon-clock"></use></svg>
+                    <span>12 min to read</span>
+                </p>
+                <h1 class="post-title" itemprop="name">포털개발팀 1년 회고 및 팀문화에 대해서</h1>
+            <p/>
+                <p>작년 7월 조직개편 때 포털개발팀이 신설되고 정확히 1년이라는 시간이 지났습니다. 
+포털개발팀의 지난 1년을 돌이켜보고, 팀문화에 대해서 공유합니다.</p>
+
+<h1 id="티타임">티타임</h1>
+
+<h4 id="티타임-그리고-지난-1년에-대한-회고">티타임 그리고, 지난 1년에 대한 회고</h4>
+
+<p>글을 시작하기 전에 간략하게 포털개발팀 지난 1년 동안 수행한 업무를 간단하게 회고해봤습니다.</p>
+
+<p>포털개발팀에서는 지난 1년 동안 줌닷컴 메인(=zum.com=시작페이지=줌프론트),
+모바일웹, 허브줌, 타임트리 등 포털서비스를 신규 개발/운영 하였습니다. 최근에는 신규 포털서비스 오픈을 위해 열심히 준비 중입니다. 
+포털서비스 외에 광고, 메일/SMS, 공용인프라 같은 기반서비스 플랫폼 및 고객센터 관리페이지, 이벤트 페이지, 줌인터넷 홈페이지 등 전사 지원 업무도 함께 수행하였습니다.</p>
+
+<blockquote>
+  <p>포털개발팀은 포털서비스, 기반서비스 플랫폼, 전사지원업무 등 다양한 업무를 맡아서 수행하는 웹서비스 개발팀 입니다.</p>
+</blockquote>
+
+<p>지난 4월6일 목요일 오전 티타임 시간에 팀원들과 함께 이런저런 대화를 했습니다.</p>
+
+<p>A: 저희 팀문화 하면 제일 먼저 어떤 점이 생각나요?<br />
+B: …<br />
+C: …<br />
+A: 저희… 팀문화가 없나봐요?ㅠㅠ 그럼 단점, 부족한 점은 뭐가 있을까요?<br />
+D: 소통이 부족한 것 같습니다.ㅎㅎ  <br />
+A: 아 정말요?<br />
+B: 나쁘진 않은 팀인데ㅋㅋ</p>
+
+<p>딱히 생각나는 팀문화도 없고, 소통이 부족하다는 단점만 생각나는 포털개발팀.  <br />
+그래서 저는 지난 1년을 돌아보고 팀문화를 정리해보고 싶었습니다. 팀 조직문화는 본부 상황 및 요구사항에 맞게 끊임없이 개선해야 합니다. 
+여러가지로 부족한 포털개발팀에서는 팀 조직문화를 공유하고 피드백을 받아서 지속적으로 개선하고자 합니다.</p>
+
+<h4 id="포털개발팀-팀문화">포털개발팀 팀문화</h4>
+
+<p>포털개발팀의 팀문화를 생각나는대로 정리해봤습니다.</p>
+
+<ul>
+  <li>기술블로그</li>
+  <li>코드리뷰</li>
+  <li>신입파일럿 프로젝트</li>
+  <li>업무 진행 현황판</li>
+  <li>주간 기술 스터디 모임</li>
+  <li>기술부채</li>
+  <li>자기조직화(Self-organizing)팀</li>
+  <li>빠른 의사결정</li>
+  <li>간결하게, 가치 있게, 하나씩 완성하기</li>
+  <li>상호 존중</li>
+  <li>자유로운 연차 사용 및 야근 최소화(잘 안지켜지지만…)</li>
+</ul>
+
+<p>단, 제가 중요하게 강조하고 싶은 점은 품질 높은 서비스를 만들고, 좋은 팀문화를 만드는 것에 대한 정답은 바로 그 팀 안에서 찾을 수 있다는 점입니다.</p>
+
+<blockquote>
+  <p>어쨋든 사람! 프로세스는 프로세스일 뿐!! 팀원에 의한, 팀원의, 팀원을 위한, 팀문화!</p>
+</blockquote>
+
+<p><code class="highlighter-rouge">오해NO</code><br />
+일방적이고 독단적인(회사 비전과 맞지 않는) 팀문화는 바람직하지 않습니다.
+회사의 문화를 존중하며 함께(회사,리더,팀원,모두) 동반 성장하기를 바랍니다.</p>
+
+<h1 id="포털개발팀의-팀문화">포털개발팀의 팀문화</h1>
+
+<h4 id="기술블로그">기술블로그</h4>
+
+<p>포털개발팀은 기술블로그를 작년 가을부터 시작하였습니다.
+비록 다른 회사의 기술블로그에 비하면 많이 부족하지만, 앞으로 다양한 주제로 포스팅 할 예정입니다.</p>
+
+<p><img src="/images/portal/post/2017-7-2-portaldevteam2017/techblog.png" alt="기술블로그" /></p>
+
+<p>포털개발팀의 기술블로그는?</p>
+
+<ul>
+  <li>공유, 소통을 위해 개설하였습니다.</li>
+  <li>팀원들이 개발팀에 많은 애정을 갖고 좋은 팀을 위해 포스팅 하나하나에 진심을 담아서 글을 올립니다.</li>
+  <li>하지만 그렇다고 무거운 주제만 포스팅 되진 않습니다. 가벼운 주제도 편하게 업로드 하면 좋겠습니다. 또한 다른 팀의 포스팅도 적극 환영합니다.</li>
+  <li>기술 블로그는 팀원이 쉽게 작성 및 업로드 할수 있도록 github 및 markdown 으로 관리합니다.</li>
+</ul>
+
+<p>글 작성을 위한 일정을 반드시 배려합니다. 단, 팀원들 스스로 글 작성에 대한 의지가 있어야 합니다. 쓰기 싫은데 억지로 쓰는거라면 차라리 안쓰는게 나을 것 같습니다.</p>
+
+<ul>
+  <li>포털개발팀 1년 회고 및 팀문화에 대해서(JULY 2, 2017, 김시은)</li>
+  <li>젠킨스 사용하여 자동 배포환경 만들기!(MAY 10, 2017, 권용근)</li>
+  <li>실서비스에서 COFFEESCRIPT를 ES6로 변환하기 (MARCH 22, 2017 김영재)</li>
+  <li>신입사원 파일럿 프로젝트 (FEBRUARY 24, 2017 조정훈)</li>
+  <li>ZUM 프론트 MEMBASE 문제점 극복! (FEBRUARY 15, 2017 권용근)</li>
+  <li>(모두를 위한)포털 월간 소식- 1월 (FEBRUARY 1, 2017 김시은)</li>
+  <li>수습기간 동안 파일럿 프로젝트를 진행하며 느낀점 (JANUARY 6, 2017 류광현)</li>
+  <li>NGINX 캐시 문제 해결 (NOVEMBER 8, 2016 이동욱)</li>
+  <li>1년간 개발자 생활에 대한 생각 정리 … (OCTOBER 26, 2016 강홍구)</li>
+  <li>신입사원 첫 프로젝트 파일럿, 콕 찝어ZUM (OCTOBER 26, 2016 김영재)</li>
+  <li>SPRING BOOT로 TEAMUP BOT 만들기 - (2) (OCTOBER 17, 2016 권용근)</li>
+  <li>SPRING BOOT로 TEAMUP BOT 만들기 - (1) (OCTOBER 13, 2016 권용근)</li>
+  <li>개발팀 블로그에 첫 글을 남기면서 (OCTOBER 12, 2016 김시은)</li>
+</ul>
+
+<blockquote>
+  <p>팀장,팀원 모두가 블로그 주도형 개발자가 되길 바라며!!</p>
+</blockquote>
+
+<h4 id="신입사원-파일럿-프로젝트">신입사원 파일럿 프로젝트</h4>
+
+<p>파일럿 프로젝트는 줌인터넷의 개발 문화입니다.
+줌인터넷의 모든 개발팀에서는 신입사원의 파일럿 프로젝트를 수행합니다. 단, 개발팀마다 조금씩 방향은 다릅니다.</p>
+
+<p>포털개발팀의 파일럿에 대해서 간략하게 공유합니다.</p>
+
+<p><code class="highlighter-rouge">HOW? WHAT?</code><br />
+포털개발팀의 신규입사자는 두 번의 파일럿 프로젝트를 수행합니다. 
+첫번째 프로젝트는 (공통주제)게시판 구축 프로젝트이고 팀원의 도움 없이 혼자서 3주~5주 일정으로 진행합니다. 
+git 사용법, 요구사항,필수 기술 스펙을 가이드합니다.</p>
+
+<p>두번째 프로젝트는 팀 회의를 통해서 주제를 결정합니다.
+신입사원은 코딩 방법, 스펙 선정, 일정 수립 등 전반적인 가이드를 모두 지도사원과 함께 수행합니다. 
+2차 프로젝트는 설계/개발 4주~6주 정도 일정입니다.</p>
+
+<p>수습 3개월 기간동안 파일럿 프로젝트만 집중해서 진행합니다.</p>
+
+<p><code class="highlighter-rouge">무엇을 배우나?</code></p>
+<ul>
+  <li>git 사용법</li>
+  <li>기본적인 코딩 컨벤션</li>
+  <li>설계 능력 향상</li>
+  <li>개발망 접근 방법 등 기본적인 개발 환경 셋팅</li>
+  <li>사내 프로젝트 기술력 강화</li>
+  <li>팀원과 협업하는 방법</li>
+</ul>
+
+<p>파일럿 프로젝트를 통해서 많은 점을 느끼고 배울수 있도록 적극 지원합니다. 
+1명의 신입사원을 키우는 것은 쉽지 않은 일이지만, 팀원이 성장할 수 있도록 지원합니다.
+파일럿 프로젝트가 종료되면 바로 업무에 투입이 됩니다. 단, 일부 신입사원은 파일럿 프로젝트 기간에도 업무를 바로 투입되기도 합니다.</p>
+
+<p><code class="highlighter-rouge">후기</code><br />
+파일럿 프로젝트를 진행 한 이후 반드시 후기를 작성하도록 시간적 여유를 주고 있습니다. 
+1년 후에 자신이 작성했던 글을 다시 돌아본다면 1년 사이 훌쩍 성장해버린 자신을 보고 감회가 새로울 것입니다.</p>
+
+<p><code class="highlighter-rouge">지난 파일럿 프로젝트 후기</code></p>
+
+<ul>
+  <li>신입사원 파일럿 프로젝트 (FEBRUARY 24, 2017 조정훈)</li>
+  <li>수습기간 동안 파일럿 프로젝트를 진행하며 느낀점 (JANUARY 6, 2017 류광현)</li>
+  <li>신입사원 첫 프로젝트 파일럿, 콕 찝어ZUM (OCTOBER 26, 2016 김영재)</li>
+</ul>
+
+<p><code class="highlighter-rouge">동반 성장</code>  <br />
+지도하는 과정속에서도 선임들은 많은 것을 깨달을 수 있습니다. 신입사원, 지도사원 모두 함께 동반성장 하는 계기가 되기를!!</p>
+
+<blockquote>
+  <p>파일럿 프로젝트는 포털개발팀의 팀원이 되는 중요한 과정</p>
+</blockquote>
+
+<h4 id="코드리뷰">코드리뷰</h4>
+
+<p>포털개발팀은 모든 배포를 대상으로 거의 매주 코드리뷰를 수행합니다.
+단, 간단한 수정 건에 한해서는 팀 코드리뷰 없이 머지리퀘스트(1:1코드리뷰)를 통해서 검증 후 배포합니다.</p>
+
+<p>일정에 쫓기다 보면 QA와 코드리뷰를 병행해서 진행하기도 합니다. 
+코드리뷰 일정을 확보하도록 지속적으로 기획팀과 협업이 필요합니다.</p>
+
+<p>지금처럼 해왔던 것처럼 앞으로도 코드리뷰를 진행할 예정입니다만 기술적 가이드는 많이 부족합니다.
+앞으로 개발가이드 수립이 되어 좀 더 효율적인 코드리뷰를 수행할 예정입니다.</p>
+
+<h4 id="프로젝트-진행-현황판">프로젝트 진행 현황판</h4>
+
+<p>올 초 부터 트렐로를 사용하였습니다. 트렐로는 프로젝트 진행상황을 한 눈에 확인할 수 있습니다. 
+트렐로를 운영해 본 결과 제 생각에 맞지 않는 점이 있었습니다.</p>
+
+<ul>
+  <li>프로젝트를 카드 색상으로 나눌수 있지만 프로젝트 단위 구분이 명확하지 않다.</li>
+  <li>팀원들이 함께 대화하면서 보기에는 아주 완벽하게 좋지는 않다.</li>
+</ul>
+
+<p>나쁘지는 않지만 뭔가 부족해 보였습니다. 이런 사유로 고민끝에 이동식 화이트보드를 구매하였습니다.
+화이트보드는 기존에 사용하던 트렐로의 역할과 비슷하고, 애자일의 스크럽보드, 칸반보드 등과도 유사합니다.
+개발팀에서는 현재 최소3개 이상의 프로젝트를 동시에 수행하고 있기 때문에 보드에 모든 프로젝트의 현황을 표현하고자 했습니다. 
+저는 프로젝트 구획을 나누고 싶었습니다. <code class="highlighter-rouge">스윔 레인</code> 으로 구성하였습니다.
+스윔레인에 대한 관련 내용은 [칸반과 스크럼-인사이트-68page] 를 참고하시면 됩니다.</p>
+
+<p><img src="/images/portal/post/2017-7-2-portaldevteam2017/20170520_board.JPG" alt="프로젝트 현황판" /></p>
+
+<p>공유하기 부끄럽지만… 부족한 점, 개선할 포인트가 있다면 피드백 부탁드립니다.</p>
+
+<p><code class="highlighter-rouge">애자일?</code><br />
+얼핏 보면 애자일에서 사용하는 보드판과 유사합니다.
+제가 생각하는 팀문화 가치 등이 애자일과 유사합니다. 하지만 애자일의 프로세스를 도입하겠다고 말하고 다니지는 않습니다.
+사실 애자일의 원칙에 대해서 잘 모릅니다. 단지, 그동안 제가 생각했던 방향이 애자일과 일부 유사해서 참고만 하고 있습니다.
+프로세스는 프로세스일 뿐, 프로세스가 강제화 되어서는 안된다고 생각합니다.</p>
+
+<p><code class="highlighter-rouge">카드(포스트잇) 이동할 때는 팀원들과 같이 보면서</code><br />
+화이트보드 앞에서 일주일에 두세번 정도 스탠드업 미팅을 진행합니다. 
+일일 스탠드업 미팅을 희망했습니다만, 매일 진행하는 것이 오히려 부담일 것 같습니다.
+오전에 서비스 배포를 자주하며 개인티타임,담배타임 등 고려하여 팀 특성상 필요한 경우에만 진행을 하고 있습니다.</p>
+
+<p><code class="highlighter-rouge">어떤 업무를 포스트잇으로 붙이면 되는지??</code><br />
+[애자일&amp;스크럼 프로젝트 관리-길벗출판사-86page] 에서는 백로그에 작성되는 건은 아래와 같은 지침을 갖습니다.</p>
+
+<ol>
+  <li>상호 독립적이어야 한다.</li>
+  <li>변경이 가능해야 한다.</li>
+  <li>사용자와 고객에게 가치가 있어야 한다.</li>
+  <li>추정이 가능해야 한다.</li>
+  <li>크기가 적절해야 한다.</li>
+  <li>테스트가 가능해야 한다.</li>
+</ol>
+
+<p>하지만 포털개발팀 일정판에 붙이는 포스트잇(카드)에 명확한 규제는 아직 없습니다. 
+하나하나 실천가능한 것부터 해보면서 꾸준히 개선이 필요할 것 같습니다.</p>
+
+<blockquote>
+  <p>도입한지 이제 세 달, 처음부터 강한 규제 보다는 실천 가능한 일부터 하나씩 해보는게 어떠신가요?</p>
+</blockquote>
+
+<h4 id="주간-기술-스터디">주간 기술 스터디</h4>
+
+<p>개발팀에서는 매주 기술스터디를 진행합니다.(하지만 최근에 업무가 몰리고 정신없다 보니 매주 진행을 못하고 있습니다.)
+제가 팀관리, 개발운영업무, 많은 회의 등 팀에서 생기는 일을 전부 챙겨서 병행하는 것은 너무 힘들다는 것을 뼈저리게 깨닫고 있습니다. ㅠㅠ</p>
+
+<p>어쨋든 스터디는 두가지 트랙으로 진행하고 있습니다. 토비의스프링 과 상시주제 로 나눠서 진행합니다.</p>
+
+<p><code class="highlighter-rouge">토비의 스프링</code><br />
+토비의 스프링을 올한해 동안 스터디하기로 계획을 정했습니다. 
+현재 5장까지 진행을 하였고, 다른팀의 신입 개발자분들도 적극 참여해서 함께 진행하고 있습니다.</p>
+
+<p><code class="highlighter-rouge">상시 주제</code>
+신기술공유, 아키텍처, 리팩토링, AWS, 포털서비스 동향, 빅데이터 등 다양한 주제로 스터디를 진행할려고 합니다.
+주제에 따라서는 다른팀 팀원들도 함께 스터디 하고 있습니다. 함께하면 더 즐거운 스터디 문화를 만들려고 합니다.</p>
+
+<p><img src="/images/portal/post/2017-7-2-portaldevteam2017/20170410_104719.png" alt="주간 기술 스터디" /></p>
+
+<p>최근 기술리더님께서 좋은 세미나 자리를 마련해주셔서 더 많은 스터디의 기회도 되고 있습니다.
+참고로 줌인터넷은 스터디 문화가 활성화 되어있습니다. 다른 팀에서 더 열심히 하고 있네요. 매우 자극이 됩니다. 포털개발팀도 화이팅!!</p>
+
+<blockquote>
+  <p>스터디는 꾸준히! 그리고, 모두 함께(다른 팀도 같이) 스터디하는 팀문화!</p>
+</blockquote>
+
+<h4 id="기술-부채">기술 부채</h4>
+
+<p><code class="highlighter-rouge">기술 부채</code><br />
+기술 부채를 제거하는 일은 매우 중요합니다. 그동안 진행한 건은 아래와 같습니다.</p>
+
+<ul>
+  <li>서비스 개발 플랫폼 전환 검토</li>
+  <li>모바일웹 스크립트 개선</li>
+  <li>Membase 의존성 제거</li>
+  <li>기타 리팩토링</li>
+</ul>
+
+<p>기술 부채는 어느 한 순간에 전부 해결할 수 있는 것이 아닙니다. 꾸준히 개선해 나가야 합니다.
+다음 설계를 위해서, 다음 개발 건을 위해서 리팩토링을 수행해야 합니다.</p>
+
+<p>단, 리팩토링이 불가능한 수준이 되어 완전 새롭게 신규구축으로 진행이 필요하다면, 반드시 신중하게 결정해야 합니다.
+반드시 기획팀 또는 제품 책임자와 사전 커뮤니케이션 및 이해와 동의가 반드시 필요합니다.
+기획팀과 개발팀 같이 협업하여 진행할 수 있을 때 바로 상호존중의 가치를 발휘하면서 좋은 품질의 서비스를 운영할 수 있습니다.</p>
+
+<blockquote>
+  <p>기술부채! 당연히 제거해야 합니다! 하지만, 개발리소스, 일정, 리스크 등 검토해야 할 사항이 많습니다. 소프트웨어 개발/운영 은 절대 쉬운일은 아닙니다.</p>
+</blockquote>
+
+<h4 id="정리">정리</h4>
+
+<p>포털개발팀에서 지난 1년동안 했던 팀문화에 대해서 정리해봤습니다.</p>
+
+<ul>
+  <li>기술블로그</li>
+  <li>코드리뷰</li>
+  <li>신입파일럿 프로젝트</li>
+  <li>업무 진행 현황판</li>
+  <li>주간 기술 스터디 모임</li>
+  <li>기술부채</li>
+</ul>
+
+<p>사실 많이 부족한 팀입니다. 피드백을 통해서 끊임없이 개선해 나가기를 희망합니다.</p>
+
+<h1 id="포털개발팀의-팀-가치">포털개발팀의 팀 가치</h1>
+
+<p>전반적인 포털개발팀 팀 가치에 대해서 공유하려고 합니다.
+추상적이고 진부(?)한 글입니다. 포털개발팀 팀원이 아니시거나 지루하시면 안보셔도 됩니다.</p>
+
+<h4 id="자기-조직화self-organizing된-팀">자기 조직화(Self-organizing)된 팀</h4>
+
+<p>포털개발팀의 팀원은 각자 2~3개의 서비스 및 플랫폼을 담당하고 있습니다. 또한 포털서비스는 요구사항의 변화가 많습니다. 
+부족한 인력 및 잦은 요구사항의 변화에 대응하면서 품질 높은 서비스를 제공하기 위해서는 자기 조직화 된 팀이 구성이 되어야 한다고 판단하였습니다.
+자기조직화된 팀은 자율성,책임감,상호존중 의 가치를 실현합니다. 이런 팀문화로 인해서 동시다발적 제품 개발이 가능합니다.</p>
+
+<p>전통적인 팀 커뮤니케이션 과 자기 조직화된 팀 커뮤니케이션의 비교한 그림입니다. (출처는 구글 이미지)</p>
+
+<p><img src="/images/portal/post/2017-7-2-portaldevteam2017/self.png" alt="자기조직화된 팀의 커뮤니케이션" /></p>
+
+<p><code class="highlighter-rouge">How?</code><br />
+각자 맡은 서비스에 결정권을 갖고 운영을 하고 고민을 많이 해야 한다고 생각합니다.
+정말 어려운 일이겠지만… 시키지 않아도, 말하지 않아도 알아서 잘 하면 얼마나 좋을까요?</p>
+
+<p><code class="highlighter-rouge">자기 조직화 된 팀원, What?</code><br />
+어쨋든 자기조직화된 팀에서의 팀원은 아래와 같은 사항을 주체적으로 결정합니다.</p>
+
+<ul>
+  <li>개발 일정 검토</li>
+  <li>신규 개발건에 대한 분석/설계(아키텍처)</li>
+  <li>자기 주도적인 리팩토링 계획 수립 및 수행</li>
+  <li>서비스에 추가되면 좋은 기능에 대한 제안</li>
+</ul>
+
+<p><code class="highlighter-rouge">오해는 하지 마세요</code><br />
+아키텍처 결정 및 중요 리팩토링 사항에 대해서는 진행 전에 리뷰를 반드시 수행합니다. 자율성을 중요시 하지만, 상호 존중을 더 중요하게 생각합니다. 
+팀원들의 의견을 수렴하여 좋은 방향으로 개선할 수 있도록 함께 협업합니다. 단, 서비스를 혼자서 책임지는 것은 절대 아닙니다.
+코드리뷰를 통해서 공동 책임감을 키우고, 남의 일이 아닌 모든 서비스가 자기일인 것처럼 서로 도와가면서 협업합니다.
+자기조직화된 팀에 대한 참조는 [애자일&amp;스크럼 프로젝트 관리-43page],[애자일&amp;스크럼 프로젝트 관리-181page~206page] 에서 좋은 글 참고하시면 됩니다.
+자기 조직화된 팀 관련해서 서번트리더, 마이크로서비스 아키텍처, 리팩토링, 애자일, TDD 등 하고 싶은 얘기는 많지만 얘기가 길어지므로 생략하겠습니다.</p>
+
+<blockquote>
+  <p>자기 조직화(Self-organizing)된 팀이 포털서비스 개발/운영 에 최고의 성과를 낼 수 있다고 생각합니다.</p>
+</blockquote>
+
+<h4 id="빠른-의사결정">빠른 의사결정</h4>
+
+<p>팀원의 제안은 가능하면 빠른 결정 및 빠른 실행을 진행할 수 있도록 합니다. 
+느린 결정은 동기부여를 떨어뜨리고 호기심을 낮춥니다. 저는 빠른 결정을 원하며 가능하면 복잡한 고민 보다는 빠르고 심플한 실행을 선호 합니다. 
+실행을 방해하는 과도한 설계와 과도한 기술 논의는 자칫 팀원의 동기부여를 낮출수 있습니다.
+단, 그 실행은 반드시 가치있고 간결하고 하나씩 완성할 수 있는 가치로 실행하기를 바랍니다.</p>
+
+<p>하지만 불확실한 상황을 해결하기 위해서 빠른 결정을 하게 되는 상황은 오히려 좋지 않은 결과를 초래할수도 있다는 점을 저는 너무나도 잘 알고 있습니다.
+그런 잘못된 초기 결정으로 인한 리소스 낭비를 한 경험도 많습니다. 급한 결정과 잘못된 설계로 인한 돌이킬수 없는 첫단추를 잘못 끼는 것에 대한 리스크는 항상 존재합니다.</p>
+
+<p>균형감각을 어떻게 찾아야 할지 어려운 일이며, 그 결정은 독단적인 결정이 되어서는 절대 안되고 경영진,기획팀,개발리더,개발자,테스터 등 전체 상황을 파악하여 진행해야 합니다. 
+몇줄 안되는 문장인데 도대체 빠른 결정을 하라는 것인지 하지 말라는 것인지 글을 쓰면서도 혼란스럽네요.</p>
+
+<blockquote>
+  <p>어려운 일이지만, 그래도 저는 공식적으로 팀원들 또는 다른팀 분들께는 빠른 의사결정의 중요성에 대해서 항상 전달하고 실천하고 있습니다.</p>
+</blockquote>
+
+<h4 id="keep-it-simple-make-it-valuable-build-it-piece-by-piece">Keep It Simple, Make It Valuable, Build It Piece by Piece</h4>
+
+<p>최근에 잼있게 읽었던 책을 소개합니다.</p>
+
+<p><img src="/images/portal/post/2017-7-2-portaldevteam2017/20170410_103935.png" alt="The Nature of Software Development" /></p>
+
+<p>간결하게, 가치있게, 하나씩 완성하기 라는 책제목처럼 올바른 소프트웨어를 개발/운영하기 위한 심플하면서도 쉽지 않은(?) 가이드를 제공하는 책입니다.
+책에서는 참 쉽게 설명했지만 현실에서는 쉽지는 않습니다.</p>
+
+<p><code class="highlighter-rouge">간결하게</code><br />
+<code class="highlighter-rouge">가치있게</code><br />
+<code class="highlighter-rouge">하나씩 완성하기</code></p>
+
+<p>관련해서 장문의 글을 작성했다가 전부 지우고 그냥 아래와 같이 정리했습니다.</p>
+
+<p>소프트웨어(특히 포털서비스)는 필연적으로 복잡해질 수 밖에 없습니다.
+저는 복잡해지는 소프트웨어를 간결(심플)하고, 가치있고, 하나씩 완성할 수 있도록 하는 것에 대해서 고민을 하고 있습니다. 
+팀원들도 그 가치에 대해서 조금이라도 이해할 수 있는 날이 오면 좋겠습니다.</p>
+
+<h4 id="상호-존중배려">상호 존중(배려)</h4>
+
+<p>상호 존중 하는 마음을 팀문화의 중요 가치로 생각하며 그렇게 실천하고 있습니다.
+역시 장문의 글을 작성했다가… 내용이 추상적이기도 하고, 글이 너무 길어지는거 같아서 지웠습니다.</p>
+
+<blockquote>
+  <p>말이 아닌 실천함으로서 절대적으로 빛나는 가치!!</p>
+</blockquote>
+
+<h4 id="자유로운-연차-사용-및-야근-최소근데-잘-안됨">자유로운 연차 사용 및 야근 최소(근데 잘 안됨…)</h4>
+
+<p>연차는 자유롭게 사용하도록 합니다. 줌인터넷 거의 모든 팀이 이렇게 하고 있습니다.</p>
+
+<p>또한 야근을 최대한 줄이고 부득이하게 프로젝트 일정상 야근이 필요하다면 주2회 정도로 제한합니다. 공부하고 싶어서 남는 경우에는 야근을 해도 됩니다. 
+공부로 인한 야근도 저녁식대를 제공하며 야근은 절대 강요하지 않습니다.
+부득이하게 야근이 많은 프로젝트의 경우에는 프로젝트 종료 후 재충전(리프레시)의 시간을 줄수 있도록 있도록 지원합니다.</p>
+
+<blockquote>
+  <p>자유로운 연차는 잘 지켜지는데, 야근 최소는 잘 안지켜지네요.  업무가 많아서? 일정관리에 실패해서?</p>
+</blockquote>
+
+<h4 id="정리-1">정리</h4>
+
+<p>추상적이지만 나름 간략하게 정리해봤습니다.</p>
+
+<ul>
+  <li>자기조직화(Self-organizing) 팀</li>
+  <li>빠른 의사결정</li>
+  <li>간결하게, 가치 있게, 하나씩 완성하기</li>
+  <li>상호 존중</li>
+  <li>자유로운 연차 사용 및 야근 최소화(잘 안지켜지지만…)</li>
+</ul>
+
+<h1 id="글-정리">글 정리</h1>
+
+<p>포털개발팀은 본부에서 연초에 수립한 KPI에 집중합니다. 
+KPI 에서 가장 큰 비중을 차지하는 것은 포털기획팀 요구사항을 정해진 일정에 맞게 품질 높은 서비스를 신규개발/운영 하는 일입니다.
+하지만 많은 프로젝트를 한다고 그 개발팀이 훌륭한 팀이라고 단정지어 말하기는 어려울 것 같습니다.</p>
+
+<blockquote>
+  <p>과연, KPI를 120% 수행하면 포털개발팀은 높은 성과를 낸 것일까?</p>
+</blockquote>
+
+<p>제가 팀원들과 대화중에 자주 물어보는 질문이 있습니다.</p>
+
+<blockquote>
+  <p>즐거우신가요? 재미있으신가요?</p>
+</blockquote>
+
+<p>다행히도 팀원들은 YES 라고 대답을 합니다만 물론 항상 즐거울수는 없습니다. 
+(설마 말로만 즐겁다고 대답하셨던건 아니시겠죠?? 설마…) 
+포털서비스는 스트레스가 심한 업종입니다.(하긴 세상에 쉬운일은 없겠지요?)</p>
+
+<p>지금 하고 있는 개발 업무가 즐겁나요? 재미있나요? 라는 질문에</p>
+
+<p><code class="highlighter-rouge">네. Yes.</code></p>
+
+<p>라는 답변할수 있다면, 저는 그것만으로도 개발팀은 반은 성공이라고 확실하게 얘기할수 있습니다.</p>
+
+<p><code class="highlighter-rouge">간결하게, 가치 있게, 하나씩 완성하기. 그리고 즐겁게!</code></p>
+
+<p>추상적인 의견도 많고, 글 내용에 논란의 여지가 조금(?) 있어서 올릴까말까 고민이 많았습니다만,
+<code class="highlighter-rouge">즐겁고 재밌게 일할 수 있는 개발팀</code>이 되었으면 하는 바람을 갖고 용기를 내어 글을 작성해서 공유합니다.
+여러가지로 너무 부족한 포털개발팀이지만 조금씩 함께 성장할 수 있으면 좋겠습니다.</p>
+
+<p>포털개발팀의 2017년 하반기도 화이팅입니다!!</p>
+
+            </article>
+
+            <div class="progress-bar" data-minutes="12">
+                <span class="time-completed"></span>
+                <span class="time-remaining"></span>
+                <div class="bar">
+                    <span class="completed" style="width:0%;"></span>
+                    <span class="remaining" style="width:100%;"></span>
+                </div>
+            </div>
+
+            <!--<section class="share">-->
+    <!--<h3>Share</h3>-->
+    <!--<a aria-label="Compartilhar no Twitter" href="https://twitter.com/intent/tweet?text=&quot;&quot;%20http://localhost:4000/portaldevteam2017/%20via%20&#64;@zum_com&hashtags=개발자,zum,agile,"-->
+    <!--onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">-->
+        <!--<svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg>-->
+    <!--</a>-->
+    <!--<a aria-label="Compartilhar no Facebook"href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/portaldevteam2017/"-->
+    <!--onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook">-->
+        <!--<svg class="icon icon-facebook"><use xlink:href="#icon-facebook"></use></svg>-->
+    <!--</a>-->
+    <!--<a aria-label="Share on Google Plus" href="https://plus.google.com/share?url=http://localhost:4000/portaldevteam2017/"-->
+    <!--onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google+">-->
+        <!--<svg class="icon icon-google-plus"><use xlink:href="#icon-google-plus"></use></svg>-->
+    <!--</a>-->
+<!--</section>-->
+
+            <section class="author" itemprop="author">
+  <div class="details" itemscope itemtype="http://schema.org/Person">
+    <img itemprop="image" class="img-rounded" src="/images/portal/author/sieunkim.png" alt="">
+    <p class="def">포털개발팀 김시은 책임</p>
+    <h3 class="name">
+      <a itemprop="name" href="https://github.com/zuminternet">ZUM tech</a>
+    </h3>
+    <p class="desc">Front-End & Back-End Senior Developer.</p>
+    <p>
+      
+      <a itemprop="github" href="https://github.com/zuminternet" title="Github">
+        <svg><use xlink:href="#icon-github"></use></svg>
+      </a>
+      
+      
+      <a itemprop="facebook" href="https://www.facebook.com/zumcom" title="Facebook">
+        <svg><use xlink:href="#icon-facebook"></use></svg>
+      </a>
+      
+      
+      <a itemprop="twitter" href="https://twitter.com/@zum_com" title="Twitter">
+        <svg><use xlink:href="#icon-twitter"></use></svg>
+      </a>
+      
+      
+      
+      
+    </p>
+  </div>
+</section>
+
+            <!--<section class="comments">
+    <h3>Comments</h3>
+    <div id="disqus_thread"></div>
+</section>
+<script type="text/javascript">
+    var disqus_loaded = false;
+
+    function load_disqus()
+    {
+        disqus_loaded = true;
+        var disqus_shortname = 'disqus_username';
+        var disqus_title = '';
+        var disqus_url = '/portaldevteam2017/';
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        var ldr = document.getElementById('disqus_loader');
+    };
+    window.onscroll = function(e) {
+        if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 800)) {
+            //hit bottom of page
+            if (disqus_loaded==false)
+                load_disqus()
+        }
+    };
+</script>
+-->
+            <footer>
+    <p>
+      
+      <a itemprop="github" href="https://github.com/zuminternet" title="Github">
+        <svg><use xlink:href="#icon-github"></use></svg>
+      </a>
+      
+      
+      <a itemprop="facebook" href="https://www.facebook.com/zumcom" title="Facebook">
+        <svg><use xlink:href="#icon-facebook"></use></svg>
+      </a>
+      
+      
+      <a itemprop="twitter" href="https://twitter.com/@zum_com" title="Twitter">
+        <svg><use xlink:href="#icon-twitter"></use></svg>
+      </a>
+      
+      
+      
+      
+    </p>
+    <ul>
+
+        <!---->
+          <!--<li><a href="http://localhost:4000">Home</a></li>-->
+        <!---->
+          <!--<li><a href="http://localhost:4000">Contact</a></li>-->
+        <!---->
+
+        <li><a href="http://localhost:4000">Home</a></li>
+        <li><a href="http://zuminternet.com" target="_blank">Contact</a></li>
+        <li><a class="feed" href="http://localhost:4000/feed.xml" title="Atom/RSS feed">Feed</a></li>
+    </ul>
+</footer>
+<script src="/assets/js/main.js"></script>
+// <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-XXXXXXXX-X', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  
+
+
+        </section>
+    </body>
+</html>
