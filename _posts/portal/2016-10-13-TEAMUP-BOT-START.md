@@ -109,10 +109,10 @@ bot.event.message.read.url=https://edge.tmup.com/v3/messages/
 bot.event.message.send.url=https://edge.tmup.com/v3/message/
 bot.event.feed.write.url=https://edge.tmup.com/v3/feed/
 bot.oauth.token.url=https://auth.tmup.com/oauth2/token
-bot.oauth.client.id={{발급받은 id}}
-bot.oauth.client.secret={{발급받은 secret}}
-bot.teamup.id={{봇과 연동될 팀업 계정 ID}}
-bot.teamup.pw={{봇과 연동될 팀업 계정 비밀번호}}
+bot.oauth.client.id="{발급받은 id}"
+bot.oauth.client.secret="{발급받은 secret}"
+bot.teamup.id="{봇과 연동될 팀업 계정 ID}"
+bot.teamup.pw="{봇과 연동될 팀업 계정 비밀번호}"
 {% endhighlight %}
 
 <br> `@Configuration` 어노테이션을 사용하여 기본 환경 변수를 셋팅합니다.

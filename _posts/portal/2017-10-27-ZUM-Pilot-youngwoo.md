@@ -80,7 +80,7 @@ tag: [spring,boot,pilot,신입,zum]
 
 __그리고 2주 후.. 대망의 코드 리뷰__
 
-![보노보노_고통](/images/portal/post/2017-10-27-ZUM-Pilot-youngwoo/bonobono.png)
+![보노보노_고통](/images/portal/post/2017-10-27-ZUM-Pilot-youngwoo/bono.jpeg)
 1. 서버 예외처리(validation, error 표기 및 처리)
 2. 프론트 예외처리
 3. Rest 규약에 맞게 설계

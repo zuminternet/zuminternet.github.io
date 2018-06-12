@@ -409,7 +409,7 @@ October 17, 2016
 
   <span class="nd">@Scheduled</span><span class="o">(</span><span class="n">cron</span> <span class="o">=</span> <span class="s">"0 0 12 * * 1-5"</span><span class="o">)</span>
   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">lunch</span><span class="o">()</span> <span class="o">{</span>
-      <span class="n">messageService</span><span class="o">.</span><span class="na">sendMessage</span><span class="o">(</span><span class="s">"점심시간이다아~~!"</span><span class="o">,</span> <span class="o">)</span>
+      <span class="n">messageService</span><span class="o">.</span><span class="na">sendMessage</span><span class="o">(</span><span class="s">"점심시간이다아~~!"</span><span class="o">,</span> <span class="o">{</span><span class="err">방</span> <span class="err">번호</span><span class="o">})</span>
   <span class="o">}</span>
 
 <span class="o">}</span></code></pre></figure>

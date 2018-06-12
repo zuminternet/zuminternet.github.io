@@ -283,7 +283,7 @@ public class ScheduleService {
 
   @Scheduled(cron = "0 0 12 * * 1-5")
   public void lunch() {
-      messageService.sendMessage("점심시간이다아~~!", {{방 번호}})
+      messageService.sendMessage("점심시간이다아~~!", {방 번호})
   }
 
 }
