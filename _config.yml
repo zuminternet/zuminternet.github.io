@@ -1,5 +1,5 @@
 # Site Settings
-title: ZUM 기술 블로그
+title: 줌인터넷 기술 블로그
 email: zuminternet@zuminternet.com
 description: "생각을 읽다, ZUM, 고객의 생각을 읽고 담는 줌 인터넷 개발자들의 '좀 다른 개발 이야기'를 소개 합니다."
 baseurl: ""
@@ -7,9 +7,13 @@ url: "http://zuminternet.com" # the base hostname & protocol for your site
 google_analytics: "UA-XXXXXXXX-X"
 
 # User Settings
-username:
-user_description: Some text about you.
-disqus_username: disqus_username
+username: ZUM TECH BLOG
+
+# OG Tag
+og_type: website
+og_url: https://zuminternet.github.io/
+og_image: http://lego.zumst.com/resources/current/images/thumb_zum.jpg
+
 
 # Social Media
 # Remove the item if you don't need it
