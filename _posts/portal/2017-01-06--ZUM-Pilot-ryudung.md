@@ -69,7 +69,7 @@ tag: [spring,boot,pilot,zum,zuminternet,줌인터넷,포털개발,신입]
 Freemarker는 처음 들어 봤는데(`알고 보니.. JSP탬플릿은 몇 해 전 부터 개발이 중단되었고, 그 뒤를 이어가는 자바진영의 서버 탬플릿 -그 밖에 대표적인 서버 탬플릿 Velocity, Thymeleaf`) 이란 것을 알게 되었습니다.<br><br>
   Node나 Backbone, grunt, npm와 같은 프론트 기술들을 잘 사용해 보지 않은 저 였기에 2주라는 기간 동안에 개발이 힘들 것이라 판단하고 과감히 포기하였습니다..(`기술 스펙트럼이 좁다는 것을 다시 한번 느끼게 되었습니다.`)
 <br><br>
- ![망한건가?](/images/portal/post/2017-01-06--ZUM-Pilot-ryudung/5.PNG)<br><br>
+ ![망한건가?](/images/portal/post/2017-01-06--ZUM-Pilot-ryudung/1-5.PNG)<br><br>
 
 
 #### 필수 구현 기능
@@ -216,13 +216,13 @@ Freemarker는 처음 들어 봤는데(`알고 보니.. JSP탬플릿은 몇 해 �
  `2. 손쉽게 많은 이익을 얻을 수 있는 일감을 비유적으로 이르는 말.`
 <br>
 
-![다음엔 더 잘 할 수 있을거야..](/images/portal/post/2017-01-06--ZUM-Pilot-ryudung/6.PNG)<br>`다음엔 더 잘 할거야..`<br><br><br>
+![다음엔 더 잘 할 수 있을거야..](/images/portal/post/2017-01-06--ZUM-Pilot-ryudung/1-6.PNG)<br>`다음엔 더 잘 할거야..`<br><br><br>
  
 ## 2. 이글루스(php)를 자바로 포팅하기.
  
  `실서비스를 포팅해본다는 엄청난 경험이 나에게??`
   
-![두근두근?](/images/portal/post/2017-01-06--ZUM-Pilot-ryudung/7.PNG)<br><br>
+![두근두근?](/images/portal/post/2017-01-06--ZUM-Pilot-ryudung/1-7.PNG)<br><br>
  
 ### 진행할 작업
  
@@ -248,9 +248,9 @@ Freemarker는 처음 들어 봤는데(`알고 보니.. JSP탬플릿은 몇 해 �
  <br>
 
  **시스템 구조도**<br>
- ![구조](/images/portal/post/2017-01-06--ZUM-Pilot-ryudung/2.PNG)<br><br>
+ ![구조](/images/portal/post/2017-01-06--ZUM-Pilot-ryudung/1-2.PNG)<br><br>
 **배치성 파일 parsing 로직**<br>
- ![배치성파일 parsing 로직](/images/portal/post/2017-01-06--ZUM-Pilot-ryudung/3.PNG)
+ ![배치성파일 parsing 로직](/images/portal/post/2017-01-06--ZUM-Pilot-ryudung/1-3.PNG)
  <br><br>
  **간략 설명** <br>
  Spring 스케줄러가 배치성파일(인기글(테마별), 전체 인기글, 인기테마 등)을 파싱하고, 이를 EHcache에 담아 사용합니다.
@@ -258,7 +258,7 @@ Freemarker는 처음 들어 봤는데(`알고 보니.. JSP탬플릿은 몇 해 �
  
  - **기술**
  <br><br>
- ![사용 기술](/images/portal/post/2017-01-06--ZUM-Pilot-ryudung/1.PNG)
+ ![사용 기술](/images/portal/post/2017-01-06--ZUM-Pilot-ryudung/1-1.PNG)
  <br>
  **\*2차 프로젝트부터는 기술의 제한없이 기술을 선택하여 구현합니다.**<br><br>
  `1차 프로젝트 때, 코드리뷰를 수정하며 추가했던 npm(패키지관리 모듈, package.json으로 관리)과 grunt(빌드 툴), handlebars, require.js를 적용 하였습니다.`
@@ -288,7 +288,7 @@ Freemarker는 처음 들어 봤는데(`알고 보니.. JSP탬플릿은 몇 해 �
   페이지 로딩 속도를 높이기 위해서 입니다.(저만 몰랐던것이죠..)<br><br>
   처음에 제가 눈여겨 본것(당연히 구글링)은 jquery의 lazyload플러그인 이였습니다. 이벤트 발생했을 때 lazyload함수를 통해서 이미지를 로딩하는 방식입니다.
   하지만, 페이지가 로딩될 때 jquery.load 플러그인을 추가로 로딩하기 보다는 아래와 같이 구현 하였습니다.(`선임 님의 힌트를 덥석 받아 먹었습니다.`)<br> <br> 
-  ![data-src에 이미지url를 저장](/images/portal/post/2017-01-06--ZUM-Pilot-ryudung/4.PNG)<br><br> 
+  ![data-src에 이미지url를 저장](/images/portal/post/2017-01-06--ZUM-Pilot-ryudung/1-4.PNG)<br><br> 
   이벤트가 발생했을 때, data-src의 주소를 src로 변경해주는 방법만으로 간단하게 구현 할 수 있었습니다.
     
  - **캐시냐? DB냐?**<br><br>
