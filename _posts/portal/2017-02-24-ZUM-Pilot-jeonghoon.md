@@ -119,7 +119,7 @@ __그리고 2주 후.. 대망의 코드 리뷰__
 ### 설계도
 
 미흡한 실력으로나마 흐름만 설계를 해보았습니다. (민망)
-![소셜댓글 설계](/images/portal/post/2017-02-24-ZUM-Pilot-jeonghoon/social_blueprint.PNG)
+![소셜댓글 설계](/images/portal/post/2017-02-24-ZUM-Pilot-jeonghoon/social_blueprint1.PNG)
 
 __내 맘대로 고르는 핵심__
 1. Spring Social
@@ -130,7 +130,7 @@ Spring Social에서는 단순한 방법으로 OAuth1과 OAuth2를 지원해줍�
 
 Spring에서 제공해주는 기능이라 믿을만하고 편하지만 Spring Social core에서 지원하는 OAuth를 사용하려면 아래의 DB 스키마를 무조건 따라야 합니다.(**심지어 테이블명(UserConnection)과 PK(userid, providerid, provideruserid)까지 정해져 있습니다.**)
 
-![소셜 스키마](/images/portal/post/2017-02-24-ZUM-Pilot-jeonghoon/social_schema.PNG)
+![소셜 스키마](/images/portal/post/2017-02-24-ZUM-Pilot-jeonghoon/social_schema1.PNG)
 
 소셜 댓글을 개발하면서 많은 삽질을 했습니다...
 

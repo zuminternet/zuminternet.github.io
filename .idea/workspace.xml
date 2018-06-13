@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/_config.yml" line="17" mnemonic="1" />
+    <bookmark url="file://$PROJECT_DIR$/_posts/portal/2017-02-24-ZUM-Pilot-jeonghoon.md" line="127" mnemonic="1" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b2cec123-402a-4553-98ef-7a084d7fa9c2" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/images/portal/post/2017-02-24-ZUM-Pilot-jeonghoon/social_blueprint1.PNG" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/images/portal/post/2017-02-24-ZUM-Pilot-jeonghoon/social_schema1.PNG" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/_posts/portal/2017-02-24-ZUM-Pilot-jeonghoon.md" afterPath="$PROJECT_DIR$/_posts/portal/2017-02-24-ZUM-Pilot-jeonghoon.md" />
       <change beforePath="$PROJECT_DIR$/_site/feed.xml" afterPath="$PROJECT_DIR$/_site/feed.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -54,8 +57,8 @@
         <entry file="file://$PROJECT_DIR$/_posts/portal/2017-02-24-ZUM-Pilot-jeonghoon.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="154">
-                <caret line="124" column="16" lean-forward="true" selection-start-line="124" selection-start-column="16" selection-end-line="124" selection-end-column="16" />
+              <first_editor relative-caret-position="195">
+                <caret line="128" column="46" lean-forward="true" selection-start-line="128" selection-start-column="46" selection-end-line="128" selection-end-column="46" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -63,13 +66,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="footer.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_includes/footer.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
+      <file leaf-file-name="social_blueprint.PNG" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/images/portal/post/2017-02-24-ZUM-Pilot-jeonghoon/social_blueprint.PNG">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="social_result.PNG" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/images/portal/post/2017-02-24-ZUM-Pilot-jeonghoon/social_result.PNG">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="social_schema.PNG" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/images/portal/post/2017-02-24-ZUM-Pilot-jeonghoon/social_schema.PNG">
+          <provider selected="true" editor-type-id="images">
+            <state />
           </provider>
         </entry>
       </file>
@@ -85,26 +99,6 @@
       </file>
       <file leaf-file-name="comments.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_includes/comments.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="new-post-tag.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_includes/new-post-tag.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="minutes-to-read.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_includes/minutes-to-read.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -132,6 +126,7 @@
       <find>방 번호</find>
       <find>plu</find>
       <find>ROSSENER.COM</find>
+      <find>ocial_blueprint.PNG</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -388,7 +383,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1528794084777</updated>
-      <workItem from="1528794086533" duration="7364000" />
+      <workItem from="1528794086533" duration="7470000" />
     </task>
     <task id="LOCAL-00001" summary="- post 문법 에러 수정&#10;- 깨진 이미지 추가">
       <created>1528806441741</created>
@@ -474,11 +469,18 @@
       <option name="project" value="LOCAL" />
       <updated>1528867036704</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="- 페이지스북 공유하기 og 태그 업데이트">
+      <created>1528867129399</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1528867129399</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7364000" />
+    <option name="totallyTimeSpent" value="7470000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -559,27 +561,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/images/portal/post/2017-7-2-portaldevteam2017/20170410_104719.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/portal/post/2017-7-2-portaldevteam2017/20170410_103935.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/portal/2017-7-2-portaldevteam2017.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="-5534">
-            <caret line="4" column="73" lean-forward="false" selection-start-line="4" selection-start-column="73" selection-end-line="4" selection-end-column="73" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_posts/portal/2017-06-25-JOOQ.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -923,11 +904,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/images/portal/post/2017-02-24-ZUM-Pilot-jeonghoon/social_blueprint.PNG">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/portal/post/2017-02-24-ZUM-Pilot-jeonghoon/social_result.PNG">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/portal/post/2017-02-24-ZUM-Pilot-jeonghoon/social_schema.PNG">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/_posts/portal/2017-02-24-ZUM-Pilot-jeonghoon.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="154">
-            <caret line="124" column="16" lean-forward="true" selection-start-line="124" selection-start-column="16" selection-end-line="124" selection-end-column="16" />
+          <first_editor relative-caret-position="195">
+            <caret line="128" column="46" lean-forward="true" selection-start-line="128" selection-start-column="46" selection-end-line="128" selection-end-column="46" />
             <folding />
           </first_editor>
           <second_editor />
