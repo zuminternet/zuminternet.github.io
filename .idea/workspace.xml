@@ -5,11 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b2cec123-402a-4553-98ef-7a084d7fa9c2" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/images/portal/post/2017-02-24-ZUM-Pilot-jeonghoon/social_blueprint1.PNG" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/images/portal/post/2017-02-24-ZUM-Pilot-jeonghoon/social_schema1.PNG" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/images/portal/post/2017-01-06--ZUM-Pilot-ryudung/3.PNG" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/_posts/portal/2017-02-24-ZUM-Pilot-jeonghoon.md" afterPath="$PROJECT_DIR$/_posts/portal/2017-02-24-ZUM-Pilot-jeonghoon.md" />
+      <change beforePath="$PROJECT_DIR$/_site/ZUM-Pilot-jeonghoon/index.html" afterPath="$PROJECT_DIR$/_site/ZUM-Pilot-jeonghoon/index.html" />
       <change beforePath="$PROJECT_DIR$/_site/feed.xml" afterPath="$PROJECT_DIR$/_site/feed.xml" />
+      <change beforePath="$PROJECT_DIR$/images/portal/post/2017-01-06--ZUM-Pilot-ryudung/1.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/images/portal/post/2017-01-06--ZUM-Pilot-ryudung/2.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/images/portal/post/2017-01-06--ZUM-Pilot-ryudung/4.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/images/portal/post/2017-01-06--ZUM-Pilot-ryudung/5.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/images/portal/post/2017-01-06--ZUM-Pilot-ryudung/6.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/images/portal/post/2017-01-06--ZUM-Pilot-ryudung/7.png" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -53,12 +58,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2017-02-24-ZUM-Pilot-jeonghoon.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="2017-02-24-ZUM-Pilot-jeonghoon.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_posts/portal/2017-02-24-ZUM-Pilot-jeonghoon.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="195">
-                <caret line="128" column="46" lean-forward="true" selection-start-line="128" selection-start-column="46" selection-end-line="128" selection-end-column="46" />
+              <first_editor relative-caret-position="-945">
+                <caret line="125" column="24" lean-forward="false" selection-start-line="125" selection-start-column="24" selection-end-line="125" selection-end-column="24" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="2017-01-06--ZUM-Pilot-ryudung.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/_posts/portal/2017-01-06--ZUM-Pilot-ryudung.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="-367">
+                <caret line="290" column="75" lean-forward="false" selection-start-line="290" selection-start-column="75" selection-end-line="290" selection-end-column="75" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -84,16 +102,6 @@
         <entry file="file://$PROJECT_DIR$/images/portal/post/2017-02-24-ZUM-Pilot-jeonghoon/social_schema.PNG">
           <provider selected="true" editor-type-id="images">
             <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="date.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_includes/date.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
           </provider>
         </entry>
       </file>
@@ -149,6 +157,7 @@
         <option value="$PROJECT_DIR$/_includes/head.html" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/_posts/portal/2017-02-24-ZUM-Pilot-jeonghoon.md" />
+        <option value="$PROJECT_DIR$/_posts/portal/2017-01-06--ZUM-Pilot-ryudung.md" />
       </list>
     </option>
   </component>
@@ -247,7 +256,7 @@
               <item name="images" type="462c0819:PsiDirectoryNode" />
               <item name="portal" type="462c0819:PsiDirectoryNode" />
               <item name="post" type="462c0819:PsiDirectoryNode" />
-              <item name="2017-02-24-ZUM-Pilot-jeonghoon" type="462c0819:PsiDirectoryNode" />
+              <item name="2017-01-06--ZUM-Pilot-ryudung" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -271,6 +280,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/images/portal/post/2017-01-06--ZUM-Pilot-ryudung" />
       <recent name="$PROJECT_DIR$/images/portal/post/2017-02-24-ZUM-Pilot-jeonghoon" />
       <recent name="$PROJECT_DIR$/images/portal/post" />
       <recent name="$PROJECT_DIR$/images/portal/post/2017-10-27-ZUM-Pilot-youngwoo" />
@@ -383,7 +393,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1528794084777</updated>
-      <workItem from="1528794086533" duration="7470000" />
+      <workItem from="1528794086533" duration="7841000" />
     </task>
     <task id="LOCAL-00001" summary="- post 문법 에러 수정&#10;- 깨진 이미지 추가">
       <created>1528806441741</created>
@@ -476,11 +486,18 @@
       <option name="project" value="LOCAL" />
       <updated>1528867129399</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="- 페이지스북 공유하기 og 태그 업데이트">
+      <created>1528867236109</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1528867236109</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7470000" />
+    <option name="totallyTimeSpent" value="7841000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -561,17 +578,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/_posts/portal/2017-06-25-JOOQ.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="-17">
-            <caret line="103" column="17" lean-forward="false" selection-start-line="103" selection-start-column="13" selection-end-line="103" selection-end-column="17" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_posts/portal/2017-10-27-ZUM-Pilot-youngwoo.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -922,8 +928,19 @@
     <entry file="file://$PROJECT_DIR$/_posts/portal/2017-02-24-ZUM-Pilot-jeonghoon.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="195">
-            <caret line="128" column="46" lean-forward="true" selection-start-line="128" selection-start-column="46" selection-end-line="128" selection-end-column="46" />
+          <first_editor relative-caret-position="-945">
+            <caret line="125" column="24" lean-forward="false" selection-start-line="125" selection-start-column="24" selection-end-line="125" selection-end-column="24" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/portal/2017-01-06--ZUM-Pilot-ryudung.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="-367">
+            <caret line="290" column="75" lean-forward="false" selection-start-line="290" selection-start-column="75" selection-end-line="290" selection-end-column="75" />
             <folding />
           </first_editor>
           <second_editor />
