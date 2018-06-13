@@ -2,7 +2,7 @@
 layout: post
 title: "[포털개발팀-류광현] 파일럿 프로젝트"
 description: 포털개발팀 신입사원 파일럿 프로젝트 회고. 수습기간 동안 파일럿 프로젝트를 진행하며 느낀점
-image: /images/portal/post/2017-01-06--ZUM-Pilot-ryudung/1-2.PNG
+image: /images/portal/post/2017-01-06--ZUM-Pilot-ryudung/thum.png
 introduction: 개발자로 첫 발을 내딛으며. 
 category: portal/pilot
 author: 포털개발팀 류광현 담당
