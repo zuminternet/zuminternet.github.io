@@ -1,52 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/README.md" line="73" mnemonic="1" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="b2cec123-402a-4553-98ef-7a084d7fa9c2" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/images/readme/1.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/images/readme/10.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/images/readme/11.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/images/readme/12.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/images/readme/13.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/images/readme/14.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/images/readme/15.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/images/readme/16.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/images/readme/17.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/images/readme/18.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/images/readme/19.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/images/readme/2.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/images/readme/2.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/images/readme/20.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/images/readme/21.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/images/readme/22.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/images/readme/23.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/images/readme/24.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/images/readme/25.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/images/readme/26.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/images/readme/27.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/images/readme/28.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/images/readme/29.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/images/readme/3.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/images/readme/30.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/images/readme/31.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/images/readme/32.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/images/readme/4.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/images/readme/5.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/images/readme/6.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/images/readme/7.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/images/readme/8.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/images/readme/9.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/images/readme/p1.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/images/readme/p2.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/images/readme/p4.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/images/readme/p99.png" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change beforePath="$PROJECT_DIR$/_site/README.md" afterPath="$PROJECT_DIR$/_site/README.md" />
       <change beforePath="$PROJECT_DIR$/_site/feed.xml" afterPath="$PROJECT_DIR$/_site/feed.xml" />
-      <change beforePath="$PROJECT_DIR$/_site/index.html" afterPath="$PROJECT_DIR$/_site/index.html" />
-      <change beforePath="$PROJECT_DIR$/_site/search.json" afterPath="$PROJECT_DIR$/_site/search.json" />
-      <change beforePath="$PROJECT_DIR$/_site/sitemap.xml" afterPath="$PROJECT_DIR$/_site/sitemap.xml" />
-      <change beforePath="$PROJECT_DIR$/_site/tags/index.html" afterPath="$PROJECT_DIR$/_site/tags/index.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -61,12 +23,19 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="618">
-                <caret line="184" column="0" lean-forward="false" selection-start-line="184" selection-start-column="0" selection-end-line="184" selection-end-column="0" />
+              <first_editor relative-caret-position="250">
+                <caret line="65" column="29" lean-forward="true" selection-start-line="65" selection-start-column="29" selection-end-line="65" selection-end-column="29" />
                 <folding />
               </first_editor>
               <second_editor />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="g1-1.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/images/readme/g1-1.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
           </provider>
         </entry>
       </file>
@@ -366,7 +335,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1528794084777</updated>
-      <workItem from="1528794086533" duration="18201000" />
+      <workItem from="1528794086533" duration="18442000" />
     </task>
     <task id="LOCAL-00001" summary="- post 문법 에러 수정&#10;- 깨진 이미지 추가">
       <created>1528806441741</created>
@@ -501,14 +470,22 @@
       <option name="project" value="LOCAL" />
       <updated>1528868544645</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="- readme 작성">
+      <created>1529129822778</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1529129822778</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18201000" />
+    <option name="totallyTimeSpent" value="18442000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -524,7 +501,7 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Run with VisualVM" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -578,18 +555,14 @@
     <MESSAGE value="- 블로그 url 변경" />
     <MESSAGE value="- 공유 이미지 변경" />
     <MESSAGE value="- 페이지스북 공유하기 og 태그 업데이트" />
-    <option name="LAST_COMMIT_MESSAGE" value="- 페이지스북 공유하기 og 태그 업데이트" />
+    <MESSAGE value="- readme 작성" />
+    <option name="LAST_COMMIT_MESSAGE" value="- readme 작성" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/images/portal/post/2017-02-24-ZUM-Pilot-jeonghoon/social_result.PNG">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/images/portal/post/2017-02-24-ZUM-Pilot-jeonghoon/social_schema.PNG">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -869,22 +842,27 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
+    <entry file="file://$PROJECT_DIR$/_posts/portal/2018-06-12-readme.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="618">
-            <caret line="184" column="0" lean-forward="false" selection-start-line="184" selection-start-column="0" selection-end-line="184" selection-end-column="0" />
+          <first_editor relative-caret-position="333">
+            <caret line="182" column="30" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="201" selection-end-column="0" />
             <folding />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/portal/2018-06-12-readme.md">
+    <entry file="file://$PROJECT_DIR$/images/readme/g1-1.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="333">
-            <caret line="182" column="30" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="201" selection-end-column="0" />
+          <first_editor relative-caret-position="250">
+            <caret line="65" column="29" lean-forward="true" selection-start-line="65" selection-start-column="29" selection-end-line="65" selection-end-column="29" />
             <folding />
           </first_editor>
           <second_editor />

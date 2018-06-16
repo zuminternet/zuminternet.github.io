@@ -71,13 +71,13 @@ Pygments를 설치 합니다.
 ![설치5](/images/readme/15.png)
 
 
-### (6) 블로그 로컬 실행하기  ###
-![설치5](/images/readme/g1.png)
+### (6) 로컬 실행하기  ###
+![설치5](/images/readme/g1-1.png)
 
 소스를 clone 한다.
-{% highlight text %}
+```text
     git clone https://github.com/zuminternet/zuminternet.github.io.git"
-{% endhighlight %}
+```
 
 해당 소스 루트 디렉토리로 이동을 하고 서버를 기동 한다.
 ![설치5](/images/readme/20.png)
@@ -174,9 +174,9 @@ authorDescription 속성은 아래와 같이 노출 된다.
 로컬에서 확인이 완료되면 github에 푸시를 한다.
 
 소스를 clone 한다.
-{% highlight text %}
+```text
     git push origin master
-{% endhighlight %}
+``
 
 ![설치5](/images/readme/p31.png)
 ![설치5](/images/readme/p32.png)
