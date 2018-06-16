@@ -23,7 +23,7 @@ ZUM 기술 블로그 작성 가이드 입니다.
 * Jekyll
 * Python(Setuptool,pip,Pygments)
 * rouge
-* Jekyll
+* npm (선택)
 
 
 ### (3) Ruby 설치 하기 (Window 버전) ###
@@ -44,7 +44,7 @@ ZUM 기술 블로그 작성 가이드 입니다.
 ![설치5](/images/readme/33.png)
 
 ### (4) Jekyll 및 ruby 라이브러리 설치  ###
-![설치5](/images/readme/7.png)
+![설치5](/images/readme/7-1.png)
 아래 라이브러리도 설치를 합니다.
 
 * gem install rouge
