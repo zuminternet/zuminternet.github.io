@@ -117,6 +117,7 @@ Pygments를 설치 합니다.
 
 
 포스트의 노출을 위해서 머릿말 속성을 반드시 숙지해야 한다.
+
 ![설치5](/images/readme/23.png)
 
 중요 속성은 아래와 같다.
@@ -125,22 +126,28 @@ Pygments를 설치 합니다.
 
 
 title 속성은 아래와 같이 노출 된다.
+
 ![설치5](/images/readme/25.png)
 
 image 속성은 아래와 같이 노출 된다.
+
 ![설치5](/images/readme/24.png)
 
 
 introduction 속성은 아래와 같이 노출 된다.
+
 ![설치5](/images/readme/26.png)
 
 authorImage 속성은 아래와 같이 노출 된다.
+
 ![설치5](/images/readme/27.png)
 
 author 속성은 아래와 같이 노출 된다.
+
 ![설치5](/images/readme/28.png)
 
 authorDescription 속성은 아래와 같이 노출 된다.
+
 ![설치5](/images/readme/29.png)
 
 포트스 내용은 [kramdown]("https://kramdown.gettalong.org/syntax.html") 마크다운으로 작성한다.
