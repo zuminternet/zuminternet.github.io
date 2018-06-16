@@ -32,12 +32,14 @@ github는 내부적으로 [Jekyll]("https://jekyllrb-ko.github.io/")를 사용�
 ![다운로드](/images/readme/1.png)
 
 설치 시 실행파일을 Path에 포함하도록 선택 합니다.
+
 ![설치1](/images/readme/2.png)
 ![설치2](/images/readme/3.png)
 ![설치3](/images/readme/4.png)
 ![설치4](/images/readme/5.png)
 
 설치 확인을 한다.
+
 ![설치5](/images/readme/33.png)
 
 ### (4) Jekyll 및 ruby 라이브러리 설치  ###
