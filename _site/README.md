@@ -3,9 +3,10 @@
 # 블로그 작성 가이드
 
 ZUM 기술 블로그 작성 가이드 입니다.
-블로그 호스팅은 Github Page를 사용합니다. 그렇기 때문에 포스팅 작성이 완료가 되면 [giihub]("https://github.com/zuminternet/zuminternet.github.io")에 배포를 합니다.
-github는 내부적으로 [Jekyll]("https://jekyllrb-ko.github.io/")를 사용하기 때문에 로컬 반드시 PC에 설치가 되어야 하며
-블로그 작성시 [kramdown]("https://kramdown.gettalong.org/syntax.html") 마크다운을 사용 합니다.
+
+모든 소스는 현재 repository에서 관리가 되며 github page의 포스팅 엔진 jekyll 규격을
+준수합니다.
+또한 포스팅 작성시  [kramdown]("https://kramdown.gettalong.org/syntax.html") 마크다운을 사용 합니다.
 
 ### (1) 작성 진행 순서 ###
 
