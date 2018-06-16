@@ -23,7 +23,7 @@ ZUM 기술 블로그 작성 가이드 입니다.
 * Jekyll
 * Python(Setuptool,pip,Pygments)
 * rouge
-* Jekyll
+* npm (선택)
 
 
 ### (3) Ruby 설치 하기 (Window 버전) ###
