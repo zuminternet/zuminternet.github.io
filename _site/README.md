@@ -45,6 +45,7 @@ ZUM 기술 블로그 작성 가이드 입니다.
 
 ### (4) Jekyll 및 ruby 라이브러리 설치  ###
 ![설치5](/images/readme/7-1.png)
+
 아래 라이브러리도 설치를 합니다.
 
 * gem install rouge
@@ -71,6 +72,7 @@ Pygments를 설치 합니다.
 ### (6) Jekyll 설치 확인  ###
 
 최종적으로 설치가 완료가 되었는지 확인을 합니다.
+
 ![설치5](/images/readme/15.png)
 
 
