@@ -1,120 +1,184 @@
-> March, 2016: If you're on an old version of Jekyll Now and run into a) build warnings or b) syntax highlighting issues caused by [Jekyll 3 and GitHub Pages updates](https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0), just :sparkles:[update your _config.yml](https://github.com/barryclark/jekyll-now/pull/445/files):sparkles: and you'll be set!
 
-# Jekyll Now
 
-**Jekyll** is a static site generator that's perfect for GitHub hosted blogs ([Jekyll Repository](https://github.com/jekyll/jekyll))
+# 블로그 작성 가이드
 
-**Jekyll Now** makes it easier to create your Jekyll blog, by eliminating a lot of the up front setup.
+ZUM 기술 블로그 작성을 위한 가이드를 설명 드립니다.
+블로그 호스팅은 Github Page를 사용합니다. 그렇기 때문에 포스팅 작성이 완료가 되면 [giihub]("https://github.com/zuminternet/zuminternet.github.io")에 배포를 합니다.
+github는 내부적으로 [Jekyll]("https://jekyllrb-ko.github.io/")를 사용하기 때문에 로컬 반드시 PC에 설치가 되어야 하며
+블로그 작성시 [kramdown]("https://kramdown.gettalong.org/syntax.html") 마크다운을 사용 합니다.
 
-- You don't need to touch the command line
-- You don't need to install/configure ruby, rvm/rbenv, ruby gems :relaxed:
-- You don't need to install runtime dependencies like markdown processors, Pygments, etc
-- If you're on Windows, this will make setting up Jekyll a lot easier
-- It's easy to try out, you can just delete your forked repository if you don't like it
+### (1) 작성 진행 순서 ###
 
-In a few minutes you'll be set up with a minimal, responsive blog like the one below giving you more time to spend on writing epic blog posts!
+* 작성을 하기 위해서는 반드시 [giihub]("https://github.com/zuminternet/zuminternet.github.io")에 대한 "write" 권한이 필요하기 때문에
+관리자(beyondj2ee@zuminternet.com)에게 권한을 요청 합니다. 단, 요청을 보낼때 github 계정을 알려주셔야 합니다.
+* jekyll를 설치를 합니다.
+* 포스팅을 작성 하고 로컬에서 확인이 완료되면 github 레파지토리로 push를 보내면 배포가 완료 됩니다.
 
-![Jekyll Now Theme Screenshot](/images/jekyll-now-theme-screenshot.jpg "Jekyll Now Theme Screenshot")
+### (2) 설치 프로그램 ###
 
-## Quick Start
+여기서는 window 버전으로만 설명을 드리겠습니다.
 
-### Step 1) Fork Jekyll Now to your User Repository
+* Ruby(ruby, DevKit)
+* Jekyll
+* Python(Setuptool,pip,Pygments)
+* rouge
+* Jekyll
 
-Fork this repo, then rename the repository to yourgithubusername.github.io.
 
-Your Jekyll blog will often be viewable immediately at <http://yourgithubusername.github.io> (if it's not, you can often force it to build by completing step 2)
+### (2) Ruby 설치 하기 (Window 버전) ###
 
-![Step 1](/images/step1.gif "Step 1")
+사이트에 접속 후 ruby 와 Devkit 같이 포함된 버전을 [다운로드]("https://rubyinstaller.org/downloads/") 받습니다.
 
-### Step 2) Customize and view your site
+![다운로드](/images/readme/1.png)
 
-Enter your site name, description, avatar and many other options by editing the _config.yml file. You can easily turn on Google Analytics tracking, Disqus commenting and social icons here too.
+설치 시 실행파일을 Path에 포함하도록 선택 합니다.
+![설치1](/images/readme/2.png)
+![설치2](/images/readme/3.png)
+![설치3](/images/readme/4.png)
+![설치4](/images/readme/5.png)
 
-Making a change to _config.yml (or any file in your repository) will force GitHub Pages to rebuild your site with jekyll. Your rebuilt site will be viewable a few seconds later at <http://yourgithubusername.github.io> - if not, give it ten minutes as GitHub suggests and it'll appear soon
+설치 확인을 한다.
+![설치5](/images/readme/33.png)
 
-> There are 3 different ways that you can make changes to your blog's files:
+### (3) Jekyll 및 ruby 라이브러리 설치  ###
+![설치5](/images/readme/7.png)
+아래 라이브러리도 설치를 합니다.
 
-> 1. Edit files within your new username.github.io repository in the browser at GitHub.com (shown below).
-> 2. Use a third party GitHub content editor, like [Prose by Development Seed](http://prose.io). It's optimized for use with Jekyll making markdown editing, writing drafts, and uploading images really easy.
-> 3. Clone down your repository and make updates locally, then push them to your GitHub repository.
+* gem install rouge
+* gem install minima
+* gem install bundler
+* gem install jekyll-feed
+* gem install tzinfo-data
+* gem install wdm
 
-![_config.yml](/images/config.png "_config.yml")
+### (4) Python 설치  ###
 
-### Step 3) Publish your first blog post
+지킬(Jekyll)에서 syntax highlighter를 사용하기 위해 Python을 설치가 필요 합니다.
+[다운로드]("https://www.python.org/downloads/") 받습니다.
 
-Edit `/_posts/2014-3-3-Hello-World.md` to publish your first blog post. This [Markdown Cheatsheet](http://www.jekyllnow.com/Markdown-Style-Guide/) might come in handy.
 
-![First Post](/images/first-post.png "First Post")
+![설치5](/images/readme/9.png)
+![설치5](/images/readme/10.png)
+![설치5](/images/readme/11.png)
+![설치5](/images/readme/12.png)
 
-> You can add additional posts in the browser on GitHub.com too! Just hit the + icon in `/_posts/` to create new content. Just make sure to include the [front-matter](http://jekyllrb.com/docs/frontmatter/) block at the top of each new blog post and make sure the post's filename is in this format: year-month-day-title.md
+Pygments를 설치 합니다.
+![설치5](/images/readme/14.png)
 
-## Local Development
+### (5) Jekyll 설치 확인  ###
 
-1. Install Jekyll and plug-ins in one fell swoop. `gem install github-pages` This mirrors the plug-ins used by GitHub Pages on your local machine including Jekyll, Sass, etc.
-2. Clone down your fork `git clone https://github.com/yourusername/yourusername.github.io.git`
-3. Serve the site and watch for markup/sass changes `jekyll serve`
-4. View your website at http://127.0.0.1:4000/
-5. Commit any changes and push everything to the master branch of your GitHub user repository. GitHub Pages will then rebuild and serve your website.
+최종적으로 설치가 완료가 되었는지 확인을 합니다.
+![설치5](/images/readme/15.png)
 
-## Moar!
 
-I've created a more detailed walkthrough, [**Build A Blog With Jekyll And GitHub Pages**](http://www.smashingmagazine.com/2014/08/01/build-blog-jekyll-github-pages/) over at the Smashing Magazine website. Check it out if you'd like a more detailed walkthrough and some background on Jekyll. :metal:
+### (6) 블로그 로컬 실행하기  ###
+![설치5](/images/readme/g1.png)
 
-It covers:
+소스를 clone 한다.
+{% highlight text %}
+    git clone https://github.com/zuminternet/zuminternet.github.io.git"
+{% endhighlight %}
 
-- A more detailed walkthrough of setting up your Jekyll blog
-- Common issues that you might encounter while using Jekyll
-- Importing from Wordpress, using your own domain name, and blogging in your favorite editor
-- Theming in Jekyll, with Liquid templating examples
-- A quick look at Jekyll 2.0’s new features, including Sass/Coffeescript support and Collections
+해당 소스 루트 디렉토리로 이동을 하고 서버를 기동 한다.
+![설치5](/images/readme/20.png)
 
-## Jekyll Now Features
+로컬서버 http://localhost:4000 에 접속해서 확인을 한다. 
+![설치5](/images/readme/32.png)
 
-✓ Command-line free _fork-first workflow_, using GitHub.com to create, customize and post to your blog  
-✓ Fully responsive and mobile optimized base theme (**[Theme Demo](http://jekyllnow.com)**)  
-✓ Sass/Coffeescript support using Jekyll 2.0  
-✓ Free hosting on your GitHub Pages user site  
-✓ Markdown blogging  
-✓ Syntax highlighting  
-✓ Disqus commenting  
-✓ Google Analytics integration  
-✓ SVG social icons for your footer  
-✓ 3 http requests, including your avatar  
+### (7) 포스트 디렉토리 가이드  ###
 
-✘ No installing dependencies
-✘ No need to set up local development  
-✘ No configuring plugins  
-✘ No need to spend time on theming  
-✘ More time to code other things ... wait ✓!  
+포스트를 작성하기 위해서는 **"_post"** 디렉토리(jekyll은 _post 디렉토리 안에 있는 것을 포스트로 인식 한다.) 와 이미지를 저장하기 위한 **"images"** 디렉토리를 사용한다.
 
-## Questions?
+![설치5](/images/readme/p2.png)
 
-[Open an Issue](https://github.com/barryclark/jekyll-now/issues/new) and let's chat!
+부서별 사용하는 디렉토리는 아래와 같다.
 
-## Other forkable themes
+|-----------------+-----------------+------------------------|
+| 담당 파트         |포스트 루트 디렉토리| 이미지 루트 디렉토리           |
+|-----------------|:----------------|:-----------------------|
+| 검색본부           |_posts/search     |images/search           |
+|-----------------|:----------------|:-----------------------|
+| 포털본부           |_posts/portal     |images/portal           |
+|-----------------+-----------------+-------------------------+
+| 부설연구소        | _posts/lab       |images/lab              |
+|=================+==================+=======================+
+| 신사업개발실        |_posts/business   |image/business          |
+|-----------------+------------------+-----------------------+
 
-You can use the [Quick Start](https://github.com/barryclark/jekyll-now#quick-start) workflow with other themes that are set up to be forked too! Here are some of my favorites:
 
-- [Hyde](https://github.com/poole/hyde) by MDO
-- [Lanyon](https://github.com/poole/lanyon) by MDO
-- [mojombo.github.io](https://github.com/mojombo/mojombo.github.io) by Tom Preston-Werner
-- [Left](https://github.com/holman/left) by Zach Holman
-- [Minimal Mistakes](https://github.com/mmistakes/minimal-mistakes) by Michael Rose
-- [Skinny Bones](https://github.com/mmistakes/skinny-bones-jekyll) by Michael Rose
+포스트 파일명은 반드시 아래의 규칙을 준수한다.
+(jekyll 표준)
 
-## Credits
+**yyyy(4자리)-mm(2자리)-dd(2자리)-제목.md**
 
-- [Jekyll](https://github.com/jekyll/jekyll) - Thanks to its creators, contributors and maintainers.
-- [SVG icons](https://github.com/neilorangepeel/Free-Social-Icons) - Thanks, Neil Orange Peel. They're beautiful.
-- [Solarized Light Pygments](https://gist.github.com/edwardhotchkiss/2005058) - Thanks, Edward.
-- [Joel Glovier](http://joelglovier.com/writing/) - Great Jekyll articles. I used Joel's feed.xml in this repository.
-- [David Furnes](https://github.com/dfurnes), [Jon Uy](https://github.com/jonuy), [Luke Patton](https://github.com/lkpttn) - Thanks for the design/code reviews.
-- [Bart Kiers](https://github.com/bkiers), [Florian Simon](https://github.com/vermluh), [Henry Stanley](https://github.com/henryaj), [Hun Jae Lee](https://github.com/hunjaelee), [Javier Cejudo](https://github.com/javiercejudo), [Peter Etelej](https://github.com/etelej), [Ben Abbott](https://github.com/jaminscript), [Ray Nicholus](https://github.com/rnicholus), [Erin Grand](https://github.com/eringrand), [Léo Colombaro](https://github.com/LeoColomb), [Dean Attali](https://github.com/daattali), [Clayton Errington](https://github.com/cjerrington), [Colton Fitzgerald](https://github.com/coltonfitzgerald), [Trace Mayer](https://github.com/sunnankar) - Thanks for your [fantastic contributions](https://github.com/barryclark/jekyll-now/commits/master) to the project!
+예) _posts/부서별 루트 디렉토리/2016-06-16-blog.md
 
-## Contributing
 
-Issues and Pull Requests are greatly appreciated. If you've never contributed to an open source project before I'm more than happy to walk you through how to create a pull request.
+![설치5](/images/readme/p4.png)
 
-You can start by [opening an issue](https://github.com/barryclark/jekyll-now/issues/new) describing the problem that you're looking to resolve and we'll go from there.
 
-I want to keep Jekyll Now as minimal as possible. Every line of code should be one that's useful to 90% of the people using it. Please bear that in mind when submitting feature requests. If it's not something that most people will use, it probably won't get merged. :guardsman:
+### (8) 포스트 작성 가이드  ###
+
+
+포스트의 노출을 위해서 머릿말 속성을 반드시 숙지해야 한다.
+![설치5](/images/readme/23.png)
+
+중요 속성은 아래와 같다.
+
+|-----------------+----------------------------|
+| 속성         |설명          |
+|-----------------|:----------|
+| layout           |반드시 "post"로 설정 한다.              |
+|-----------------+----------------------------------------+
+| title           |포스트 명            |
+|-----------------+----------------------------------------+
+| description     |포스트 설          |
+|-----------------+----------------------------------------+
+| image           |리스트에 노출될 이미           |
+|-----------------+----------------------------------------+
+| introduction           |리스트에 노출될 간단 설명            |
+|-----------------+----------------------------------------+
+| author           |작성자 명           |
+|-----------------+----------------------------------------+
+| authorImage          |작성자 이미지          |
+|-----------------+----------------------------------------+
+| authorDescription         |작성자 소개            |
+|-----------------+----------------------------------------+
+
+title 속성은 아래와 같이 노출 된다.
+![설치5](/images/readme/25.png)
+
+image 속성은 아래와 같이 노출 된다.
+![설치5](/images/readme/24.png)
+
+
+introduction 속성은 아래와 같이 노출 된다.
+![설치5](/images/readme/26.png)
+
+authorImage 속성은 아래와 같이 노출 된다.
+![설치5](/images/readme/27.png)
+
+author 속성은 아래와 같이 노출 된다.
+![설치5](/images/readme/28.png)
+
+authorDescription 속성은 아래와 같이 노출 된다.
+![설치5](/images/readme/29.png)
+
+포트스 내용은 [kramdown]("https://kramdown.gettalong.org/syntax.html") 마크다운으로 작성한다.
+
+![설치5](/images/readme/p99.png)
+
+
+### (9) 포스트 발행하기  ###
+
+로컬에서 확인이 완료되면 github에 푸시를 한다.
+
+소스를 clone 한다.
+{% highlight text %}
+    git push origin master
+{% endhighlight %}
+
+![설치5](/images/readme/p31.png)
+![설치5](/images/readme/p32.png)
+
+포스트를 변경할 경우 cache 적용으로 인해서 30초 ~ 1분정도 지나서 업데이트가 된다.
