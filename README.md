@@ -100,7 +100,7 @@ Pygments를 설치 합니다.
 
 부서별 사용하는 디렉토리는 아래와 같다.
 
-![설치5](/images/readme/t1.png)
+![설치5](/images/readme/t2.png)
 
 포스트 파일명은 반드시 아래의 규칙을 준수한다.
 (jekyll 표준)
@@ -122,7 +122,7 @@ Pygments를 설치 합니다.
 
 중요 속성은 아래와 같다.
 
-![설치5](/images/readme/t2.png)
+![설치5](/images/readme/t1.png)
 
 
 title 속성은 아래와 같이 노출 된다.
