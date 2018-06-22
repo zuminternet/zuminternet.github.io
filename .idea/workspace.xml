@@ -17,8 +17,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="437">
-                <caret line="177" lean-forward="true" selection-start-line="177" selection-end-line="177" />
+              <first_editor relative-caret-position="190">
+                <caret line="174" lean-forward="true" selection-start-line="174" selection-end-line="174" />
               </first_editor>
               <second_editor />
             </state>
@@ -241,7 +241,7 @@
       <updated>1528794084777</updated>
       <workItem from="1528794086533" duration="19949000" />
       <workItem from="1529665954819" duration="27000" />
-      <workItem from="1529665989816" duration="375000" />
+      <workItem from="1529665989816" duration="672000" />
     </task>
     <task id="LOCAL-00001" summary="- post 문법 에러 수정&#10;- 깨진 이미지 추가">
       <created>1528806441741</created>
@@ -495,11 +495,25 @@
       <option name="project" value="LOCAL" />
       <updated>1529666092917</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="- readme 작성">
+      <created>1529666453976</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1529666453976</updated>
+    </task>
+    <task id="LOCAL-00038" summary="- readme 작성">
+      <created>1529666523499</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1529666523499</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20351000" />
+    <option name="totallyTimeSpent" value="20648000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
@@ -525,9 +539,9 @@
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.329602" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32934782" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32934782" />
       <window_info anchor="bottom" id="Run with VisualVM" order="8" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2550586" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2550586" />
       <window_info anchor="right" id="Theme Preview" order="7" />
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Debug with VisualVM" order="11" />
@@ -673,8 +687,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="437">
-            <caret line="177" lean-forward="true" selection-start-line="177" selection-end-line="177" />
+          <first_editor relative-caret-position="190">
+            <caret line="174" lean-forward="true" selection-start-line="174" selection-end-line="174" />
           </first_editor>
           <second_editor />
         </state>

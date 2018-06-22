@@ -6,7 +6,7 @@ ZUM 기술 블로그 작성 가이드 입니다.
 
 모든 소스는 현재 repository에서 관리가 되며 github page의 포스팅 엔진 jekyll 규격을
 준수합니다.
-또한 포스팅 작성시  [kramdown]("https://kramdown.gettalong.org/syntax.html") 마크다운을 사용 합니다.
+또한 포스팅 작성시  https://kramdown.gettalong.org/syntax.html 마크다운을 사용 합니다.
 
 ### (1) 작성 진행 순서 ###
 
@@ -182,3 +182,4 @@ npm install -g gulp gulp-cli <br/>
 gulp <br/>
 
 [참고사이트]("https://github.com/thiagorossener/jekflix-template")
+
