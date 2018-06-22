@@ -167,3 +167,15 @@ authorDescription 속성은 아래와 같이 노출 된다.
 ![설치5](/images/readme/p12.png)
 
 포스트를 변경할 경우 cache 적용으로 인해서 30초 ~ 1분정도 지나서 업데이트가 된다.
+
+
+### (11) 사이트 관리  ###
+
+전체 페이지 레이아웃 및 css를 관리하려면 gulp로 빌드를 해야 한다.
+
+npm 설치 후 gulp를 설치하고 build를 해야 한다.
+npm install
+npm install -g gulp gulp-cli
+gulp
+
+[참고사이트]("https://github.com/thiagorossener/jekflix-template")
