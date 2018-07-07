@@ -3,14 +3,12 @@ body
     height 100%
 
 .bar-header
-    background-color #141414
-    padding rem(10px) rem(15px)
+    background-color mainBg
+    padding rem(15px) rem(15px)
     position fixed
     width 100%
     z-index 10
     transition top 0.5s
-    +above(cut)
-        padding rem(15px) rem(0px)
     .bar-header-wrap
         position relative
         margin 0 auto   
@@ -32,8 +30,6 @@ body
         width rem(20px)
         height rem(20px)
         fill accentDark
-        +above(cut)
-            margin rem(5px) rem(20px) rem(5px) rem(25px)
     .dosearch
         float right
         display inline-block
@@ -51,7 +47,7 @@ body
         margin rem(5px)
 
 body.main-page
-    background-color #141414
+    background-color mainBg
     .bar-header
         background-color rgba(0,0,0,.7)
         

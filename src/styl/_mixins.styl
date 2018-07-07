@@ -15,4 +15,11 @@ gradientEllipsis(width = 60px, height = 30px)
         right 0
         width rem(width)
         height rem(height)
-        background-image linear-gradient(to right, rgba(0,0,0,0) 0%,rgba(0,0,0,1) 90%,rgba(0,0,0,1) 100%)
+        background-image "linear-gradient(to right, %s 0%,%s 90%,%s 100%)" % (mainBgOpacity mainBg mainBg)
+
+clearFloat()
+    &:after
+        content ''
+        display block
+        clear both
+        line-height 0

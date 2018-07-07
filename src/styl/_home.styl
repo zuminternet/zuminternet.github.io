@@ -2,11 +2,11 @@ main
     mainFont(400)
     -webkit-font-smoothing antialiased
     -moz-osx-font-smoothing grayscale
-    padding-top rem(80px)
+    padding-top rem(60px)
     margin 0 auto
     max-width layoutWidth
     +above(cut)
-        padding-top rem(100px)
+        padding-top rem(80px)
 
 .row
     center(100%)
@@ -33,6 +33,25 @@ main
     z-index 1
     +above(cut)
         margin 0 rem(15px) rem(30px)
+    &:first-of-type
+        flex-basis 100%
+        +above(cut)
+            flex-basis "calc(100% - %s)" % rem(30px)
+        +above(768px)
+            .box-body
+                clearFloat()
+                .cover
+                    float left
+                    margin-right rem(20px)
+                    margin-bottom rem(20px)
+                    width 60%
+                    .img 
+                        height 352px
+    &:nth-of-type(2),&:nth-of-type(3)
+        +above(768px)
+            flex-basis "calc(50% - %s)" % rem(30px)
+            .box-body .cover .img 
+                    height 274px
     &:hover
         z-index 2
         transform scale(1.1)
@@ -78,7 +97,7 @@ main
             font-size rem(24px)
             mainFont(800)
             color accentDark
-            height rem(60px)
+            max-height rem(60px)
             line-height rem(30px)
             gradientEllipsis(width: 60px, height: 30px)
         p
@@ -86,7 +105,7 @@ main
             margin 0 0 rem(30px)
             color darken(lightGray, 20%)
             font-size rem(17px)
-            height rem(78px)
+            max-height rem(78px)
             line-height rem(26px)
             gradientEllipsis(width: 52px, height: 26px)
         .tags a
