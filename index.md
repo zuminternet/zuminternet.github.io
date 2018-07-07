@@ -20,7 +20,8 @@ layout: main
                     <div class="cover">
                         {% include new-post-tag.html date=post.date %}
                         <a href="{{ post.url | prepend: site.baseurl }}" {%if isnewpost %}class="new-post"{% endif %}>
-                            <img src="assets/img/placeholder.png" data-url="{{ post.image }}" class="preload">
+                            <!-- <img src="assets/img/placeholder.png" data-url="{{ post.image }}" class="preload"> -->
+                            <span class="img" style="background-image:url({{ post.image }})"></span>
                         </a>
                     </div>
                 {% endif %}
@@ -31,7 +32,9 @@ layout: main
                     </time>
                     <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
                         <h2 class="post-title" itemprop="name">
-                            {{ post.title }}
+                            <span class="text">
+                                {{ post.title }}
+                            </span>
                         </h2>
                     </a>
                     <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">

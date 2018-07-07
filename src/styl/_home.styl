@@ -3,6 +3,8 @@ main
     -webkit-font-smoothing antialiased
     -moz-osx-font-smoothing grayscale
     padding-top rem(80px)
+    margin 0 auto
+    max-width layoutWidth
     +above(cut)
         padding-top rem(100px)
 
@@ -22,7 +24,7 @@ main
     padding 0 rem(15px)
 
 .box-item
-    flex 1 0 300px
+    flex 1 0 280px
     margin 0 0 rem(30px)
     display inline-block
     min-height rem(285px)
@@ -63,7 +65,6 @@ main
         img 
             width 100%
             height auto
-            margin 0 auto
             transition all .2s ease-in-out
         time
             font-weight 300
@@ -71,18 +72,23 @@ main
             color darken(lightGray, 50%)
             pointer-events none
         h2
+            overflow hidden
+            position relative
             margin rem(10px) 0
             font-size rem(24px)
             mainFont(800)
             color accentDark
+            height rem(60px)
             line-height rem(30px)
-            span
-                color 
+            gradientEllipsis(width: 60px, height: 30px)
         p
+            overflow hidden
             margin 0 0 rem(30px)
             color darken(lightGray, 20%)
             font-size rem(17px)
+            height rem(78px)
             line-height rem(26px)
+            gradientEllipsis(width: 52px, height: 26px)
         .tags a
             height rem(30px)
             line-height rem(26px)
@@ -111,6 +117,9 @@ main
             margin-top rem(-35px)
         .cover
             position relative
+            a
+                position relative
+                height inherit
             a:before
                 opacity 0
                 background-color rgba(0, 0, 0, 0.7)
@@ -130,6 +139,13 @@ main
                 margin-left rem(-40px)
                 border 2px solid #fff
                 z-index 1000
+            .img
+                display block
+                width 100%
+                height 174px
+                background-position 50% 50%
+                background-repeat no-repeat
+                background-size cover
             .preload
                 background url(../../assets/img/icons/preloader.svg) center center no-repeat
 
