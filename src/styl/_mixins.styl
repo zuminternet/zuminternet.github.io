@@ -1,0 +1,18 @@
+ellipsis(line = 1)
+    display -webkit-box
+    overflow hidden
+    -webkit-line-clamp line
+    white-space nowrap
+    text-overflow ellipsis
+
+gradientEllipsis(width = 60px, height = 30px)
+    position relative
+    &:after
+        content ''
+        display block
+        position absolute
+        bottom 0
+        right 0
+        width rem(width)
+        height rem(height)
+        background-image linear-gradient(to right, rgba(0,0,0,0) 0%,rgba(0,0,0,1) 90%,rgba(0,0,0,1) 100%)
