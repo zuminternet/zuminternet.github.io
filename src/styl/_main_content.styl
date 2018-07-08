@@ -2,11 +2,38 @@
     position relative
     padding-top rem(62px)
     width 100%
-    color transparent
+    color accentDark
+    mainFont()
+    .content_wrap
+        height 42vw
+        min-height 196px
+        background-image "linear-gradient(to right, %s 0%,%s 90%,%s 100%)" % (#e2e9f1 #e8e7ed #e9e8ee)
+        +above(cut)
+            height 250px
+            background url(../../images/custom/img_home_main2.jpg) no-repeat 50% 50%
+            background-size cover
     .main_img
         position relative
-        width 100%
-        height 479px
-        background url(../../images/custom/img_home_main.jpg) no-repeat 50% 0
-        background-size cover
+        margin 0 auto
+        width layoutWidth
+        height 100%
+    .title
+        display block
+        position absolute
+        top 50%
+        left rem(20px)
+        margin-top -34px
+        height 68px
+        padding-left 80px
+        font-size 30px
+        color primaryDark
+        text-decoration none
+        font-weight normal
+        .name
+            color #1b52ed
+            font-weight bold
+    .logo
+        position absolute
+        top 0px
+        left 0px
 

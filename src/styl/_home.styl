@@ -2,11 +2,11 @@ main
     mainFont(400)
     -webkit-font-smoothing antialiased
     -moz-osx-font-smoothing grayscale
-    padding-top rem(60px)
+    padding-top rem(50px)
     margin 0 auto
     max-width layoutWidth
     +above(cut)
-        padding-top rem(80px)
+        padding-top rem(60px)
 
 .row
     center(100%)
@@ -97,26 +97,30 @@ main
             font-size rem(24px)
             mainFont(800)
             color accentDark
-            max-height rem(60px)
+            // max-height rem(60px)
             line-height rem(30px)
-            gradientEllipsis(width: 60px, height: 30px)
+            // gradientEllipsis(width: 60px, height: 30px)
         p
             overflow hidden
             margin 0 0 rem(30px)
             color darken(lightGray, 20%)
             font-size rem(17px)
-            max-height rem(78px)
+            // max-height rem(104px)
             line-height rem(26px)
-            gradientEllipsis(width: 52px, height: 26px)
+            // gradientEllipsis(width: 52px, height: 26px)
+        .description
+            margin-bottom rem(10px)
+            +above(cut)
+                margin-bottom rem(15px)
         .tags a
-            height rem(30px)
-            line-height rem(26px)
+            height rem(28px)
+            line-height rem(25px)
             color accentDark
             padding 0 rem(10px)
             border 1px solid accentDark
             border-radius 15px
             display inline-block
-            margin 0 rem(10px) rem(10px) 0
+            margin 0 rem(4px) rem(7px) 0
             z-index 50
             &:hover
                 color primaryDark
@@ -158,6 +162,8 @@ main
                 margin-left rem(-40px)
                 border 2px solid #fff
                 z-index 1000
+            a:after
+                borderCover(1px)
             .img
                 display block
                 width 100%
