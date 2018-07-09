@@ -22,14 +22,17 @@ layout: main
                         <a href="{{ post.url | prepend: site.baseurl }}" {%if isnewpost %}class="new-post"{% endif %}>
                             <!-- <img src="assets/img/placeholder.png" data-url="{{ post.image }}" class="preload"> -->
                             <span class="img" style="background-image:url({{ post.image }})"></span>
+                            <span class="over-img" style="background-image:url({{ post.authorImage }})"></span>
                         </a>
                     </div>
                 {% endif %}
                 <div class="box-info">
-                    <meta itemprop="datePublished" content="{{ post.date | date_to_xmlschema }}">
-                    <time itemprop="datePublished" datetime="{{ post.date | date_to_xmlschema }}" class="date">
-                        {% include date.html date=post.date %}
-                    </time>
+                    <div class="date">
+                        <meta itemprop="datePublished" content="{{ post.date | date_to_xmlschema }}">
+                        <time itemprop="datePublished" datetime="{{ post.date | date_to_xmlschema }}" class="date">
+                            {% include date.html date=post.date %}
+                        </time>
+                    </div>
                     <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
                         <h2 class="post-title" itemprop="name">
                             <span class="text">
