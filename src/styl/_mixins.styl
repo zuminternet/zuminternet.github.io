@@ -1,0 +1,40 @@
+ellipsis(line = 1)
+    display -webkit-box
+    overflow hidden
+    -webkit-line-clamp line
+    white-space nowrap
+    text-overflow ellipsis
+
+gradientEllipsis(width = 60px, height = 30px)
+    position relative
+    &:after
+        content ''
+        display block
+        position absolute
+        bottom 0
+        right 0
+        width rem(width)
+        height rem(height)
+        background-image "linear-gradient(to right, %s 0%,%s 90%,%s 100%)" % (mainBgOpacity mainBg mainBg)
+
+clearFloat()
+    &:after
+        content ''
+        display block
+        clear both
+        line-height 0
+
+borderCover(borderWidth = 1px)
+    content ''
+    display block
+    position absolute
+    top 0
+    right 0
+    bottom 0
+    left 0
+    border borderWidth solid mainBgReversal - rgba(0,0,0,.5)
+
+.blind
+    position absolute !important
+    font-size 0 !important
+    visibility hidden !important

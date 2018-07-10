@@ -8,6 +8,9 @@ google_analytics: "UA-XXXXXXXX-X"
 
 # User Settings
 username: ZUM TECH BLOG
+logo: /images/custom/img_zum_logo_white.png
+logo_simple: /images/custom/img_zum_z_white.png
+catchphrase: 생각을 읽다
 
 # OG Tag
 og_type: website

@@ -2,7 +2,7 @@
 layout: post
 title: "[포털개발팀-이영우] 파일럿 프로젝트"
 description: 포털개발팀 신입사원 파일럿 프로젝트 회고.
-image: /images/portal/post/2017-10-27-ZUM-Pilot-youngwoo/cantspeak.jpg
+image: /images/portal/post/2017-10-27-ZUM-Pilot-youngwoo/db.png
 
 introduction: 줌에서 스프링을 만나다!. 파일럿 프로젝트를 진행하면서  사용했던 기술들을 어떤 식으로 적용했나에 대한 후기를 작성한 글입니다
 subtitle: 줌에서 스프링을 만나다!

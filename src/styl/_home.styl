@@ -2,9 +2,11 @@ main
     mainFont(400)
     -webkit-font-smoothing antialiased
     -moz-osx-font-smoothing grayscale
-    padding-top rem(80px)
+    padding-top rem(50px)
+    margin 0 auto
+    max-width layoutWidth
     +above(cut)
-        padding-top rem(100px)
+        padding-top rem(60px)
 
 .row
     center(100%)
@@ -22,7 +24,7 @@ main
     padding 0 rem(15px)
 
 .box-item
-    flex 1 0 300px
+    flex 1 0 280px
     margin 0 0 rem(30px)
     display inline-block
     min-height rem(285px)
@@ -31,6 +33,25 @@ main
     z-index 1
     +above(cut)
         margin 0 rem(15px) rem(30px)
+    &:first-of-type
+        flex-basis 100%
+        +above(cut)
+            flex-basis "calc(100% - %s)" % rem(30px)
+        +above(768px)
+            .box-body
+                clearFloat()
+                .cover
+                    float left
+                    margin-right rem(20px)
+                    margin-bottom rem(20px)
+                    width 60%
+                    .img 
+                        height 352px
+    &:nth-of-type(2),&:nth-of-type(3)
+        +above(768px)
+            flex-basis "calc(50% - %s)" % rem(30px)
+            .box-body .cover .img 
+                    height 274px
     &:hover
         z-index 2
         transform scale(1.1)
@@ -38,8 +59,11 @@ main
             -webkit-filter grayscale(100%)
             filter grayscale(100%)
             transform scale(1.05)
+        .img
+            -webkit-filter grayscale(100%)
+            filter grayscale(100%)
         .box-body
-            time, p
+            time, p, .author-info
                 color accentDark
             .new-post:after
                 background-color #000
@@ -63,35 +87,43 @@ main
         img 
             width 100%
             height auto
-            margin 0 auto
             transition all .2s ease-in-out
-        time
+        time, .author-info
             font-weight 300
             font-size rem(16px)
             color darken(lightGray, 50%)
             pointer-events none
         h2
+            overflow hidden
+            position relative
             margin rem(10px) 0
             font-size rem(24px)
-            mainFont(800)
+            mainFont(bold)
             color accentDark
+            // max-height rem(60px)
             line-height rem(30px)
-            span
-                color 
+            // gradientEllipsis(width: 60px, height: 30px)
         p
+            overflow hidden
             margin 0 0 rem(30px)
             color darken(lightGray, 20%)
             font-size rem(17px)
+            // max-height rem(104px)
             line-height rem(26px)
+            // gradientEllipsis(width: 52px, height: 26px)
+        .description
+            margin-bottom rem(10px)
+            +above(cut)
+                margin-bottom rem(15px)
         .tags a
-            height rem(30px)
-            line-height rem(26px)
+            height rem(28px)
+            line-height rem(25px)
             color accentDark
             padding 0 rem(10px)
             border 1px solid accentDark
             border-radius 15px
             display inline-block
-            margin 0 rem(10px) rem(10px) 0
+            margin 0 rem(4px) rem(7px) 0
             z-index 50
             &:hover
                 color primaryDark
@@ -111,10 +143,13 @@ main
             margin-top rem(-35px)
         .cover
             position relative
+            a
+                position relative
+                height inherit
             a:before
                 opacity 0
                 background-color rgba(0, 0, 0, 0.7)
-                background-image url(../../assets/img/icons/read.svg)
+                background-image url(../../images/custom/img_zum_z.png)
                 background-size 48px
                 background-repeat no-repeat
                 background-position center center
@@ -130,8 +165,59 @@ main
                 margin-left rem(-40px)
                 border 2px solid #fff
                 z-index 1000
+            a:after
+                borderCover(1px)
+            .img
+                display block
+                width 100%
+                height 174px
+                background-position 50% 50%
+                background-repeat no-repeat
+                background-size cover
             .preload
                 background url(../../assets/img/icons/preloader.svg) center center no-repeat
 
     .box-info
-        padding rem(15px)
+        overflow hidden
+        padding rem(10px)
+        +above(cut)
+            padding rem(10px) 0
+
+    .author-date
+        position relative
+        margin 10px 0 15px
+        padding-left 70px
+        height 60px
+        line-height 22px
+        color #797979
+        .img-wrap
+            display block
+            overflow hidden
+            position absolute
+            top 0
+            left 0
+            width 60px
+            height 60px
+            border-radius 100%
+            img
+                width 100%
+                height 100%
+                border-radius inherit
+            &:after
+                content ''
+                display block
+                box-sizing border-box
+                position absolute
+                top 0
+                left 0
+                width 100%
+                height 100%
+                border-radius inherit
+        .author-info
+            position relative
+            padding-top 10px
+            font-size rem(16px)
+        .date
+            display block
+            font-size rem(14px)
+
