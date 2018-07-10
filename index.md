@@ -20,23 +20,34 @@ layout: main
                     <div class="cover">
                         {% include new-post-tag.html date=post.date %}
                         <a href="{{ post.url | prepend: site.baseurl }}" {%if isnewpost %}class="new-post"{% endif %}>
-                            <img src="assets/img/placeholder.png" data-url="{{ post.image }}" class="preload">
+                            <!-- <img src="assets/img/placeholder.png" data-url="{{ post.image }}" class="preload"> -->
+                            <span class="img" style="background-image:url({{ post.image }})"></span>
                         </a>
                     </div>
                 {% endif %}
                 <div class="box-info">
-                    <meta itemprop="datePublished" content="{{ post.date | date_to_xmlschema }}">
-                    <time itemprop="datePublished" datetime="{{ post.date | date_to_xmlschema }}" class="date">
-                        {% include date.html date=post.date %}
-                    </time>
                     <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
                         <h2 class="post-title" itemprop="name">
-                            {{ post.title }}
+                            <span class="text">
+                                {{ post.title }}
+                            </span>
                         </h2>
                     </a>
                     <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
                         <p class="description">{{ post.introduction }}</p>
                     </a>
+                    <div class="author-date">
+                        <span class="img-wrap"><img src="{{ post.authorImage }}" alt="{{ post.nickname }}"></span>
+                        <div class="author-info">
+                            {{ post.author }}
+                        </div>
+                        <div class="date">
+                            <meta itemprop="datePublished" content="{{ post.date | date_to_xmlschema }}">
+                            <time itemprop="datePublished" datetime="{{ post.date | date_to_xmlschema }}" class="date">
+                                {% include date.html date=post.date %}
+                            </time>
+                        </div>
+                    </div>
                     <div class="tags">
                         {% for tag in post.tags %}
                             <a href="{{ site.baseurl}}/tags/#{{tag | slugify }}">{{ tag }}</a>

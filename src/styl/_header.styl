@@ -1,16 +1,18 @@
 html,
 body
     height 100%
+    mainFont()
 
 .bar-header
-    background-color #141414
-    padding rem(10px) rem(15px)
+    background-color mainBg
+    padding rem(15px) rem(15px)
     position fixed
     width 100%
-    z-index 10
+    z-index 11
     transition top 0.5s
-    +above(cut)
-        padding rem(15px) rem(0px)
+    .bar-header-wrap
+        position relative
+        margin 0 auto
     .logo
         margin 0
         height rem(32px)
@@ -18,7 +20,16 @@ body
     .logo a
         color accentDark
         text-decoration none
-        font-size rem(32px)
+        font-size 0
+        line-height 0
+        .img
+            img
+                height 100%
+        .text
+            padding-left 3px
+            font-size 18px
+            font-weight bold
+            white-space nowrap
     .icon-menu
         float left
         cursor pointer
@@ -26,8 +37,6 @@ body
         width rem(20px)
         height rem(20px)
         fill accentDark
-        +above(cut)
-            margin rem(5px) rem(20px) rem(5px) rem(25px)
     .dosearch
         float right
         display inline-block
@@ -37,7 +46,6 @@ body
         margin 0 0 0 0
         +above(cut)
             margin 0 rem(20px) 0 0
-
     .icon-search
         width rem(20px)
         height rem(20px)
@@ -45,7 +53,7 @@ body
         margin rem(5px)
 
 body.main-page
-    background-color #141414
+    background-color mainBg
     .bar-header
         background-color rgba(0,0,0,.7)
         

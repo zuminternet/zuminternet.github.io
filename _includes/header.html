@@ -1,15 +1,18 @@
 <header class="bar-header">
-    <a id="menu">
-        <svg id="open" class="icon-menu"><use xlink:href="#icon-menu"></use></svg>
-    </a>
-    <a id="search" class="dosearch">
-        <svg class="icon-search"><use xlink:href="#icon-search"></use></svg>
-    </a>
-    <h1 class="logo">
-        <a href="{{ site.baseurl }}/">
-            {{ site.username }}
+    <div class="bar-header-wrap">
+        <a id="menu">
+            <svg id="open" class="icon-menu"><use xlink:href="#icon-menu"></use></svg>
         </a>
-    </h1>
+        <a id="search" class="dosearch">
+            <svg class="icon-search"><use xlink:href="#icon-search"></use></svg>
+        </a>
+        <h1 class="logo">
+            <a href="{{ site.baseurl }}/">
+                <span class="img"><img src="{{ site.logo_simple }}" alt="{{ site.username }}"></span>
+                <span class="text">TECH</span>
+            </a>
+        </h1>
+    </div>
 </header>
 
 <div id="mask" class="overlay"></div>
