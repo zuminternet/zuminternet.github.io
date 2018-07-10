@@ -22,7 +22,6 @@ layout: main
                         <a href="{{ post.url | prepend: site.baseurl }}" {%if isnewpost %}class="new-post"{% endif %}>
                             <!-- <img src="assets/img/placeholder.png" data-url="{{ post.image }}" class="preload"> -->
                             <span class="img" style="background-image:url({{ post.image }})"></span>
-                            <span class="over-img" style="background-image:url({{ post.authorImage }})"></span>
                         </a>
                     </div>
                 {% endif %}
