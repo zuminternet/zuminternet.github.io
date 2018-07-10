@@ -6,7 +6,7 @@ ZUM 기술 블로그 작성 가이드 입니다.
 
 모든 소스는 현재 repository에서 관리가 되며 github page의 포스팅 엔진 jekyll 규격을
 준수합니다.
-또한 포스팅 작성시  [kramdown]("https://kramdown.gettalong.org/syntax.html") 마크다운을 사용 합니다.
+또한 포스팅 작성시 마크다운을 (https://kramdown.gettalong.org/syntax.html) 사용 합니다.
 
 ### (1) 작성 진행 순서 ###
 
@@ -100,7 +100,7 @@ Pygments를 설치 합니다.
 
 부서별 사용하는 디렉토리는 아래와 같다.
 
-![설치5](/images/readme/t1.png)
+![설치5](/images/readme/t2.png)
 
 포스트 파일명은 반드시 아래의 규칙을 준수한다.
 (jekyll 표준)
@@ -122,7 +122,7 @@ Pygments를 설치 합니다.
 
 중요 속성은 아래와 같다.
 
-![설치5](/images/readme/t2.png)
+![설치5](/images/readme/t1.png)
 
 
 title 속성은 아래와 같이 노출 된다.
@@ -167,3 +167,19 @@ authorDescription 속성은 아래와 같이 노출 된다.
 ![설치5](/images/readme/p12.png)
 
 포스트를 변경할 경우 cache 적용으로 인해서 30초 ~ 1분정도 지나서 업데이트가 된다.
+
+
+### (11) 사이트 관리  ###
+
+전체 페이지 레이아웃 및 css를 관리하려면 gulp로 빌드를 해야 한다.
+
+gulp를 설치하고 build를 해야 한다.
+
+npm install <br/>
+
+npm install -g gulp gulp-cli <br/>
+
+gulp <br/>
+
+참고 사이트 (https://github.com/thiagorossener/jekflix-template)
+

@@ -21,7 +21,7 @@ var messages = {
  */
 gulp.task('jekyll-build', function (done) {
   browserSync.notify(messages.jekyllBuild);
-  return cp.spawn('bundle', ['exec', 'jekyll build'], {stdio: 'inherit'})
+  return cp.spawn('bundle', ['exec', 'jekyll build'], {stdio: 'inherit', shell: true})
     .on('close', done);
 });
 
@@ -86,7 +86,7 @@ gulp.task('imagemin', function() {
 gulp.task('watch', function () {
   gulp.watch('src/styl/**/*.styl', ['stylus']);
   gulp.watch('src/js/**/*.js', ['js']);
-  gulp.watch(['**/*.html','index.html', '_includes/*.html', '_layouts/*.html', '_posts/*'], ['jekyll-rebuild']);
+  gulp.watch(['**/*.html','index.html','index.md', '_includes/*.html', '_layouts/*.html', '_posts/**'], ['jekyll-rebuild']);
 });
 
 /**

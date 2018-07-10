@@ -1,0 +1,188 @@
+.main_content
+    position relative
+    padding-top rem(63px)
+    width 100%
+    color accentDark
+    mainFont()
+    &__wrap
+        position relative
+        height 49vw
+        min-height 196px
+        &:before, &:after
+            content ''
+            display block
+            position absolute
+            z-index 10
+            width 0%
+            height 1px
+            background #fff
+            animation draw-line1 2s forwards
+        &:before
+            top -1px
+            left 0
+            // width 100%
+        &:after
+            bottom -1px
+            right 0
+            // width 100%
+        +above(cut)
+            height 300px
+            background-size cover
+            background mainBg
+    &__title-area
+        overflow hidden
+        position relative
+        z-index 10
+        margin 0 auto
+        max-width layoutWidth
+        height 100%
+    &__title
+        display block
+        position absolute
+        top 50%
+        z-index 10
+        left rem(20px)
+        margin-top -40px
+        height 43px
+        padding-left 50px
+        line-height 26px
+        font-size 24px
+        color #fff
+        text-decoration none
+        font-weight normal
+        transform scale(.9)
+        transition transform 500ms
+        +above(cut)
+            transform scale(1)
+            top 50%
+    &__name1
+        display block
+        margin-top -7px
+        color inherit
+        font-weight bold
+        text-shadow 2px 2px 2px mainBg
+    &__name2
+        display block
+        color inherit
+        text-shadow 2px 2px 2px mainBg
+    &__logo
+        position absolute
+        top 0px
+        left 0px
+    &__bg
+        display block
+        position absolute
+        bottom 0
+        right 0
+        width 100%
+        height 100%
+        background url(../../images/custom/img_main_bg.png) no-repeat 100% 100%
+        background-size contain
+    &__bg-pattern
+        overflow hidden
+        position absolute
+        top 0
+        left 0
+        z-index 0
+        width 100%
+        height 100%
+    &__bg-catchphrase
+        display block
+        position absolute
+        top 0
+        left 0
+        width 100%
+        height 100%
+        background url(../../images/custom/img_zum_catchphrase_pattern.png) 0 50%
+        background-size contain
+        opacity .2
+    &__bg-catchphrase-1
+        transform scale(2) translate(0,0)
+        animation bg-pattern1 20s linear infinite
+    &__bg-catchphrase-2
+        left 300px
+        transform scale(2) translate(300px,-300px)
+        animation bg-pattern2 20s linear infinite
+    &__bg-catchphrase-3
+        transform scale(2) translate(600px,-600px)
+        animation bg-pattern3 20s linear infinite
+    &__catchphrase
+        position absolute
+        top 60px
+        right 275px
+        width 100px
+        height 100px
+        background url(../../images/custom/img_zum_catchphrase.png) no-repeat 50% 50%
+        background-size contain
+        opacity 0
+        transform translateY(200px)
+        transition opacity 500ms
+        animation show-catchphrase 1s forwards 2.5s
+        +above(768px)
+            opacity 1
+        &:after
+            content ''
+            display block
+            position absolute
+            bottom -15px
+            left 3px
+            z-index 10
+            width 0%
+            height 1px
+            background #fff
+            animation draw-line2 500ms forwards 3.5s
+
+
+@keyframes bg-pattern1 {
+  0% {
+    transform scale(2) translate(0,0)
+  }
+  100% {
+    transform scale(2) translate(-600px,600px)
+  }
+}
+
+@keyframes bg-pattern2 {
+  0% {
+    transform scale(2) translate(300px,-300px)
+  }
+  100% {
+    transform scale(2) translate(-300px,300px)
+  }
+}
+
+@keyframes bg-pattern3 {
+  0% {
+    transform scale(2) translate(600px,-600px)
+  }
+  100% {
+    transform scale(2) translate(0,0)
+  }
+}
+
+@keyframes draw-line1 {
+  0% {
+    width 0%
+  }
+  100% {
+    width 100%
+  }
+}
+
+@keyframes draw-line2 {
+  0% {
+    width 0%
+  }
+  100% {
+    width 60%
+  }
+}
+
+@keyframes show-catchphrase {
+  0% {
+    transform translateY(200px)
+  }
+  100% {
+    transform translateY(0)
+  }
+}
