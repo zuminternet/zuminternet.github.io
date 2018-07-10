@@ -26,12 +26,6 @@ layout: main
                     </div>
                 {% endif %}
                 <div class="box-info">
-                    <div class="date">
-                        <meta itemprop="datePublished" content="{{ post.date | date_to_xmlschema }}">
-                        <time itemprop="datePublished" datetime="{{ post.date | date_to_xmlschema }}" class="date">
-                            {% include date.html date=post.date %}
-                        </time>
-                    </div>
                     <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
                         <h2 class="post-title" itemprop="name">
                             <span class="text">
@@ -42,6 +36,18 @@ layout: main
                     <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">
                         <p class="description">{{ post.introduction }}</p>
                     </a>
+                    <div class="author-date">
+                        <span class="img-wrap"><img src="{{ post.authorImage }}" alt="{{ post.nickname }}"></span>
+                        <div class="author-info">
+                            {{ post.author }}
+                        </div>
+                        <div class="date">
+                            <meta itemprop="datePublished" content="{{ post.date | date_to_xmlschema }}">
+                            <time itemprop="datePublished" datetime="{{ post.date | date_to_xmlschema }}" class="date">
+                                {% include date.html date=post.date %}
+                            </time>
+                        </div>
+                    </div>
                     <div class="tags">
                         {% for tag in post.tags %}
                             <a href="{{ site.baseurl}}/tags/#{{tag | slugify }}">{{ tag }}</a>
