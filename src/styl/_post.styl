@@ -68,7 +68,7 @@
     li 
         padding rem(10px) 0
         ul 
-        margin-bottom 0
+            margin-bottom 0
     p, li
         color texts
         code
@@ -104,7 +104,7 @@
     ul, ol
         padding-left rem(40px)
     ul.post-list
-        padding 0
+        padding 0 rem(20px)
         &.svg-serie p
             padding 0
         +below(cut)
@@ -193,8 +193,10 @@
         center(rem(800px))
         mainFont(400)
         font-size rem(18px)
+        font-weight bold
         margin 0 auto rem(29px)
         margin-top rem(30px)
+        padding 0 20px
         letter-spacing 0.01rem
         line-height rem(40px)
         +above(cut)
@@ -220,25 +222,54 @@
         font-size rem(38px)
         margin-top rem(60px)
         center(rem(800px))
+        padding 0 rem(20px)
         +below(cut)
             font-size rem(30px)
             margin-top rem(20px)
-            padding 0 rem(20px)
     .post-list
+        position relative
         list-style none
         margin rem(25px) auto
-        +below(cut)
-            padding 0 rem(20px)
+        padding 0 rem(20px)
+        max-width 50rem
         a
             display block
+            position relative
             border-bottom 1px solid darken(lightGray,10%)
-            padding rem(10px) 0
+            padding rem(10px)
             text-decoration none
             transition all .5s
             font-size rem(18px)
+            color texts
+            clearFloat()
             &:hover
-                border-bottom 1px solid themeColor
+                border-bottom 1px solid texts
+        .title-area
+            display block
+            position relative
+            padding-right 70px
+        .post-title
+            overflow ellipsis
+            display block
+            text-overflow ellipsis
+            white-space nowrap
+            vertical-align middle
         .entry-date
-            float right
+            position relative
+            display block
+            line-height 20px
+            font-size 14px
+            color #aaa
             +below(cut)
                 display none
+        .post-author
+            position absolute
+            top 50%
+            right 10px
+            margin-top -25px
+            img
+                padding 0
+                margin 0
+                width 50px
+                height 50px
+                border-radius 50px
