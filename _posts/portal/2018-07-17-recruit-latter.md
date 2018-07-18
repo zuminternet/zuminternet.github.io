@@ -5,13 +5,13 @@ description: 2018 줌인터넷 하반기 공채
 image: /images/portal/post/2018-07-17-recruit-latter/recu_banner.png 
 introduction: 7.16 ~ 7.29 신입/경력 채용
 category: portal/etc
-author: 포털개발팀 김태기
+author: ZUM
 authorEmail: 
-authorImage: /images/portal/author/kimtaeki.jpg
-authorDescription: Portal Dev Team Leader.  
+authorImage: /images/portal/author/zum.png
+authorDescription: ZumInternet.  
 
 nickname: zumgu
-tag: [개발자,zum]
+tag: [개발자, zum, 채용]
 ---
 <style>
 	.recruit_wrap{position:relative;width:824px;height:814px;margin:0 auto}
