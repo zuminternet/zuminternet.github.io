@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b2cec123-402a-4553-98ef-7a084d7fa9c2" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/images/portal/author/kimtaeki.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/images/portal/post/2018-07-17-recruit-latter/recu1.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/images/portal/post/2018-07-17-recruit-latter/recu2.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/images/portal/post/2018-07-17-recruit-latter/recu3.png" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/images/portal/post/2018-07-17-recruit-latter/recu_banner.png" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="b2cec123-402a-4553-98ef-7a084d7fa9c2" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -637,11 +630,18 @@
       <option name="project" value="LOCAL" />
       <updated>1531229079900</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="2018 하반기 줌 인터넷 공채 포스팅">
+      <created>1531895581946</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1531895581946</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23561000" />
+    <option name="totallyTimeSpent" value="23601000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="830" extended-state="0" />
@@ -743,7 +743,8 @@
     <MESSAGE value="- 페이지스북 공유하기 og 태그 업데이트" />
     <MESSAGE value="- readme 작성" />
     <MESSAGE value="Merge branch 'master' of https://github.com/zuminternet/zuminternet.github.io&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/zuminternet/zuminternet.github.io&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
+    <MESSAGE value="2018 하반기 줌 인터넷 공채 포스팅" />
+    <option name="LAST_COMMIT_MESSAGE" value="2018 하반기 줌 인터넷 공채 포스팅" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
