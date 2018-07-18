@@ -13,29 +13,19 @@ authorDescription: ZumInternet.
 nickname: zumgu
 tag: [개발자, zum, 채용]
 ---
-<style>
-	.recruit_wrap{position:relative;width:824px;height:814px;margin:0 auto}
-	.btn{display:inline-block;width:174px;height:47px;position:absolute;top:178px;right:52px}
-	.btn.platform{top:178px}
-	.btn.service_develop{top:328px}
-	.btn.business{top:450px}
-	.btn.service{top:537px}
-	.btn.mobile{top:631px}
-	.btn.ai{top:726px}
-</style>
-
-
 
 ![recruit1](/images/portal/post/2018-07-17-recruit-latter/recu1.png)
 
 <div class="recruit_wrap">
-		<a href="https://zuminternet.recruiter.co.kr/app/jobnotice/view?systemKindCode=MRS2&jobnoticeSn=2373" class="btn platform"></a>
-		<a href="https://zuminternet.recruiter.co.kr/app/jobnotice/view?systemKindCode=MRS2&jobnoticeSn=2604" class="btn service_develop"></a>
-		<a href="https://zuminternet.recruiter.co.kr/app/jobnotice/view?systemKindCode=MRS2&jobnoticeSn=2605" class="btn business"></a>
-		<a href="https://zuminternet.recruiter.co.kr/app/jobnotice/view?systemKindCode=MRS2&jobnoticeSn=2606" class="btn service"></a>
-		<a href="https://zuminternet.recruiter.co.kr/app/jobnotice/view?systemKindCode=MRS2&jobnoticeSn=2607" class="btn mobile"></a>
-		<a href="https://zuminternet.recruiter.co.kr/app/jobnotice/view?systemKindCode=MRS2&jobnoticeSn=2615" class="btn ai"></a>
-		<img src="https://zuminternet.github.io/images/portal/post/2018-07-17-recruit-latter/recu2.png">
-	</div>
+	<img src="https://zuminternet.github.io/images/portal/post/2018-07-17-recruit-latter/recu2.png" usemap="#recruit_img" style="padding:0">
+  <map name="recruit_img">
+    <area shape="rect" coords="597,178,771,226" href="https://zuminternet.recruiter.co.kr/app/jobnotice/view?systemKindCode=MRS2&jobnoticeSn=2373" target="_blank" alt="플랫폼 개발 공고 보러가기">
+    <area shape="rect" coords="597,328,771,376" href="https://zuminternet.recruiter.co.kr/app/jobnotice/view?systemKindCode=MRS2&jobnoticeSn=2604" target="_blank" alt="서비스 개발 공고 보러가기">
+    <area shape="rect" coords="597,451,771,499" href="https://zuminternet.recruiter.co.kr/app/jobnotice/view?systemKindCode=MRS2&jobnoticeSn=2605" target="_blank" alt="비즈니스 기획 공고 보러가기">
+    <area shape="rect" coords="597,537,771,585" href="https://zuminternet.recruiter.co.kr/app/jobnotice/view?systemKindCode=MRS2&jobnoticeSn=2606" target="_blank" alt="서비스 기획 공고 보러가기">
+    <area shape="rect" coords="597,632,771,680" href="https://zuminternet.recruiter.co.kr/app/jobnotice/view?systemKindCode=MRS2&jobnoticeSn=2607" target="_blank" alt="모바일 신사업 공고 보러가기">
+    <area shape="rect" coords="597,727,771,775" href="https://zuminternet.recruiter.co.kr/app/jobnotice/view?systemKindCode=MRS2&jobnoticeSn=2615" target="_blank" alt="인공지능 연구 공고 보러가기">
+  </map>
+</div>
 	
 ![recruit3](/images/portal/post/2018-07-17-recruit-latter/recu3.png)
