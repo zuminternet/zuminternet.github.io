@@ -1,9 +1,9 @@
 ---
 layout: post
-title: 2018 줌 인터넷 하반기 공채
-description: 2018 줌 인터넷 하반기 공채
+title: 2018 줌인터넷 하반기 공채
+description: 2018 줌인터넷 하반기 공채
 image: /images/portal/post/2018-07-17-recruit-latter/recu_banner.png 
-introduction: 2018 줌 인터넷 하반기 공채
+introduction: 2018 줌인터넷 하반기 공채
 category: portal/etc
 author: 포털개발팀 김태기
 authorEmail: 
