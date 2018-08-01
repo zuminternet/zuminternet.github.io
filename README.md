@@ -2,18 +2,18 @@
 
 # 블로그 작성 가이드
 
-ZUM 기술 블로그 작성 가이드 입니다.
+ZUM 기술 블로그 작성 가이드입니다.
 
 모든 소스는 현재 repository에서 관리가 되며 github page의 포스팅 엔진 jekyll 규격을
 준수합니다.
-또한 포스팅 작성시 마크다운을 (https://kramdown.gettalong.org/syntax.html) 사용 합니다.
+또한 포스팅 작성 시 마크다운을 (https://kramdown.gettalong.org/syntax.html) 사용합니다.
 
 ### (1) 작성 진행 순서 ###
 
-* 작성을 하기 위해서는 반드시 [giihub]("https://github.com/zuminternet/zuminternet.github.io")에 대한 "write" 권한이 필요하기 때문에
-관리자(beyondj2ee@zuminternet.com)에게 권한을 요청 합니다. 단, 요청을 보낼때 github 계정을 알려주셔야 합니다.
+* 작성을 하기 위해서는 반드시 [github]("https://github.com/zuminternet/zuminternet.github.io")에 대한 "write" 권한이 필요하기 때문에
+관리자(beyondj2ee@zuminternet.com)에게 권한을 요청합니다. 단, 요청을 보낼 때 github 계정을 알려주셔야 합니다.
 * jekyll를 설치를 합니다.
-* 포스팅을 작성 하고 로컬에서 확인이 완료되면 github 레파지토리로 push를 보내면 배포가 완료 됩니다.
+* 포스팅을 작성하고 로컬에서 확인이 완료되면 github 레파지토리로 push를 보내면 배포가 완료됩니다.
 
 ### (2) 설치 프로그램 ###
 
@@ -21,18 +21,18 @@ ZUM 기술 블로그 작성 가이드 입니다.
 
 * Ruby(ruby, DevKit)
 * Jekyll
-* Python(Setuptool,pip,Pygments)
+* Python(Setuptool, pip, Pygments)
 * rouge
 * npm (선택)
 
 
-### (3) Ruby 설치 하기 (Window 버전) ###
+### (3) Ruby 설치하기 (Window 버전) ###
 
 사이트에 접속 후 ruby 와 Devkit 같이 포함된 버전을 [다운로드]("https://rubyinstaller.org/downloads/") 받습니다.
 
 ![다운로드](/images/readme/1.png)
 
-설치 시 실행파일을 Path에 포함하도록 선택 합니다.
+설치 시 실행파일을 Path에 포함하도록 선택합니다.
 
 ![설치1](/images/readme/2.png)
 ![설치2](/images/readme/3.png)
@@ -57,7 +57,7 @@ ZUM 기술 블로그 작성 가이드 입니다.
 
 ### (5) Python 설치  ###
 
-지킬(Jekyll)에서 syntax highlighter를 사용하기 위해 Python을 설치가 필요 합니다.
+지킬(Jekyll)에서 syntax highlighter를 사용하기 위해 Python을 설치가 필요합니다.
 [다운로드]("https://www.python.org/downloads/") 받습니다.
 
 
@@ -66,7 +66,7 @@ ZUM 기술 블로그 작성 가이드 입니다.
 ![설치5](/images/readme/11.png)
 ![설치5](/images/readme/12.png)
 
-Pygments를 설치 합니다.
+Pygments를 설치합니다.
 ![설치5](/images/readme/14.png)
 
 ### (6) Jekyll 설치 확인  ###
@@ -94,7 +94,7 @@ Pygments를 설치 합니다.
 
 ### (8) 포스트 디렉토리 가이드  ###
 
-포스트를 작성하기 위해서는 **"_post"** 디렉토리(jekyll은 _post 디렉토리 안에 있는 것을 포스트로 인식 한다.) 와 이미지를 저장하기 위한 **"images"** 디렉토리를 사용한다.
+포스트를 작성하기 위해서는 **"_post"** 디렉토리(jekyll은 _post 디렉토리 안에 있는 것을 포스트로 인식한다.) 와 이미지를 저장하기 위한 **"images"** 디렉토리를 사용한다.
 
 ![설치5](/images/readme/p2.png)
 
@@ -125,32 +125,32 @@ Pygments를 설치 합니다.
 ![설치5](/images/readme/t1.png)
 
 
-title 속성은 아래와 같이 노출 된다.
+title 속성은 아래와 같이 노출된다.
 
 ![설치5](/images/readme/25.png)
 
-image 속성은 아래와 같이 노출 된다.
+image 속성은 아래와 같이 노출된다.
 
 ![설치5](/images/readme/24.png)
 
 
-introduction 속성은 아래와 같이 노출 된다.
+introduction 속성은 아래와 같이 노출된다.
 
 ![설치5](/images/readme/26.png)
 
-authorImage 속성은 아래와 같이 노출 된다.
+authorImage 속성은 아래와 같이 노출된다.
 
 ![설치5](/images/readme/27.png)
 
-author 속성은 아래와 같이 노출 된다.
+author 속성은 아래와 같이 노출된다.
 
 ![설치5](/images/readme/28.png)
 
-authorDescription 속성은 아래와 같이 노출 된다.
+authorDescription 속성은 아래와 같이 노출된다.
 
 ![설치5](/images/readme/29.png)
 
-포트스 내용은 [kramdown]("https://kramdown.gettalong.org/syntax.html") 마크다운으로 작성한다.
+포스트 내용은 [kramdown]("https://kramdown.gettalong.org/syntax.html") 마크다운으로 작성한다.
 
 ![설치5](/images/readme/p99.png)
 
@@ -166,7 +166,7 @@ authorDescription 속성은 아래와 같이 노출 된다.
 
 ![설치5](/images/readme/p12.png)
 
-포스트를 변경할 경우 cache 적용으로 인해서 30초 ~ 1분정도 지나서 업데이트가 된다.
+포스트를 변경할 경우 cache 적용으로 인해서 30초 ~ 1분 정도 지나서 업데이트가 된다.
 
 
 ### (11) 사이트 관리  ###
