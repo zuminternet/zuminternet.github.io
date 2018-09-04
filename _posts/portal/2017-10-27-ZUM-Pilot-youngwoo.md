@@ -7,11 +7,10 @@ image: /images/portal/post/2017-10-27-ZUM-Pilot-youngwoo/db.png
 introduction: 줌에서 스프링을 만나다!. 파일럿 프로젝트를 진행하면서  사용했던 기술들을 어떤 식으로 적용했나에 대한 후기를 작성한 글입니다
 subtitle: 줌에서 스프링을 만나다!
 category: portal/pilot
-author: 포털개발팀 이영우 담당
+author: 포털개발팀
 authorEmail: 
-authorImage: /images/portal/author/joeylee.png
+authorImage: /images/portal/author/zum.png
 authorDescription: m.zum.com service <br/> Front-End & Back-End Developer. 
-
 nickname: joeylee
 tag: [spring,boot,pilot,신입,zum]
 ---

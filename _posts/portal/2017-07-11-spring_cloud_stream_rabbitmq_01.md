@@ -5,10 +5,10 @@ description: SPRING CLOUD STREAM, MQ 도입 사례 - 1
 image: /images/portal/post/2017-7-11-spring_cloud_stream_rabbitmq_01/337882_1_En_9_Fig1_HTML.gif
 introduction: SPRING CLOUD STREAM, MQ(Message Queuing) 도입 사례를 공유합니다.
 category: portal/tech
-author: 포털개발팀 김시은 책임
+author: 포털개발팀
 authorEmail: 
-authorImage: /images/portal/author/sieunkim.png
-authorDescription: Front-End & Back-End Senior Developer. 
+authorImage: /images/portal/author/zum.png
+authorDescription: Front-End & Back-End Senior Developer.
 nickname: sieunkim
 tag: [spring,cloud,rabbitmq,microservices]
 ---

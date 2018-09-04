@@ -6,11 +6,10 @@ image: /images/portal/post/2017-02-24-ZUM-Pilot-jeonghoon/IMG_1521.JPG
 introduction: 나에게도 봄이 왔다. 입사 파일럿 프로젝트를 진행하면서 제가 느낀점(잘한점/부족한점)과 회고에 대한 글입니다.
 subtitle: 나에게도 봄이 왔다.
 category: portal/pilot
-author: 포털개발팀 조정훈 담당
+author: 포털개발팀
 authorEmail: 
-authorImage: /images/portal/author/jeonghoon.png
-authorDescription: zum.com service <br/> Front-End & Back-End Developer. 
-
+authorImage: /images/portal/author/zum.png
+authorDescription: zum.com service <br/> Front-End & Back-End Developer.
 nickname: jeonghoon
 tag: [spring,boot,pilot,신입,zum,줌인터넷]
 ---
