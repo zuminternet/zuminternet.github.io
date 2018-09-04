@@ -5,10 +5,10 @@ description: 젠킨스 사용하여 자동 배포환경 만들기!
 image: /images/portal/post/2017-05-10-JENKINS-BUILD/list.png
 introduction: 푸시-빌드-전송-배포가 지겹다! 이젠 자동으로 하고싶다!하여 만들었습니다.
 category: portal/tech
-author: 포털개발팀 권용근 담당
+author: 포털개발팀
 authorEmail: 
-authorImage: /images/portal/author/kingbbode.png
-authorDescription: zum.com service <br/> Front-End & Back-End Developer. 
+authorImage: /images/portal/author/zum.png
+authorDescription: zum.com service <br/> Front-End & Back-End Developer.
 nickname: kingbbode
 tag: [jenkins, ci, deploy, gradle]
 ---

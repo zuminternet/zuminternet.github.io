@@ -8,7 +8,7 @@ category: portal/etc
 author: ZUM
 authorEmail: 
 authorImage: /images/portal/author/zum.png
-authorDescription: ZumInternet.  
+authorDescription: ZumInternet.
 
 nickname: zumgu
 tag: [개발자, zum, 채용]

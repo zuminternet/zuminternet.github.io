@@ -5,11 +5,10 @@ description: Spring Boot & OAuth2 기반 소셜 댓글 시스템 개발하기
 image: /images/portal/post/2017-07-04-OAuth2-Social/oauth2-640x410.jpg
 introduction: 페이스북, 구글, 트위터, 카카오 등 국내에서 많이 쓰이는 서비스들의 OAuth인증을 통한 댓글 시스템 구현하기
 category: portal/tech
-author: 포털개발팀 김영재 담당
+author: 포털개발팀
 authorEmail: 
-authorImage: /images/portal/author/yjinzum.png
-authorDescription: zum.com service <br/> Front-End & Back-End Developer. 
-
+authorImage: /images/portal/author/zum.png
+authorDescription: zum.com service <br/> Front-End & Back-End Developer.
 nickname: yjinzum
 tag: [Spring Boot,OAuth2,Social,Comment]
 ---

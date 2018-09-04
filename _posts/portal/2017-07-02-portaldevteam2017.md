@@ -5,10 +5,10 @@ description: 포털개발팀 1년 회고 및 팀문화에 대해서
 image: /images/portal/post/2017-7-2-portaldevteam2017/20170410_103935.png
 introduction: 작년 7월 조직개편 때 포털개발팀이 신설되고 정확히 1년이라는 시간이 지났습니다. 포털개발팀의 지난 1년을 돌이켜보고, 팀문화에 대해서 공유합니다.
 category: portal/etc
-author: 포털개발팀 김시은 책임
+author: 포털개발팀
 authorEmail: 
-authorImage: /images/portal/author/sieunkim.png
-authorDescription: Front-End & Back-End Senior Developer. 
+authorImage: /images/portal/author/zum.png
+authorDescription: Front-End & Back-End Senior Developer.
 nickname: sieunkim
 tag: [개발자,zum,agile]
 ---

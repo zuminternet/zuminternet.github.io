@@ -5,10 +5,10 @@ description: 웹 서비스(Spring Framework)의 세션을 Membase(현재의 Couc
 image: /images/portal/post/2017-02-22-BUG-TRACKING-3/a_failover_before.png
 introduction: 웹 서비스(Spring Framework)의 세션을 Membase(현재의 Couchbase)로 관리하면서 발생한 이슈입니다. 이슈를 해결해 나가는 과정을 기록으로 남깁니다.
 category: portal/tech
-author: 포털개발팀 권용근 담당
+author: 포털개발팀
 authorEmail: 
-authorImage: /images/portal/author/kingbbode.png
-authorDescription: zum.com service <br/> Front-End & Back-End Developer. 
+authorImage: /images/portal/author/zum.png
+authorDescription: zum.com service <br/> Front-End & Back-End Developer.
 nickname: kingbbode
 tag:  [membase, bugtracking, resource, io, nosql]
 ---

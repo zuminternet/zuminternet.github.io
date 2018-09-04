@@ -5,10 +5,10 @@ description: 운영 중 발생한 Nginx Cache 트러블슈팅 사례
 image: /images/portal/post/2016-11-08-NGINX-CACHE-PROBLEM/django-nginx-image.jpg
 introduction: 제가 최근에 zum.com을 운영하면서 실수했었던 내용들 중, Nginx에 관련된 내용들을 정리하였습니다..
 category: portal/tech
-author: 포털개발팀 이동욱 담당
+author: 포털개발팀
 authorEmail: 
-authorImage: /images/portal/author/jojoldu.png
-authorDescription: Front-End & Back-End Developer. 
+authorImage: /images/portal/author/zum.png
+authorDescription: zum.com service <br/> Front-End & Back-End Developer.
 nickname: jojoldu
 tag: [server, nginx, cache]
 ---
