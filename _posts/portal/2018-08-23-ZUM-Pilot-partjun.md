@@ -7,7 +7,7 @@ image: /images/portal/post/2018-08-23-ZUM-Pilot-partjun/vuejs-wallpaper-1_0.png
 introduction: 파일럿 프로젝트를 진행하며.
 subtitle: Vue.js를 이용한 모바일 줌 개발
 category: portal/pilot
-author: 포털개발팀 박효준 담당
+author: 포털개발팀
 authorEmail: 
 authorImage: /images/portal/author/zum.png
 authorDescription: zum.com service <br/> Front-End & Back-End Developer.
