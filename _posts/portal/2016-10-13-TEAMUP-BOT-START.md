@@ -5,10 +5,10 @@ description: Spring Boot로 TEAMUP(사내 메신져) BOT 만들기 - (1)
 image: /images/portal/post/2016-10-13-TEAMUP-BOT-START/list.jpg
 introduction: Spring Boot로 TEAMUP(사내 메신져) BOT 뼈대 만들기 Part1!
 category: portal/tech
-author: 포털개발팀
+author: 줌인터넷
 authorEmail: 
 authorImage: /images/portal/author/zum.png
-authorDescription: zum.com service <br/> Front-End & Back-End Developer.
+authorDescription: 
 nickname: kingbbode
 tag: [springboot,bot,spring,teamup]
 ---

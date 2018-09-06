@@ -1,31 +1,21 @@
 ---
 layout: post
-title: "[포털개발팀-박효준] 파일럿 프로젝트"
-description: 포털개발팀 신입사원 파일럿 프로젝트.
+title: "Vuejs로 모바일 웹 구축하기"
+description: Vuejs 파일럿 프로젝트.
 image: /images/portal/post/2018-08-23-ZUM-Pilot-partjun/vuejs-wallpaper-1_0.png
 
-introduction: 파일럿 프로젝트를 진행하며.
+introduction: 줌 모바일 웹을 Vuejs로 마이그레이션 했던 경험을 공유 합니다.
 subtitle: Vue.js를 이용한 모바일 줌 개발
 category: portal/pilot
-author: 포털개발팀
+author: 줌인터넷
 authorEmail: 
 authorImage: /images/portal/author/zum.png
-authorDescription: zum.com service <br/> Front-End & Back-End Developer.
+authorDescription: 
 
 nickname: partjun
 tag: [spring,boot,vue.js,pilot]
 ---
 
-# 소개
-안녕하세요. 포털개발팀 신입사원 박효준입니다.  
-이 글은 제가 진행한 파일럿 프로젝트에 대해 소개하고 느낀 점을 정리한 글입니다.
-![GO](/images/portal/post/2018-08-23-ZUM-Pilot-partjun/introduce.jpg)
-  
-## 파일럿 프로젝트
-줌 인터넷에서는 모든 신입 사원이 파일럿 프로젝트를 진행합니다.  
-주어진 주제와 기술 스펙을 통해 과제를 수행하면서 줌 인터넷의 문화와 분위기에 적응하면서 기술도 갈고 닦는
-아주 귀중한 시간입니다.
-  
 ## 1. 주제
 제 파일럿 프로젝트의 주제는 *Vue.js로 만드는 모바일 줌* 이었습니다.  
 Vue.js를 이용해 사이트의 각 기능을 **모듈화**한 모바일 줌 사이트를 만들어 보는 것이죠.

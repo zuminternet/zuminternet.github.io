@@ -1,24 +1,19 @@
 ---
 layout: post
-title: "[포털개발팀-이영우] 파일럿 프로젝트"
-description: 포털개발팀 신입사원 파일럿 프로젝트 회고.
+title: "처음 만난 스프링 파일럿 프로젝트"
+description: 게시판 파일럿 프로젝트 회고.
 image: /images/portal/post/2017-10-27-ZUM-Pilot-youngwoo/db.png
 
 introduction: 줌에서 스프링을 만나다!. 파일럿 프로젝트를 진행하면서  사용했던 기술들을 어떤 식으로 적용했나에 대한 후기를 작성한 글입니다
 subtitle: 줌에서 스프링을 만나다!
 category: portal/pilot
-author: 포털개발팀
+author: 줌인터넷
 authorEmail: 
 authorImage: /images/portal/author/zum.png
-authorDescription: m.zum.com service <br/> Front-End & Back-End Developer. 
+authorDescription: 
 nickname: joeylee
 tag: [spring,boot,pilot,신입,zum]
 ---
-
-
-# 소개
-안녕하세요! 포털개발팀 신입사원 이영우입니다.
-이 글은 파일럿 프로젝트를 진행하면서 제가 느낀 점과 주어진 기술들을 어떤 식으로 적용했나에 대한 후기를 작성한 글입니다.
 
 # 스프링을 만나다
 ## 1. 게시판

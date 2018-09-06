@@ -1,26 +1,17 @@
 ---
 layout: post
-title: "[포털개발팀-류광현] 파일럿 프로젝트"
+title: "계층형 댓글 파일럿 프로젝트"
 description: 포털개발팀 신입사원 파일럿 프로젝트 회고. 수습기간 동안 파일럿 프로젝트를 진행하며 느낀점
 image: /images/portal/post/2017-01-06--ZUM-Pilot-ryudung/thum.png
 introduction: 개발자로 첫 발을 내딛으며. 
 category: portal/pilot
-author: 포털개발팀
+author: 줌인터넷
 authorEmail: 
 authorImage: /images/portal/author/zum.png
-authorDescription: zum.com service <br/> Developer.
+authorDescription: 
 nickname: ryudung
 tag: [spring,boot,pilot,zum,zuminternet,줌인터넷,포털개발,신입]
 ---
-
-
-# 글 소개 & 인사글
-
- 안녕하세요? 저는 줌인터넷 포털개발팀에 입사한 신입사원 류광현 입니다. 이 글은 제가 수습기간동안 프로젝트를 진행하며,
-느꼈던 점과 프로젝트의 진행 과정에 대한 내용을 중심으로 작성하였습니다.
-
-부족한 점이 매우 많을 거라고 생각합니다. 내용은 심각하지 않으니..가벼운 마음으로 읽어 주시면 감사하겠습니다. :-)
-<br><br>
 
 # 3개월의 수습기간 동안 진행한 프로젝트 
 
