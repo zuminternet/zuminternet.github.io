@@ -138,16 +138,6 @@ introduction 속성은 아래와 같이 노출 된다.
 
 ![설치5](/images/readme/26_.png)
 
-authorImage 속성은 아래와 같이 노출 된다.
-
-![설치5](/images/readme/27.png)
-
-author 속성은 아래와 같이 노출 된다.
-
-![설치5](/images/readme/28.png)
-
-authorDescription 속성은 아래와 같이 노출 된다.
-
 ![설치5](/images/readme/29.png)
 
 포트스 내용은 [kramdown]("https://kramdown.gettalong.org/syntax.html") 마크다운으로 작성한다.
