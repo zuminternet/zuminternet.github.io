@@ -131,7 +131,7 @@ title 속성은 아래와 같이 노출 된다.
 
 image 속성은 아래와 같이 노출 된다.
 
-![설치5](/images/readme/24.png)
+![설치5](/images/readme/24_.png)
 
 
 introduction 속성은 아래와 같이 노출 된다.
