@@ -136,7 +136,7 @@ image 속성은 아래와 같이 노출 된다.
 
 introduction 속성은 아래와 같이 노출 된다.
 
-![설치5](/images/readme/26.png)
+![설치5](/images/readme/26_.png)
 
 authorImage 속성은 아래와 같이 노출 된다.
 
