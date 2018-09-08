@@ -7,12 +7,6 @@ image: /images/portal/post/2018-08-23-ZUM-Pilot-partjun/vuejs-wallpaper-1_0.png
 introduction: 줌 모바일 웹을 Vuejs로 마이그레이션 했던 경험을 공유 합니다.
 subtitle: Vue.js를 이용한 모바일 줌 개발
 category: portal/pilot
-author: 줌인터넷
-authorEmail: 
-authorImage: /images/portal/author/zum.png
-authorDescription: 
-
-nickname: partjun
 tag: [spring,boot,vue.js,pilot]
 ---
 

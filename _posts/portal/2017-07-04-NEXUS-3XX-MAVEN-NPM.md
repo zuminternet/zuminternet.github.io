@@ -5,11 +5,6 @@ description: Nexus에서 Maven 저장소, NPM 저장소를 구성하고 사용�
 image: /images/portal/post/2017-07-04-NEXUS-3XX-MAVEN-NPM/images.jpeg
 introduction: Nexus에서 Maven 저장소, NPM 저장소를 구성하고 사용하는 내용을 정리
 category: portal/tech
-author: 줌인터넷
-authorEmail: 
-authorImage: /images/portal/author/zum.png
-authorDescription: 
-nickname: kingbbode
 tag: [ci, repository, maven, npm, gradle, nexus]
 ---
 
