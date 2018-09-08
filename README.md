@@ -152,8 +152,6 @@ introduction 속성은 아래와 같이 노출 된다.
     git push origin master
 ```
 
-![설치5](/images/readme/p12.png)
-
 포스트를 변경할 경우 cache 적용으로 인해서 30초 ~ 1분정도 지나서 업데이트가 된다.
 
 
