@@ -138,8 +138,6 @@ introduction 속성은 아래와 같이 노출 된다.
 
 ![설치5](/images/readme/26_.png)
 
-![설치5](/images/readme/29.png)
-
 포트스 내용은 [kramdown]("https://kramdown.gettalong.org/syntax.html") 마크다운으로 작성한다.
 
 ![설치5](/images/readme/p99.png)
