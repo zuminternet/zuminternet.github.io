@@ -6,7 +6,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b2cec123-402a-4553-98ef-7a084d7fa9c2" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/images/readme/t1_.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/readme/25_.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
@@ -75,8 +75,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="163">
-                <caret line="126" lean-forward="true" selection-start-line="126" selection-end-line="126" />
+              <first_editor relative-caret-position="278">
+                <caret line="125" lean-forward="true" selection-start-line="125" selection-end-line="125" />
               </first_editor>
               <second_editor />
             </state>
@@ -329,14 +329,7 @@
       <workItem from="1529665954819" duration="27000" />
       <workItem from="1529665989816" duration="672000" />
       <workItem from="1536199608196" duration="4792000" />
-      <workItem from="1536402440142" duration="2553000" />
-    </task>
-    <task id="LOCAL-00003" summary="- 블로그 url 변경">
-      <created>1528807799244</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1528807799244</updated>
+      <workItem from="1536402440142" duration="2732000" />
     </task>
     <task id="LOCAL-00004" summary="- 블로그 url 변경">
       <created>1528808089099</created>
@@ -674,11 +667,18 @@
       <option name="project" value="LOCAL" />
       <updated>1536407710147</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="- README.md 이미지 변경">
+      <created>1536407823181</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1536407823181</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31307000" />
+    <option name="totallyTimeSpent" value="31486000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1090,8 +1090,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="163">
-            <caret line="126" lean-forward="true" selection-start-line="126" selection-end-line="126" />
+          <first_editor relative-caret-position="278">
+            <caret line="125" lean-forward="true" selection-start-line="125" selection-end-line="125" />
           </first_editor>
           <second_editor />
         </state>

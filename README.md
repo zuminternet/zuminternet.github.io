@@ -127,7 +127,7 @@ Pygments를 설치 합니다.
 
 title 속성은 아래와 같이 노출 된다.
 
-![설치5](/images/readme/25.png)
+![설치5](/images/readme/25_.png)
 
 image 속성은 아래와 같이 노출 된다.
 
