@@ -122,7 +122,7 @@ Pygments를 설치 합니다.
 
 중요 속성은 아래와 같다.
 
-![설치5](/images/readme/t1.png)
+![설치5](/images/readme/t1_.png)
 
 
 title 속성은 아래와 같이 노출 된다.
