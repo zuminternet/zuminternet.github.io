@@ -90,7 +90,7 @@ Pygments를 설치 합니다.
 
 로컬서버 http://localhost:4000 에 접속해서 확인을 한다. 
 
-![설치5](/images/readme/32.png)
+![설치5](/images/readme/32_.png)
 
 ### (8) 포스트 디렉토리 가이드  ###
 
