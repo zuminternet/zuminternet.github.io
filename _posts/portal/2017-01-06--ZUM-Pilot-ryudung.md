@@ -5,11 +5,9 @@ description: 포털개발팀 신입사원 파일럿 프로젝트 회고. 수습�
 image: /images/portal/post/2017-01-06--ZUM-Pilot-ryudung/thum.png
 introduction: 개발자로 첫 발을 내딛으며. 
 category: portal/pilot
-author: 줌인터넷
-authorEmail: 
+author: 줌인터넷 
 authorImage: /images/portal/author/zum.png
 authorDescription: 
-nickname: ryudung
 tag: [spring,boot,pilot,zum,zuminternet,줌인터넷,포털개발,신입]
 ---
 
