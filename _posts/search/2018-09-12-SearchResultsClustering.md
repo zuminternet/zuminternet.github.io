@@ -20,13 +20,13 @@ tag: [solr,clustering,carrot2,search]
 먼저 carrot<sup>2</sup>를 설명하기 전에, 클러스터링(Clustering)이 무엇인지 간단하게 알아보겠습니다. 클러스터링은 비슷한 특성이 있는 데이터들의 집단을 만드는 작업입니다. Classification과 비슷해 보일 수 있으나 다른 개념입니다. 클러스터링은 사전 정보가 없는 데이터들을 유사도를 측정하여 비슷한 데이터를 찾아 그룹으로 만드는 개념이고 Classification은 분류해야 하는 특성을 미리 알고 있는 상태에서 데이터를 그룹화하는 개념입니다.
 
 
-![clustering](/images/search/post/2018-09-12-SearchResultsClustering/clustering.PNG)
+![clustering](/images/search/post/2018-09-12-SearchResultsClustering/clustering.png)
 - - -
 
 ### Solr란?
  solr는 오픈소스 검색 라이브러리, [Lucene](http://lucene.apache.org/)을 기반으로 동작하는 검색플랫폼입니다. carrot<sup>2</sup>는 사용자가 검색한 결과 문서들을 클러스터링합니다. 즉 어떤 검색결과 문서들이 input으로 주어져야 합니다. 그러기 위해서 다양한 방법이 있지만, 이번 스터디에서는 solr를 사용했습니다.
 
-![solr search](/images/search/post/2018-09-12-SearchResultsClustering/Solr_Search_request_handler.PNG)
+![solr search](/images/search/post/2018-09-12-SearchResultsClustering/Solr_Search_request_handler.png)
 solr에서 검색의 과정은 위 그림처럼 이루어집니다. 검색요청이 들어오면 각 component들을 차례로 거치면서 결과를 만들어 갑니다. last component에 클러스터링을 담당하는 작업을 추가하면 검색 결과 클러스터링이 가능하게 됩니다. <br/>
 
 solr에 대해 더 자세히 알고 싶으면 [solr reference guide](https://lucene.apache.org/solr/guide/6_6/about-this-guide.html)에서 확인하실 수 있습니다.
@@ -37,7 +37,7 @@ solr에 대해 더 자세히 알고 싶으면 [solr reference guide](https://luc
 
 carrot<sup>2</sup>는 검색결과를 클러스터링해서 결과를 보여주는 데, 기존의 검색결과와는 무엇이 다른지 아래 그림을 보겠습니다.
 
-![Introduction to search results clustering](/images/search/post/2018-09-12-SearchResultsClustering/why_search_result_clustering.PNG)
+![Introduction to search results clustering](/images/search/post/2018-09-12-SearchResultsClustering/why_search_result_clustering.png)
 기존의 검색 결과는 특정한 랭킹알고리즘을 통해 결과를 보여줍니다. 예를 들어 검색 사이트에 `apache` 라는 단어를 검색하면 apache 재단에 관련된 문서가 주로 상위에 보입니다. apache 헬리콥터나 인디언에 관련된 문서들도 있는데 상위에 보이지 않으므로 관련 문서를 사용자 입장에서는 찾기가 쉽지 않을 수 있습니다. <br/>
 하지만 검색결과를 클러스터링해서 비슷한 문서끼리 그룹화한다면, 좀 더 검색 결과를 직관적으로 보여줄 수 있을 것입니다. 위 그림의 왼쪽은 기존의 검색 결과이고 오른쪽은 검색결과를 클러스터링한 결과입니다. <br/>
 
@@ -46,7 +46,7 @@ carrot<sup>2</sup>는 검색결과를 클러스터링해서 결과를 보여주�
 
 
 
-![solr search ](/images/search/post/2018-09-12-SearchResultsClustering/carrot_pipeline.PNG)
+![solr search ](/images/search/post/2018-09-12-SearchResultsClustering/carrot_pipeline.png)
 carrot<sup>2</sup>구조는 위와 같습니다. input으로는 검색 결과가 들어오고, filter에서 클러스터링 알고리즘을 통해 비슷한 문서들끼리 클러스터를 만들게 됩니다. 생성된 클러스터들이 output이 됩니다.
 
 - - -
@@ -120,22 +120,22 @@ URL 파라미터로  `clustering.engine=(engine name) ` 로 설정합니다. 엔
 
 - 검색결과 확인하기
 
-![example ](/images/search/post/2018-09-12-SearchResultsClustering/example.PNG)
+![example ](/images/search/post/2018-09-12-SearchResultsClustering/example.png)
 
 아래 그림은 테스트 데이터에 위와 같이 검색한 결과의 일부입니다. 결과를 통해 클러스터가 생성된 것을 확인할 수 있습니다.
 
 
-![test ](/images/search/post/2018-09-12-SearchResultsClustering/test-example.PNG)
+![test ](/images/search/post/2018-09-12-SearchResultsClustering/test-example.png)
 클러스터는 `<lst>`로 감싸져 있습니다. 상위에서 클러스터를 색으로 구분했다면, 여기선 레이블로 구분합니다. 총 3개의 클러스터가 생성된 것을 볼 수 있습니다. `<arr name="docs">` 밑에는 해당 클러스터에 속하는 문서들이 나열되어 있습니다. <br/>
 
 아래 그림을 통해, 결과를 직관적으로 이해할 수 있습니다. `<str>`태그 안에는 문서의 unique key 값이 나타납니다. 아래 그림에서는 문서의 unique key 값이 길어 축약하여 표현하였습니다.
-![detail test result ](/images/search/post/2018-09-12-SearchResultsClustering/detail_result.PNG)
+![detail test result ](/images/search/post/2018-09-12-SearchResultsClustering/detail_result.png)
 - - -
 
 ### Lingo algorithm
 Lingo 알고리즘은 carrot<sup>2</sup>를 만든 [Stanisław Osiński](https://carrotsearch.com/about-us/)가 만든 알고리즘입니다. 그는 Lingo 알고리즘이 다른 클러스터링 알고리즘과 차이점이 있다고 합니다.
 
-![clustering process ](/images/search/post/2018-09-12-SearchResultsClustering/clustering_process.PNG)
+![clustering process ](/images/search/post/2018-09-12-SearchResultsClustering/clustering_process.png)
 
 다른 대다수의 클러스터링 알고리즘은 위 그림 좌측에 있는 구조처럼 먼저 문서들간의 유사도를 비교하여 클러스터를 우선 만듭니다. 그 후 클러스터 대표할 단어를 찾아 결과를 반환합니다. <br/>
 Lingo 알고리즘은 위 그림 우측에 해당하는 방법을 사용합니다. 클러스터를 만드는 일보다 먼저 문서들을 비교하여 레이블을 찾습니다. 레이블은 사용될 클러스터를 대표하는 단어및 구문이 됩니다. 즉, 클러스터를 단어 및 구문을 우선 찾는 방법입니다. 그 후, 문서들을 찾은 레이블들과 비교하여 어울리는 레이블에 문서를 넣습니다.<br/>
@@ -163,16 +163,16 @@ Lingo 알고리즘은 위 그림 우측에 해당하는 방법을 사용합니�
   term **x** Document 행렬 A를 다음과 같이 분해할 수 있습니다. <br/>
   A = UΣ V<sup>T</sup><br/>
   SVD 계산법은 [여기](https://rstudio-pubs-static.s3.amazonaws.com/346037_78713fb40a144e749eaa6dab773a3571.html#4_%EA%B3%A0%EC%9C%A0%EA%B0%92_%EB%B6%84%ED%95%B4)에서 확인할 수 있습니다.<br/>
-  ![input](/images/search/post/2018-09-12-SearchResultsClustering/example_input.PNG)
+  ![input](/images/search/post/2018-09-12-SearchResultsClustering/example_input.png)
   예제를 통해 어떻게 레이블을 선정하는지에 대해 알아보겠습니다. 위의 그림은 7개의 문서와 전 단계들을 거치면서 나온 term과 phrase입니다.  <br/>
-  ![svd](/images/search/post/2018-09-12-SearchResultsClustering/svd.PNG)
+  ![svd](/images/search/post/2018-09-12-SearchResultsClustering/svd.png)
   행렬 A를 이용해 행렬 U와 Σ를 구할 수 있습니다. 행렬 U는 term **x**  abstract concept 행렬이고, Σ는 abstract concept 값(특이값)이 내림차순으로 정의된 진단행렬입니다. 여기선 abstract concept는 클러스터 레이블 후보들입니다. <br/>
   k를 지정하여 후보 중 일부만을 추리도록 합니다. Lingo알고리즘에서는 행렬 Σ를 k값을 구하는 데 사용합니다. k는 클러스터의 개수입니다. 구하는 공식은 아래와 같습니다.  <br/>
-  ![k](/images/search/post/2018-09-12-SearchResultsClustering/k.PNG)
+  ![k](/images/search/post/2018-09-12-SearchResultsClustering/k.png)
   이제 행렬 M을 구합니다. 행렬 M은 아래와 같이, 두행렬의 곱으로 구할 수 있습니다. 앞서 구한 행렬 U의 k개의 열만을 사용하는 전치행렬을 행렬 P, term **x**  (phrase + terms)와 곱하면 됩니다. 행렬 M은 클러스터 레이블 후보와 phrase+term에 관련된 행렬이 됩니다. 후보 레이블 중에 사용할 레이블을 선정하는 행렬입니다. <br/>
-  ![m](/images/search/post/2018-09-12-SearchResultsClustering/m.PNG)
+  ![m](/images/search/post/2018-09-12-SearchResultsClustering/m.png)
   행렬 M의 행의 수가 클러스터 수가 됩니다. 첫 번째 행은 클러스터1에 대한 행이 됩니다. 첫번째 열은 Phrase1, Singular Value가 됩니다. 각 값은 클러스터와 단어및 구문의 유사 정도라고 생각하시면 됩니다. 값이 높을 수록 해당 클러스터를 설명하는 단어및 구문이 됩니다. 즉 클러스터1에 해당하는 레이블은 가장 첫 번째 행에서 가장 높은 값인 0.92를 가진 Phrase1인 `Singular Value`가 됩니다. 클러스터2는 `Information Retrieval`이 됩니다.
-  ![result](/images/search/post/2018-09-12-SearchResultsClustering/label_result.PNG)
+  ![result](/images/search/post/2018-09-12-SearchResultsClustering/label_result.png)
   이제 2개의 클러스터를 찾았고 각 클러스터를 설명할 수 있는 레이블도 찾았습니다.
 
 * Cluster content discovery
@@ -192,7 +192,7 @@ Lingo 알고리즘은 위 그림 우측에 해당하는 방법을 사용합니�
 
 #### 1.결과
  결과는 label로 선정된 구문에 대한 이야기입니다. <br/>
-![unexpected label](/images/search/post/2018-09-12-SearchResultsClustering/unexpected_label.PNG)
+![unexpected label](/images/search/post/2018-09-12-SearchResultsClustering/unexpected_label.png)
 위 그림은  **apache** 로 검색한 결과 중 생긴 클러스터입니다. 위 그림 우측은 `stopwords.ko` 파일 일부입니다. 파일 안에 `할 수 있는`이 들어 있지 않은 것을 확인할 수 있습니다. 이렇듯 `stopwords.ko` 파일에 등록되어 있지 않은 불용어로 시작하거나 끝나는 구문이 label로 지정되는 경우가 종종 생겼습니다. `할 수 있는`이 **apache** 로 검색한 결과 내에서 의미 있는 구문은 아니기에 원하지 않는 결과입니다. <br/>
 
 
@@ -205,7 +205,7 @@ Lingo 알고리즘은 위 그림 우측에 해당하는 방법을 사용합니�
 위와 같은 조건에서 **기존 검색** 과 **carrot<sup>2</sup>의 Lingo 알고리즘을 이용한 검색** , 총 두 가지 검색을 **검색반환 문서 수(10, 20)** 에 따라 진행하였습니다. <br/>
 아래 그래프는 테스트에 관한 결과를 **TPS(transaction per second) 그래프** 입니다. x축은 경과 시간(초)을 나타내고 y축은 TPS를 나타냅니다. TPS는 초당 transaction을 처리한 수를 나타내는 데, 이 테스트에서 transaction은 검색하고 결과를 반환받는 과정을 말합니다. 즉 TPS가 높을수록 성능이 좋다고 말할 수 있습니다.
 
-![performance test](/images/search/post/2018-09-12-SearchResultsClustering/performance_test.PNG)
+![performance test](/images/search/post/2018-09-12-SearchResultsClustering/performance_test.png)
 그래프에는 총 4가지 선이 존재합니다. default는 기존 검색을 의미하고, Lingo는 carrot<sup>2</sup>를 이용한 검색을 의미합니다. row는 검색 반환 문서의 수를 의미합니다. Lingo 알고리즘에서 검색반환 수가 25인 경우가 가장 낮은 TPS를 보이는 것을 확인할 수 있습니다.
 
 |                        |    Lingo / row=25|  Lingo / row=10|  default / row=25|  default / row=10|
