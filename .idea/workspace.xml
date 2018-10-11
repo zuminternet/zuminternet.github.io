@@ -34,34 +34,19 @@
         <entry file="file://$PROJECT_DIR$/_posts/portal/2018-10-11-ZUM-Pilot-cms.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="322">
-                <caret line="14" column="53" lean-forward="true" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="53" />
+              <first_editor relative-caret-position="202">
+                <caret line="56" column="48" selection-start-line="56" selection-start-column="48" selection-end-line="56" selection-end-column="48" />
               </first_editor>
               <second_editor />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="04-frontend-view-1.PNG" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/images/portal/post/2018-10-11-ZUM-Pilot-cms/04-frontend-view-1.PNG">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file leaf-file-name="initdraft.sh" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/initdraft.sh">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="logo_zum_2x-78df1cde157641c8f4178f86826539e8.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/images/portal/post/logo_zum_2x-78df1cde157641c8f4178f86826539e8.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
       <file leaf-file-name="2018-08-23-ZUM-Pilot-vuejs.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_posts/portal/2018-08-23-ZUM-Pilot-vuejs.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="345">
+              <first_editor relative-caret-position="3036">
                 <caret line="132" column="12" selection-end-line="532" selection-end-column="6" />
               </first_editor>
               <second_editor />
@@ -155,7 +140,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -204,6 +188,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="AndroidView" />
     </panes>
@@ -315,14 +300,8 @@
       <workItem from="1536402440142" duration="4618000" />
       <workItem from="1536806365125" duration="642000" />
       <workItem from="1539224003320" duration="2450000" />
-      <workItem from="1539238278895" duration="3508000" />
-    </task>
-    <task id="LOCAL-00014" summary="- 페이지스북 공유하기 og 태그 업데이트">
-      <created>1528867236109</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1528867236109</updated>
+      <workItem from="1539238278895" duration="3741000" />
+      <workItem from="1539250309146" duration="44000" />
     </task>
     <task id="LOCAL-00015" summary="- 페이지스북 공유하기 og 태그 업데이트">
       <created>1528867737669</created>
@@ -660,11 +639,18 @@
       <option name="project" value="LOCAL" />
       <updated>1539243224231</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="- 김남준 파일럿 프로젝트, 2차 수정">
+      <created>1539249995941</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1539249995941</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39972000" />
+    <option name="totallyTimeSpent" value="40249000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -690,9 +676,9 @@
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.329602" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.33370662" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.33370662" />
       <window_info anchor="bottom" id="Run with VisualVM" order="8" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19382322" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19595315" />
       <window_info anchor="right" id="Theme Preview" order="7" />
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Debug with VisualVM" order="11" />
@@ -754,6 +740,36 @@
     <option name="LAST_COMMIT_MESSAGE" value="- 김남준 파일럿 프로젝트, 2차 수정" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/_posts/portal/2017-02-22-BUG-TRACKING-5.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="161">
+            <caret line="7" selection-start-line="7" selection-end-line="7" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/portal/2018-08-23-ZUM-Pilot-vuejs.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="3036">
+            <caret line="132" column="12" selection-end-line="532" selection-end-column="6" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/portal/2018-10-11-ZUM-Pilot-cms.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="230">
+            <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/_config.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="621">
@@ -1077,27 +1093,18 @@
     <entry file="file://$PROJECT_DIR$/_posts/portal/2018-08-23-ZUM-Pilot-vuejs.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="345">
+          <first_editor relative-caret-position="3036">
             <caret line="132" column="12" selection-end-line="532" selection-end-column="6" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/initdraft.sh">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/portal/post/logo_zum_2x-78df1cde157641c8f4178f86826539e8.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/portal/post/2018-10-11-ZUM-Pilot-cms/04-frontend-view-1.PNG">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/_posts/portal/2018-10-11-ZUM-Pilot-cms.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="322">
-            <caret line="14" column="53" lean-forward="true" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="53" />
+          <first_editor relative-caret-position="202">
+            <caret line="56" column="48" selection-start-line="56" selection-start-column="48" selection-end-line="56" selection-end-column="48" />
           </first_editor>
           <second_editor />
         </state>
