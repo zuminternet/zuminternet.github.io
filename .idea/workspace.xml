@@ -5,13 +5,7 @@
     <bookmark url="file://$PROJECT_DIR$/_layouts/post.html" line="20" mnemonic="2" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2cec123-402a-4553-98ef-7a084d7fa9c2" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/portal/2018-08-23-ZUM-Pilot-partjun.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/portal/2018-08-23-ZUM-Pilot-vuejs.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/portal/2018-10-11-ZUM-Pilot-njkim.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/portal/2018-10-11-ZUM-Pilot-cms.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/portal/post/2018-10-11-ZUM-Pilot-njkim/04-frontend-view.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/images/portal/post/2018-10-11-ZUM-Pilot-njkim/04-frontend-view.PNG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/portal/post/2018-10-11-ZUM-Pilot-njkim/08-events-up-props-down.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/images/portal/post/2018-10-11-ZUM-Pilot-njkim/08-events-up-props-down.PNG" afterDir="false" />
-    </list>
+    <list default="true" id="b2cec123-402a-4553-98ef-7a084d7fa9c2" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -300,14 +294,7 @@
       <workItem from="1536402440142" duration="4618000" />
       <workItem from="1536806365125" duration="642000" />
       <workItem from="1539224003320" duration="2450000" />
-      <workItem from="1539238278895" duration="2221000" />
-    </task>
-    <task id="LOCAL-00011" summary="- 페이지스북 공유하기 og 태그 업데이트">
-      <created>1528810881658</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1528810881658</updated>
+      <workItem from="1539238278895" duration="2567000" />
     </task>
     <task id="LOCAL-00012" summary="- 페이지스북 공유하기 og 태그 업데이트">
       <created>1528867036704</created>
@@ -645,11 +632,18 @@
       <option name="project" value="LOCAL" />
       <updated>1539231469470</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="- 김남준 파일럿 프로젝트, 2차 수정">
+      <created>1539242585165</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1539242585165</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38685000" />
+    <option name="totallyTimeSpent" value="39031000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -734,7 +728,8 @@
     <MESSAGE value="- 포털개발팀 소개 포스팅 삭제" />
     <MESSAGE value="- README.md 이미지 변경" />
     <MESSAGE value="- 김남준 파일럿 프로젝트" />
-    <option name="LAST_COMMIT_MESSAGE" value="- 김남준 파일럿 프로젝트" />
+    <MESSAGE value="- 김남준 파일럿 프로젝트, 2차 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="- 김남준 파일럿 프로젝트, 2차 수정" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/contact.md">

@@ -18,7 +18,7 @@ tag: [experience, springboot, vuejs, redis, video.js]
 
 > 입사 후 며칠간의 적응 기간이 지나고, 포털개발팀에서 사용하는 기술 스펙 적응과 실무를 하기 전 웹 서비스에 대한 지식과 기술을 습득하기 위한 파일럿 프로젝트를 진행했습니다. 진행에 앞서 가이드 및 기술 지원을 위한 선임분들이 정해졌고, 약 7주간의 여정을 시작했습니다. 이 회고록에는 줌인터넷에 갓 입사한 신입사원이 파일럿 프로젝트를 진행하면서 주어진 요구사항을 구현해 나가는 과정과 개인적으로 느꼈던 기술에 관련된 벽을 허물어가는 과정에 관한 내용을 담았습니다.
 
-![](/images/portal/post/2018-10-11-ZUM-Pilot-njkim/00-wall.png)
+![](/images/portal/post/2018-10-11-ZUM-Pilot-cms/00-wall.png)
 
 ## 1. 개요
 
@@ -37,7 +37,7 @@ tag: [experience, springboot, vuejs, redis, video.js]
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | 1. 홈 메인 상단 노출 컨텐츠 관리<br />2. 상단 프로모션 문구 관리<br />3. 홈 미리보기(마크업 제공) | 1. 뷰페이지 미리보기(마크업 제공)<br />&nbsp; 1-1. 광고 없이 mp4 파일 재생(video.js를 학습하기 위함)<br />2. 메인 상단 노출 컨텐츠 스케줄링<br />3. 상단 프로모션 스케줄링<br />4. 레디스 데이터(재생수 등) 확인 및 관리 |
 
-![](/images/portal/post/2018-10-11-ZUM-Pilot-njkim/01-tv-zum-home.png)
+![](/images/portal/post/2018-10-11-ZUM-Pilot-cms/01-tv-zum-home.png)
 
 필수로 사용해야 하는 기술 스펙과 선택적으로 사용해도 좋은 기술 스펙도 전달받았습니다. Back-end 기술 스펙에는 그나마 공부해오던 것들이 있어서 모르던 것들을 학습하면서 진행하면 된다고 생각했지만, Front-end 기술 스펙에는 사용해보지 못한 것들이 대부분이었습니다. Webpack config 파일에 대한 울렁증도 있었고, 자바스크립트를 깊이 공부해본 적도 없으며, Vue.js라는 핫한 프론트엔드 프레임워크는 접해본 적도 없던 터라 이 부분에서 다가오는 벽이 가장 크게 느껴졌습니다.
 
@@ -51,7 +51,7 @@ tag: [experience, springboot, vuejs, redis, video.js]
 
 ### 2-1 프로젝트 진행 과정
 
-![](/images/portal/post/2018-10-11-ZUM-Pilot-njkim/02-pilot-project-schedule.png)
+![](/images/portal/post/2018-10-11-ZUM-Pilot-cms/02-pilot-project-schedule.png)
 
 - 1주차 : 파일럿 프로젝트를 진행하기 위해 컨셉을 잡고, 설계 리뷰를 진행하면서 방향을 잡았습니다. 기능 구현을 위해서 화면에 대한 설계와 동작 시나리오, 데이터베이스 테이블과 구조에 대한 고민, 백엔드 비즈니스 로직의 흐름에 대한 고민을 가장 많이 했던 시간입니다.
 - 2, 3주차 : 가장 중요한 필수 기능인 메인 상단 노출 컨텐츠 관리 기능과 상단 홈 프로모션 문구 관리에 집중했습니다. 이 기간에는 경험이 있는 Spring Boot + Freemarker로 기능 구현에 초점을 맞추고, 1차 리뷰 후에 진행할 Vue.js로의 전환을 위해서 Vue.js를 구성하는 중요한 요소들에 대해 학습했습니다.
@@ -70,7 +70,7 @@ tag: [experience, springboot, vuejs, redis, video.js]
 
 하지만 홈 상단 노출 프로모션 문구의 경우 CMS 사용자가 모든 부분(프로모션 문구 추가, 수정, 삭제, 스케줄링 등)을 직접 컨트롤하기 때문에, 하나의 테이블로 모든 것을 관리할 수 있다고 생각했습니다. 결과적으로 프로모션 문구와 해당 문구의 랜딩 URL, 노출 순서, 스케줄링 시간과 최종 수정자를 포함하는 home_promotion 하나의 테이블을 사용하여 기능 구현이 가능했습니다.
 
-![](/images/portal/post/2018-10-11-ZUM-Pilot-njkim/03-db-table.png)
+![](/images/portal/post/2018-10-11-ZUM-Pilot-cms/03-db-table.png)
 
 ## 4. Frontend
 
@@ -82,7 +82,7 @@ tag: [experience, springboot, vuejs, redis, video.js]
 
 뒤에서 자세히 설명드리겠지만, Freemarker 템플릿 엔진으로 렌더링하는 화면과 싱글 파일 컴포넌트 구조의 Vue.js로 그리는 화면은 겉으로 보기에 차이가 없습니다. 하지만, 이렇게 화면 요소를 동적으로 처리해야하는 부분들을 구현하는데 있어 Freemarker로 서버사이드 렌더링을 할 때보다 Vue.js 적용 후에 더 효율적으로 구현할 수 있었습니다.
 
-![](/images/portal/post/2018-10-11-ZUM-Pilot-njkim/04-frontend-view.PNG)
+![](/images/portal/post/2018-10-11-ZUM-Pilot-cms/04-frontend-view.PNG)
 
 ### 4-2 구조 변경(Freemarker -> Vue.js)
 
@@ -93,7 +93,7 @@ tag: [experience, springboot, vuejs, redis, video.js]
 * 기능별로 있던 `.ftl` 파일과 동작을 위한 코드가 있던 `.js` 파일의 내용이 하나의 `.vue` 파일로 관리되면서 Vue.js의 싱글 파일 컴포넌트 구조로 변경되었고, 덕분에 하나의 파일에서 html 코드와 js 코드를 관리할 수 있습니다.
 * 프론트엔드 프로젝트와 백엔드 프로젝트가 분리되면서 webpack-dev 서버를 통해서 별도로 프론트엔드 프로젝트를 구동시키기 때문에, 코드의 수정이 있어도 스프링 부트 프로젝트를 re-run 하지 않아도 돼서 개발 생산성이 매우 좋아졌습니다.
 
-![](/images/portal/post/2018-10-11-ZUM-Pilot-njkim/05-vuejs-project-structure.PNG)
+![](/images/portal/post/2018-10-11-ZUM-Pilot-cms/05-vuejs-project-structure.PNG)
 
 ### 4-3 Single File Component 구조로 변경된 화면
 
@@ -101,11 +101,11 @@ tag: [experience, springboot, vuejs, redis, video.js]
 
 Main 컴포넌트에는 컴포넌트의 전환을 위해서 라우터가 등록되어 있고, 사용자의 선택에 따라서 해당 컴포넌트가 Main 컴포넌트 아래에 동적으로 그려집니다. Main 컴포넌트 아래에 다시 2개의 Child 컴포넌트로 나누어지고, 필요하다면 컴포넌트 간 통신으로 데이터를 주고받습니다.
 
-![](/images/portal/post/2018-10-11-ZUM-Pilot-njkim/06-single-file-component-structure.PNG)
+![](/images/portal/post/2018-10-11-ZUM-Pilot-cms/06-single-file-component-structure.PNG)
 
 프론트엔드 프로젝트의 컴포넌트 트리 구조입니다. 위에서 설명 드린 대로 Root 아래의 동일 레벨에서 3개의 컴포넌트가 렌더링 되고, Main 컴포넌트에 정의된 router에 의해서 사용자의 실질적인 작업 화면이 동적 렌더링 됩니다. 싱글 파일 컴포넌트 구조의 또 하나의 장점은 해당 컴포넌트에서 필요한 `html`, `css`, `js` 코드를 하나의 `.vue` 파일에서 관리할 수 있다는 것입니다.
 
-![](/images/portal/post/2018-10-11-ZUM-Pilot-njkim/07-single-file-component-structure.PNG)
+![](/images/portal/post/2018-10-11-ZUM-Pilot-cms/07-single-file-component-structure.PNG)
 
 ### 4-4 Component의 Parent-Child 통신과 데이터 바인딩
 
@@ -116,7 +116,7 @@ Main 컴포넌트 아래에서 다시 Parent-Child로 구성되는 컴포넌트 
 * Events up : Child -> Parent 요청
 * Props down : Parent -> Child 전달
 
-![](/images/portal/post/2018-10-11-ZUM-Pilot-njkim/08-events-up-props-down.PNG)
+![](/images/portal/post/2018-10-11-ZUM-Pilot-cms/08-events-up-props-down.PNG)
 
 통신에서 Parent를 거쳐야 하는 것이 처음에 개념을 학습할 때는 불편할 수 있겠다고 생각했었지만, 실제 코드로 작성하면서 이 통신 방식의 장점을 느낄 수 있었습니다.
 
@@ -124,7 +124,7 @@ Parent의 왼쪽 Child인 Content 컴포넌트에서 Events up으로 요청과 �
 
 이벤트의 요청/응답의 범위가 Parent-Child 컴포넌트로 한정되고, 요청/응답의 주체를 명확하게 확인할 수 있습니다. 또한, Child 컴포넌트에서는 이벤트를 요청하거나 props 데이터를 사용하기만 하면 되고, 핵심 비즈니스 로직과 공통으로 사용하는 데이터들은 전부 Parent 컴포넌트에서 관리할 수 있습니다.
 
-![](/images/portal/post/2018-10-11-ZUM-Pilot-njkim/09-parent-child-communication.PNG)
+![](/images/portal/post/2018-10-11-ZUM-Pilot-cms/09-parent-child-communication.PNG)
 
 ## 5. Backend
 
@@ -132,7 +132,7 @@ Parent의 왼쪽 Child인 Content 컴포넌트에서 Events up으로 요청과 �
 
 사용자는 Vue.js로 렌더링 된 화면을 통해서 Backend로 요청을 보내게 됩니다. Spring Boot 2.0.4를 기반으로 Controller-Service-Repository 레이어 형태의 일반적인 구조와 spring-data-jpa를 사용했습니다. 마크업을 제공받아서 구현하는 미리보기 화면은 Freemarker로 서버사이드 렌더링을 하고, 뷰페이지 미리보기 화면(Video.js로 영상 컨텐츠 컨트롤)과 같이 구현한 재생수 관리 기능의 경우 Java에서 Redis를 사용하기 위한 Jedis 라이브러리와 spring-data-redis를 이용하여 redis에 저장되어있는 데이터를 조회하고 수정합니다.
 
-![](/images/portal/post/2018-10-11-ZUM-Pilot-njkim/10-backend-flow.PNG)
+![](/images/portal/post/2018-10-11-ZUM-Pilot-cms/10-backend-flow.PNG)
 
 ### 5-2. Spring Scheduler로 Redis데이터 DB에 업데이트 하기
 
@@ -166,7 +166,7 @@ public class ScheduleTasks {
 
 실제로 아래의 그림과 같이 스케줄링이 동작합니다. 정의된 스케줄링 Task가 수행될 때, spring-data-redis의 도움을 받아 Redis에서 조회한 데이터를 주기적으로 Database에 업데이트합니다.
 
-![](/images/portal/post/2018-10-11-ZUM-Pilot-njkim/11-backend-scheduler.PNG)
+![](/images/portal/post/2018-10-11-ZUM-Pilot-cms/11-backend-scheduler.PNG)
 
 ### 5-3. @ConfigurationProperties로 설정값 관리하기
 
