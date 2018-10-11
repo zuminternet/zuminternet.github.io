@@ -6,7 +6,7 @@ title: 파일럿 프로젝트 회고록 - TV줌 CMS
 
 description: 파일럿 프로젝트 회고록
 
-image: /images/portal/post/2018-10-11-ZUM-Pilot-njkim/00-wall.png
+image: /images/portal/post/2018-10-11-ZUM-Pilot-cms/00-wall.png
 
 introduction: 7주간의 특별한 경험에 관한 이야기
 

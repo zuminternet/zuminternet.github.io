@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/_posts/portal/2018-08-23-ZUM-Pilot-vuejs.md" line="9" mnemonic="1" />
     <bookmark url="file://$PROJECT_DIR$/_layouts/post.html" line="20" mnemonic="2" />
+    <bookmark url="file://$PROJECT_DIR$/_posts/portal/2018-10-11-ZUM-Pilot-cms.md" line="12" mnemonic="1" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2cec123-402a-4553-98ef-7a084d7fa9c2" name="Default" comment="" />
+    <list default="true" id="b2cec123-402a-4553-98ef-7a084d7fa9c2" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/portal/2018-10-11-ZUM-Pilot-cms.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/portal/2018-10-11-ZUM-Pilot-cms.md" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,16 +30,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2018-10-11-ZUM-Pilot-cms.md" pinned="false" current-in-tab="false">
+      <file leaf-file-name="2018-10-11-ZUM-Pilot-cms.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/_posts/portal/2018-10-11-ZUM-Pilot-cms.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="3065">
-                <caret line="238" selection-start-line="238" selection-end-line="238" />
+              <first_editor relative-caret-position="322">
+                <caret line="14" column="53" lean-forward="true" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="53" />
               </first_editor>
               <second_editor />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="04-frontend-view-1.PNG" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/images/portal/post/2018-10-11-ZUM-Pilot-cms/04-frontend-view-1.PNG">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
       <file leaf-file-name="initdraft.sh" pinned="false" current-in-tab="false">
@@ -44,7 +52,7 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file leaf-file-name="logo_zum_2x-78df1cde157641c8f4178f86826539e8.png" pinned="false" current-in-tab="true">
+      <file leaf-file-name="logo_zum_2x-78df1cde157641c8f4178f86826539e8.png" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/images/portal/post/logo_zum_2x-78df1cde157641c8f4178f86826539e8.png">
           <provider selected="true" editor-type-id="images" />
         </entry>
@@ -78,6 +86,8 @@
       <find>authorImage</find>
       <find>23</find>
       <find>smr</find>
+      <find>2018-10-11-ZUM-Pilot-njkim</find>
+      <find>04-frontend-view</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -156,6 +166,17 @@
             <path>
               <item name="zuminternet.github.io" type="b2602c69:ProjectViewProjectNode" />
               <item name="zuminternet.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="_posts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zuminternet.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zuminternet.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="_posts" type="462c0819:PsiDirectoryNode" />
+              <item name="portal" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="zuminternet.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="zuminternet.github.io" type="462c0819:PsiDirectoryNode" />
               <item name="images" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -177,7 +198,7 @@
               <item name="images" type="462c0819:PsiDirectoryNode" />
               <item name="portal" type="462c0819:PsiDirectoryNode" />
               <item name="post" type="462c0819:PsiDirectoryNode" />
-              <item name="2018-10-11-ZUM-Pilot-njkim" type="462c0819:PsiDirectoryNode" />
+              <item name="2018-10-11-ZUM-Pilot-cms" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -294,21 +315,7 @@
       <workItem from="1536402440142" duration="4618000" />
       <workItem from="1536806365125" duration="642000" />
       <workItem from="1539224003320" duration="2450000" />
-      <workItem from="1539238278895" duration="2567000" />
-    </task>
-    <task id="LOCAL-00012" summary="- 페이지스북 공유하기 og 태그 업데이트">
-      <created>1528867036704</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1528867036704</updated>
-    </task>
-    <task id="LOCAL-00013" summary="- 페이지스북 공유하기 og 태그 업데이트">
-      <created>1528867129399</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1528867129399</updated>
+      <workItem from="1539238278895" duration="3508000" />
     </task>
     <task id="LOCAL-00014" summary="- 페이지스북 공유하기 og 태그 업데이트">
       <created>1528867236109</created>
@@ -639,14 +646,29 @@
       <option name="project" value="LOCAL" />
       <updated>1539242585165</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="- 김남준 파일럿 프로젝트, 2차 수정">
+      <created>1539243039631</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1539243039631</updated>
+    </task>
+    <task id="LOCAL-00062" summary="- 김남준 파일럿 프로젝트, 2차 수정">
+      <created>1539243224231</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1539243224231</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39031000" />
+    <option name="totallyTimeSpent" value="39972000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="15" side_tool="true" />
@@ -732,14 +754,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="- 김남준 파일럿 프로젝트, 2차 수정" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/contact.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_config.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="621">
@@ -1070,21 +1084,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/portal/2018-10-11-ZUM-Pilot-cms.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="3065">
-            <caret line="238" selection-start-line="238" selection-end-line="238" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/initdraft.sh">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/images/portal/post/logo_zum_2x-78df1cde157641c8f4178f86826539e8.png">
       <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/portal/post/2018-10-11-ZUM-Pilot-cms/04-frontend-view-1.PNG">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/portal/2018-10-11-ZUM-Pilot-cms.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="322">
+            <caret line="14" column="53" lean-forward="true" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="53" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">
