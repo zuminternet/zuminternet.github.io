@@ -1,28 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/_posts/portal/2018-08-23-ZUM-Pilot-partjun.md" line="9" mnemonic="1" />
+    <bookmark url="file://$PROJECT_DIR$/_posts/portal/2018-08-23-ZUM-Pilot-vuejs.md" line="9" mnemonic="1" />
     <bookmark url="file://$PROJECT_DIR$/_layouts/post.html" line="20" mnemonic="2" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b2cec123-402a-4553-98ef-7a084d7fa9c2" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/_posts/portal/2018-10-11-ZUM-Pilot-njkim.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/portal/post/2018-10-11-ZUM-Pilot-njkim/00-wall.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/portal/post/2018-10-11-ZUM-Pilot-njkim/01-tv-zum-home.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/portal/post/2018-10-11-ZUM-Pilot-njkim/02-pilot-project-schedule.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/portal/post/2018-10-11-ZUM-Pilot-njkim/03-db-table.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/portal/post/2018-10-11-ZUM-Pilot-njkim/04-frontend-view.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/portal/post/2018-10-11-ZUM-Pilot-njkim/05-vuejs-project-structure.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/portal/post/2018-10-11-ZUM-Pilot-njkim/06-single-file-component-structure.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/portal/post/2018-10-11-ZUM-Pilot-njkim/07-single-file-component-structure.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/portal/post/2018-10-11-ZUM-Pilot-njkim/08-events-up-props-down.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/portal/post/2018-10-11-ZUM-Pilot-njkim/09-parent-child-communication.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/portal/post/2018-10-11-ZUM-Pilot-njkim/10-backend-flow.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/portal/post/2018-10-11-ZUM-Pilot-njkim/11-backend-scheduler.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/portal/post/2018-10-11-ZUM-Pilot-njkim/12-promotion.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/portal/post/2018-10-11-ZUM-Pilot-njkim/13-content.PNG" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/portal/post/2018-10-11-ZUM-Pilot-njkim/14-preview.PNG" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/portal/2018-08-23-ZUM-Pilot-partjun.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/portal/2018-08-23-ZUM-Pilot-vuejs.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/portal/2018-10-11-ZUM-Pilot-njkim.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/portal/2018-10-11-ZUM-Pilot-cms.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/portal/post/2018-10-11-ZUM-Pilot-njkim/04-frontend-view.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/images/portal/post/2018-10-11-ZUM-Pilot-njkim/04-frontend-view.PNG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/portal/post/2018-10-11-ZUM-Pilot-njkim/08-events-up-props-down.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/images/portal/post/2018-10-11-ZUM-Pilot-njkim/08-events-up-props-down.PNG" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,7 +20,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="2017-02-22-BUG-TRACKING-5.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_posts/portal/2017-02-22-BUG-TRACKING-5.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
@@ -45,12 +33,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2018-10-11-ZUM-Pilot-njkim.md" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/_posts/portal/2018-10-11-ZUM-Pilot-njkim.md">
+      <file leaf-file-name="2018-10-11-ZUM-Pilot-cms.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_posts/portal/2018-10-11-ZUM-Pilot-cms.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="305">
-                <caret line="72" selection-start-line="72" selection-end-line="72" selection-end-column="67" />
+              <first_editor relative-caret-position="3065">
+                <caret line="238" selection-start-line="238" selection-end-line="238" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="initdraft.sh" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/initdraft.sh">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="logo_zum_2x-78df1cde157641c8f4178f86826539e8.png" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/images/portal/post/logo_zum_2x-78df1cde157641c8f4178f86826539e8.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file leaf-file-name="2018-08-23-ZUM-Pilot-vuejs.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_posts/portal/2018-08-23-ZUM-Pilot-vuejs.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="345">
+                <caret line="132" column="12" selection-end-line="532" selection-end-column="6" />
               </first_editor>
               <second_editor />
             </state>
@@ -111,6 +121,7 @@
         <option value="$PROJECT_DIR$/_includes/author.html" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/_posts/portal/2018-10-11-ZUM-Pilot-njkim.md" />
+        <option value="$PROJECT_DIR$/_posts/portal/2018-10-11-ZUM-Pilot-cms.md" />
       </list>
     </option>
   </component>
@@ -140,37 +151,13 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="zuminternet.github.io" type="b2602c69:ProjectViewProjectNode" />
               <item name="zuminternet.github.io" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="zuminternet.github.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zuminternet.github.io" type="462c0819:PsiDirectoryNode" />
-              <item name="_layouts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="zuminternet.github.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zuminternet.github.io" type="462c0819:PsiDirectoryNode" />
-              <item name="_posts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="zuminternet.github.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zuminternet.github.io" type="462c0819:PsiDirectoryNode" />
-              <item name="_posts" type="462c0819:PsiDirectoryNode" />
-              <item name="portal" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="zuminternet.github.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zuminternet.github.io" type="462c0819:PsiDirectoryNode" />
-              <item name="_posts" type="462c0819:PsiDirectoryNode" />
-              <item name="search" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="zuminternet.github.io" type="b2602c69:ProjectViewProjectNode" />
@@ -198,16 +185,12 @@
               <item name="post" type="462c0819:PsiDirectoryNode" />
               <item name="2018-10-11-ZUM-Pilot-njkim" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="zuminternet.github.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="zuminternet.github.io" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-              <item name="readme" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -316,14 +299,8 @@
       <workItem from="1536199608196" duration="4792000" />
       <workItem from="1536402440142" duration="4618000" />
       <workItem from="1536806365125" duration="642000" />
-      <workItem from="1539224003320" duration="1655000" />
-    </task>
-    <task id="LOCAL-00010" summary="- 페이지스북 공유하기 og 태그 업데이트">
-      <created>1528810393156</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1528810393156</updated>
+      <workItem from="1539224003320" duration="2450000" />
+      <workItem from="1539238278895" duration="2221000" />
     </task>
     <task id="LOCAL-00011" summary="- 페이지스북 공유하기 og 태그 업데이트">
       <created>1528810881658</created>
@@ -661,11 +638,18 @@
       <option name="project" value="LOCAL" />
       <updated>1536408448620</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="- 김남준 파일럿 프로젝트">
+      <created>1539231469469</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1539231469470</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35669000" />
+    <option name="totallyTimeSpent" value="38685000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -682,17 +666,17 @@
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
-      <window_info anchor="right" id="Notes" order="8" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="right" id="Notes" order="8" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info id="Image Layers" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.329602" />
       <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.329602" />
       <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.33370662" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19169329" />
       <window_info anchor="bottom" id="Run with VisualVM" order="8" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19382322" />
       <window_info anchor="right" id="Theme Preview" order="7" />
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Debug with VisualVM" order="11" />
@@ -700,10 +684,10 @@
       <window_info anchor="bottom" id="Messages" order="16" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -749,16 +733,10 @@
     <MESSAGE value="- 작성자 개인 소개글 모두 삭제함." />
     <MESSAGE value="- 포털개발팀 소개 포스팅 삭제" />
     <MESSAGE value="- README.md 이미지 변경" />
-    <option name="LAST_COMMIT_MESSAGE" value="- README.md 이미지 변경" />
+    <MESSAGE value="- 김남준 파일럿 프로젝트" />
+    <option name="LAST_COMMIT_MESSAGE" value="- 김남준 파일럿 프로젝트" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/gulpfile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="5" column="39" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/contact.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -982,16 +960,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/portal/2018-08-23-ZUM-Pilot-partjun.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="207">
-            <caret line="9" selection-start-line="9" selection-end-line="9" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_posts/portal/2017-01-06--ZUM-Pilot-ryudung.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -1097,15 +1065,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/portal/2018-10-11-ZUM-Pilot-njkim.md">
+    <entry file="file://$PROJECT_DIR$/_posts/portal/2018-08-23-ZUM-Pilot-vuejs.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="305">
-            <caret line="72" selection-start-line="72" selection-end-line="72" selection-end-column="67" />
+          <first_editor relative-caret-position="345">
+            <caret line="132" column="12" selection-end-line="532" selection-end-column="6" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/portal/2018-10-11-ZUM-Pilot-cms.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="3065">
+            <caret line="238" selection-start-line="238" selection-end-line="238" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/initdraft.sh">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/portal/post/logo_zum_2x-78df1cde157641c8f4178f86826539e8.png">
+      <provider selected="true" editor-type-id="images" />
     </entry>
   </component>
   <component name="masterDetails">
