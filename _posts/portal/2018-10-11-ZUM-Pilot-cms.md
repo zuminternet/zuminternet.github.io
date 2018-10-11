@@ -82,7 +82,7 @@ tag: [experience, springboot, vuejs, redis, video.js]
 
 뒤에서 자세히 설명드리겠지만, Freemarker 템플릿 엔진으로 렌더링하는 화면과 싱글 파일 컴포넌트 구조의 Vue.js로 그리는 화면은 겉으로 보기에 차이가 없습니다. 하지만, 이렇게 화면 요소를 동적으로 처리해야하는 부분들을 구현하는데 있어 Freemarker로 서버사이드 렌더링을 할 때보다 Vue.js 적용 후에 더 효율적으로 구현할 수 있었습니다.
 
-![](/images/portal/post/2018-10-11-ZUM-Pilot-cms/04-frontend-view.PNG)
+![](/images/portal/post/2018-10-11-ZUM-Pilot-cms/04-frontend-view-1.PNG)
 
 ### 4-2 구조 변경(Freemarker -> Vue.js)
 
