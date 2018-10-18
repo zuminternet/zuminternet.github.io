@@ -34,7 +34,7 @@ description: "Procure por sua #tag favorita."
                                 <time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%m/%d/%Y" }}</time>
                             </span>
                         </span>
-                        <span class="post-author"><img src="{{ post.authorImage }}"/></span>
+                        <span class="post-author"><img src="{{ post.image }}"/></span>
                     </a>
                 </li>
                 {% endif %}
