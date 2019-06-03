@@ -28,7 +28,7 @@
     "autoprefixer-stylus": "^0.14.0",
     "browser-sync": "^2.26.5",
     "child_process": "^1.0.2",
-    "gulp": "~3.9.1",
+    "gulp": "~4.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-imagemin": "^6.0.0",
     "gulp-plumber": "^1.2.1",
@@ -37,6 +37,8 @@
     "jeet": "^7.2.0",
     "kouto-swiss": "^1.1.0",
     "minimist": "^1.2.0",
-    "rupture": "^0.7.1"
+    "rupture": "^0.7.1",
+    "axios": "^0.19.0",
+    "lodash": "^4.17.11"
   }
 }
