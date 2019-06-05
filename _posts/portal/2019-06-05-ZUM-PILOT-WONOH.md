@@ -6,7 +6,7 @@ title: 게시판 CMS - 파일럿 프로젝트
 
 description: 신입 파일럿 프로젝트
 
-image: /images/portal/post/2019-06-05-ZUM-PILOT-WONOH/project-structure.PNG
+image: /images/portal/post/2019-06-05-ZUM-PILOT-WONOH/project-structure2.PNG
 
 introduction: 신입 파일럿 프로젝트를 진행했던 경험을 공유합니다.
 
