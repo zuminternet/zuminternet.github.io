@@ -94,7 +94,7 @@ CMS에 대해 완벽하게 이해하지는 못했지만 주어진 기능들을 �
 ​
 
 ​
-![프로젝트 구성도](/images/portal/post/2019-06-05-ZUM-PILOT-WONOH/project-structure.png)
+![프로젝트 구성도](/images/portal/post/2019-06-05-ZUM-PILOT-WONOH/project-structure.PNG)
 ​
 -   **Vue**
     -   router를 통한 component 매칭
