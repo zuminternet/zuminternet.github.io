@@ -84,7 +84,7 @@ tag: [SpringBoot, Vue.js, pilot]
 
 
 ## 3.2 데이터베이스 스키마
-![](/images/portal/post/2019-06-05-ZUM-Pilot-qkrtjdehd/service_DB_scheme.png)
+![](/images/portal/post/2019-06-05-ZUM-Pilot-qkrtjdehd/service_db_scheme.png)
 
 * 앞서서 구글독스를 통해 서비스의 테이블을 설계하였습니다.
 * 이후 Spring Data JPA 가 제공해주는 레파지토리 인터페이스를 통해서 DB 에 접근하였습니다.
