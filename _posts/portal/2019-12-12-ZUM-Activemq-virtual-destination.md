@@ -6,7 +6,7 @@ title: ActiveMQ의 Virtual Topics를 활용한 메세지 로드밸런싱
 
 description: AmazonMQ(ActiveMQ)의 Virtual Topics 사용 경험을 공유합니다.
 
-image: /images/portal/post/2019-12-12-ZUM-Activemq-virtual-destination/virtual_topic.png
+image: /images/portal/post/2019-12-12-ZUM-Activemq-virtual-destination/thumbnail.png
 
 introduction: AmazonMQ(ActiveMQ)의 Virtual Topics 사용 경험을 공유합니다.
 
