@@ -2,7 +2,7 @@
 
 layout: post
 
-title: ActiveMQ의 Virtual Topics를 활용한 메시지 로드밸런싱
+title: Amazon MQ의 Virtual Topics를 활용한 (Pub-sub)메시지 로드밸런싱
 
 description: AmazonMQ(ActiveMQ)의 Virtual Topics 사용 경험을 공유합니다.
 
@@ -304,3 +304,4 @@ public void amazonMqNewsListener(@Payload MessageDto messageDto) {
 - [Virtual Topics in ActiveMQ](https://tuhrig.de/virtual-topics-in-activemq/)
 - [What are Virtual Destinations in ActiveMQ and how do they work?](https://access.redhat.com/solutions/250303)
 - [Queues vs. Topics vs. Virtual Topics (in ActiveMQ)](https://tuhrig.de/queues-vs-topics-vs-virtual-topics-in-activemq/)
+- [GCP Pub/Sub](https://cloud.google.com/pubsub/)
