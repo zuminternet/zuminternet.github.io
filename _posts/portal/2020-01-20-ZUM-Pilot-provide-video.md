@@ -2,7 +2,7 @@
 layout: post
 title: 주제별 영상 제공 웹 서비스
 description: 크롤링과 Youtube Data API를 이용하여 영상 제공 웹 서비스를 구축하는 과정에 대해 소개합니다.
-image: /images/portal/post/2020-01-20-ZUM-Pilot-provide-video/thumbnail.jpg
+image: /images/portal/post/2020-01-20-ZUM-Pilot-provide-video/thumbnail.png
 introduction: 크롤링과 Youtube Data API를 이용하여 영상 제공 웹 서비스를 구축하는 과정에 대해 소개합니다.
 category: portal/tech
 tag: [pilot,spring,vue.js,crawling,crawler,YoutubePlayerApi,YoutubeDataApi]
