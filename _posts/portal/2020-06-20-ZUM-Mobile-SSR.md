@@ -2,13 +2,13 @@
 
 layout: post
 
-title: 모바일 줌 SSR 적용과 그 성과 이야기
+title: 모바일 줌 SpringBoot → NodeJS 전환기 (feat. VueJS SSR)
 
 description: Vue.js 기반의 프로젝트를 Node.js 백엔드로 마이그레이션하고 SSR을 적용한 성과 이야기입니다
 
 image: /images/portal/post/2020-06-20-ZUM-Mobile_SSR/title.png
 
-introduction: 모바일 줌 프로젝트를 Node.js 및 SSR로 변경한 경험을 공유합니다
+introduction: 모바일 줌 프로젝트를 Node.js로 변경한 경험을 공유합니다
 
 category: portal/tech
 
@@ -16,18 +16,43 @@ tag: [experience, Node.js, Frontend, Vue.js, SSR]
 
 ---
 <br>
-## 들어가며
+
 정말 오래간만에 기술 블로그에 글을 작성하는 것 같습니다.  
-이 글을 쓰기 약 3개월 전인 03월 26일 모바일 줌 프로젝트는 내부적으로 다시한번 큰 변화를 맞았습니다.  
-EC2 인스턴스에 Spring Boot 백엔드에서 Docker 컨테이너, 백엔드는 Node.js. 그리고 SSR을 적용한 것입니다.
-
-![아키텍쳐1](/images/portal/post/2020-06-20-ZUM-Mobile_SSR/architecture.jpg)
-*Spring Boot 어플리케이션에서 Node.js 어플리케이션으로 변경되었습니다*
-
-이 글에 모든 내용을 다 담을 수는 없지만, 팀 내에 공유했던 자료와 완료 보고에 사용했던 자료들을 이용해
+이 글을 쓰기 약 3개월 전인 03월 26일 모바일 줌 프로젝트는 내부적으로 다시한번 큰 변화를 맞았습니다. 
+어플리케이션의 언어와 운영환경을 변경한 것인데, 팀 내에 공유했던 자료와 완료 보고에 사용했던 자료들을 이용해
 저희 팀이 어떤 선택을 했고 왜 그런 선택을 했는지, 또 어떤 성과를 보였는지 공유하고자 합니다.  
 
+## 들어가며
+
+![모바일 줌](/images/portal/post/2020-06-20-ZUM-Mobile_SSR/mobile-zum.png){:width="250px"}
+*모바일 줌 ([m.zum.com](https://m.zum.com))*
+
+[모바일 줌](https://m.zum.com)은 줌 인터넷에서 제공하고 있는 모바일 포털 서비스입니다.  
+모바일 줌은 [Spring Boot](https://spring.io/projects/spring-boot) 백엔드에 [Vue.js](https://vuejs.org/) 프론트엔드를 이용한 프로젝트로 운영되고 있었고,
+이번 작업을 통해 백엔드로 Node.js를 사용하는 AWS 도커 운영 환경으로 변경하였습니다.
+  
+![아키텍쳐1](/images/portal/post/2020-06-20-ZUM-Mobile_SSR/architecture.jpg)
+*Spring Boot 어플리케이션에서 Node.js 어플리케이션으로 변경되었습니다*
+  
+모바일 줌의 Spring Boot 백엔드를 Node.js 백엔드로 변경하게 된 이유는 크게 세가지입니다.
+
+1. **개발 생산성 증가**
+  - 어플리케이션 크기와 목적에 맞는 프레임워크 선택을 통해 개발 생산성 증가
+1. **성능 향상**
+  - 저사양 환경에서 더 높은 성능을 보이는 Node.js 사용
+1. **SSR 적용**
+  - Vue.js SSR Renderer를 통해 검색엔진 최적화(SEO)를 수행.
+  
+> [Netflix에서 Node.js를 사용하게 된 이유](https://socialdribbler.com/why-did-netflix-move-to-node-js/)에서도 알 수 있듯
+> 프론트 서비스에 Node.js를 사용하는 것은 여러가지 이유로 매우 효율적입니다.
+  
+이 이유와 성과에 대해 설명하기 전에 2019년부터 어떤 작업을 진행해왔는지 하나씩 살펴보도록 하겠습니다.
+
+
+
+  
 <br>
+  
 ## Server Side Rendering?
 모던 프론트엔드 프레임워크 이야기에서 빠질 수 없는 SSR은 Node.js 전환의 이유 중 하나이기도 합니다.  
 실제로 SSR만을 위해 Node.js 어플리케이션으로 작성하는 경우도 있습니다. 
@@ -36,15 +61,27 @@ EC2 인스턴스에 Spring Boot 백엔드에서 Docker 컨테이너, 백엔드�
   
 모바일 줌은 약 2년 전 Vue.js를 기반으로 한 SPA 프로젝트로 다시 개발되었습니다.  
 많은 분들이 이미 알고 계시듯 SPA는 모듈화, 빠른 DOM 변경, 간편한 이벤트 핸들링 등 장점이 많은 반면, 
-*JS 실행 후 DOM이 삽입된다는 점* 때문에 발생하는 제약사항과 단점도 있습니다. 
+*JS 실행 후 DOM이 삽입된다는 점* 때문에 발생하는 제약사항과 단점도 있습니다.  
 그리고 그 단점을 조금이나마 해소하고자 수행하는 것이 SSR입니다.
-
+SSR에 관련된 많은 참고 자료들이 있지만 간단하게 설명드리자면...  
+  
+<br>
+  
 ![SSR이란](/images/portal/post/2020-06-20-ZUM-Mobile_SSR/what-is-ssr.png)
+<br><br>
+![SSR이란2](/images/portal/post/2020-06-20-ZUM-Mobile_SSR/what-is-ssr2.png)
 *SSR은 기존 템플리팅 방식(서버 템플리팅)과 크게 다르지 않습니다*
 
-SSR을 수행할 수 있도록 만들어진 객체를 SSR Renderer라고 합니다.
+<br>
+
+SSR 수행시 Vue.js 어플리케이션을 서버에서 실행하여 *HTML을 생성하고 삽입*하기 때문에 
+응답에 컨텐츠에 해당하는 HTML이 포함되어 있습니다.
+
+> SSR의 효율성과 부하와 관련된 정보는 이 글의 내용에서 벗어나기 때문에 제외되었습니다.
+  
+이렇게 서버에서 SSR을 수행할 수 있도록 만들어진 객체를 SSR Renderer라고 합니다.
 SSR Renderer를 실행하여 페이지에 해당하는 HTML을 얻고, 그 HTML을 서버 템플릿에 삽입하는 것이죠.
-이 일련의 과정을 SSR이라고 합니다. 
+설명드린 이 일련의 과정을 SSR이라고 합니다. 
 
 > Vue.js 는 [Vue SSR 렌더링 가이드](https://ssr.vuejs.org/#what-is-server-side-rendering-ssr)를 제공하고 있습니다.  
 > 사이트에서 SSR에 대한 기본 개념과 하는 이유 등을 자세하게 확인하실 수 있습니다. 
