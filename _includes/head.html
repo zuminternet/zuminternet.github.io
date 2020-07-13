@@ -7,12 +7,12 @@
     <meta name="title" content="{{ site.title }}"/>
     <meta name="description" content="{{ site.description }}">
 
-    <meta property="og:title" content="{{ site.title }}"/>
-    <meta property="og:site_name" content="{{ site.title }}"/>
+    <meta property="og:title" content="{% if page.title == blank or page.title == nil %}{{ site.title }}{% else %}{{ page.title }}{% endif %}"/>
+    <meta property="og:site_name" content="{% if page.title == blank or page.title == nil %}{{ site.title }}{% else %}{{ page.title }}{% endif %}"/>
     <meta property="og:type" content="{{ site.og_type }}"/>
-    <meta property="og:url" content="{{ site.og_url }}"/>
-    <meta property="og:image" content="{{ site.og_image }}"/>
-    <meta property="og:description" content="{{ site.description }}"/>
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}"/>
+    <meta property="og:image" content="{% if page.image == blank or page.image == nil %}{{ site.og_image }}{% else %}{{ site.url }}{{ page.image }}{% endif %}"/>
+    <meta property="og:description" content="{% if page.description == blank or page.description == nil %}{{ site.description }}{% else %}{{ page.description }}{% endif %}"/>
 
     <!-- Fonts -->
     <link href="//fonts.googleapis.com/css?family=Titillium+Web:300,400,700" rel="stylesheet">
