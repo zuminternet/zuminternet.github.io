@@ -3,9 +3,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{ site.title }}</title>
-    <meta name="title" content="{{ site.title }}"/>
-    <meta name="description" content="{{ site.description }}">
+    <title>{% if page.title == blank or page.title == nil %}{{ site.title }}{% else %}{{ page.title }}{% endif %}</title>
+    <meta name="title" content="{% if page.title == blank or page.title == nil %}{{ site.title }}{% else %}{{ page.title }}{% endif %}"/>
+    <meta name="description" content="{% if page.description == blank or page.description == nil %}{{ site.description }}{% else %}{{ page.description }}{% endif %}">
 
     <meta property="og:title" content="{% if page.title == blank or page.title == nil %}{{ site.title }}{% else %}{{ page.title }}{% endif %}"/>
     <meta property="og:site_name" content="{% if page.title == blank or page.title == nil %}{{ site.title }}{% else %}{{ page.title }}{% endif %}"/>
