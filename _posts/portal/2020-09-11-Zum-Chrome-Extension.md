@@ -45,8 +45,46 @@ tag: [experience, Vue.js, Frontend, 크롬 확장프로그램, 웹스토어 배�
 
 결과물은 생각보다 이쁘게 만들어졌습니다 👏👏👏
 
-### 날씨 모듈
+### (1) 날씨
 
+![2-날씨모듈_1](/images/portal/post/2020-09-11-Zum-Chrome-Extension/2-날씨모듈_1.png){:style="height:75px;display:inline-block;box-shadow:0 0 10px #ddd;padding:0"}
+![2-날씨모듈_2](/images/portal/post/2020-09-11-Zum-Chrome-Extension/2-날씨모듈_2.png){:style="height:75px;display:inline-block;box-shadow:0 0 10px #ddd;padding:0"}
+
+### (2) 시계
+
+![3-시계모듈](/images/portal/post/2020-09-11-Zum-Chrome-Extension/3-시계모듈.png){:style="height:75px;display:inline-block;box-shadow:0 0 10px #ddd;padding:0"}
+
+### (3) 운세
+
+![4-운세모듈](/images/portal/post/2020-09-11-Zum-Chrome-Extension/4-운세모듈.png){:style="height:200px;box-shadow:0 0 10px #ddd;padding:0;margin:0;"}
+
+### (4) 검색
+
+![5-검색모듈](/images/portal/post/2020-09-11-Zum-Chrome-Extension/5-검색모듈.png){:style="height:300px;box-shadow:0 0 10px #ddd;padding:0;margin:0;"}
+
+### (5) 추천사이트, 자주방문한 사이트
+
+![6-바로가기모듈](/images/portal/post/2020-09-11-Zum-Chrome-Extension/6-바로가기모듈.png){:style="height:300px;box-shadow:0 0 10px #ddd;padding:0;margin:0;"}
+
+### (6) 주제별 컨텐츠
+
+![7-컨텐츠모듈](/images/portal/post/2020-09-11-Zum-Chrome-Extension/7-컨텐츠모듈.png)
+
+### (7) 이슈검색어
+
+![8-이슈검색어모듈](/images/portal/post/2020-09-11-Zum-Chrome-Extension/8-이슈검색어모듈.png){:style="height:400px;box-shadow:0 0 10px #ddd;padding:0;margin:0;"}
+
+### (8) 설정
+
+![9-설정_0](/images/portal/post/2020-09-11-Zum-Chrome-Extension/9-설정_0.png){:style="height:200px;box-shadow:0 0 10px #ddd;padding:0;margin:0;"}
+
+![9-설정_1](/images/portal/post/2020-09-11-Zum-Chrome-Extension/9-설정_1.png){:style="height:50px;box-shadow:0 0 10px #ddd;padding:0;margin:0;"}
+
+![9-설정모듈_1](/images/portal/post/2020-09-11-Zum-Chrome-Extension/9-설정모듈_1.png){:style="height:300px;box-shadow:0 0 10px #ddd;padding:0;margin:0;"}
+
+![9-설정모듈_2](/images/portal/post/2020-09-11-Zum-Chrome-Extension/9-설정모듈_2.png){:style="height:300px;box-shadow:0 0 10px #ddd;padding:0;margin:0;"}
+
+![9-설정모듈_3](/images/portal/post/2020-09-11-Zum-Chrome-Extension/9-설정모듈_3.png){:style="height:300px;box-shadow:0 0 10px #ddd;padding:0;margin:0;"}
 
 
 ## 3. 개발 과정 소개
