@@ -95,6 +95,24 @@ tag: [experience, Vue.js, Frontend, 크롬 확장프로그램, 웹스토어 배�
 
 ## 3. 개발 과정 소개
 
+### 프로젝트 구조
+```sh
+.
+├─dist                  # webpack으로 vue project를 패키징한 결과물이 들어있습니다. 
+├─dist-zip              # 확장프로그램의 버전별 압축파일 모음
+├─public                # 기본적으로 사용될 html,css,js 파일
+├─scripts               # node.js 스크립트
+└─src                   # webpack으로 실행할 vue, js, sass 등의 소스파일
+   ├─assets             # 컴포넌트에 필요한 resource를 모아놓습니다.
+   ├─components         # 컴포넌트들을 모아놓습니다.
+   ├─constant           # 앱 내에서 사용되는 심볼들을 모아놓습니다.
+   ├─filters            # vue component에서 사용하는 filter를 모아놓습니다.
+   ├─services           # 앱에서 사용되는 각종 서비스 로직을 모아놓습니다.
+   ├─storage            # 저장소를 추상화하여 관리하는 로직을 모아놓습니다.    
+   ├─store              # vuex로 만든 store를 모아놓습니다.
+   ├─stub               # 개발환경에서 사용하는 stub data 등을 모아놓습니다.
+   └─styles             # 컴포넌트에서 사용되는 scss 등을 모아놓습니다.
+```
 
 
 ## 4. 배포 과정 소개
