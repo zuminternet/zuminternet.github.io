@@ -45,49 +45,57 @@ tag: [experience, Vue.js, Frontend, 크롬 확장프로그램, 웹스토어 배�
 
 결과물은 생각보다 이쁘게 만들어졌습니다 👏👏👏
 
-### (1) 날씨
-
+1. 날씨<br>
 ![2-날씨모듈_1](/images/portal/post/2020-09-11-Zum-Chrome-Extension/2-날씨모듈_1.png){:style="height:75px;display:inline-block;box-shadow:0 0 10px #ddd;padding:0"}
 ![2-날씨모듈_2](/images/portal/post/2020-09-11-Zum-Chrome-Extension/2-날씨모듈_2.png){:style="height:75px;display:inline-block;box-shadow:0 0 10px #ddd;padding:0"}
+  - 현재 위치에 대한 **기온, 대기상태, 미세먼지 농도** 등을 보여줍니다.
+  - 지역별 날씨를 한 눈에 볼 순 없지만 **특정 위치에 대한 날씨**는 조회할 수 있습니다.
 
-### (2) 시계
-
+2. 시계<br>
 ![3-시계모듈](/images/portal/post/2020-09-11-Zum-Chrome-Extension/3-시계모듈.png){:style="height:75px;display:inline-block;box-shadow:0 0 10px #ddd;padding:0"}
+- 현재 시각을 보여줍니다.
 
-### (3) 운세
-
+3. 운세<br>
 ![4-운세모듈](/images/portal/post/2020-09-11-Zum-Chrome-Extension/4-운세모듈.png){:style="height:200px;box-shadow:0 0 10px #ddd;padding:0;margin:0;"}
+- 띠별운세, 별자리운세, 개인운세 등을 조회할 수 있습니다.
+- 더보기는 검색줌과 연결되어 있습니다.
 
-### (4) 검색
-
+4. 검색<br>
 ![5-검색모듈](/images/portal/post/2020-09-11-Zum-Chrome-Extension/5-검색모듈.png){:style="height:300px;box-shadow:0 0 10px #ddd;padding:0;margin:0;"}
+- 줌, 네이버, 다음, 구글, 유튜브 등의 검색엔진으로 검색 가능합니다.
+- 기획에는 없지만 개인적으로 네이버처럼 키보드 입력시 바로 검색엔진에 커서가 가도록 하고 싶은데 생각만 하는 중입니다.
 
-### (5) 추천사이트, 자주방문한 사이트
 
+5. 추천사이트, 자주방문한 사이트<br>
 ![6-바로가기모듈](/images/portal/post/2020-09-11-Zum-Chrome-Extension/6-바로가기모듈.png){:style="height:300px;box-shadow:0 0 10px #ddd;padding:0;margin:0;"}
+- 추천 사이트를 커스텀하여 관리할 수 있습니다.
+- 자주 방문하는 사이트가 자동으로 표시됩니다.
+- 개인적으로 제일 많이 사용하는 영역입니다.
 
-### (6) 주제별 컨텐츠
-
+6. 주제별 컨텐츠<br>
 ![7-컨텐츠모듈](/images/portal/post/2020-09-11-Zum-Chrome-Extension/7-컨텐츠모듈.png)
+- 주요뉴스, TV연예, 스포츠, 라이프, 여행/푸드 등의 컨텐츠를 조회할 수 있습니다.
+- 개인적으로 라이프, 여행/푸드에 올라오는 컨텐츠가 재미있어서 많이 보는 편입니다.
 
-### (7) 이슈검색어
-
+7. 이슈검색어<br>
 ![8-이슈검색어모듈](/images/portal/post/2020-09-11-Zum-Chrome-Extension/8-이슈검색어모듈.png){:style="height:400px;box-shadow:0 0 10px #ddd;padding:0;margin:0;"}
+- 실시간 이슈를 확인할 수 있습니다.
+- 사실 눈에 잘 띄지 않아서 UI 개선이 필요한 영역입니다.
 
-### (8) 설정
+8. 설정
+- ![9-설정_0](/images/portal/post/2020-09-11-Zum-Chrome-Extension/9-설정_0.png){:style="height:200px;box-shadow:0 0 10px #ddd;padding:0;margin:0;"}
+- 설정 영역의 경우 사이트 좌측 하단에 존재합니다. 잘 보이시나요? ![9-설정_1](/images/portal/post/2020-09-11-Zum-Chrome-Extension/9-설정_1.png){:style="height:50px;box-shadow:0 0 10px #ddd;padding:0;margin:0;"}
+  이렇게 생겼답니다. 이 영역도 어느정도 눈에 띄도록 개편이 필요할 것같습니다.
+- 배경화면, 위치설정, 추천사이트 등에 대해 설정할 수 있습니다.
+![9-설정모듈_1](/images/portal/post/2020-09-11-Zum-Chrome-Extension/9-설정모듈_1.png){:style="height:350px;box-shadow:0 0 10px #ddd;padding:0;margin:0;display:inline-block;"}
+![9-설정모듈_2](/images/portal/post/2020-09-11-Zum-Chrome-Extension/9-설정모듈_2.png){:style="height:350px;box-shadow:0 0 10px #ddd;padding:0;margin:0;display:inline-block;"}
+![9-설정모듈_3](/images/portal/post/2020-09-11-Zum-Chrome-Extension/9-설정모듈_3.png){:style="height:350px;box-shadow:0 0 10px #ddd;padding:0;margin:0;display:inline-block;"} 개편이 필요합니다.  
 
-![9-설정_0](/images/portal/post/2020-09-11-Zum-Chrome-Extension/9-설정_0.png){:style="height:200px;box-shadow:0 0 10px #ddd;padding:0;margin:0;"}
-
-![9-설정_1](/images/portal/post/2020-09-11-Zum-Chrome-Extension/9-설정_1.png){:style="height:50px;box-shadow:0 0 10px #ddd;padding:0;margin:0;"}
-
-![9-설정모듈_1](/images/portal/post/2020-09-11-Zum-Chrome-Extension/9-설정모듈_1.png){:style="height:300px;box-shadow:0 0 10px #ddd;padding:0;margin:0;"}
-
-![9-설정모듈_2](/images/portal/post/2020-09-11-Zum-Chrome-Extension/9-설정모듈_2.png){:style="height:300px;box-shadow:0 0 10px #ddd;padding:0;margin:0;"}
-
-![9-설정모듈_3](/images/portal/post/2020-09-11-Zum-Chrome-Extension/9-설정모듈_3.png){:style="height:300px;box-shadow:0 0 10px #ddd;padding:0;margin:0;"}
-
+아직 부족한 부분이 많기 때문에 사내 테스트를 진행중입니다. 조만간 더 멋진 모습으로 거듭나길 기대하고 있답니다!
 
 ## 3. 개발 과정 소개
+
+
 
 ## 4. 배포 과정 소개
 
