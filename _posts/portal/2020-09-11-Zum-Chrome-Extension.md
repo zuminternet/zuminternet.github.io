@@ -150,21 +150,28 @@ manifest.json은 Vue App을 빌드했을 때 root에 위치해야 하기 때문�
 
 여기까지가 크롬 확장프로그램을 만드는데 필요한 최소한의 프로젝트 구성입니다. 이제 본격적으로 어떤식으로 개발했는지 소개하겠습니다.
 
+***
+
 ### (2) manifest.json
 
 확장프로그램에서 제일 중요한 게 바로 `manifest.json`입니다.
-`manifest.json`은 json 포맷 파일로서, 모든 웹 익스텐션이 포함하고 있어야 하는 파일입니다.
 
+`manifest.json`은 json 포맷 파일로서, 모든 웹 익스텐션이 포함하고 있어야 하는 파일이며
 `manifest.json`에 확장프로그램의 이름, 버젼과 같은 기본 정보를 명시해야 합니다.
 뿐만아니라 반드시 확장프로그램이 사용하는 기능을 명시해야합니다.<br>
 (ex: `background scripts` `content scripts` `browser actions`)
+
+그리고 **실행할 HTML, Javascript 등을 지정**할 수 있습니다.
+
+- [Getting Started Extension Tutorial](https://developer.chrome.com/extensions/getstarted)
+- [manifest.json이란?](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json)
 
 ```js
 {
   "manifest_version": 2, // Manifest 버전 명시. 공식문서 가이드에 따라 `2`로 고정
   "name": "Zum NewTab", // 확장 프로그램 이름
   "description": "New Tab 활용하여 사용자의 웹 서핑 생산성을 높여주는 줌 시작페이지 제공",
-  "version": "1.1.5.2", // 확장 프로그램 버전
+  "version": "1.1.7.0", // 확장 프로그램 버전
 
   "browser_action": {
     "default_icon": "icon.png" // 확장 프로그램의 아이콘
@@ -173,49 +180,124 @@ manifest.json은 Vue App을 빌드했을 때 root에 위치해야 하기 때문�
   "permissions": [
     "bookmarks",             // 북마크에 접근할 수 있는 API 사용 권한
     "topSites",              // 자주방문한 사이트 목록을 조회할 수 있는 API 사용 권한
-    "<all_urls>"             // 모든 호스트(사이트)에 접근할 수 있는 권한
+    "https://*.zum.com/*"    // 모든 zum.com host에 접근할 수 있는 권한
+    // "<all_urls>"          // 모든 호스트(사이트)에 접근할 수 있는 권한
     // "activeTab",          // 현재 활성중인 탭에 대해 다룰 수 있는 API 사용 권한
     // "tabs",               // 열려 있는 탭에 대해 다룰 수 있는 API 사용 권한
     // "storage",            // 일종의 브라우저 데이터베이스 API 사용 권한
     // "history",            // 방문기록에 접근할 수 있는 API 사용 권한
-    // "https://*.zum.com/*" // 모든 zum.com host에 접근할 수 있는 권한
   ], 
 
   // 리소스에 대한 보안정책을 설정. 줄여서 CSP라고 불린다.
   "content_security_policy":  "script-src 'self' 'unsafe-eval'; script-src-elem 'self' 'unsafe-eval' https://ssug.api.search.zum.com https://contentsgt.cafe24.com; object-src 'self'; img-src chrome://favicon/ https://*.zumst.com/;",
 
   "chrome_url_overrides": {
-    "newtab": "index.html" // 새 탭을 열었을 때 보여지는 페이지를 설정할 수 있다.
+    "newtab": "index.html" // 새 탭을 열었을 때 보여지는 페이지를 설정할 수 있습니다.
   }
 }
 ```
 
-`content_security_policy`는 Http 요청과 관련있습니다.
+#### 1) Content Security Policy (CSP)
 
-[MDN web docs](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Content-Security-Policy)에 명시된 내용에 의하면 다음과 같습니다.
+HTTP Response Header에 [Content Security Policy](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Content-Security-Policy)라는 것을 명시하여 보내줄 수 있습니다. 
 
-- HTTP Content-Security-Policy 응답 헤더를 사용하면 웹 사이트 관리자가 사용자 에이전트가 주어진 페이지에 대해로드 할 수있는 리소스를 제어 할 수 있습니다.
-- 몇 가지 예외를 제외하고 정책에는 대부분 서버 원본 및 스크립트 끝점 지정이 포함됩니다.
-- 이는 크로스 사이트 스크립팅 공격 (XSS)으로부터 보호하는 데 도움이됩니다.ㅌ₩
+- HTTP Content-Security-Policy 응답 헤더를 사용하면 **사용자 에이전트가 주어진 페이지에 대해로드 할 수있는 리소스를 제어** 할 수 있습니다.
+- 몇 가지 예외를 제외하고 정책에는 대부분 **서버 원본 및 스크립트 end-point 지정이 포함**됩니다.
+- 이는 크로스 사이트 **스크립팅 공격 (XSS)으로부터 보호하는 데 도움**됩니다.
 
+요약하자면 요청한 리소스가 어떤 권한을 사용할 것인지 정확히 명시하는 과정이라고 보면 좋을 것 같습니다.
 
+`manifest.json`에 명시한 내용을 조금 더 살펴봅시다.
 
 ```sh
-# script tag의 접근 권한
+# JavaScript의 유효한 소스(source, src)를 지정합니다.
 script-src 'self' 'unsafe-eval';
 
-# 외부에서 로드가 가능한 스크립트의 도메인과 권한
+# <script> 요소의 유효한 소스(source, src)를 지정합니다.
 script-src-elem 'self' 'unsafe-eval' https://ssug.api.search.zum.com https://contentsgt.cafe24.com;
 
-
+# <object>, <embed> 및 <applet> 태그에 대한 유효한 소스(source, src)를 지정합니다.
 object-src 'self';
 
-# 가져올 수 있는 이미지 소스의 도메인들
+# 이미지 및 파비콘의 유효한 소스(source, src)를 지정합니다.
 img-src chrome://favicon/ https://*.zumst.com/;
 ```
 
-참고링크: [Getting Started Extension Tutorial](https://developer.chrome.com/extensions/getstarted),
-[manifest.json이란?](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json)
+이렇게 명시했기 때문에 확장프로그램 내에서 외부 리소스를 요청하면 다음과 같이 CSP가 포함된 응답을 건내줍니다.
+
+![10-CSP](/images/portal/post/2020-09-11-Zum-Chrome-Extension/10-CSP.png)
+
+그리고 [이 문서](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)를 살펴보면
+`<meta>` 태그를 이용하여 다음과 같이 명시하는 것도 가능합니다.
+
+`<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src https://*; child-src 'none';">`
+
+필자는 확장프로그램을 개발할 때 말곤 아직 `CSP`를 사용해본적이 없습니다. 
+
+***
+
+#### 2) Chrome API
+
+다음에 소개할 것은 [Chrome API](https://developer.chrome.com/apps/api_index)입니다.
+
+`manifest.json`에 다음과 같이 어떤 Chrome API를 사용할지 명시할 수 있습니다.
+
+```js
+{
+  ...
+  "permissions": [
+    "bookmarks", // 북마크를 조회할 수 있는 API
+    "topSites",  // 자주 방문한 사이트를 조회할 수 있는 API
+  ],
+  ...
+}
+```
+
+위에 명시한 API들은 다음과 같이 사용할 수 있습니다.
+
+``` js
+
+chrome.topSites.get(console.log); // 자주 방문한 사이트를 조회할 수 있습니다.
+chrome.bookmarks.getTree(console.log); // 북마크를 트리 형태로 조회할 수 있습니다.
+
+```
+
+![11-chrome-api_01](/images/portal/post/2020-09-11-Zum-Chrome-Extension/11-chrome-api_1.png)
+![11-chrome-api_02](/images/portal/post/2020-09-11-Zum-Chrome-Extension/11-chrome-api_2.png)
+
+API 호출 결과는 `callback`에게 반환하기 때문에 조금 더 유연하게 사용하기 위해선 `Promise`로 감싸서 사용해야합니다.
+
+```js
+const BookmarkService = Object.freeze({
+
+  /** 북마크 트리를 가져옵니다. **/
+  getTree () {
+    return new Promise(resolve => {
+      chrome.bookmarks.getTree(([ tree ]) => resolve(tree));
+    })
+  },
+
+  /** 북마크의 트리를 목록으로 변환하여 가져옵니다. **/
+  async getListAboutTree () {
+    const tree = await this.getTree()
+    let bookmarks = tree.children.flatMap(v => v.children);
+    while (bookmarks.find(v => v.children)) {
+      bookmarks = bookmarks.flatMap(v => v.children || [ v ])
+    }
+    return bookmarks.map(({ id, title, url }) => ({ id, title, url }));
+  },
+});
+
+// 다음과 같이 사용할 수 있습니다.
+BookmarkService.getTree().then(console.log);
+BookmarkService.getListAboutTree().then(console.log);
+```
+
+
+
+***
+
+그래서 `manifest.json`만 보면 확장프로그램이 어떤 일을 하는지 대강 확인해볼 수 있습니다.
 
   
 
