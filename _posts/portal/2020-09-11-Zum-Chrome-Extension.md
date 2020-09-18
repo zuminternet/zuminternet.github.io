@@ -166,6 +166,8 @@ manifest.json은 Vue App을 빌드했을 때 root에 위치해야 하기 때문�
 - [Getting Started Extension Tutorial](https://developer.chrome.com/extensions/getstarted)
 - [manifest.json이란?](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json)
 
+그래서 `manifest.json`만 보면 확장프로그램이 어떤 일을 하는지 대강 확인해볼 수 있습니다.
+
 ```js
 {
   "manifest_version": 2, // Manifest 버전 명시. 공식문서 가이드에 따라 `2`로 고정
@@ -291,19 +293,11 @@ const BookmarkService = Object.freeze({
 // 다음과 같이 사용할 수 있습니다.
 BookmarkService.getTree().then(console.log);
 BookmarkService.getListAboutTree().then(console.log);
-```
+```  
 
+## 4. 시스템 아키텍쳐
 
-
-***
-
-그래서 `manifest.json`만 보면 확장프로그램이 어떤 일을 하는지 대강 확인해볼 수 있습니다.
-
-  
-
-## 4. 배포 과정 소개
-
-## 5. 시스템 아키텍쳐
+## 5. 배포 과정 소개
 
 ## 6. 지옥의 검수 과정
 
