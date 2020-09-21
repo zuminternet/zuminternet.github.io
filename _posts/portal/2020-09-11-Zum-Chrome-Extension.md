@@ -295,13 +295,15 @@ BookmarkService.getTree().then(console.log);
 BookmarkService.getListAboutTree().then(console.log);
 ```
 
-#### 3) Development Mode
+***
+
+#### 3) 개발모드에 대한 핸들링
+
+![13-localserver](/images/portal/post/2020-09-11-Zum-Chrome-Extension/13-localserver.jpg)
 
 확장프로그램을 개발할 땐 **로컬서버에서 작업**했습니다.
 크롬에 확장프로그램 개발모드가 따로 있어서 이를 이용해도 됐으나,
 **퍼블리싱팀과의 협업**을 위해서 비교적 개발환경 자체는 **퍼블리싱팀이 최대한 신경쓰지 않도록 작업**하는게 필요했습니다.
-
-논외로 [Webpack Chrome Extension Reloader](https://www.npmjs.com/package/webpack-chrome-extension-reloader)를 이용하면 웹팩을 이용하여 개발할때 확장프로그램을 계속 리로드할 수 있습니다.
 
 ```js
 // BookmarkService.js
@@ -346,10 +348,327 @@ if (process.env.NODE_ENV === 'development') {
 **이는 build 시점에 stub data가 bundle에 포함되지 않게 하기 위함입니다.**
 이처럼 webpack에서 `process.env`와 `require`를 이용하여 bundle 시점에 포함되는 데이터의 여부를 간단하게 표현할 수 있습니다.
  
+***
+ 
+사이트의 파비콘의 경우 확장프로그램에서는 `chrome://favicon/**` 형태의 `Favicon API`를 사용하면 됩니다.
+
+- 예시) `chrome://favicon/size/24/https://zum.com/`
+
+그런데 이건 **확장프로그램에서만 호출 가능한 API**입니다.
+그래서 개발 환경에선 **실제 웹 서비스로 제공되는 `Favicon API`를 사용**해야 했습니다.
+
+쭉 찾아본 결과, 구글에서 제공하는 API를 발견할 수 있었습니다.
+
+- `https://www.google.com/s2/favicons?sz=24&domain=https://zum.com/`
+- 출력: ![구글 파비콘](https://www.google.com/s2/favicons?sz=24&domain=https://zum.com/){:style="display:inline-block;width:24px;height:24px;border:1px solid #000;padding:0;margin:0;vertical-align:middle;"}
+
+프로덕션 모드에서 해당 API를 사용해도 무방하지만 **도메인이 존재하는 API에 요청을 한다는 것 자체가 검수 과정에서 문제**가될 수 있습니다.
+그래서 배포할 땐 `chrome://favicon`을 사용했고, 개발환경에선 `https://www.google.com/s2/favicons`을 사용했습니다.
+
+***
+
+사실 이러한 과정이 필요했던 이유는 **퍼블리싱 팀과의 협업 때문**입니다.
+오직 개발에만 집중할 수 있는 환경이 필요하다면
+[Webpack Chrome Extension Reloader](https://www.npmjs.com/package/webpack-chrome-extension-reloader) 패키지를 이용하면 좋습니다.
+
+이 패키지는 크롬 확장프로그램을 웹팩 환경에서 개발할 수 있도록 도와줍니다.
+
+***
+
+#### 4) 확장프로그램을 크롬 개발자 모드에서 확인하기
+
+앞서 언급한 것들은 `Webpack Dev-Server`에서 작업할 때 필요한 과정이었습니다.
+이번에는 확장프로그램을 크롬 개발자 모드에서 확인하는 방법에 대해 소개하겠습니다.
+
+- 크롬 브라우저에서 주소창에 `chrome://extensions/`을 치고 접근하면 설치된 `확장프로그램 목록`을 확인할 수 있습니다.
+![15-devmode_01](/images/portal/post/2020-09-11-Zum-Chrome-Extension/15-devmode_01.jpg){:style="border:1px solid #666;padding:0;margin:0"}
+
+- `개발자 모드`를 활성화하면 `압축해제된 확장 프로그램을 로드합니다.` 버튼이 생기고, 각각의 확장프로그램에 대한 `meta` 정보도 볼 수 있습니다.
+![15-devmode_02](/images/portal/post/2020-09-11-Zum-Chrome-Extension/15-devmode_02.jpg){:style="border:1px solid #666;padding:0;margin:0"}
+`압축해제된 확장 프로그램을 로드합니다.`를 클릭한 후에 확장프로그램을 업로드하면 됩니다!
+
+- 이 때 `manifest.json`이 포함된 폴더를 업로드 해야합니다.
+![15-devmode_04](/images/portal/post/2020-09-11-Zum-Chrome-Extension/15-devmode_04.jpg){:style="border:1px solid #666;padding:0;margin:0"}
+
+- 혹은 확장프로그램을 압축한 후에 `드래그 앤 드롭`으로 추가할 수 있습니다.
+![15-devmode_03](/images/portal/post/2020-09-11-Zum-Chrome-Extension/15-devmode_03.jpg){:style="border:1px solid #666;padding:0;margin:0"}
 
 ## 4. 시스템 아키텍쳐
 
+![12-architecture_01](/images/portal/post/2020-09-11-Zum-Chrome-Extension/12-architecture_01.png)
+
+시스템의 전체적인 흐름을 설명하자면
+
+1. 사용자가 뉴탭을 통해 확장프로그램에 진입합니다.
+2. 브라우저에서 **외부에 개방되어 있는 API에 접근**합니다.
+  - 개인운세 API
+  - 줌앱 API
+  - 검색어 제안 API
+3. 줌앱 API는 다시 **내부적으로만 사용하는 Internal API에 접근**합니다.
+  - Internal API는 **줌프런트와 모바일줌에서 사용**하는 API입니다.
+4. Internal API에서 다시 필요한 API를 호출하고, 호출결과를 잘 조합하여 줌앱 API에게 response로 내보냅니다.
+5. 결과적으로 줌앱 API는 **일종의 Proxy 역할**을 수행합니다.
+
+***
+
+### (1) 외부에 개방되어 있는 API
+
+![12-architecture_02](/images/portal/post/2020-09-11-Zum-Chrome-Extension/12-architecture_02.png)
+
+크롬 확장프로그램에선 이렇게 3개의 API만 호출합니다. 
+
+1. Personal Fortune API
+  - Input: 성별, 생년월일
+  - Output: 오늘의 운세 
+2. Search Suggest API
+  - Input: 검색어
+  - Output: 추천검색어
+3. Zum App API
+  - 본래 사용 용도는 **줌앱에서 필요한 데이터를 가져오기위해** 만들어졌습니다.
+  - 즉, 외부에서의 접근이 가능한 API입니다.
+  - 팀원과 팀장님과 논의한 결과로 확장프로그램에서 필요한 데이터도 줌앱 API에서 만들기로 하였습니다.
+  - 줌앱API는 **주기적으로 Intenral API를 호출하고 캐싱**합니다.
+  - 따라서 **사용자는 항상 캐싱된 데이터를 이용**하게 됩니다.
+  
+***
+
+### (2) Internal API
+
+![12-architecture_03](/images/portal/post/2020-09-11-Zum-Chrome-Extension/12-architecture_03.png)
+
+앞서 언급했지만, Internal API는 [줌프런트](http://zum.com)와 [모바일줌](http://m.zum.com)에서 호출하는 API입니다.
+그렇기 때문에 컨텐츠를 제공하기에 적합한 API였고, 모바일줌의 컨텐츠와 겹치는 것들이 있었습니다.
+덕분에 확장프로그램과 관련된 API는 큰 어려움 없이 만들 수 있었습니다.
+
+Internal API에서 내려주는 컨텐츠는 다음과 같습니다.
+
+- 별자리 운세, 띠별 운세
+- 날씨 및 대기 정보
+- 주제별 컨텐츠
+- 실시간 이슈 키워드
+
+***
+
+### (3) Target API
+
+![12-architecture_04](/images/portal/post/2020-09-11-Zum-Chrome-Extension/12-architecture_04.png)
+
+`Target API`는 사용자(클라이언트)의 **IP주소를 넘겨주면, 현재 위치(주소)를 알려주는 API**입니다.
+`Target API`를 사용할 경우 **IP 주소를 기준으로 캐싱** 처리가 필요합니다.
+그래서 **App API에서 넘겨주는 형태**로 만들었습니다.
+ 
+만약에 `Internal API`에 구현한다고 치면 `Internal API`에서 캐싱을 하고,
+`App API`에서도 캐싱을 해야하기 때문에 **자원을 두 배로 소모**합니다.
+
+***
+
+### (4) Front-End
+
+![12-architecture_05](/images/portal/post/2020-09-11-Zum-Chrome-Extension/12-architecture_05.png)
+
+Front-End는 위와 같은 모습으로 설계하였습니다. 일반적인 `Single Page Application` 프로젝트의 구조입니다.
+
+- Vue CLI를 이용하여 Vue Project를 구성할 경우 webpack 기반의 개발환경이 만들어집니다.
+- 개발이 완료되면 다시 Webpack Build를 이용하여 HTML, CSS, JS 등으로 번들링합니다.
+
+이에대해 조금 더 구체적으로 설명하기 위해선 프로젝트의 `package.json`이 필요합니다.
+
+```js
+{
+  "name": "zum-chrome-extension",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "publish": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "build-zip": "node scripts/build-zip.js",
+    "build-and-zip": "vue-cli-service build && node scripts/build-zip.js"
+  },
+  "dependencies": {
+    "@babel/plugin-proposal-optional-chaining": "^7.8.3",
+    "core-js": "^3.6.5",
+    "fetch-jsonp": "^1.1.3",
+    "reset-css": "^5.0.1",
+    "vue": "^2.6.11",
+    "vue-loader": "^15.8.3",
+    "vuex": "^3.1.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.4.1",
+    "@vue/cli-plugin-vuex": "^4.4.1",
+    "@vue/cli-service": "^4.4.1",
+    "archiver": "^4.0.1",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^8.0.2",
+    "vue-template-compiler": "^2.6.11"
+  }
+}
+```
+
+사실 Vue-cli를 통해서 설치된 것 이외에는 거의 외부 패키지를 설치하지 않았습니다.
+여기서 `scripts` 부분만 조금 더 살펴보겠습니다.
+
+```js
+{
+  /* ... 생략 ... */
+  "scripts": {
+    // 개발 서버를 실행합니다.
+    "publish": "vue-cli-service serve",
+
+    // webpack으로 src폴더를 패키징하여 public폴더에 합친 후 dist폴더에 저장합니다.
+    "build": "vue-cli-service build",
+
+    // dist폴더를 압축하여 dist-zip에 저장합니다.
+    "build-zip": "node scripts/build-zip.js",
+
+    // build와 build-zip를 동시에 실행합니다.
+    "build-and-zip": "vue-cli-service build && node scripts/build-zip.js"
+  },
+  /* ... 생략 ... */
+}
+```
+
+터미널에서는 다음과 같이 사용할 수 있습니다.
+
+```shell
+# 개발 서버를 실행합니다. 
+> npm run publish
+> yarn publish
+
+# webpack으로 src폴더를 패키징하여 public폴더에 합친 후 dist폴더에 저장합니다.
+> npm run build
+> yarn build
+
+# dist폴더를 압축하여 dist-zip에 저장합니다.
+> npm run build-zip
+> yarn build-zip
+
+# build와 build-zip를 동시에 실행합니다.
+> npm run build-and-zip
+> yarn build-and-zip
+```
+
+다른 `SPA` 프로젝트와 구분되는 부분이 보이지 않나요?
+확장프로그램의 경우 앱 소스를 zip 파일로 만들어야 하기 때문에 build만 하는게 아니라 build된 폴더를 zip으로 구성하는 스크립트를 만들어야 했습니다.
+
+코드로 확인해봅시다!
+
+```js
+// scripts/build-zip.js
+const fs = require('fs');
+const path = require('path');
+const archiver = require('archiver');
+const DEST_DIR = path.join(__dirname, '../dist');
+const DEST_ZIP_DIR = path.join(__dirname, '../dist-zip');
+
+function extractExtensionData () {
+  const manifest = require('../public/manifest.json');
+  const name = manifest.name.toLowerCase().replace(/\s/g, '-');
+  const version = manifest.version.replace(/\./g, '_');
+  return { name, version };
+};
+
+function buildZip (src, dist, zipFilename) {
+  console.info(`Building ${zipFilename}...`);
+  const zipFilePath = path.join(dist, zipFilename);
+
+  if (fs.existsSync(zipFilePath)) {
+    fs.unlinkSync(zipFilePath);
+  }
+
+  const archive = archiver('zip', { zlib: { level: 9 }});
+  const stream = fs.createWriteStream(zipFilePath);
+  
+  return new Promise((resolve, reject) => {
+    archive.directory(src, false)
+           .on('error', reject)
+           .pipe(stream);
+
+    stream.on('close', resolve);
+    archive.finalize();
+  });
+}
+
+const {name, version} = extractExtensionData();
+const zipFilename = `${name}-v${version}.zip`;
+
+if(!fs.existsSync(DEST_ZIP_DIR)) fs.mkdirSync(DEST_ZIP_DIR);
+
+buildZip(DEST_DIR, DEST_ZIP_DIR, zipFilename)
+  .then(() => console.info('SUCCESS'))
+  .catch(console.err);
+``` 
+
+- zip은 [archiver](https://www.npmjs.com/package/archiver) 패키지를 사용해서 만들 수 있습니다.
+- 코드는 [Kocal/vue-web-extension Repository](https://github.com/Kocal/vue-web-extension/blob/v1/template/scripts/build-zip.js)에서 참고하였습니다.
+- 전체적인 흐름은 다음과 같습니다.
+  - build 폴더를 압축한다.
+  - 이 때 `public/manifest.json`에 있는 `name` `version` 정보를 읽어온다.
+  - 압축 파일의 이름은 `${name}-v${version}.zip` 형태로 만든다.
+  - 압축 파일은 `build-zip` 폴더에 저장한다.
+
+따라서 `build-and-zip`을 실행할 경우, **build를 하자마자 바로 build-zip 폴더에 압축하여 저장**하게 됩니다.
+
+***
+
+### 정리
+
+여기까지 프로젝트 구조를 살펴봤습니다. 다시 정리하자면 다음과 같습니다.
+
+- `back-end`
+  - 크롬 확장프로그램은 웹서비스가 아니기 때문에 확장프로그램 전용 서버가 존재하지 않습니다.
+    - 따라서 확장프로그램에서 API를 사용할 땐 외부에서 접근 가능한 API를 사용해야 합니다.
+    - 그리고 API에 대한 Permission 설정이 필요합니다.
+  - `Zum NewTab`은 `Zum App API` `Zum Search Suggest API` `Personal Fortune API` 등 세 개의 API와 직접적으로 통신합니다.
+  - `Zum App API`는 다시 `Internal API` `Target API`와 통신합니다.
+    - `Internal API`에서 대부분의 데이터를 정제하여 내보내줍니다.
+    - `Target API`는 `IP Address` 기반으로 캐싱하여 사용합니다.
+    - `Internal API`를 주기적으로 호출하고, 이 때 전체 데이터를 캐싱합니다.
+  - 결과적으로 사용자는 항상 캐싱된 데이터를 조회하게 됩니다.
+- `front-end`
+  - `Vue-cli`를 이용하여 `Single Page Application` 형태로 구성하였습니다.
+
+사용하는 API가 많기 때문에 **확장프로그램치곤 조금 복잡한 형태**를 띄고 있습니다.
+
+***
+
 ## 5. 배포 과정 소개
+
+이제 앱스토어에 배포하는 과정에 대해 간단하게 소개하겠습니다.
+
+- [크롬 웹 스토어](https://chrome.google.com/webstore/category/extensions?hl=ko&authuser=2)에 접속 후 `설정 아이콘`을 클릭하면 `개발자 대시보드` 메뉴가 보입니다. <br> 
+![14-01_webstore](/images/portal/post/2020-09-11-Zum-Chrome-Extension/14-01_webstore.jpg){:style="border:1px solid #666;padding:0;margin:0"}
+
+- 대시보드에 접근하고, 확장프로그램을 등록하기 위해선 `등록수수료(5$)`를 결제해야합니다. <br> 
+![14-02_dashboard](/images/portal/post/2020-09-11-Zum-Chrome-Extension/14-02_dashboard.jpg){:style="border:1px solid #666;padding:0;margin:0"}
+
+- 다음과 같은 정보들을 입력하고 결제를 진행하면 됩니다. <br>
+![14-03_cash](/images/portal/post/2020-09-11-Zum-Chrome-Extension/14-03_cash.jpg){:style="border:1px solid #666;padding:0;margin:0"}
+
+- 등록 수수로 결제가 완료되면 [대시보드](https://chrome.google.com/u/2/webstore/devconsole/a5efa500-a9c0-4385-b070-b1873b2d8212?hl=ko) 페이지에 접근할 수 있습니다.
+![14-04_new_01](/images/portal/post/2020-09-11-Zum-Chrome-Extension/14-04_new_01.jpg){:style="border:1px solid #666;padding:0;margin:0"}
+
+- `새 항목` 버튼을 클릭하면 항목을 추가하는 팝업이 열립니다. `파일 탐색` 버튼을 클릭하여 `확장프로그램 zip 파일`을 업로드하면 됩니다. <br>
+![14-04_new_02](/images/portal/post/2020-09-11-Zum-Chrome-Extension/14-04_new_02.jpg){:style="border:1px solid #666;padding:0;margin:0"}
+
+- 업로드가 완료되면 확장프로그램의 정보를 입력하는 페이지로 넘어갑니다. 먼저 `스토어 등록정보`에서 `설명`란을 입력해야합니다. 나머지는 `manifest.json`의 내용으로 채워집니다. <br>
+![14-05_detail_01](/images/portal/post/2020-09-11-Zum-Chrome-Extension/14-05_detail_01.jpg){:style="border:1px solid #666;padding:0;margin:0;"}
+
+- `그래픽 저작물`은 확장프로그램 설치 페이지에 접근했을 때 보여지는 이미지입니다. 규격에 맞게 이미지를 만들어서 업로드하면 됩니다 <br>
+![14-05_detail_02](/images/portal/post/2020-09-11-Zum-Chrome-Extension/14-05_detail_02.jpg){:style="border:1px solid #666;padding:0;margin:0;"}
+
+- `추가 입력란`에는 확장프로그램에 대한 문의를 받을 수 있는 정보들을 입력합니다. <br>
+![14-05_detail_03](/images/portal/post/2020-09-11-Zum-Chrome-Extension/14-05_detail_03.jpg){:style="border:1px solid #666;padding:0;margin:0;"}
+
+- `개인정보 보호 탭`에서 `manifest.json`에 정의한 `permission`에 대한 설명을 작성해야합니다. <br>
+![14-05_detail_04](/images/portal/post/2020-09-11-Zum-Chrome-Extension/14-05_detail_04.jpg){:style="border:1px solid #666;padding:0;margin:0;"}
+
+- 앞서 언급한 항목들을 모두 입력한 뒤에 제출하면 `검수`후에 `거부` 및 `게시` 여부를 이메일로 알려주고, 대시보드에서 확인할 수 있습니다.
+![14-05_detail_05](/images/portal/post/2020-09-11-Zum-Chrome-Extension/14-05_detail_05.jpg){:style="border:1px solid #666;padding:0;margin:0;"}
+
+이렇게 배포하는 과정은 어렵지 않습니다.
+
+아직 최종 관문인 `지옥의 검수과정`이 남았습니다. ~~검수 과정 때문에 정말 힘들었습니다..~~
 
 ## 6. 지옥의 검수 과정
 
