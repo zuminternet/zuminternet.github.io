@@ -638,31 +638,31 @@ buildZip(DEST_DIR, DEST_ZIP_DIR, zipFilename)
 
 이제 앱스토어에 배포하는 과정에 대해 간단하게 소개하겠습니다.
 
-- [크롬 웹 스토어](https://chrome.google.com/webstore/category/extensions?hl=ko&authuser=2)에 접속 후 `설정 아이콘`을 클릭하면 `개발자 대시보드` 메뉴가 보입니다. <br> 
+- [크롬 웹 스토어](https://chrome.google.com/webstore/category/extensions?hl=ko&authuser=2)에 접속 후 `설정 아이콘`을 클릭하면 `개발자 대시보드` 메뉴가 보입니다. 
 ![14-01_webstore](/images/portal/post/2020-09-11-Zum-Chrome-Extension/14-01_webstore.jpg){:style="border:1px solid #666;padding:0;margin:0"}
 
-- 대시보드에 접근하고, 확장프로그램을 등록하기 위해선 `등록수수료(5$)`를 결제해야합니다. <br> 
+- 대시보드에 접근하고, 확장프로그램을 등록하기 위해선 `등록수수료(5$)`를 결제해야합니다. 
 ![14-02_dashboard](/images/portal/post/2020-09-11-Zum-Chrome-Extension/14-02_dashboard.jpg){:style="border:1px solid #666;padding:0;margin:0"}
 
-- 다음과 같은 정보들을 입력하고 결제를 진행하면 됩니다. <br>
+- 다음과 같은 정보들을 입력하고 결제를 진행하면 됩니다.
 ![14-03_cash](/images/portal/post/2020-09-11-Zum-Chrome-Extension/14-03_cash.jpg){:style="border:1px solid #666;padding:0;margin:0"}
 
 - 등록 수수로 결제가 완료되면 [대시보드](https://chrome.google.com/u/2/webstore/devconsole/a5efa500-a9c0-4385-b070-b1873b2d8212?hl=ko) 페이지에 접근할 수 있습니다.
 ![14-04_new_01](/images/portal/post/2020-09-11-Zum-Chrome-Extension/14-04_new_01.jpg){:style="border:1px solid #666;padding:0;margin:0"}
 
-- `새 항목` 버튼을 클릭하면 항목을 추가하는 팝업이 열립니다. `파일 탐색` 버튼을 클릭하여 `확장프로그램 zip 파일`을 업로드하면 됩니다. <br>
+- `새 항목` 버튼을 클릭하면 항목을 추가하는 팝업이 열립니다. `파일 탐색` 버튼을 클릭하여 `확장프로그램 zip 파일`을 업로드하면 됩니다.
 ![14-04_new_02](/images/portal/post/2020-09-11-Zum-Chrome-Extension/14-04_new_02.jpg){:style="border:1px solid #666;padding:0;margin:0"}
 
-- 업로드가 완료되면 확장프로그램의 정보를 입력하는 페이지로 넘어갑니다. 먼저 `스토어 등록정보`에서 `설명`란을 입력해야합니다. 나머지는 `manifest.json`의 내용으로 채워집니다. <br>
+- 업로드가 완료되면 확장프로그램의 정보를 입력하는 페이지로 넘어갑니다. 먼저 `스토어 등록정보`에서 `설명`란을 입력해야합니다. 나머지는 `manifest.json`의 내용으로 채워집니다.
 ![14-05_detail_01](/images/portal/post/2020-09-11-Zum-Chrome-Extension/14-05_detail_01.jpg){:style="border:1px solid #666;padding:0;margin:0;"}
 
-- `그래픽 저작물`은 확장프로그램 설치 페이지에 접근했을 때 보여지는 이미지입니다. 규격에 맞게 이미지를 만들어서 업로드하면 됩니다 <br>
+- `그래픽 저작물`은 확장프로그램 설치 페이지에 접근했을 때 보여지는 이미지입니다. 규격에 맞게 이미지를 만들어서 업로드하면 됩니다
 ![14-05_detail_02](/images/portal/post/2020-09-11-Zum-Chrome-Extension/14-05_detail_02.jpg){:style="border:1px solid #666;padding:0;margin:0;"}
 
-- `추가 입력란`에는 확장프로그램에 대한 문의를 받을 수 있는 정보들을 입력합니다. <br>
+- `추가 입력란`에는 확장프로그램에 대한 문의를 받을 수 있는 정보들을 입력합니다.
 ![14-05_detail_03](/images/portal/post/2020-09-11-Zum-Chrome-Extension/14-05_detail_03.jpg){:style="border:1px solid #666;padding:0;margin:0;"}
 
-- `개인정보 보호 탭`에서 `manifest.json`에 정의한 `permission`에 대한 설명을 작성해야합니다. <br>
+- `개인정보 보호 탭`에서 `manifest.json`에 정의한 `permission`에 대한 설명을 작성해야합니다.
 ![14-05_detail_04](/images/portal/post/2020-09-11-Zum-Chrome-Extension/14-05_detail_04.jpg){:style="border:1px solid #666;padding:0;margin:0;"}
 
 - 앞서 언급한 항목들을 모두 입력한 뒤에 제출하면 `검수`후에 `거부` 및 `게시` 여부를 이메일로 알려주고, 대시보드에서 확인할 수 있습니다.
@@ -673,6 +673,10 @@ buildZip(DEST_DIR, DEST_ZIP_DIR, zipFilename)
 아직 최종 관문인 `지옥의 검수과정`이 남았습니다. ~~검수 과정 때문에 정말 힘들었습니다..~~
 
 ## 6. 지옥의 검수 과정
+
+이제 검수과정에 대해 ~~하소연~~**소개** 하겠습니다.
+
+
 
 ## 7. 앞으로의 계획
 
