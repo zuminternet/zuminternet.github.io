@@ -672,11 +672,141 @@ buildZip(DEST_DIR, DEST_ZIP_DIR, zipFilename)
 
 아직 최종 관문인 `지옥의 검수과정`이 남았습니다. ~~검수 과정 때문에 정말 힘들었습니다..~~
 
+***
+
 ## 6. 지옥의 검수 과정
 
-이제 검수과정에 대해 ~~하소연~~**소개** 하겠습니다.
+이제 검수과정에 대해 ~~하소연~~**소개**합니다.
 
+***
 
+### (1) 첫 번째 게시 요청
+
+- 5월 29일에 개발이 완료되어서 6월 1일에 첫 번째 게시 요청을 올렸습니다.
+- **그리고, 정말 다양한 사유로 반려되었습니다.**
+![16-validate_01](/images/portal/post/2020-09-11-Zum-Chrome-Extension/16-validate_01.jpg){:style="border:1px solid #666;padding:0;margin:0;"}
+- 사실 예상했던 일이었습니다.
+- ~~그러나 검수 과정이 한 달 넘게 지속 될 것은 예상하지 못했죠..~~
+
+***
+
+### (2) 문제점 분석 및 대처
+
+먼저 문제가 될 만한 것들을 생각해봤습니다.
+
+1. API 호출에 대한 이슈
+  - `JSONP`를 사용해도 되는가
+    - 일부 API를 `JSONP`로 사용하고 있습니다.
+  - 꼭 호출하는 API의 도메인이 **개발자의 소유**여야만 하는가
+    - 그렇다면 `Open API`는 어떻게 이용해야 하는가?
+2. Manifest.json에서 `permission 설정`에 대한 이슈
+  - **정말로 필요한 권한**인가?
+3. `Content Security Policy` 설정 이슈
+4. `Chrome API`에 대한 이슈
+5. **컨텐츠 자체**의 이슈
+  - 사용해도 무방한 컨텐츠인가?
+  - **컨텐츠가 포함되어도 상관 없는가?**
+6. Zum Front End Core에 대한 이슈
+  - **대부분의 Front-End 프로젝트에 Zum Front Core Pacakge를 사용**하고 있었습니다.
+  - 따라서 확장프로그램에도 자연스럽게 Core를 적용했습니다.
+  - 뒤에 서술하겠지만, 결론만 말하자면 **결정적으로 Core에 문제가 있었습니다.**
+
+이렇게 정리한 다음에 다음과 같은 조치를 취하였습니다.
+
+- 빈 화면 부터 시작하여 각각의 컴포넌트를 쪼개어서 한 번에 검수 요청을 보냈습니다.
+  - 일단 `외부 API 요청`이 필요하지 않은 모듈부터 검수요청을 보냈습니다.
+  - `검색 모듈`
+    ![16-validate_03](/images/portal/post/2020-09-11-Zum-Chrome-Extension/16-validate_03.png){:style="border:1px solid #666;padding:0;margin:0;"}
+  - `시계 모듈`
+    ![16-validate_02](/images/portal/post/2020-09-11-Zum-Chrome-Extension/16-validate_02.png){:style="border:1px solid #666;padding:0;margin:0;"}
+  - `메모 모듈`
+    ![16-validate_04](/images/portal/post/2020-09-11-Zum-Chrome-Extension/16-validate_04.png){:style="border:1px solid #666;padding:0;margin:0;"}
+  - `사이트 모듈`
+    ![16-validate_05](/images/portal/post/2020-09-11-Zum-Chrome-Extension/16-validate_05.png){:style="border:1px solid #666;padding:0;margin:0;"}
+- **모든 API를 제외하고 MockUp 데이터만 사용**하여 올렸습니다.
+- **확장프로그램의 제목, 설명, 스크린샷 등을 수정**하여 올렸습니다.
+
+그 결과..
+
+![16-validate_06](/images/portal/post/2020-09-11-Zum-Chrome-Extension/16-validate_06.png){:style="border:1px solid #666;padding:0;margin:0;"}
+
+**전부 반려되었습니다....**
+
+![emoticon_01](/images/portal/post/2020-09-11-Zum-Chrome-Extension/emoticon_01.png)
+
+이 결과를 확인했을 때 많이 들어본 말이 떠올랐습니다.
+
+> 눈을 감아보세요. 아무것도 안 보이죠? 네 그게 당신의 미래입니다.
+
+말 그대로 눈 앞이 깜깜했습니다..
+
+***
+
+### (3) 다시 문제점 분석
+
+팀장님, 팀원들과 머리를 맞대고 다시 고민을 시작했습니다.
+
+- **Zum Front Core Package에 권한과 관련된 코드**가 있었습니다.
+- 즉, **Core Pacakge를 포함하면 반려될 가능성이 매우 높다**는 것을 알았습니다.
+  - 사실 거의 확정하고 있었습니다.
+- 그래서 Core를 제거하고, **앞선 과정(처음부터 다시만들기)을 반복**했습니다.
+
+![16-validate_07](/images/portal/post/2020-09-11-Zum-Chrome-Extension/16-validate_07.png){:style="border:1px solid #666;padding:0;margin:0;"}
+
+***
+
+### (4) 첫 검수 통과
+
+Core 패키지를 제외한 후에 검수 요청한 것들은 대부분 통과했습니다.
+
+![16-validate_08](/images/portal/post/2020-09-11-Zum-Chrome-Extension/16-validate_08.png){:style="border:1px solid #666;padding:0;margin:0;"}
+
+![emoticon_03](/images/portal/post/2020-09-11-Zum-Chrome-Extension/emoticon_03.png){:style="padding:0;margin:0;display:inline-block"}
+![emoticon_04](/images/portal/post/2020-09-11-Zum-Chrome-Extension/emoticon_04.png){:style="padding:0;margin:0;display:inline-block"}
+
+**이 때 알 수 있던 사실은 다음과 같습니다.**
+
+1. `컨텐츠 자체`에는 문제가 없다.
+2. `JSONP`를 사용해도 된다.
+
+일단 검수가 성공했기 때문에 **여태까지 정리해놓은 이슈들을 하나씩 테스트**할 수 있었습니다.
+
+***
+
+### (5) 이어진 분석 - 검수 과정에서 알 수 있었던 것들
+
+1. **API 호출은 소유자가 아니여도 상관 없었습니다.**
+  - 단, **모든 요청은 https**로 보내야합니다.
+  
+2. 확장프로그램 전용으로 사용할 수 있는 `Chrome API`는 **Manifest.json에 명시한게 아닐 경우,**
+  API가 호출 가능한지만 체크하는 코드 또한 반려사유가 될 수 있습니다.
+  - ex) `if (chrome.store) { /*...*/ }` 이런 코드 또한 반려사유가 됩니다.
+  
+3. 반대로 **Manifest.json에 명시했으나 사용하지 않는 기능**이 있을 경우에도 반려 사유가 됩니다.
+
+4. **개인정보 처리방침**이 필요합니다.
+
+5. 리소스를 `base64`로 사용하면 안 됩니다.
+  - **webpack을 사용하면 기본적으로 작은 용량의 파일을 base64로 만듭니다.**
+  - 그래서 vue.config.js 혹은 webpack.config.js에 다음과 같은 코드를 삽입해줘야합니다.
+
+```js
+// vue.config.js
+module.exports = {
+  /* 생략 */
+  chainWebpack: config => config.module
+                                   .rule('images')
+                                   .use('url-loader')
+                                   .loader('url-loader')
+                                   .tap(options => ({ ...options, limit: -1 }));
+  },
+  /* 생략 */
+};
+```
+
+***
 
 ## 7. 앞으로의 계획
+
+9.
 
