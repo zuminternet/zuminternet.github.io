@@ -388,10 +388,12 @@ if (process.env.NODE_ENV === 'development') {
 `압축해제된 확장 프로그램을 로드합니다.`를 클릭한 후에 확장프로그램을 업로드하면 됩니다!
 
 - 이 때 `manifest.json`이 포함된 폴더를 업로드 해야합니다.
-![15-devmode_04](/images/portal/post/2020-09-11-Zum-Chrome-Extension/15-devmode_04.jpg){:style="border:1px solid #666;padding:0;margin:0"}
+![15-devmode_01](/images/portal/post/2020-09-11-Zum-Chrome-Extension/15-devmode_01.gif){:style="border:1px solid #666;padding:0;margin:0"}
 
-- 혹은 확장프로그램을 압축한 후에 `드래그 앤 드롭`으로 추가할 수 있습니다.
-![15-devmode_03](/images/portal/post/2020-09-11-Zum-Chrome-Extension/15-devmode_03.jpg){:style="border:1px solid #666;padding:0;margin:0"}
+- 혹은 `드래그 앤 드롭`으로 추가할 수 있습니다. 이 때 `manifest.json`이 폴더나 압축파일에 포함되어 있어야 합니다.
+![15-devmode_02](/images/portal/post/2020-09-11-Zum-Chrome-Extension/15-devmode_02.gif){:style="border:1px solid #666;padding:0;margin:0"}
+
+위의 과정을 거쳐서 개발된 확장프로그램의 기능이 정상적으로 작동하는지 확인해볼 수 있습니다.
 
 ## 4. 시스템 아키텍쳐
 
