@@ -832,7 +832,7 @@ module.exports = {
 
 **결과는 앞서 올린 사진처럼 모두 반려되었습니다.**
 
-![16-validate_10](/images/portal/post/2020-09-11-Zum-Chrome-Extension/16-validate_09.png){:style="border:1px solid #666;padding:0;margin:0;"}
+![emoticon_01](/images/portal/post/2020-09-11-Zum-Chrome-Extension/emoticon_01.png){:style="border:1px solid #666;padding:0;margin:0;"}
 
 어쨌든 많은 우여곡절 끝에 마지막 베타버전을 배포할 수 있었습니다.
 
