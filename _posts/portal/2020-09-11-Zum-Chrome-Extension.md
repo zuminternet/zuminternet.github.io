@@ -10,8 +10,7 @@ tag: [experience, Vue.js, Frontend, 크롬 확장프로그램, 웹스토어 배�
 
 
 안녕하세요! 최근에 포털개발팀에서 [Zum NewTab](https://chrome.google.com/webstore/detail/zum-newtab/bghgeookcfdmkoocalbclnhofnenmhlf?hl=ko&authuser=2)
-이라는 크롬 확장프로그램을 만들었습니다. 아직 고쳐야할 점도 많고, 사내 테스트를 통해서 조금 더 의견을 모으고 있는 중입니다.
-어쨌든 4월부터 6월까지의 확장프로그램을 개발, 배포, 검수하는 과정에서의 **~~삽질한~~** 경험을 공유하고자 이렇게 글을 올립니다.
+이라는 크롬 확장프로그램을 만들었습니다. 4월부터 8월까지의 확장프로그램을 개발, 배포, 검수하는 과정에서의 **~~삽질한~~** 경험을 공유하고자 이렇게 글을 올립니다.
 
 ***
 
@@ -406,74 +405,30 @@ if (process.env.NODE_ENV === 'development') {
 
 ## 4. 시스템 아키텍쳐
 
+아키텍쳐는 **소개할 수 있는 영역까지만** 간단하게 보여드리겠습니다.
+
+### (1) Back-End
+
 ![12-architecture_01](/images/portal/post/2020-09-11-Zum-Chrome-Extension/12-architecture_01.png)
 
-시스템의 전체적인 흐름을 설명하자면
-
-1. 사용자가 뉴탭을 통해 확장프로그램에 진입합니다.
-2. 브라우저에서 **외부에 개방되어 있는 API에 접근**합니다.
-  - 개인운세 API
-  - 줌앱 API
-  - 검색어 제안 API
-3. 줌앱 API는 다시 **내부적으로만 사용하는 Internal API에 접근**합니다.
-  - Internal API는 **줌프런트와 모바일줌에서 사용**하는 API입니다.
-4. Internal API에서 다시 필요한 API를 호출하고, 호출결과를 잘 조합하여 줌앱 API에게 response로 내보냅니다.
-5. 결과적으로 줌앱 API는 **일종의 Proxy 역할**을 수행합니다.
-
-***
-
-### (1) 외부에 개방되어 있는 API
-
-![12-architecture_02](/images/portal/post/2020-09-11-Zum-Chrome-Extension/12-architecture_02.png)
-
-크롬 확장프로그램에선 이렇게 3개의 API만 호출합니다. 
-
-1. Personal Fortune API
+1. **`Personal Fortune API`**
   - Input: 성별, 생년월일
-  - Output: 오늘의 운세 
-2. Search Suggest API
+  - Output: 오늘의 운세
+
+2. **`Search Suggest API`**
   - Input: 검색어
   - Output: 추천검색어
-3. Zum App API
+
+3. **`Zum APP API`**
   - 본래 사용 용도는 **줌앱에서 필요한 데이터를 가져오기위해** 만들어졌습니다.
   - 즉, 외부에서의 접근이 가능한 API입니다.
   - 팀원과 팀장님과 논의한 결과로 확장프로그램에서 필요한 데이터도 줌앱 API에서 만들기로 하였습니다.
   - 줌앱API는 **주기적으로 Intenral API를 호출하고 캐싱**합니다.
   - 따라서 **사용자는 항상 캐싱된 데이터를 이용**하게 됩니다.
-  
-***
-
-### (2) Internal API
-
-![12-architecture_03](/images/portal/post/2020-09-11-Zum-Chrome-Extension/12-architecture_03.png)
-
-앞서 언급했지만, Internal API는 [줌프런트](http://zum.com)와 [모바일줌](http://m.zum.com)에서 호출하는 API입니다.
-그렇기 때문에 컨텐츠를 제공하기에 적합한 API였고, 모바일줌의 컨텐츠와 겹치는 것들이 있었습니다.
-덕분에 확장프로그램과 관련된 API는 큰 어려움 없이 만들 수 있었습니다.
-
-Internal API에서 내려주는 컨텐츠는 다음과 같습니다.
-
-- 별자리 운세, 띠별 운세
-- 날씨 및 대기 정보
-- 주제별 컨텐츠
-- 실시간 이슈 키워드
 
 ***
 
-### (3) Target API
-
-![12-architecture_04](/images/portal/post/2020-09-11-Zum-Chrome-Extension/12-architecture_04.png)
-
-`Target API`는 사용자(클라이언트)의 **IP주소를 넘겨주면, 현재 위치(주소)를 알려주는 API**입니다.
-`Target API`를 사용할 경우 **IP 주소를 기준으로 캐싱** 처리가 필요합니다.
-그래서 **App API에서 넘겨주는 형태**로 만들었습니다.
- 
-만약에 `Internal API`에 구현한다고 치면 `Internal API`에서 캐싱을 하고,
-`App API`에서도 캐싱을 해야하기 때문에 **자원을 두 배로 소모**합니다.
-
-***
-
-### (4) Front-End
+### (2) Front-End
 
 ![12-architecture_05](/images/portal/post/2020-09-11-Zum-Chrome-Extension/12-architecture_05.png)
 
@@ -631,15 +586,10 @@ buildZip(DEST_DIR, DEST_ZIP_DIR, zipFilename)
     - 따라서 확장프로그램에서 API를 사용할 땐 외부에서 접근 가능한 API를 사용해야 합니다.
     - 그리고 API에 대한 Permission 설정이 필요합니다.
   - `Zum NewTab`은 `Zum App API` `Zum Search Suggest API` `Personal Fortune API` 등 세 개의 API와 직접적으로 통신합니다.
-  - `Zum App API`는 다시 `Internal API` `Target API`와 통신합니다.
-    - `Internal API`에서 대부분의 데이터를 정제하여 내보내줍니다.
-    - `Target API`는 `IP Address` 기반으로 캐싱하여 사용합니다.
-    - `Internal API`를 주기적으로 호출하고, 이 때 전체 데이터를 캐싱합니다.
+  - `Zum App API`는 다시 사내 서비스에서 사용중인 `Internal API`를 주기적으로 호출하고 결과를 캐싱합니다.
   - 결과적으로 사용자는 항상 캐싱된 데이터를 조회하게 됩니다.
 - `front-end`
   - `Vue-cli`를 이용하여 `Single Page Application` 형태로 구성하였습니다.
-
-사용하는 API가 많기 때문에 **확장프로그램치곤 조금 복잡한 형태**를 띄고 있습니다.
 
 ***
 
@@ -832,7 +782,7 @@ module.exports = {
 
 **결과는 앞서 올린 사진처럼 모두 반려되었습니다.**
 
-![emoticon_01](/images/portal/post/2020-09-11-Zum-Chrome-Extension/emoticon_01.png){:style="border:1px solid #666;padding:0;margin:0;"}
+![emoticon_01](/images/portal/post/2020-09-11-Zum-Chrome-Extension/emoticon_01.png)
 
 어쨌든 많은 우여곡절 끝에 마지막 베타버전을 배포할 수 있었습니다.
 
@@ -871,13 +821,6 @@ module.exports = {
 
 ## 7. 앞으로의 계획
 
-최근에 사내테스트를 진행했습니다.
-
-![17-test](/images/portal/post/2020-09-11-Zum-Chrome-Extension/17-test.png){:style="border:1px solid #666;padding:0;margin:0;"}
-
-일단 내부적으로 긍정적인 반응이 많은 상태입니다.
-그래서 조금 더 다듬고 완성도를 높여서 고객에게 선보일 예정입니다.
-
 개인적으로 서비스를 만들 때 마음속, 머릿속에 새겨두는 말이 있습니다.
 
 > “서비스는 런칭 이후가 진짜 시작이다.”
@@ -890,7 +833,7 @@ module.exports = {
 앞으로를 더 기대해주세요!
 
 긴 글 읽어주셔서 정말 감사합니다!
-
+                  
 ***
 
 ![emoticon_05](/images/portal/post/2020-09-11-Zum-Chrome-Extension/emoticon_05.png)
