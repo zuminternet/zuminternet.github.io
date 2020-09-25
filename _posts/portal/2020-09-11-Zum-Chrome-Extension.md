@@ -10,8 +10,7 @@ tag: [experience, Vue.js, Frontend, 크롬 확장프로그램, 웹스토어 배�
 
 
 안녕하세요! 최근에 포털개발팀에서 [Zum NewTab](https://chrome.google.com/webstore/detail/zum-newtab/bghgeookcfdmkoocalbclnhofnenmhlf?hl=ko&authuser=2)
-이라는 크롬 확장프로그램을 만들었습니다. 아직 고쳐야할 점도 많고, 사내 테스트를 통해서 조금 더 의견을 모으고 있는 중입니다.
-어쨌든 4월부터 6월까지의 확장프로그램을 개발, 배포, 검수하는 과정에서의 **~~삽질한~~** 경험을 공유하고자 이렇게 글을 올립니다.
+이라는 크롬 확장프로그램을 만들었습니다. 4월부터 8월까지의 확장프로그램을 개발, 배포, 검수하는 과정에서의 **~~삽질한~~** 경험을 공유하고자 이렇게 글을 올립니다.
 
 ***
 
@@ -832,7 +831,7 @@ module.exports = {
 
 **결과는 앞서 올린 사진처럼 모두 반려되었습니다.**
 
-![emoticon_01](/images/portal/post/2020-09-11-Zum-Chrome-Extension/emoticon_01.png){:style="border:1px solid #666;padding:0;margin:0;"}
+![emoticon_01](/images/portal/post/2020-09-11-Zum-Chrome-Extension/emoticon_01.png)
 
 어쨌든 많은 우여곡절 끝에 마지막 베타버전을 배포할 수 있었습니다.
 
@@ -871,13 +870,6 @@ module.exports = {
 
 ## 7. 앞으로의 계획
 
-최근에 사내테스트를 진행했습니다.
-
-![17-test](/images/portal/post/2020-09-11-Zum-Chrome-Extension/17-test.png){:style="border:1px solid #666;padding:0;margin:0;"}
-
-일단 내부적으로 긍정적인 반응이 많은 상태입니다.
-그래서 조금 더 다듬고 완성도를 높여서 고객에게 선보일 예정입니다.
-
 개인적으로 서비스를 만들 때 마음속, 머릿속에 새겨두는 말이 있습니다.
 
 > “서비스는 런칭 이후가 진짜 시작이다.”
@@ -890,7 +882,7 @@ module.exports = {
 앞으로를 더 기대해주세요!
 
 긴 글 읽어주셔서 정말 감사합니다!
-
+                  
 ***
 
 ![emoticon_05](/images/portal/post/2020-09-11-Zum-Chrome-Extension/emoticon_05.png)
