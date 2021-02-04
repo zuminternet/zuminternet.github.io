@@ -93,26 +93,28 @@ Common Scheduler DB 에 대해서만 Quartz Scheduler Admin CMS 를 사용할 �
 ![09-dbconfig_modify](/images/portal/post/2021-01-25-ZUM-Pilot-advanced_quartz_scheduler_admin/09-dbconfig_modify.jpg)
 
 ### 2. Job 실행 기능 개선
-![10-add_simple_trigger](/images/portal/post/2021-01-25-ZUM-Pilot-advanced_quartz_scheduler_admin/10-add_simple_trigger.gif)
+
+#### BEFORE
 해당 Job 을 즉시 실행하기 위해서는, Trigger 의 `StartTime` 을 현재시간보다 이전으로 설정하고,
 `EndTime` 을 현재시간 이후로 설정을 해주면 됩니다. 
 
+![10-add_simple_trigger](/images/portal/post/2021-01-25-ZUM-Pilot-advanced_quartz_scheduler_admin/10-add_simple_trigger.gif)
+
 기존에는, 즉시 실행을 하기 위해서 SimpleTrigger 폼을 직접 입력해 주어야 했습니다.
 
-![11-add_simple_trigger_after](/images/portal/post/2021-01-25-ZUM-Pilot-advanced_quartz_scheduler_admin/11-add_simple_trigger_after.gif)
-
+#### AFTER
 `Execution` 버튼 하나만으로 Job 을 즉시실행 할 수 있습니다.
+
+![11-add_simple_trigger_after](/images/portal/post/2021-01-25-ZUM-Pilot-advanced_quartz_scheduler_admin/11-add_simple_trigger_after.gif)
 
 `TriggerGroup` 과 `TriggerName` 은 다음과 같은 양식으로 랜덤으로 생성 됩니다.
 - `TriggerGroup` : INTERNAL-`JobGroup`-triggerGroup-`UUIDv4`
 - `TriggerName` : INTERNAL-`JobName`-triggerName-`UUIDv4`
 
 ### 3. 구글 oAuth 로그인 기능 추가
-![12-login](/images/portal/post/2021-01-25-ZUM-Pilot-advanced_quartz_scheduler_admin/12-login.gif)
-
 구글 로그인 기능이 추가 되었습니다. 
 
-![13-login_fail](/images/portal/post/2021-01-25-ZUM-Pilot-advanced_quartz_scheduler_admin/13-login_fail.gif)
+![12-login](/images/portal/post/2021-01-25-ZUM-Pilot-advanced_quartz_scheduler_admin/12-login.gif)
 
 로그인 가능한 이메일 도메인을 제한하였으며 이외의 도메인으로 로그인을 시도한다면 로그인에러 페이지로 리디렉션 됩니다.
 이 때, 다른 계정으로 로그인을 시도하려면 구글 계정을 완전히 로그아웃 시켜야 합니다. 
@@ -120,19 +122,20 @@ Common Scheduler DB 에 대해서만 Quartz Scheduler Admin CMS 를 사용할 �
 해당 링크로 접속하면, 현재 브라우저에 로그인 되어있는 구글 아이디를 로그아웃 할 수 있습니다.   
 `https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout`
 
-
-![14-logout_refresh](/images/portal/post/2021-01-25-ZUM-Pilot-advanced_quartz_scheduler_admin/14-logout_refresh.gif)
+![13-login_fail](/images/portal/post/2021-01-25-ZUM-Pilot-advanced_quartz_scheduler_admin/13-login_fail.gif)
 
 우측 상단에 `logout` 혹은 `login` 버튼이 존재합니다.   
 logout 버튼 왼쪽의 `refresh` 아이콘 버튼을 눌러 로그인을 재시도 하여 세션을 `refresh` 할 수 있습니다.    
 마지막 Http Request 후 30 분이 지나거나, 유저의 권한이 변경될 때 세션이 만료됩니다. 
 
-#### 로그인 한 사용자의 기록
+![14-logout_refresh](/images/portal/post/2021-01-25-ZUM-Pilot-advanced_quartz_scheduler_admin/14-logout_refresh.gif)
+
+
+#### 로그인 히스토리
 로그인 한 사용자의 기록은 **[Management > Login History]** 메뉴에서 확인 할 수 있습니다.   
-로그인 시간, `IP`, 접속한 사용자의 이름과 이메일이 기록됩니다.
+로그인 시간, IP, 접속한 사용자의 이름과 이메일이 기록됩니다.
 
 ![16-user_login_history](/images/portal/post/2021-01-25-ZUM-Pilot-advanced_quartz_scheduler_admin/16-user_login_history.png)
-
 
 #### 사용자의 권한
 사용자의 권한에는 3가지가 존재합니다.
@@ -172,8 +175,6 @@ logout 버튼 왼쪽의 `refresh` 아이콘 버튼을 눌러 로그인을 재시
 Simple Trigger 는 두가지 방법으로 추가할 수 있습니다. `Method` 컬럼의 값은 두가지가 있습니다.
 - `INTERNAL` : Quartz Scheduler Admin CMS 내 에서 추가되었을 경우
 - `EXTERNAL` : 각 서비스 CSM 서버의 요청으로 추가된 경우
-
-추후, Job 의 실행 결과를 조회할 수 있는 기능이 업데이트 될 예정입니다.
 
 ## 프로젝트 설계
 
@@ -244,7 +245,7 @@ Spring Data JPA `Entity` 를 이용하여 테이블을 정의하였습니다.
 1. `TRIGGER_HISTORIES`
     - JOB 의 SIMPLE TRIGGER 생성 정보를 기록합니다. 
 1. `JOB_HISTORIES` 
-    - TRIGGER_HISTORY 의 생성 정보를 기록합니다.
+    - TRIGGER_HISTORIES 의 생성 정보를 기록합니다.
     - 외래키로 조인된 PRIMARY KEY 입니다.
         - `TRIGGER_HISTORY_ID` UNIQUE KEY
         - `INFO_OF_DB_CONNECTION_ID` 트리거 가 추가된 서비스 데이터베이스 정보 
