@@ -31,12 +31,12 @@ Quartz Scheduler Admin 은 Quartz Job Scheduler 의 DB 관리를 위한 Admin �
 
 #### **기존에는**     
 Common Scheduler DB 안에 모든 서비스의 Job Scheduler 를 담고 있었으며,  
-Common Scheduler DB 에 대한 Quartz Scheduler Admin 가 존재하였습니다.     
+Common Scheduler DB 에 대한 Quartz Scheduler Admin 이 존재하였습니다.     
 
 #### 하지만 DB 의 장애가 발생하였을 때 
 모든 서비스의 Batch 가 중단되는 문제가 있었습니다.    
 이를 해결하기 위해 각 서비스 별 Scheduler DB 로 분산하게 되었고, 
-Quartz Scheduler Admin 는 더 이상 사용을 할 수 없게 되었습니다.  
+Quartz Scheduler Admin 은 더 이상 사용을 할 수 없게 되었습니다.  
 
 
 ### 목표
@@ -47,7 +47,7 @@ Common Scheduler DB 를 각 서비스 별 Scheduler DB 로 분산하게 되면�
 
 ### 1. 서비스 별 Scheduler DB 관리 기능 추가
 #### BEFORE
-Common Scheduler DB 에 대해서만 Quartz Scheduler Admin 를 사용할 수 있었습니다.
+Common Scheduler DB 에 대해서만 Quartz Scheduler Admin 을 사용할 수 있었습니다.
 
 ![04-quartz-admin_before](/images/portal/post/2021-01-25-ZUM-Pilot-advanced_quartz_scheduler_admin/04-quartz-admin_before.png)
 
@@ -239,7 +239,7 @@ frontend
 
 ### 4. DataBase
 Spring Data JPA `Entity` 를 이용하여 테이블을 정의하였습니다. 
-![22-database](/images/portal/post/2021-01-25-ZUM-Pilot-advanced_quartz_scheduler_admin/22-database.png)
+![22-database](/images/portal/post/2021-01-25-ZUM-Pilot-advanced_quartz_scheduler_admin/22-database.PNG)
 1. `INFO_OF_DB_CONNECTIONS`
     - 각 서비스의 Database Connection 정보를 담고 있습니다.
 1. `TRIGGER_HISTORIES`
