@@ -3,7 +3,7 @@
 layout: post
 title: Quartz Scheduler Admin 고도화 - 파일럿 프로젝트
 description: Dynamic Multi DataSource 구현 경험을 공유합니다.
-image: /images/portal/post/2021-01-25-ZUM-Pilot-advanced_quartz_scheduler_admin/thumbnail.png
+image: /images/portal/post/2021-01-25-ZUM-Pilot-advanced_quartz_scheduler_admin/thumbnail.jpg
 introduction: Dynamic Multi DataSource 구현 경험을 공유합니다.  
 category: portal/tech
 tag:  [experience, Springboot, JPA, Vue.js, pilot, MySQL, AbstractRoutingDataSource, DataSource, Dynamic Multi DataSource]
