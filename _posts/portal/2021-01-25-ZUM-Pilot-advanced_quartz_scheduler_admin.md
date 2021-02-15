@@ -24,30 +24,30 @@ tag:  [experience, Springboot, JPA, Vue.js, pilot, MySQL, AbstractRoutingDataSou
 
 Quartz Job Scheduler 는 DB 기반으로 스케줄러 간의 클러스터링 기능을 제공합니다. 
 ![01-what_is_quartz_scheduler_admin](/images/portal/post/2021-01-25-ZUM-Pilot-advanced_quartz_scheduler_admin/01-what_is_quartz_scheduler_admin.svg)
-Quartz Scheduler Admin 은 Quartz Job Scheduler 의 DB 관리를 위한 CMS 입니다.  
+Quartz Scheduler Admin 은 Quartz Job Scheduler 의 DB 관리를 위한 Admin 입니다.  
 
 ### 배경
 ![03-quartz_admin_scheduler_before_after](/images/portal/post/2021-01-25-ZUM-Pilot-advanced_quartz_scheduler_admin/03-quartz_admin_scheduler_before_after.svg)
 
 #### **기존에는**     
 Common Scheduler DB 안에 모든 서비스의 Job Scheduler 를 담고 있었으며,  
-Common Scheduler DB 에 대한 Quartz Scheduler Admin CMS 가 존재하였습니다.     
+Common Scheduler DB 에 대한 Quartz Scheduler Admin 가 존재하였습니다.     
 
 #### 하지만 DB 의 장애가 발생하였을 때 
 모든 서비스의 Batch 가 중단되는 문제가 있었습니다.    
 이를 해결하기 위해 각 서비스 별 Scheduler DB 로 분산하게 되었고, 
-Quartz Scheduler Admin CMS 는 더 이상 사용을 할 수 없게 되었습니다.  
+Quartz Scheduler Admin 는 더 이상 사용을 할 수 없게 되었습니다.  
 
 
 ### 목표
-Common Scheduler DB 를 각 서비스 별 Scheduler DB 로 분산하게 되면서 사용이 중단된 Quartz Scheduler Admin CMS 을 
+Common Scheduler DB 를 각 서비스 별 Scheduler DB 로 분산하게 되면서 사용이 중단된 Quartz Scheduler Admin 을 
 다시 사용할 수 있도록 프로젝트 구조를 변경하고 어플리케이션의 효용성을 높이기 위한 고도화를 진행하였습니다.
 
 ## 프로젝트 결과물
 
 ### 1. 서비스 별 Scheduler DB 관리 기능 추가
 #### BEFORE
-Common Scheduler DB 에 대해서만 Quartz Scheduler Admin CMS 를 사용할 수 있었습니다.
+Common Scheduler DB 에 대해서만 Quartz Scheduler Admin 를 사용할 수 있었습니다.
 
 ![04-quartz-admin_before](/images/portal/post/2021-01-25-ZUM-Pilot-advanced_quartz_scheduler_admin/04-quartz-admin_before.png)
 
@@ -163,7 +163,7 @@ logout 버튼 왼쪽의 `refresh` 아이콘 버튼을 눌러 로그인을 재시
 
 ![17-user_auth_change](/images/portal/post/2021-01-25-ZUM-Pilot-advanced_quartz_scheduler_admin/17-user_auth_change.gif)
 
-### 4. 각 서비스 CMS 에서 연동하여 사용할 수 있는 API 개발
+### 4. 각 서비스 Admin 에서 연동하여 사용할 수 있는 API 개발
 서비스 별 어드민 서버에서, Quartz Scheduler Admin API 를 호출하여 해당 Job 실행 할 수 있습니다.
 
 ![18-scheduler_admin_api](/images/portal/post/2021-01-25-ZUM-Pilot-advanced_quartz_scheduler_admin/18-scheduler_admin_api.svg)
@@ -173,7 +173,7 @@ logout 버튼 왼쪽의 `refresh` 아이콘 버튼을 눌러 로그인을 재시
 ![18-job_history](/images/portal/post/2021-01-25-ZUM-Pilot-advanced_quartz_scheduler_admin/18-job_history.gif)
 
 Simple Trigger 는 두가지 방법으로 추가할 수 있습니다. `Method` 컬럼의 값은 두가지가 있습니다.
-- `INTERNAL` : Quartz Scheduler Admin CMS 내 에서 추가되었을 경우
+- `INTERNAL` : Quartz Scheduler Admin 내 에서 추가되었을 경우
 - `EXTERNAL` : 각 서비스 CSM 서버의 요청으로 추가된 경우
 
 ## 프로젝트 설계
@@ -274,8 +274,6 @@ Spring Data JPA `Entity` 를 이용하여 테이블을 정의하였습니다.
 주요 멤버변수와 메서드는 다음과 같습니다.
 
 ```java
-package org.springframework.jdbc.datasource.lookup;
-
 public abstract class AbstractRoutingDataSource extends AbstractDataSource implements InitializingBean {
 
 	private Map<Object, Object> targetDataSources;
@@ -557,8 +555,6 @@ public class RoutingDataSource extends AbstractRoutingDataSource {
 List<InfoOfDBConnections> 객체를 Map<String, HikariDataSource> 타입으로 변환하여 래핑합니다.
 
 ```java
-package com.quartz.admin.config.dataSource;
-
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class DataSources {
