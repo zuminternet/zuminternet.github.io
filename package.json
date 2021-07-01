@@ -4,7 +4,8 @@
   "description": "Blog pessoal de Thiago Rossener.",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "gulp": "gulp"
   },
   "repository": {
     "type": "git",
@@ -40,5 +41,8 @@
     "rupture": "^0.7.1",
     "axios": "^0.21.1",
     "lodash": "^4.17.21"
+  },
+  "dependencies": {
+    "gulp-cli": "^2.3.0"
   }
 }

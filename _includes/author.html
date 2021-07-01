@@ -1,11 +1,12 @@
+{% assign author = site.data.members[page.author] || site.data.members.default %}
 <section class="author" itemprop="author">
   <div class="details" itemscope itemtype="http://schema.org/Person">
-    <img itemprop="image" class="img-rounded" src="/images/portal/author/zum.png" alt="{{ site.name }}">
-    <p class="def">줌인터넷</p>
+    <img itemprop="image" class="img-rounded" src="{{ author.profileImage }}" alt="{{ site.name }}">
+    <p class="def">{{ author.org }}</p>
     <h3 class="name">
-      <a itemprop="name" href="https://github.com/{{ site.github_username }}">{{ site.username }}</a>
+      <a itemprop="name" href="https://github.com/{{ site.github_username }}">{{ author.name }}</a>
     </h3>
-    <p class="desc">{{ page.authorDescription }}</p>
+    <p class="desc">{{ author.description }}</p>
     <!-- <p>
       {% if site.github_username %}
       <a itemprop="github" href="https://github.com/{{ site.github_username }}" title="Github">

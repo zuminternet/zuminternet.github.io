@@ -1,4 +1,4 @@
-I"K^<main class="home" id="post" role="main" itemprop="mainContentOfPage" itemscope="itemscope" itemtype="http://schema.org/Blog">
+I"�i<main class="home" id="post" role="main" itemprop="mainContentOfPage" itemscope="itemscope" itemtype="http://schema.org/Blog">
     <div id="grid" class="row flex-grid">
     
         <article class="box-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
@@ -19,8 +19,8 @@
 
 
                         <a href="/zum-front-recurit-review/" class="new-post">
-                            <!-- <img src="assets/img/placeholder.png" data-url="/images/front/post/2020-09-11-Zum-Chrome-Extension/0-thumbnail.png" class="preload"> -->
-                            <span class="img" style="background-image:url(/images/front/post/2020-09-11-Zum-Chrome-Extension/0-thumbnail.png)"></span>
+                            <!-- <img src="assets/img/placeholder.png" data-url="/images/front/post/2021-07-01-zum-front-recurit-review/0-thumbnail.png" class="preload"> -->
+                            <span class="img" style="background-image:url(/images/front/post/2021-07-01-zum-front-recurit-review/0-thumbnail.png)"></span>
                         </a>
                     </div>
                 
@@ -45,21 +45,88 @@ July 1, 2021
                         </h2>
                     </a>
                     <a class="post-link" href="/zum-front-recurit-review/">
-                        <p class="description">Vue.js로 줌 확장프로그램을 개발하는 과정을 공유합니다.</p>
+                        <p class="description">주니어 개발자인 필자가 함께 일하게 될 신입 개발자 분들을 모시는 과정에 대해 소개하는 글입니다.</p>
+                    </a>
+                    <div class="tags">
+                        
+                            <a href="/tags/#프론트엔드">프론트엔드</a>
+                        
+                            <a href="/tags/#채용">채용</a>
+                        
+                            <a href="/tags/#recurit">recurit</a>
+                        
+                            <a href="/tags/#javascript">javascript</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </article>
+    
+        <article class="box-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+            
+            <!--
+            <span class="category">
+                <a href="https://zuminternet.github.io/categoria/portal/tech">
+                    <span>portal/tech</span>
+                </a>
+            </span>
+            -->
+            
+            <div class="box-body">
+                
+                    <div class="cover">
+                        
+
+
+
+                        <a href="/ZUM-Pilot-advanced_quartz_scheduler_admin/">
+                            <!-- <img src="assets/img/placeholder.png" data-url="/images/portal/post/2021-01-25-ZUM-Pilot-advanced_quartz_scheduler_admin/thumbnail.jpg" class="preload"> -->
+                            <span class="img" style="background-image:url(/images/portal/post/2021-01-25-ZUM-Pilot-advanced_quartz_scheduler_admin/thumbnail.jpg)"></span>
+                        </a>
+                    </div>
+                
+                <div class="box-info">
+                    <div class="author-date">
+                        <div class="date">
+                            <meta itemprop="datePublished" content="2021-01-25T00:00:00+09:00" />
+                            <time itemprop="datePublished" datetime="2021-01-25T00:00:00+09:00" class="date">
+                                
+
+
+January 25, 2021
+
+                            </time>
+                        </div>
+                    </div>
+                    <a class="post-link" href="/ZUM-Pilot-advanced_quartz_scheduler_admin/">
+                        <h2 class="post-title" itemprop="name">
+                            <span class="text">
+                                Quartz Scheduler Admin 고도화 - 파일럿 프로젝트
+                            </span>
+                        </h2>
+                    </a>
+                    <a class="post-link" href="/ZUM-Pilot-advanced_quartz_scheduler_admin/">
+                        <p class="description">Dynamic Multi DataSource 구현 경험을 공유합니다.</p>
                     </a>
                     <div class="tags">
                         
                             <a href="/tags/#experience">experience</a>
                         
+                            <a href="/tags/#springboot">Springboot</a>
+                        
+                            <a href="/tags/#jpa">JPA</a>
+                        
                             <a href="/tags/#vue-js">Vue.js</a>
                         
-                            <a href="/tags/#frontend">Frontend</a>
+                            <a href="/tags/#pilot">pilot</a>
                         
-                            <a href="/tags/#크롬-확장프로그램">크롬 확장프로그램</a>
+                            <a href="/tags/#mysql">MySQL</a>
                         
-                            <a href="/tags/#웹스토어-배포">웹스토어 배포</a>
+                            <a href="/tags/#abstractroutingdatasource">AbstractRoutingDataSource</a>
                         
-                            <a href="/tags/#웹스토어-검수">웹스토어 검수</a>
+                            <a href="/tags/#datasource">DataSource</a>
+                        
+                            <a href="/tags/#dynamic-multi-datasource">Dynamic Multi DataSource</a>
                         
                     </div>
                 </div>

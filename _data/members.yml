@@ -1,0 +1,11 @@
+default:
+  org: 줌인터넷
+  name: ZUM TECH BLOG
+  description: ""
+  profileImage: /images/portal/author/zum.png
+
+junilhwang:
+  org: 개발실 서비스개발팀 프론트파트
+  name: 황준일
+  description: 갑자기 파트리더가 되어 혼란스러운 주니어 개발자
+  profileImage: https://avatars.githubusercontent.com/u/18749057?v=4
