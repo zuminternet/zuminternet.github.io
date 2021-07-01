@@ -6,7 +6,7 @@ title: 모바일 줌 SpringBoot → NodeJS 전환기 (feat. VueJS SSR)
 
 description: Vue.js 기반의 프로젝트를 Node.js 백엔드로 마이그레이션하고 SSR을 적용한 성과 이야기입니다
 
-image: /images/portal/post/2020-06-20-ZUM-Mobile_SSR/title.png
+image: /images/front/post/2020-06-20-ZUM-Mobile_SSR/title.png
 
 introduction: 모바일 줌 프로젝트를 Node.js로 변경한 경험을 공유합니다
 
@@ -24,14 +24,14 @@ tag: [experience, Node.js, Frontend, Vue.js, SSR]
 
 ## 들어가며
 
-![모바일 줌](/images/portal/post/2020-06-20-ZUM-Mobile_SSR/mobile-zum.png){:width="250px"}
+![모바일 줌](/images/front/post/2020-06-20-ZUM-Mobile_SSR/mobile-zum.png){:width="250px"}
 *모바일 줌 ([m.zum.com](https://m.zum.com))*
 
 [모바일 줌](https://m.zum.com)은 줌 인터넷에서 제공하고 있는 모바일 포털 서비스입니다.  
 모바일 줌은 [Spring Boot](https://spring.io/projects/spring-boot) 백엔드에 [Vue.js](https://vuejs.org/) 프론트엔드를 이용한 프로젝트로 운영되고 있었고,
 이번 작업을 통해 백엔드로 Node.js를 사용하는 AWS 도커 운영 환경으로 변경하였습니다.
   
-![아키텍쳐1](/images/portal/post/2020-06-20-ZUM-Mobile_SSR/architecture.jpg)
+![아키텍쳐1](/images/front/post/2020-06-20-ZUM-Mobile_SSR/architecture.jpg)
 *Spring Boot 어플리케이션에서 Node.js 어플리케이션으로 변경되었습니다*
   
 모바일 줌의 Spring Boot 백엔드를 Node.js 백엔드로 변경하게 된 이유는 크게 세가지입니다.
@@ -67,9 +67,9 @@ SSR에 관련된 많은 참고 자료들이 있지만 간단하게 설명드리�
   
 <br>
   
-![SSR이란](/images/portal/post/2020-06-20-ZUM-Mobile_SSR/what-is-ssr.png)
+![SSR이란](/images/front/post/2020-06-20-ZUM-Mobile_SSR/what-is-ssr.png)
 <br><br>
-![SSR이란2](/images/portal/post/2020-06-20-ZUM-Mobile_SSR/what-is-ssr2.png)
+![SSR이란2](/images/front/post/2020-06-20-ZUM-Mobile_SSR/what-is-ssr2.png)
 *SSR은 기존 템플리팅 방식(서버 템플리팅)과 크게 다르지 않습니다*
 
 <br>
@@ -118,14 +118,14 @@ Vue.js 비롯해 대부분의 모던 SPA 프레임워크는 SSR을 지원합니�
     담당자가 바뀌게 될 지도 모르고, 라이브러리를 추가할 수도 있기 때문이죠.  
     이는 현실적으로 ‘유지보수하는 서비스’에 사용이 어렵다는 것을 뜻합니다.  
     
-    ![음...](/images/portal/post/2020-06-20-ZUM-Mobile_SSR/aa.jpg)
+    ![음...](/images/front/post/2020-06-20-ZUM-Mobile_SSR/aa.jpg)
     *음...*
     
     이 문제를 해결하기 위해 제가 선택한 해결 방법은 *테스트를 위해 만들어진* 가상 DOM 라이브러리 [JSDOM](https://github.com/jsdom/jsdom)을 사용하는 것입니다. 
     JSDOM은 자바스크립트만으로 만들어진 브라우저 객체를 제공합니다. 
     window, document, location 등 다양한 객체를 가지고 있고, 이벤트 핸들링이나 DOM 추가 삭제와 같은 기본적인 작업도 가능합니다.  
     
-    ![JSDOM](/images/portal/post/2020-06-20-ZUM-Mobile_SSR/jsdom.jpg)
+    ![JSDOM](/images/front/post/2020-06-20-ZUM-Mobile_SSR/jsdom.jpg)
     *정말 바보같지만 꽤나 괜찮은 해결 방법입니다*
         
     아래 코드는 JSDOM 8.5버전을 이용하여 Vue SSR Renderering를 수행하는 예제입니다. 
@@ -171,7 +171,7 @@ JSDOM을 적용하기 위해서도 우여곡절이 있었지만, 어쨌든 가�
     그래서 이번 기회에 모두가 알고만 있는(서비스에 사용할 필요도 없는) 몇가지를 이용하여 JAVA 백엔드에서 해결해보자는 생각이 들었습니다.
 
     1. **첫번째 시도 : J2V8을 이용한 Java ↔ Node.js 중계**  
-        ![j2v8](/images/portal/post/2020-06-20-ZUM-Mobile_SSR/j2v8.png)
+        ![j2v8](/images/front/post/2020-06-20-ZUM-Mobile_SSR/j2v8.png)
           
         첫번째 끔찍한 아이디어는 JAVA에서 Node.js 코드를 실행할 수 있게 해주는 라이브러리인 [J2V8](https://github.com/eclipsesource/J2V8)을 이용하는 것입니다. 
         J2V8을 이용하여 Node 코드를 수행하고 결과를 가져오는 방법이죠. 이건 꽤 괜찮아 보였습니다.  
@@ -182,7 +182,7 @@ JSDOM을 적용하기 위해서도 우여곡절이 있었지만, 어쨌든 가�
 
         하지만 여기서 전혀 생각치도 못한 메모리 누수 문제가 발생했습니다.  
           
-        ![메모리 누수?](/images/portal/post/2020-06-20-ZUM-Mobile_SSR/dd.jpg)
+        ![메모리 누수?](/images/front/post/2020-06-20-ZUM-Mobile_SSR/dd.jpg)
         *메모리 누수...?*
         
         SSR을 수행할때마다 쓰레기 객체가 생기기 시작했습니다.  
@@ -192,9 +192,9 @@ JSDOM을 적용하기 위해서도 우여곡절이 있었지만, 어쨌든 가�
           
         메모리 누수 체크 과정을 간단하게 설명드리자면
             
-        ![노드-크롬 연결](/images/portal/post/2020-06-20-ZUM-Mobile_SSR/node-chrome-inspect.jpg) *Node.js 기동시 --inspect 플래그를 추가해 포트를 열고 크롬 개발자도구를 이용해 연결합니다*
+        ![노드-크롬 연결](/images/front/post/2020-06-20-ZUM-Mobile_SSR/node-chrome-inspect.jpg) *Node.js 기동시 --inspect 플래그를 추가해 포트를 열고 크롬 개발자도구를 이용해 연결합니다*
         <br><br>  
-        ![크롬 개발자도구 메모리 스냅샷](/images/portal/post/2020-06-20-ZUM-Mobile_SSR/node-chrome-inspect2.jpg) *개발자 도구에서 메모리 스냅샷을 찍고 비교하여 GC이후에<br>메모리에 어떤 객체가, 어떤 값이 남아있는지 확인합니다*
+        ![크롬 개발자도구 메모리 스냅샷](/images/front/post/2020-06-20-ZUM-Mobile_SSR/node-chrome-inspect2.jpg) *개발자 도구에서 메모리 스냅샷을 찍고 비교하여 GC이후에<br>메모리에 어떤 객체가, 어떤 값이 남아있는지 확인합니다*
         > 자세한 설명은 [구글 공식 가이드](https://developers.google.com/web/tools/chrome-devtools/memory-problems/heap-snapshots?hl=ko) 등을 참조하시기 바랍니다.
      
        메모리 누수는 이렇게 메모리 스냅샷 툴(간단하게는 크롬)을 이용해 잡아낼 수 있는 문제입니다. 
@@ -208,7 +208,7 @@ JSDOM을 적용하기 위해서도 우여곡절이 있었지만, 어쨌든 가�
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
     1. **두번째 시도: Nashorn**  
     
-        ![Nashorn](/images/portal/post/2020-06-20-ZUM-Mobile_SSR/nashorn.jpeg)
+        ![Nashorn](/images/front/post/2020-06-20-ZUM-Mobile_SSR/nashorn.jpeg)
         *Rhino보다 낫다고 자랑하던 그 Nashorn입니다*
         
         두번째 끔찍한 아이디어는 자바8에서 공식으로 지원하고 자바11에서 공식으로 [Deprecated된](https://docs.oracle.com/en/java/javase/11/docs/api/jdk.scripting.nashorn/module-summary.html) Nashorn을 이용하는 것이었습니다.
@@ -235,7 +235,7 @@ JSDOM을 적용하기 위해서도 우여곡절이 있었지만, 어쨌든 가�
         > Javascript를 사용하게 해 주겠다는 Java의 꿈은 결국... 
     
     1. **세번째 시도: Puppeteer**  
-        ![puppeteer](/images/portal/post/2020-06-20-ZUM-Mobile_SSR/puppeteer.png) *Puppeteer는 Chromium 기반으로 다양한 곳에 사용되고 있는 헤드리스 브라우저입니다*
+        ![puppeteer](/images/front/post/2020-06-20-ZUM-Mobile_SSR/puppeteer.png) *Puppeteer는 Chromium 기반으로 다양한 곳에 사용되고 있는 헤드리스 브라우저입니다*
           
         세번째 방법은 헤드리스 브라우저 [Puppeteer](https://github.com/puppeteer/puppeteer)를 이용해 사이트에 접속하고 스크립트가 실행된 결과 페이지를 가져오는 방법이었습니다.    
         이 방법으로 진행하려면 헤드리스 브라우저를 사용할 서버를 구성하고, 어플리케이션도 구성한 후 HTML을 캐시하고, 
@@ -245,7 +245,7 @@ JSDOM을 적용하기 위해서도 우여곡절이 있었지만, 어쨌든 가�
 결국 JAVA 백엔드에서는 **정상적이고 유지가능한** 방법이 없다고 판단하게 되었습니다.  
 정확히는 *‘SSR을 수행해서 얻는 이득’*과 *‘SSR을 수행하는데 드는 리소스’*를 비교했을 때 **SSR은 수행할 가치가 없다**는 결론을 내리게 된 것이죠.  
 
-![우선순위](/images/portal/post/2020-06-20-ZUM-Mobile_SSR/ff.jpg)
+![우선순위](/images/front/post/2020-06-20-ZUM-Mobile_SSR/ff.jpg)
 *이렇게 사용자에게 보이지 않고 영향이 작은 작업은 나중에 하는게 맞겠죠?*
 
 
@@ -271,13 +271,13 @@ JSDOM을 적용하기 위해서도 우여곡절이 있었지만, 어쨌든 가�
 하지만 저희 팀이 맡고 있는 *프론트 서비스 프로젝트*는 대부분 ‘API Aggregation & Frontend Serving’를 주력으로 하는 프로젝트이기 때문에, 
 대부분의 **비즈니스 로직은 API 서버에서 수행**하고 프론트 서비스는 사용자에게 **보여주어야 하는 정보를 처리**하는 역할을 합니다.
 
-![아키텍쳐2](/images/portal/post/2020-06-20-ZUM-Mobile_SSR/architecture2.jpg)
+![아키텍쳐2](/images/front/post/2020-06-20-ZUM-Mobile_SSR/architecture2.jpg)
 *위 아키텍처에서 유추하실 수 있듯 프론트 서비스는 아주 가볍게 운영할 수 있습니다*
   
 저희 팀은 그런 프로젝트에 Spring Boot는 *너무 무겁고 과하다*는 결론을 내리게 됩니다.  
 그래서 바꿉니다. Node.js로. Express.js로.  
 
-![컨테이너 변경](/images/portal/post/2020-06-20-ZUM-Mobile_SSR/change-container.jpg)
+![컨테이너 변경](/images/front/post/2020-06-20-ZUM-Mobile_SSR/change-container.jpg)
 *Spring Boot 어플리케이션을 Node.js 어플리케이션으로 변경합니다*
   
   > 이것은 [Netflix에서 택한 방법](https://thenewstack.io/netflix-uses-node-js-power-user-interface/)이기도 합니다.  
@@ -363,7 +363,7 @@ Node.js 기반 백엔드로 변경하며 SSR을 적용하지 않을 이유가 �
 앞서 말씀드렸듯 여러가지 테스트를 했었고, 준비를 해 두었기 때문에 손쉽게 적용할 수 있었습니다.  
 하지만 표준화 라이브러리에 JSDOM이 포함된 SSR 수행 코드를 녹여내기 위해 옵션을 추가하거나 공통화된 개발을 진행했습니다.
 
-![SSR_OPTION](/images/portal/post/2020-06-20-ZUM-Mobile_SSR/ssr-option.png)
+![SSR_OPTION](/images/front/post/2020-06-20-ZUM-Mobile_SSR/ssr-option.png)
 *다른 프로젝트에서도 사용하기 위해 이런 옵션들을 추가했습니다.*
 
   
@@ -379,18 +379,18 @@ Node.js를 기반으로 하는 프로젝트는 본래 파일을 모두 전송하
 그렇기 때문에 Node.js 어플리케이션 [도커라이징](https://nodejs.org/ko/docs/guides/nodejs-docker-webapp/)을 위해 도커 파일 생성과 [젠킨스](https://www.jenkins.io/) 설정이 필요했습니다.
 이 작업은 수많은 가이드가 있으니 어려운 점은 없습니다. 단지 timezone 설정을 추가해야 했을 뿐이죠.
 
-![도커 타임존 설정](/images/portal/post/2020-06-20-ZUM-Mobile_SSR/docker-timezone.png){:width="600px"}
+![도커 타임존 설정](/images/front/post/2020-06-20-ZUM-Mobile_SSR/docker-timezone.png){:width="600px"}
 *도커 컨테이너의 타임존 설정*
 
 추가로 표준화 라이브러리에 적용해 두었던 [winston logger](https://github.com/winstonjs/winston)에도 타임존 설정이 필요했습니다.
-![winston timezone](/images/portal/post/2020-06-20-ZUM-Mobile_SSR/winston-logger.png){:width="700px"}
+![winston timezone](/images/front/post/2020-06-20-ZUM-Mobile_SSR/winston-logger.png){:width="700px"}
 *타임존 오프셋을 계산한 후 toISOString 메소드를 이용하여 출력*
 
 간단하게 toISOString 메소드를 이용하여 로그 시간을 출력하기 위해 타임존 오프셋을 계산하고 date 값을 조정했습니다.
 좋은 방법은 아니지만 단순 로그 출력에는 효과적입니다.  
   
 이런 설정이 적용된 winston 로그는
-![winston log](/images/portal/post/2020-06-20-ZUM-Mobile_SSR/winston-logger2.png){:width="300px"}
+![winston log](/images/front/post/2020-06-20-ZUM-Mobile_SSR/winston-logger2.png){:width="300px"}
 위와 같이 출력되어 도커 로그로 쌓이게 됩니다.
 
 <br>
@@ -405,7 +405,7 @@ Node.js를 기반으로 하는 프로젝트는 본래 파일을 모두 전송하
 1. **SSR 적용으로 타 검색엔진에서의 유입 증가**  
     기획팀의 도움을 받아 PV 증감을 비교해 보았는데 *생각보다 큰 PV 변화*를 확인할 수 있었습니다.  
     
-    ![SSR_PV](/images/portal/post/2020-06-20-ZUM-Mobile_SSR/ssr_pv.jpg)
+    ![SSR_PV](/images/front/post/2020-06-20-ZUM-Mobile_SSR/ssr_pv.jpg)
     *가볍게 생각할 수 없는 수준의 PV 증가를 확인했습니다*
     
     이 결과를 통해 네이버와 다음의 사이트 크롤러는 헤드리스 브라우저를 사용하지 않는다는 것을 알 수 있었습니다. 
@@ -414,7 +414,7 @@ Node.js를 기반으로 하는 프로젝트는 본래 파일을 모두 전송하
 
 
 2. **사양 대비 성능(TPS) 증가**  
-    ![TPS CHECK](/images/portal/post/2020-06-20-ZUM-Mobile_SSR/tps-check.png)
+    ![TPS CHECK](/images/front/post/2020-06-20-ZUM-Mobile_SSR/tps-check.png)
     *[Jmeter](https://jmeter.apache.org/)를 이용한 테스트 결과*
     
     많은 테스트 결과들이 보여주든 싱글 쓰레드에 가까운 Node.js 특성상 코어가 작은 시스템일 때 상대적으로 더 좋은 성능을 보여줍니다. 
@@ -425,7 +425,7 @@ Node.js를 기반으로 하는 프로젝트는 본래 파일을 모두 전송하
 3. **코드 다이어트**   
     Express 백엔드로 전환함으로서 전체 코드를 크게 줄여낼 수 있었습니다. 
     
-    ![Code Lines](/images/portal/post/2020-06-20-ZUM-Mobile_SSR/code-lines.png)
+    ![Code Lines](/images/front/post/2020-06-20-ZUM-Mobile_SSR/code-lines.png)
     *1608 라인에서 472 라인으로 약 1/4로 줄어들었습니다*
     
     같은 기능을 구현했음에도 백엔드 코드의 라인 수가 이렇게 줄어든 것은 언어적 특성뿐 아니라, 

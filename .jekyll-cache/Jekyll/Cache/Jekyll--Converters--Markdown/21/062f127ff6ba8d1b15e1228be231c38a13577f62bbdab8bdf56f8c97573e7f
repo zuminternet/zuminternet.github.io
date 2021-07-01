@@ -1,0 +1,953 @@
+I"Q<<blockquote>
+  <h3 id="파일럿-프로젝트">파일럿 프로젝트</h3>
+  <p>줌인터넷 포털개발팀의 주니어 개발자가 수습 기간 동안 진행하는 파일럿 프로젝트입니다.</p>
+</blockquote>
+
+<h2 id="1-프로젝트-개요">1. 프로젝트 개요</h2>
+
+<p>프로젝트의 목표, 개발 스펙, 그리고 기본적인 기능들에 대해 소개합니다.</p>
+
+<h3 id="목표-및-의의">목표 및 의의</h3>
+
+<ul>
+  <li>모바일 웹 서비스 페이지 개발</li>
+  <li>외부 API를 이용한 데이터 획득 및 정제</li>
+  <li>Vue.js로 front-end 구성</li>
+</ul>
+
+<h3 id="front-end">front-end</h3>
+
+<ul>
+  <li>Vue-cli3(Webpack 4)</li>
+  <li>Terser Webpack plugin</li>
+  <li>SCSS, Lodash, Swiper</li>
+</ul>
+
+<h3 id="back-end">back-end</h3>
+
+<ul>
+  <li>Java8 이상</li>
+  <li>Spring Boot + Gradle</li>
+  <li>Spring Data JPA (선택, DB는 H2사용)</li>
+  <li>Ehcache</li>
+  <li>Pebble Template Engine (선택)</li>
+</ul>
+
+<h3 id="기타">기타</h3>
+
+<ul>
+  <li>UI 디자인/구성 자유</li>
+  <li>SSR, Prerendering 적용 필요 없음</li>
+  <li>브라우저 스펙 관련 처리(ex. BF 캐시) 필요 없음</li>
+  <li>UI 컴포넌트 라이브러리 사용 제한 없음</li>
+  <li>JQuery 사용 지양</li>
+  <li>서버 사이드 템플릿 사용 제한 없음</li>
+  <li>태블릿 모드 고려 필요 없음</li>
+  <li>빌보드 모바일 홈페이지 참조</li>
+</ul>
+
+<h3 id="기본적인-요구사항">기본적인 요구사항</h3>
+
+<ul>
+  <li>외부 페이지(뉴스, 음원) 크롤링 및 가공 처리</li>
+  <li>음원을 Youtube Data API에서 검색</li>
+  <li>비디오 플레이어 제작</li>
+  <li>음원 차트와 무관하게 페이지 내에서 많이 본 영상 순위 선정 및 노출</li>
+  <li>Cache (Local) 처리</li>
+  <li>모듈화 및 아키텍처링</li>
+  <li>화면 스와이프(플리킹) 기능</li>
+  <li>Dynamic Component 활용</li>
+  <li>Bundle Analyze &amp; Optimize</li>
+  <li>SCSS 기능 활용</li>
+</ul>
+
+<h2 id="2-프로젝트-결과물-소개">2. 프로젝트 결과물 소개</h2>
+
+<h3 id="1-k-pop-뉴스">(1) K-POP 뉴스</h3>
+
+<p><a href="http://billboard.co.kr/main/news/list">빌보드 코리아</a>와 <a href="http://sbsfune.sbs.co.kr/news/ssports_list.jsp?code_category=SS04">SBS K-POP</a>의 뉴스 컨텐츠를 <code class="language-plaintext highlighter-rouge">크롤링</code>하여 가져옵니다.</p>
+
+<h4 id="빌보드-코리아-크롤링">빌보드 코리아 크롤링</h4>
+
+<p><img src="/images/portal/post/2020-01-20-ZUM-Pilot-provide-video/result/001.gif" alt="빌보드 코리아 뉴스 크롤링" width="300" style="display:inline-block;box-shadow:0 0 10px #ddd;padding:0" />
+<img src="/images/portal/post/2020-01-20-ZUM-Pilot-provide-video/result/005.jpg" alt="빌보드 코리아 뉴스" width="400" style="display:inline-block;box-shadow:0 0 10px #ddd;padding:0" /></p>
+
+<p>빌보드 코리아의 뉴스는 <code class="language-plaintext highlighter-rouge">Headline Swipe</code> 형태로 만들었습니다.</p>
+
+<h4 id="sbs-k-pop-크롤링">SBS K-POP 크롤링</h4>
+
+<p><img src="/images/portal/post/2020-01-20-ZUM-Pilot-provide-video/result/002.gif" alt="SBS 연예뉴스 크롤링" width="300" style="display:inline-block;box-shadow:0 0 10px #ddd;padding:0" />
+<img src="/images/portal/post/2020-01-20-ZUM-Pilot-provide-video/result/004.jpg" alt="SBS 연예뉴스" width="400" style="display:inline-block;box-shadow:0 0 10px #ddd;padding:0" /></p>
+
+<ul>
+  <li>SBS K-POP 뉴스는 <code class="language-plaintext highlighter-rouge">infinite scroll</code> 기법을 이용하여 만들었습니다. 최대 <code class="language-plaintext highlighter-rouge">5 페이지</code> 를 가져옵니다.</li>
+  <li>크롤링한 데이터는 <code class="language-plaintext highlighter-rouge">캐시에 저장</code>되며, <code class="language-plaintext highlighter-rouge">1분 간격으로 크롤링</code>을 합니다.</li>
+</ul>
+
+<h4 id="뉴스-상세-조회">뉴스 상세 조회</h4>
+
+<p><img src="/images/portal/post/2020-01-20-ZUM-Pilot-provide-video/result/003.gif" alt="뉴스 상세조회" style="box-shadow:0 0 10px #ddd;padding:0" /></p>
+
+<p>뉴스 상세조회는 <code class="language-plaintext highlighter-rouge">Native App</code> 에서 사용되는 <code class="language-plaintext highlighter-rouge">Bottom-top slide</code> 형태로 만들었으며, 결과물을 크롤링하여 가져오도록 했습니다.</p>
+
+<h3 id="2-음원차트">(2) 음원차트</h3>
+
+<p>음원차트는 <a href="https://www.melon.com/chart/index.htm">멜론 차트</a>의 컨텐츠를 크롤링하여 메타 데이터로 사용했습니다.</p>
+
+<p><img src="/images/portal/post/2020-01-20-ZUM-Pilot-provide-video/result/007-3.jpg" alt="멜론 음원차트" width="600" /></p>
+<ul>
+  <li>멜론에서 음원차트를 크롤링하여 가져옵니다.</li>
+</ul>
+
+<p><img src="/images/portal/post/2020-01-20-ZUM-Pilot-provide-video/result/006-1.gif" alt="음원차트 01" style="display:inline-block;box-shadow:0 0 10px #ddd;padding:0" />
+<img src="/images/portal/post/2020-01-20-ZUM-Pilot-provide-video/result/006-2.gif" alt="음원차트 02" style="display:inline-block;box-shadow:0 0 10px #ddd;padding:0" /></p>
+
+<ul>
+  <li><strong>100개의 음원</strong>을 <code class="language-plaintext highlighter-rouge">Infinite Scroll</code> 기법을 이용하여 가져옵니다.</li>
+  <li><code class="language-plaintext highlighter-rouge">실시간</code> <code class="language-plaintext highlighter-rouge">일간</code> <code class="language-plaintext highlighter-rouge">발라드</code> <code class="language-plaintext highlighter-rouge">댄스</code> <code class="language-plaintext highlighter-rouge">힙합</code> <code class="language-plaintext highlighter-rouge">R&amp;B/Soul</code> 등 6개의 카테고리가 존재합니다.</li>
+</ul>
+
+<h3 id="3-음원차트에-대한-유튜브-동영상">(3) 음원차트에 대한 유튜브 동영상</h3>
+
+<p><code class="language-plaintext highlighter-rouge">Youtube Search API</code>를 이용하여 <code class="language-plaintext highlighter-rouge">음원 제목을 기반</code>으로 동영상을 가져옵니다.</p>
+
+<p><img src="/images/portal/post/2020-01-20-ZUM-Pilot-provide-video/result/007.gif" alt="음원 유튜브 동영상 01" style="display:inline-block;box-shadow:0 0 10px #ddd;padding:0" />
+<img src="/images/portal/post/2020-01-20-ZUM-Pilot-provide-video/result/008.gif" alt="음원 유튜브 동영상 02" style="display:inline-block;box-shadow:0 0 10px #ddd;padding:0" /></p>
+
+<ul>
+  <li>음원은 클릭하면 <strong>음원에 대한 유튜브 동영상</strong>을 재생합니다.</li>
+  <li>플레이어에서 <strong>Swipe 모션</strong>을 사용하면 <code class="language-plaintext highlighter-rouge">이전/다음 음원에 대한 동영상</code>을 재생합니다.</li>
+</ul>
+
+<p><img src="/images/portal/post/2020-01-20-ZUM-Pilot-provide-video/result/009.gif" alt="플레이어 컨트롤러" style="box-shadow:0 0 10px #ddd;padding:0" /></p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">직접 제작한 컨트롤러</code>를 통해서 동영상을 컨트롤할 수 있습니다.
+    <ul>
+      <li>정지/재생 토글</li>
+      <li>음소거 토글</li>
+      <li>재생 시간 컨트롤</li>
+      <li>최대화/최소화</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="4-회원가입로그인">(4) 회원가입/로그인</h3>
+
+<p>서비스에 회원가입 및 로그인을 할 수 있으며, <code class="language-plaintext highlighter-rouge">로그인 상태의 사용자는 즐겨찾기/좋아요 기능을 사용</code>할 수 있습니다.</p>
+
+<h4 id="비회원의-제한">비회원의 제한</h4>
+
+<p><img src="/images/portal/post/2020-01-20-ZUM-Pilot-provide-video/result/010.gif" alt="비회원 제한" style="box-shadow:0 0 10px #ddd;padding:0" /></p>
+
+<ul>
+  <li>비회원은 좋아요와 즐겨찾기 기능을 이용할 수 없습니다.</li>
+</ul>
+
+<h4 id="회원가입">회원가입</h4>
+
+<p><img src="/images/portal/post/2020-01-20-ZUM-Pilot-provide-video/result/013.gif" alt="회원가입" style="box-shadow:0 0 10px #ddd;padding:0" /></p>
+
+<ul>
+  <li>회원가입 페이지에서 <code class="language-plaintext highlighter-rouge">아이디</code> <code class="language-plaintext highlighter-rouge">비밀번호</code> <code class="language-plaintext highlighter-rouge">이름</code> 등을 입력받습니다.</li>
+  <li>중복된 아이디가 있으면 <code class="language-plaintext highlighter-rouge">경고창(Modal Popup)</code>을 통해 알립니다.</li>
+  <li>회원가입이 완료되면 <code class="language-plaintext highlighter-rouge">로그인 페이지로 이동</code>합니다.</li>
+</ul>
+
+<h4 id="로그인">로그인</h4>
+
+<p><img src="/images/portal/post/2020-01-20-ZUM-Pilot-provide-video/result/014.gif" alt="로그인" style="box-shadow:0 0 10px #ddd;padding:0" /></p>
+
+<ul>
+  <li>사용자가 입력한 정보가 잘못되었다면 <code class="language-plaintext highlighter-rouge">경고창(Modal Popup)</code>을 통해 알립니다.</li>
+  <li>로그인에 성공하면 <code class="language-plaintext highlighter-rouge">메인 페이지(뉴스)로 이동</code>합니다.</li>
+</ul>
+
+<h4 id="즐겨찾기와-좋아요">즐겨찾기와 좋아요</h4>
+
+<p><img src="/images/portal/post/2020-01-20-ZUM-Pilot-provide-video/result/011.gif" alt="즐겨찾기와 좋아요" style="box-shadow:0 0 10px #ddd;padding:0" /></p>
+
+<ul>
+  <li>로그인 상태의 사용자는 즐겨찾기와 좋아요 기능을 이용할 수 있습니다.</li>
+</ul>
+
+<h3 id="5-인기영상">(5) 인기영상</h3>
+
+<p>동영상의 <strong>조회수</strong>와 <strong>좋아요</strong>를 기반으로 순위를 측정하여 인기영상 목록을 만듭니다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">인기도 = 조회수 + (좋아요 * 2)</code></p>
+
+<h4 id="좋아요-토글">좋아요 토글</h4>
+
+<p><img src="/images/portal/post/2020-01-20-ZUM-Pilot-provide-video/result/012-1.gif" alt="좋아요 토글" style="box-shadow:0 0 10px #ddd;padding:0" /></p>
+
+<ul>
+  <li>로그인 상태의 사용자는 <code class="language-plaintext highlighter-rouge">좋아요 토글</code> 기능을 사용할 수 있습니다.</li>
+  <li>좋아요를 누르면 <code class="language-plaintext highlighter-rouge">인기도가 2 증가</code>합니다.</li>
+</ul>
+
+<h4 id="조회수-처리">조회수 처리</h4>
+
+<p><img src="/images/portal/post/2020-01-20-ZUM-Pilot-provide-video/result/012-2.gif" alt="동영상 조회수 증가" style="box-shadow:0 0 10px #ddd;padding:0" /></p>
+
+<ul>
+  <li>동영상 재상이 끝나면 조회수가 증가합니다.</li>
+  <li>조회수가 증가하면 <code class="language-plaintext highlighter-rouge">인기도가 1 증가</code>합니다.</li>
+</ul>
+
+<h2 id="3-일정-관리-방법-소개">3. 일정 관리 방법 소개</h2>
+
+<p><code class="language-plaintext highlighter-rouge">Github Issue</code> 와 <code class="language-plaintext highlighter-rouge">Github Project</code>를 이용하여 프로젝트의 진행 사항과 일정을 어떤 식으로 관리했는지 소개합니다.</p>
+
+<h3 id="1-github-issue-활용">(1) GitHub Issue 활용</h3>
+
+<p>각각의 <code class="language-plaintext highlighter-rouge">Issue</code>에 <code class="language-plaintext highlighter-rouge">Labeling</code>을 하여 어떤 기능들을 구현해야 되는지 쭉 작성했습니다.</p>
+
+<h4 id="labeling">Labeling</h4>
+
+<p><img src="/images/portal/post/2020-01-20-ZUM-Pilot-provide-video/timeline/0102.jpg" alt="일정관리01" /></p>
+
+<p>먼저 위와 같이 적절한 <code class="language-plaintext highlighter-rouge">Label</code>을 만들습니다.</p>
+
+<h4 id="milestone">Milestone</h4>
+
+<p>GitHub Issue에는 <code class="language-plaintext highlighter-rouge">Milestone</code> 이라는 기능이 있습니다.</p>
+
+<p><img src="/images/portal/post/2020-01-20-ZUM-Pilot-provide-video/timeline/03.jpg" alt="일정관리02" /></p>
+
+<p>먼저 Milestone 목록을 만든 후</p>
+
+<p><img src="/images/portal/post/2020-01-20-ZUM-Pilot-provide-video/timeline/04.jpg" alt="일정관리03" /></p>
+
+<p>이렇게 <code class="language-plaintext highlighter-rouge">Milestone</code>와 <code class="language-plaintext highlighter-rouge">Issue</code>를 연동하면 <code class="language-plaintext highlighter-rouge">부분 일정</code>을 관리할 수 있습니다.</p>
+
+<h4 id="issue-list">Issue List</h4>
+
+<p><img src="/images/portal/post/2020-01-20-ZUM-Pilot-provide-video/timeline/0101.jpg" alt="일정관리0401" /></p>
+
+<p>Label과 Milestone 작성 후, Issue에다가 만들어야 하는 기능을 쭉 작성했습니다.</p>
+
+<p><img src="/images/portal/post/2020-01-20-ZUM-Pilot-provide-video/timeline/02.jpg" alt="일정관리0402" /></p>
+
+<p>Issue를 작성할 때, 관련 <code class="language-plaintext highlighter-rouge">Project</code>와 <code class="language-plaintext highlighter-rouge">Milestone</code>을 지정할 수 있으며 이렇게 했을 때 진행 현황을 눈으로 확인할 수 있기 때문에 매우 편리합니다.</p>
+
+<h4 id="commit-message로-issue에-commit-reference">Commit Message로 Issue에 Commit Reference</h4>
+
+<p>Commit Message에 <code class="language-plaintext highlighter-rouge">IssueID (#Number)</code>를 입력하면, 해당 Issue와 Commit이 연동됩니다.</p>
+
+<p><img src="/images/portal/post/2020-01-20-ZUM-Pilot-provide-video/timeline/0203.jpg" alt="일정관리0403" /></p>
+
+<p>이렇게 Commit Message에 <code class="language-plaintext highlighter-rouge">#26</code>을 포함할 경우</p>
+
+<p><img src="/images/portal/post/2020-01-20-ZUM-Pilot-provide-video/timeline/0202.jpg" alt="일정관리0403" /></p>
+
+<p><strong>관련 Issue(실시간 랭킹#26)</strong> 에 Commit이 Reference 된 것을 확인할 수 있습니다.</p>
+
+<h3 id="2-github-project-활용">(2) Github Project 활용</h3>
+
+<p><img src="/images/portal/post/2020-01-20-ZUM-Pilot-provide-video/timeline/05.jpg" alt="일정관리05" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">GitHub Project Tab</code>에서 <code class="language-plaintext highlighter-rouge">Project Unit</code>을 작성 및 관리할 수 있습니다.</p>
+
+<p><img src="/images/portal/post/2020-01-20-ZUM-Pilot-provide-video/timeline/06.jpg" alt="일정관리06" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">Automated</code>로 Project 생성 후 <strong>Issue와 연동</strong>하면 저절로 <code class="language-plaintext highlighter-rouge">To do</code>(해야 됨), <code class="language-plaintext highlighter-rouge">In Progress</code>(진행 중), <code class="language-plaintext highlighter-rouge">Done</code>(완료 됨) 등의 항목을 만들어줍니다.</p>
+
+<p><strong>그리고 Issue에서 State를 변경하면 자동으로 반영됩니다</strong></p>
+
+<h3 id="사용-후기">사용 후기</h3>
+
+<p>작은 규모의 프로젝트는 이렇게 GitHub만 사용해도 충분히 효율적인 일정관리가 가능합니다.</p>
+
+<h2 id="4-프로젝트-아키텍쳐-및-설계">4. 프로젝트 아키텍쳐 및 설계</h2>
+
+<p>User, Client, Server 그리고 Open API 각각의 구조와 서로간의 관계를 표현합니다.</p>
+
+<h3 id="1-simple-service-structure">(1) Simple Service Structure</h3>
+
+<p>해당 프로젝트는 <code class="language-plaintext highlighter-rouge">Single Page Appliction</code> + <code class="language-plaintext highlighter-rouge">REST API</code> 형태로 서비스됩니다.</p>
+
+<p><img src="/images/portal/post/2020-01-20-ZUM-Pilot-provide-video/architecture/01.jpg" alt="Simple Service Structure" /></p>
+
+<h3 id="2-client-structure">(2) Client Structure</h3>
+
+<p>Front-end는 <code class="language-plaintext highlighter-rouge">Vue.js</code>를 이용하여 <code class="language-plaintext highlighter-rouge">Single Page Application</code>으로 만들었습니다.</p>
+
+<p><img src="/images/portal/post/2020-01-20-ZUM-Pilot-provide-video/architecture/02.jpg" alt="Client Structure" /></p>
+
+<h3 id="3-server-structure">(3) Server Structure</h3>
+
+<p>Back-end는 <code class="language-plaintext highlighter-rouge">SpringBoot</code>로 <code class="language-plaintext highlighter-rouge">웹 서버를 구축</code>하고 <code class="language-plaintext highlighter-rouge">REST API</code>를 만들었습니다.</p>
+
+<p>DB 구축은 <code class="language-plaintext highlighter-rouge">H2</code>와 <code class="language-plaintext highlighter-rouge">JPA</code>를 사용하였습니다.</p>
+
+<p><img src="/images/portal/post/2020-01-20-ZUM-Pilot-provide-video/architecture/03.jpg" alt="Server Structure" /></p>
+
+<h3 id="4-detail-service-structure">(4) Detail Service Structure</h3>
+
+<p>앞서 보여드린 Structure들을 종합하면 다음과 같습니다.</p>
+
+<p><img src="/images/portal/post/2020-01-20-ZUM-Pilot-provide-video/architecture/04.jpg" alt="Detail Service Structure" /></p>
+
+<h3 id="5-db-설계">(5) DB 설계</h3>
+
+<p>news와 관련된 데이터는 영구적으로 저장할 필요가 없기 때문에 테이블을 만들지 않았습니다.</p>
+
+<p>대신 <strong>캐시에 저장하여 일시적으로 데이터를 유지</strong>합니다.</p>
+
+<p><img src="/images/portal/post/2020-01-20-ZUM-Pilot-provide-video/architecture/05.jpg" alt="Detail Service Structure" /></p>
+
+<h2 id="6-클라이언트-사이드">6. 클라이언트 사이드</h2>
+
+<h3 id="1-vue-components">(1) Vue Components</h3>
+
+<h4 id="hierarchy">Hierarchy</h4>
+
+<ul>
+  <li>SiteHeader, SiteFooter, Modal 등의 Component는 항상 존재하는 component입니다.</li>
+  <li>news, music, popular, bookmark, login, join 등은 vue-router를 통해 handling됩니다.</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>VueApp
+├─ SiteHeader.vue
+├─ VueRouter
+│  ├─ /news: News.vue
+│  │  ├─ NewsWrapper.vue
+│  │  │   ├─ Headline.vue
+│  │  │   └─ Article.vue
+│  │  └─ NewsDetail.vue
+│  ├─ /music: Chart.vue
+│  │  ├─ ChartCategory.vue
+│  │  ├─ VideoPlayer.vue
+│  │  └─ ChartArticle.vue
+│  ├─ /popular: Popular.vue
+│  │  ├─ VideoPlayer.vue
+│  │  └─ VideoArticle.vue
+│  ├─ /bookmark: Bookmark.vue
+│  │  ├─ VideoPlayer.vue
+│  │  └─ VideoArticle.vue
+│  ├─ /sign-in: Login.vue
+│  └─ /sign-up: Join.vue
+├─ SiteFooter.vue
+└─ Modal.vue
+</code></pre></div></div>
+
+<h4 id="appvue">App.vue</h4>
+
+<p><img src="/images/portal/post/2020-01-20-ZUM-Pilot-provide-video/client/components/app.jpg" alt="app structure" /></p>
+
+<p>App에는 <code class="language-plaintext highlighter-rouge">SiteHeader</code> <code class="language-plaintext highlighter-rouge">VueRouter</code> <code class="language-plaintext highlighter-rouge">SiteFooter</code> <code class="language-plaintext highlighter-rouge">Modal</code> 등의 compnent가 있으며, <code class="language-plaintext highlighter-rouge">VueRouter</code>는 path를 통해 <code class="language-plaintext highlighter-rouge">component를 handling</code>합니다.</p>
+
+<h4 id="vuerouter">VueRouter</h4>
+
+<p><img src="/images/portal/post/2020-01-20-ZUM-Pilot-provide-video/client/components/vue-router.jpg" alt="vue-router" /></p>
+
+<p>VueRouter는 browser의 주소와 compnent를 매칭시킵니다.</p>
+
+<h4 id="news">News</h4>
+
+<p><img src="/images/portal/post/2020-01-20-ZUM-Pilot-provide-video/client/components/news.jpg" alt="news" /></p>
+
+<h4 id="chart-popular-bookmark">Chart, Popular, Bookmark</h4>
+
+<p><img src="/images/portal/post/2020-01-20-ZUM-Pilot-provide-video/client/components/etc.jpg" alt="etc" /></p>
+
+<ul>
+  <li>Chart, Popular, Bookmark에서 <code class="language-plaintext highlighter-rouge">VideoPlayer</code>가 사용됩니다.</li>
+  <li><code class="language-plaintext highlighter-rouge">VideoArticle</code>에는 <code class="language-plaintext highlighter-rouge">viewCount</code> <code class="language-plaintext highlighter-rouge">likeCount</code> <code class="language-plaintext highlighter-rouge">popularPoint</code> 등의 parameter를 추가로 넘길 수 있습니다.</li>
+</ul>
+
+<h4 id="login-join">Login, Join</h4>
+
+<p><img src="/images/portal/post/2020-01-20-ZUM-Pilot-provide-video/client/components/login.jpg" alt="login" style="display:inline-block" />
+<img src="/images/portal/post/2020-01-20-ZUM-Pilot-provide-video/client/components/join.jpg" alt="join" style="display:inline-block" /></p>
+
+<p>login과 join에는 다른 컴포넌트가 포함되지 않았습니다.</p>
+
+<h4 id="summary">Summary</h4>
+
+<p>앞서 보여드린 구조를 조합하면 다음과 같은 구조가 됩니다.</p>
+
+<p><img src="https://www.plantuml.com/plantuml/svg/fLHDQzj04BtlhnX43wr13N5l8eUaBgMKjfWMSebps4Y3lNWz8-HLGoZvxzqlQLUM3eM2aMRUUxCpivhnxTd8plGdBJgiZQIzHYZksdP71VmH03MVMYOa0x-KmIye6-pWmHAmMYLajRB8uqH-t-DFxarIZy22s9tqcTbCpmx8WlmxDr8FIk-C8ljx-wPpUTwtqXpUWJo3CoRnnHNXyxc27_PPE8KpVBi0wHeSwDhJYj1JDMjjMSKK8kuwesgD5s6Vq4YbFPYV0EN3GJKDqkCiDlCprNZEwqNjzS5-iGesxkMhzzQiV8zkfC4zToyNtBrgaBTQljWBTnVahUjPa_w8LEbb8IstlPPT1TjW-6AYFIjdCULwbhBmkfXpHsLPxcZdLKOPXqJdq9-UoDxF0FnM-BpXdim0Q7N42H2htRAYS6qo9BbUwEo9-NYItR62Zz7o4OFpRyrz-E_cyZBNipA_yLvHs0Ax1bTdjQTIKHNmXQtvoZDvtrOUZkfNaIrvciHnSqLQwiIcJHNP6YVUxsSMUNDJbc4bXNk2zTm234uPfcxauZmbUlW8eyBtctZNZn2JwS-g6KOzlZDcCkp352SwfGsJcr7Z8CNlFgVMGjmYDVPlzYy0" alt="summary" /></p>
+
+<h3 id="2-vuexvuestore">(2) Vuex(VueStore)</h3>
+
+<p>vuex는 vue.js에서 제공하는 중앙집중식 상태 관리 라이브러리입니다. vuex를 이용하여 어떤 식으로 상태관리를 하였는지 소개합니다.</p>
+
+<h4 id="structure">Structure</h4>
+
+<p>module화 하여 사용하였습니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./middleware/store
+  ├─ index.js
+  ├─ mutations-type.js
+  └─ modal|music|news|user|video
+       ├─ index.js
+       ├─ actions.js
+       ├─ mutations.js
+       └─ state.js
+</code></pre></div></div>
+
+<p><img src="https://www.plantuml.com/plantuml/svg/bP8x3i8m38Rtd28gMoNV027kWCH26Qp6GAMIeZn0275t4lT1KbWwrVtZ_xDZPsiT6kUlhJ1KEzJdbcInzxHpdQ52leIKDHebhzwXQpfjHm7hx3TW74t9dV8jMRawuMdKYea0xdaBQBGo1Z49Gr9IlYm30Dkoh3G0LBeAnyolzBUF40yjC8eTFnXlcteP9Zhc64qFkuWI3NE8jsGMGQ9X3hatYhf557Q8j-0y2OTBenJfOxBFAKfEn-KEtzJNhrQCArwl0ORXvn8FCfDuAfd2LyoKlbr-5-1liDdyKVfgcSB5KeLhfGANsf9MuQb_0000" alt="structure2" /></p>
+
+<p>이렇게 사용하면 <code class="language-plaintext highlighter-rouge">state</code>만 <code class="language-plaintext highlighter-rouge">namespace</code>로 분리됩니다.</p>
+
+<p>그래서 <code class="language-plaintext highlighter-rouge">mutations</code> <code class="language-plaintext highlighter-rouge">actions</code> 에 사용될 method name은 <strong>mutations-type.js</strong>을 통하여 관리합니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// mutations-type.js : mutations 혹은 actions 에 사용될 상수를 정의합니다</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">VIDEO_FETCH</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">video/fetch</span><span class="dl">'</span><span class="p">;</span> <span class="c1">// 비디오 가져오기</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">VIDEO_SELECT</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">video/select</span><span class="dl">'</span><span class="p">;</span> <span class="c1">// 비디오 선택</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">VIDEO_VIEW</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">video/view</span><span class="dl">'</span><span class="p">;</span> <span class="c1">// 비디오 조회수 증가</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">VIDEO_LIKE</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">video/like</span><span class="dl">'</span><span class="p">;</span> <span class="c1">// 비디오 좋아요 토글</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">VIDEO_POPULAR_FETCH</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">video/popularFetch</span><span class="dl">'</span><span class="p">;</span> <span class="c1">// 인기영상 가져오기</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">VIDEO_BOOKMARK</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">video/bookmark</span><span class="dl">'</span><span class="p">;</span> <span class="c1">// 즐겨찾기 가져오기</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">VIDEO_LOADING</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">video/loading</span><span class="dl">'</span><span class="p">;</span> <span class="c1">// 비디오 로딩 완료 여부</span>
+<span class="c1">// ... 생략</span>
+</code></pre></div></div>
+
+<p>그 다음 <code class="language-plaintext highlighter-rouge">component</code>에 필요한 <code class="language-plaintext highlighter-rouge">state</code> <code class="language-plaintext highlighter-rouge">mutations</code> <code class="language-plaintext highlighter-rouge">actions</code> 만 <code class="language-plaintext highlighter-rouge">mapping</code> 하여 사용합니다.</p>
+
+<p><img src="/images/portal/post/2020-01-20-ZUM-Pilot-provide-video/client/stores/example.jpg" alt="example1" /></p>
+
+<h4 id="logic">Logic</h4>
+
+<p>Vuex의 로직은 다음과 같습니다.</p>
+
+<p><img src="https://www.plantuml.com/plantuml/svg/RP7FIWCn4CRlUOgX9mta1QIK5XNq84WhdlOIag6xa7ya4nN4TtTsksQtu34pltpVDpFxGZfJzKwOw1mQ6c8ei7clU1zzYW43bIuefRhGYHDfGl0w0KMGqZ1H2QsKO_Cm_zN1majbSders2FrqHOfDw0Bc2OkRewFfpSul3xVZes2-GEpo9n4XxD3u2HVy2q0bjBiT5LhZbVLAR3u4OiTg3oSUrAxLSOxu5dzGFzYVsCnzJ2KfCdqQswhRFmCwkB4p163vVoB-5RLf9fAirg0Yy1kfP2SDjZs6USeSTuD8qz4QTIfOJ2JYjYpBH_n5m00" alt="logic" /></p>
+
+<ul>
+  <li>Component는 Actions와 Mutations을 사용할 수 있습니다.</li>
+  <li>Actions는 Server(혹은 API)와 통신할 수 있습니다.</li>
+  <li>State는 오직 Mutations을 통해서만 수정할 수 있습니다.</li>
+  <li>Actions이 받아온 데이터를 Mutations에 넘깁니다.</li>
+  <li>State가 수정되면 Component에 반영되어 렌더링됩니다.</li>
+</ul>
+
+<h3 id="3-분석-및-최적화">(3) 분석 및 최적화</h3>
+
+<p>vue-cli에 포함된 vue-loader는 <code class="language-plaintext highlighter-rouge">*.vue</code>를 포함해 webpack을 기반으로 프로젝트를 구성할 수 있도록 해주는 도구입니다. 그리고 webpack으로 구성된 프로젝트를 build할 때 다양한 이슈가 발생할 수 있습니다.</p>
+
+<p>그러한 이슈들을 해결할 때 사용한 분석 및 최적화 도구와 방법에 대해 소개합니다.</p>
+
+<h4 id="1-analyzer">1) analyzer</h4>
+
+<p>analyzer는 <code class="language-plaintext highlighter-rouge">webpack-bundle-analyzer</code>를 사용했습니다.</p>
+
+<h5 id="install">install</h5>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn add <span class="nt">-D</span> webpack-bundle-analyzer
+</code></pre></div></div>
+
+<h5 id="적용">적용</h5>
+
+<p><code class="language-plaintext highlighter-rouge">vue-cli</code>로 만든 프로젝트는 <code class="language-plaintext highlighter-rouge">vue.config.js</code>를 통해서 <code class="language-plaintext highlighter-rouge">webpack</code> 설정을 <code class="language-plaintext highlighter-rouge">override</code>할 수 있습니다.</p>
+
+<p><strong>vue.cofig.js</strong></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">BundleAnalyzerPlugin</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">webpack-bundle-analyzer</span><span class="dl">'</span><span class="p">).</span><span class="nx">BundleAnalyzerPlugin</span><span class="p">;</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="c1">// 앞 내용 생략</span>
+  <span class="na">configureWebpack</span><span class="p">:</span> <span class="nx">config</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="c1">// NODE_ENV의 값이 analyze일 때 Analyzer를 작동시킵니다.</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NODE_ENV</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">analyze</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">config</span><span class="p">.</span><span class="nx">plugins</span> <span class="o">=</span> <span class="p">[</span><span class="k">new</span> <span class="nx">BundleAnalyzerPlugin</span><span class="p">()];</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>그리고 <code class="language-plaintext highlighter-rouge">package.json</code>에 analyze 시작을 위한 <code class="language-plaintext highlighter-rouge">npm script</code>를 작성해야 합니다.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="err">/*</span><span class="w"> </span><span class="err">앞</span><span class="w"> </span><span class="err">내용</span><span class="w"> </span><span class="err">생략</span><span class="w"> </span><span class="err">*/</span><span class="w">
+  </span><span class="nl">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"serve"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vue-cli-service serve"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"build"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vue-cli-service build"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"lint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vue-cli-service lint"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"analyze"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cross-env NODE_ENV=analyze vue-cli-service serve"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="err">/*</span><span class="w"> </span><span class="err">뒷</span><span class="w"> </span><span class="err">내용</span><span class="w"> </span><span class="err">생략</span><span class="w"> </span><span class="err">*/</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>그리고 실행해주면 프로젝트에서 작동중인 코드들의 용량을 확인할 수 있습니다.</p>
+
+<p><img src="/images/portal/post/2020-01-20-ZUM-Pilot-provide-video/client/optimization/analize01.jpg" alt="analize1" /></p>
+
+<p>box의 size가 클 수록 용량이 <code class="language-plaintext highlighter-rouge">상대적으로 큰 것</code>입니다.</p>
+
+<p>그리고 여기서 문제를 확인할 수 있습니다. icon 사용을 위해 fontawsome package를 설치했는데, 생각보다 용량이 너무 컸습니다.</p>
+
+<p><img src="/images/portal/post/2020-01-20-ZUM-Pilot-provide-video/client/optimization/fontawsome.jpg" alt="icon" /></p>
+
+<p>그래서 babel의 기능을 이용하여 fontasome pacakge 중 필요한 것만 포함 시키도록 하였습니다.</p>
+
+<p><strong>.babelrc</strong></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"plugins"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">[</span><span class="s2">"transform-imports"</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"@fortawesome/free-solid-svg-icons"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"transform"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@fortawesome/free-solid-svg-icons/${member}"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"skipDefaultConversion"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"@fortawesome/free-regular-svg-icons"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"transform"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@fortawesome/free-regular-svg-icons/${member}"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"skipDefaultConversion"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>이렇게 하면 지정한 것들만 가져오게 됩니다.</p>
+
+<p>다시 analyzer를 실행하여 확인해본 결과</p>
+
+<p><img src="/images/portal/post/2020-01-20-ZUM-Pilot-provide-video/client/optimization/analize02.jpg" alt="analize1" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">860kb에서 100kb</code> 정도로 줄어든 것을 확인할 수 있었습니다.</p>
+
+<h4 id="2-code-splitting">2) Code Splitting</h4>
+
+<p>Vue.js는 SPA(Single Page Application)을 만드는 도구이며
+Code Splitting은 SPA의 성능을 향상시키는 방법입니다.
+SPA는 초기 실행시 모든 자원(css, js, …)을 한 번에 불러옵니다.</p>
+
+<p><img src="/images/portal/post/2020-01-20-ZUM-Pilot-provide-video/client/optimization/build02.jpg" alt="build01" /></p>
+
+<p>이럴 경우 <strong>사이트 로딩이 매우 느려질 수 있습니다.</strong></p>
+
+<p>그런데 <code class="language-plaintext highlighter-rouge">Code Splitting</code>을 활용하게 되면 <strong>필요한 시점에 자원을 불러와 사용</strong>합니다.</p>
+
+<blockquote>
+  <h5 id="lazy-loading">Lazy Loading</h5>
+  <p><code class="language-plaintext highlighter-rouge">Dynamic Import</code> + <code class="language-plaintext highlighter-rouge">webpackChunkName</code>을 사용하면 Lazy Loading이 가능합니다.</p>
+  <ul>
+    <li>Dynamic Import는 <code class="language-plaintext highlighter-rouge">const moduleName = () =&gt; import('path')</code> 형태로 사용할 수 있습니다.</li>
+    <li>path 앞에 할 때 prefix로 <code class="language-plaintext highlighter-rouge">/*webpackChunkName: name*/</code>을 붙이면 리소스를 분리하고 묶을 수 있습니다.</li>
+    <li><code class="language-plaintext highlighter-rouge">index.js</code>를 이용하면 쉽게 관리할 수 있습니다.</li>
+  </ul>
+</blockquote>
+
+<p>실제 사용 예는 다음과 같습니다.</p>
+
+<h5 id="폴더-구조">폴더 구조</h5>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>client/src
+├─ components
+│   ├─ video
+│   │   ├─ index.js
+│   │   ├─ Article.vue
+│   │   ├─ List.vue
+│   │   ├─ Meta.vue
+│   │   ├─ Player.vue
+│   │   └─ Controls.vue
+│   └─ ...
+├─ views
+│   ├─ index.js
+│   ├─ Popular.vue
+│   └─ ...
+├─ middleware/router/index.js
+└─ ...
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">**/index.js</code>를 이용하여 import/export를 관리합니다.</p>
+
+<h5 id="indexjs를-사용하면-좋은-점">index.js를 사용하면 좋은 점</h5>
+
+<p>다음과 같이 <code class="language-plaintext highlighter-rouge">index.js를 생략하여 import</code> 할 수 있습니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">VideoPlayer</span><span class="p">,</span> <span class="nx">VideoControls</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">components/video/index.js</span><span class="dl">'</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">NewsArticle</span><span class="p">,</span> <span class="nx">NewsDetail</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">components/news/index.js</span><span class="dl">'</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">SiteHeader</span><span class="p">,</span> <span class="nx">SiteFooter</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">components/common/index.js</span><span class="dl">'</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">Alert</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">components/modal/index.js</span><span class="dl">'</span>
+
+<span class="c1">// index.js를 생략할 수 있습니다.</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">VideoPlayer</span><span class="p">,</span> <span class="nx">VideoControls</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">components/video</span><span class="dl">'</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">NewsArticle</span><span class="p">,</span> <span class="nx">NewsDetail</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">components/news</span><span class="dl">'</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">SiteHeader</span><span class="p">,</span> <span class="nx">SiteFooter</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">components/common</span><span class="dl">'</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">Alert</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">components/modal</span><span class="dl">'</span>
+</code></pre></div></div>
+
+<h5 id="code-splitting-적용">Code Splitting 적용</h5>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* client/src/views/index.js */</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">News</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">import</span><span class="p">(</span><span class="cm">/* webpackChunkName: "views" */</span><span class="dl">'</span><span class="s1">./News.vue</span><span class="dl">'</span><span class="p">);</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">Chart</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">import</span><span class="p">(</span><span class="cm">/* webpackChunkName: "views" */</span><span class="dl">'</span><span class="s1">./Chart.vue</span><span class="dl">'</span><span class="p">);</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">Login</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">import</span><span class="p">(</span><span class="cm">/* webpackChunkName: "views" */</span><span class="dl">'</span><span class="s1">./Login.vue</span><span class="dl">'</span><span class="p">);</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">Join</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">import</span><span class="p">(</span><span class="cm">/* webpackChunkName: "views" */</span><span class="dl">'</span><span class="s1">./Join.vue</span><span class="dl">'</span><span class="p">);</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">Popular</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">import</span><span class="p">(</span><span class="cm">/* webpackChunkName: "views" */</span><span class="dl">'</span><span class="s1">./Popular.vue</span><span class="dl">'</span><span class="p">);</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">Bookmark</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">import</span><span class="p">(</span><span class="cm">/* webpackChunkName: "views" */</span><span class="dl">'</span><span class="s1">./Bookmark.vue</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="cm">/* client/src/components/video/index.js */</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">VideoList</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">import</span><span class="p">(</span><span class="cm">/* webpackChunkName: "chart" */</span><span class="dl">'</span><span class="s1">./List.vue</span><span class="dl">'</span><span class="p">);</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">VideoPlayer</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">import</span><span class="p">(</span><span class="cm">/* webpackChunkName: "chart" */</span><span class="dl">'</span><span class="s1">./Player.vue</span><span class="dl">'</span><span class="p">);</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">VideoControls</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">import</span><span class="p">(</span><span class="cm">/* webpackChunkName: "chart" */</span><span class="dl">'</span><span class="s1">./Controls.vue</span><span class="dl">'</span><span class="p">);</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">VideoMeta</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">import</span><span class="p">(</span><span class="cm">/* webpackChunkName: "chart" */</span><span class="dl">'</span><span class="s1">./Meta.vue</span><span class="dl">'</span><span class="p">);</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">VideoArticle</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="k">import</span><span class="p">(</span><span class="cm">/* webpackChunkName: "chart" */</span><span class="dl">'</span><span class="s1">./Article.vue</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="cm">/* 나머지 생략 */</span>
+</code></pre></div></div>
+
+<p><strong>client/src/middleware/router/index.js</strong></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* 앞 내용 생략 */</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">News</span><span class="p">,</span> <span class="nx">Chart</span><span class="p">,</span> <span class="nx">Login</span><span class="p">,</span> <span class="nx">Join</span><span class="p">,</span> <span class="nx">Popular</span><span class="p">,</span> <span class="nx">Bookmark</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@/views</span><span class="dl">'</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">routes</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span> <span class="na">path</span><span class="p">:</span> <span class="dl">'</span><span class="s1">/</span><span class="dl">'</span><span class="p">,</span> <span class="na">component</span><span class="p">:</span> <span class="nx">News</span><span class="p">,</span> <span class="na">alias</span><span class="p">:</span> <span class="dl">'</span><span class="s1">/news</span><span class="dl">'</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="na">path</span><span class="p">:</span> <span class="dl">'</span><span class="s1">/chart</span><span class="dl">'</span><span class="p">,</span> <span class="na">component</span><span class="p">:</span> <span class="nx">Chart</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="na">path</span><span class="p">:</span> <span class="dl">'</span><span class="s1">/sign-in</span><span class="dl">'</span><span class="p">,</span> <span class="na">component</span><span class="p">:</span> <span class="nx">Login</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="na">path</span><span class="p">:</span> <span class="dl">'</span><span class="s1">/sign-up</span><span class="dl">'</span><span class="p">,</span> <span class="na">component</span><span class="p">:</span> <span class="nx">Join</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="na">path</span><span class="p">:</span> <span class="dl">'</span><span class="s1">/popular</span><span class="dl">'</span><span class="p">,</span> <span class="na">component</span><span class="p">:</span> <span class="nx">Popular</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="na">path</span><span class="p">:</span> <span class="dl">'</span><span class="s1">/bookmark</span><span class="dl">'</span><span class="p">,</span> <span class="na">component</span><span class="p">:</span> <span class="nx">Bookmark</span> <span class="p">},</span>
+<span class="p">];</span>
+<span class="cm">/* 뒷 내용 생략 */</span>
+</code></pre></div></div>
+
+<p><strong>client/src/views/Chart.vue</strong></p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;template&gt;</span><span class="c">&lt;!-- 생략 --&gt;</span><span class="nt">&lt;/template&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+<span class="c1">// 앞 생략</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">Flicking</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@egjs/vue-flicking</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">ChartArticle</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@/components/chart</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">VideoPlayer</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@/components/video</span><span class="dl">'</span><span class="p">;</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">Spinner</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@/components/common</span><span class="dl">'</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">components</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">ChartArticle</span><span class="p">,</span> <span class="nx">VideoPlayer</span><span class="p">,</span> <span class="nx">Flicking</span><span class="p">,</span> <span class="nx">Spinner</span> <span class="p">};</span>
+<span class="c1">// 뒤 생략</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<p>이렇게 작성 후 <code class="language-plaintext highlighter-rouge">build</code> 하면 다음과 같이 분리됩니다.</p>
+
+<p><img src="/images/portal/post/2020-01-20-ZUM-Pilot-provide-video/client/optimization/build01.jpg" alt="build01" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">app</code> <code class="language-plaintext highlighter-rouge">chart</code> <code class="language-plaintext highlighter-rouge">modal</code> <code class="language-plaintext highlighter-rouge">news</code> <code class="language-plaintext highlighter-rouge">template</code> <code class="language-plaintext highlighter-rouge">views</code> 등으로 쪼개진 것을 확인할 수 있습니다.</p>
+
+<h2 id="7-서버-사이드">7. 서버 사이드</h2>
+
+<h3 id="1-crawling">(1) Crawling</h3>
+
+<p><code class="language-plaintext highlighter-rouge">SBS K-POP 뉴스</code> <code class="language-plaintext highlighter-rouge">빌보드코리아 뉴스</code> <code class="language-plaintext highlighter-rouge">멜론 차트</code> 등의 사이트를 크롤링 하는 과정에 대해 소개합니다.</p>
+
+<h4 id="jsoup">Jsoup</h4>
+
+<p>Crawling은 Jsoup을 활용했습니다. <code class="language-plaintext highlighter-rouge">Jsoup</code>은 <strong>java로 만들어지는 HTML Parser</strong>입니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Document</span> <span class="n">doc</span> <span class="o">=</span> <span class="nc">Jsoup</span><span class="o">.</span><span class="na">connect</span><span class="o">(</span><span class="n">url</span><span class="o">).</span><span class="na">userAgent</span><span class="o">(</span><span class="n">agent</span><span class="o">).</span><span class="na">get</span><span class="o">();</span>
+</code></pre></div></div>
+
+<p>이렇게 URL에 해당하는 DOM을 Parsing할 수 있으며, <strong>interface가 jQuery와 매우 유사합니다.</strong></p>
+
+<h4 id="flow-chart">Flow Chart</h4>
+
+<p><img src="https://www.plantuml.com/plantuml/svg/ZPBFIiD04CRlUOevBmJlHQHGJu8exS6BbqqwD85qj-vkgju4lOYN21Qh1F4WU54eRK_Y4pNRTt12yySeYAU5RtxxVJEpszQ6AnCF8yUNKOI-2QNGq4LjEb8ObMkgKUgX6eS-DhIEugSvr-U6UrmZ7A7N2mqwJjC8t9toFhJ0Fa-onHBiuvsTlpkbJaXXLoEh-OMzl7PAdP0YW90kdiGK0juvCBQdPJnYh2AttGQfHzGj4cVmp6m5PXWHAoHLvPZeEjU5tODzEEHAXs9mB5pgOBPQV4Bs-hAUt5QzadrzPrFBahI2PzFrm_IRVprwX_i1ESFF_P3Xh_qKDl_O96FswMsppd8k5Gu2qmAVyX3ov_apaGm-4dkJqdcVsAkqp6wZwDCN-G80" alt="flowchart1" /></p>
+
+<p>Crawling한 Data는 <code class="language-plaintext highlighter-rouge">Caching</code> 하여 재사용하여 <code class="language-plaintext highlighter-rouge">1분 동안 저장</code>합니다.</p>
+
+<p>Caching 후 1분 동안 요청이 오면 Cache에 저장된 data를 반환하고, 그 이후에는 다시 Jsoup을 통하여 크롤링을 수행합니다.</p>
+
+<h3 id="2-youtube-search">(2) Youtube Search</h3>
+
+<p>크롤링 해온 <strong>음원</strong>에 대해 <strong>Youtube에 검색해서 동영상을 가져오는 과정</strong>에 대해 소개합니다.</p>
+
+<h4 id="api-request-cost">API Request Cost</h4>
+
+<p><code class="language-plaintext highlighter-rouge">Youtube Data API</code>를 통하여 Youtube에 있는 <code class="language-plaintext highlighter-rouge">동영상</code> <code class="language-plaintext highlighter-rouge">채널</code> <code class="language-plaintext highlighter-rouge">리소스</code> 등에 접근할 수 있습니다.</p>
+
+<p>그런데 Youtube Data API는 Youtube Service의 자원을 사용하기 때문에, 요청에 대한 제한이 있습니다.</p>
+
+<p><strong>하루에 <code class="language-plaintext highlighter-rouge">10000</code>의 할당량을 사용할 수 있으며, Request 종류별로 할당량에 대한 cost가 다릅니다.</strong></p>
+
+<p>공식 문서에서 요청에 대한 cost를 확인해볼 수 있는데, 정확한 수치가 아니라 <code class="language-plaintext highlighter-rouge">근삿값</code>입니다.</p>
+
+<p><img src="/images/portal/post/2020-01-20-ZUM-Pilot-provide-video/server/cost.jpg" alt="cost" /></p>
+
+<p>이렇듯 <code class="language-plaintext highlighter-rouge">Search</code> 요청은 기본적으로 <code class="language-plaintext highlighter-rouge">100</code> 이상의 Cost를 지불해야합니다.</p>
+
+<p><img src="/images/portal/post/2020-01-20-ZUM-Pilot-provide-video/server/cost2.jpg" alt="cost2" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">한 개의 Search 요청</code>을 보낸 후 API 관리자에서 확인해본 결과, 실제로 <code class="language-plaintext highlighter-rouge">102</code>의 Cost를 지불합니다. 한도가 10000 이므로, <code class="language-plaintext highlighter-rouge">하루에 98회의 Search 요청</code>을 보낼 수 있습니다.</p>
+
+<h4 id="youtube-api-client-package">Youtube API Client Package</h4>
+
+<p>Youtube는 API를 Client에서 사용하기 쉽게 Client Package를 제공합니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">com.google.api.client.http.HttpRequest</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.google.api.client.http.HttpRequestInitializer</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.google.api.client.http.HttpTransport</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.google.api.client.http.javanet.NetHttpTransport</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.google.api.client.json.JsonFactory</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.google.api.client.json.jackson2.JacksonFactory</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.google.api.services.youtube.YouTube</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">com.google.api.services.youtube.model.SearchResultSnippet</span><span class="o">;</span>
+
+<span class="c1">// { NetHttpTransprot, JacksonFactory } --&gt; 구글에서 제공하는 Client API</span>
+<span class="c1">// NetHttpTransport: java.net 패키지 기반의 Thread-safe http low-level Transport</span>
+<span class="c1">// JacksonFactory: Jackson2 기반의 low-level JSON library</span>
+<span class="kd">private</span> <span class="nc">HttpTransport</span> <span class="no">HTTP_TRANSPORT</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">NetHttpTransport</span><span class="o">();</span>
+<span class="kd">private</span> <span class="nc">JsonFactory</span> <span class="no">JSON_FACTORY</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JacksonFactory</span><span class="o">();</span>
+
+<span class="c1">// API 사용에 필요한 Instance 생성</span>
+<span class="nc">YouTube</span> <span class="n">youtube</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">YouTube</span><span class="o">.</span><span class="na">Builder</span><span class="o">(</span><span class="no">HTTP_TRANSPORT</span><span class="o">,</span> <span class="no">JSON_FACTORY</span><span class="o">,</span> <span class="k">new</span> <span class="nc">HttpRequestInitializer</span><span class="o">()</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">initialize</span><span class="o">(</span><span class="nc">HttpRequest</span> <span class="n">request</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span> <span class="o">{</span> <span class="o">}</span>
+<span class="o">}).</span><span class="na">setApplicationName</span><span class="o">(</span><span class="s">"youtube-cmdline-search-sample"</span><span class="o">).</span><span class="na">build</span><span class="o">();</span>
+</code></pre></div></div>
+
+<p>그리고 Snippet에서 필요한 것들만 선택하여 가져오면 됩니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">search</span>
+  <span class="o">.</span><span class="na">setKey</span><span class="o">(</span><span class="no">API_KEY</span><span class="o">)</span> <span class="c1">// 검색에 사용할 API KEY</span>
+  <span class="o">.</span><span class="na">setQ</span><span class="o">(</span><span class="n">searchQuery</span><span class="o">)</span> <span class="c1">// 검색어. 제목+가수 형태의 문자열을 넘김</span>
+  <span class="o">.</span><span class="na">setType</span><span class="o">(</span><span class="s">"video"</span><span class="o">)</span> <span class="c1">// 기본값: chnnel,playlist,video. 현재 필요한 것은 video</span>
+  <span class="o">.</span><span class="na">setMaxResults</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span> <span class="c1">// 검색된 목록에서 가져올 데이터의 수</span>
+  <span class="o">.</span><span class="na">setFields</span><span class="o">(</span><span class="s">"items(id/videoId,snippet(title,thumbnails/default/url))"</span><span class="o">)</span> <span class="c1">// 결과로 가져올 필드</span>
+  <span class="o">.</span><span class="na">execute</span><span class="o">()</span> <span class="c1">// Search 실행 후 결과를 Video List에 Mapping</span>
+  <span class="o">.</span><span class="na">getItems</span><span class="o">()</span>
+  <span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">v</span> <span class="o">-&gt;</span> <span class="o">{</span>
+    <span class="nc">SearchResultSnippet</span> <span class="n">snippet</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="na">getSnippet</span><span class="o">();</span>
+    <span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span>
+      <span class="nc">Video</span><span class="o">.</span><span class="na">builder</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">title</span><span class="o">(</span><span class="n">snippet</span><span class="o">.</span><span class="na">getTitle</span><span class="o">())</span>
+        <span class="o">.</span><span class="na">videoId</span><span class="o">(</span><span class="n">v</span><span class="o">.</span><span class="na">getId</span><span class="o">().</span><span class="na">getVideoId</span><span class="o">())</span>
+        <span class="o">.</span><span class="na">thumbnail</span><span class="o">(</span><span class="n">snippet</span><span class="o">.</span><span class="na">getThumbnails</span><span class="o">().</span><span class="na">getDefault</span><span class="o">().</span><span class="na">getUrl</span><span class="o">())</span>
+        <span class="o">.</span><span class="na">searchTitle</span><span class="o">(</span><span class="n">searchQuery</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">build</span><span class="o">()</span>
+    <span class="o">);</span>
+  <span class="o">});</span>
+</code></pre></div></div>
+
+<h4 id="search-result-save">Search Result Save</h4>
+
+<p><code class="language-plaintext highlighter-rouge">VideoService</code>의 일부 코드입니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*
+ * 검색어(제목+가수) 기반으로 Video 정보를 가져옴
+ * @param q : 검색어(제목+가수)
+ * @return : Video Entity
+ * @throws VideoNotFoundException : 동영상을 가져오는 과정에 오류가 발생했을 때 예외 처리
+ */</span>
+<span class="nd">@Cacheable</span><span class="o">(</span><span class="n">cacheNames</span> <span class="o">=</span> <span class="s">"VideoCache"</span><span class="o">,</span> <span class="n">key</span><span class="o">=</span><span class="s">"#q"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="nc">Video</span> <span class="nf">getBySearch</span> <span class="o">(</span><span class="nc">String</span> <span class="n">q</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">VideoNotFoundException</span> <span class="o">{</span>
+  <span class="c1">// 일단 DB에 video가 있는지 탐색</span>
+  <span class="nc">Video</span> <span class="n">video</span> <span class="o">=</span> <span class="nc">Optional</span><span class="o">.</span><span class="na">ofNullable</span><span class="o">(</span><span class="n">videoRepository</span><span class="o">.</span><span class="na">findBySearchTitle</span><span class="o">(</span><span class="n">q</span><span class="o">)).</span><span class="na">orElseGet</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+    <span class="c1">// DB에 없다면 Youtube Search</span>
+    <span class="nc">Video</span> <span class="n">v</span> <span class="o">=</span> <span class="nc">Optional</span><span class="o">.</span><span class="na">ofNullable</span><span class="o">(</span><span class="n">youtubeSearch</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="n">q</span><span class="o">))</span>
+                      <span class="o">.</span><span class="na">orElseThrow</span><span class="o">(</span><span class="nl">VideoNotFoundException:</span><span class="o">:</span><span class="k">new</span><span class="o">);</span>
+    <span class="n">videoRepository</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">v</span><span class="o">);</span>
+    <span class="k">return</span> <span class="n">v</span><span class="o">;</span>
+  <span class="o">});</span>
+  <span class="c1">// 탐색해온 Video 정보 반환</span>
+  <span class="k">return</span> <span class="n">video</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>앞서 언급했듯이 <strong>API 요청에는 cost가 필요</strong>합니다.
+그래서 중복 요청을 방지하기위해 이미 <strong>결과로 가져온 데이터는 DB에 저장하고, Caching 처리</strong> 합니다.
+따라서 API 요청을 하기 위해선 일단 cache와 db를 거쳐야 합니다.</p>
+
+<h4 id="flow-chart-1">Flow Chart</h4>
+
+<p>Youtube Search를 위한 과정은 다음과 같습니다.</p>
+
+<p><img src="https://www.plantuml.com/plantuml/svg/bLBDQeD04BxlKynPy0LAAI796mGAXLuskaJ1QZ1hpWdnKdAeWQQQ8f93IoyfsAIdaYVIoJjqhLMh0Q6dWTbllf-PxKmujRbpPv2ngBgYZwd9uLfNcTMpJ6vRXi7isjk0sLDTORNUZULmPyW6ZDgAHbJAwP1EMD4cG1g485yLF701wSC6Wpakve3RTNhu17n-nFqxAH02N1CG8yb-XejxV1BOhPikTyIqE0DhAgYRKBde0FfniezlJVbNe9IBLkX-aFfW9LhADH2NyXb2b3Wv726DWzCcQ37LWB-zdDOhA0DNpEL03aczi3Jzanl-Q5GBbQ7VHTyJc1b6hrdW7bKqtHoT7q98jHmYpm7_lPyaORJBTon9kKDR7saySwO89ooprE-scn4aNnukGr5z3zsmM6g7cQhuhzy0" alt="FlowChart2" /></p>
+
+<p>음원의 제목을 통해서 Youtube에 검색합니다. 검색 후 DB에 결과를 저장하고, 캐싱까지 합니다.</p>
+
+<p>그래서 동영상 정보를 재요청시 Cache나 DB에서 가져오게 됩니다.</p>
+
+<h3 id="3-authorization">(3) Authorization</h3>
+
+<p>회원가입 후 로그인을 하면 다음과같은 과정으로 <code class="language-plaintext highlighter-rouge">JWT(Json Web Token)</code>을 발행합니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+* 토큰 생성
+* @param userId : user의 id
+* @param roles : user의 역할. 현재는 ROLE_USER 만 존재
+* @return 토큰 값 반환
+*/</span>
+<span class="kd">public</span> <span class="nc">String</span> <span class="nf">createToken</span><span class="o">(</span><span class="nc">String</span> <span class="n">userId</span><span class="o">,</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">roles</span><span class="o">)</span> <span class="o">{</span>
+  <span class="nc">Claims</span> <span class="n">claims</span> <span class="o">=</span> <span class="nc">Jwts</span><span class="o">.</span><span class="na">claims</span><span class="o">().</span><span class="na">setSubject</span><span class="o">(</span><span class="n">userId</span><span class="o">);</span> <span class="c1">// claim 생성</span>
+  <span class="n">claims</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"roles"</span><span class="o">,</span> <span class="n">roles</span><span class="o">);</span> <span class="c1">// role 지정</span>
+  <span class="nc">Date</span> <span class="n">now</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Date</span><span class="o">();</span>
+  <span class="k">return</span> <span class="nc">Jwts</span><span class="o">.</span><span class="na">builder</span><span class="o">()</span>
+          <span class="o">.</span><span class="na">setClaims</span><span class="o">(</span><span class="n">claims</span><span class="o">)</span> <span class="c1">// claim 지정</span>
+          <span class="o">.</span><span class="na">setIssuedAt</span><span class="o">(</span><span class="n">now</span><span class="o">)</span> <span class="c1">// 토큰 발행 일자 지정</span>
+          <span class="o">.</span><span class="na">setExpiration</span><span class="o">(</span><span class="k">new</span> <span class="nc">Date</span><span class="o">(</span><span class="n">now</span><span class="o">.</span><span class="na">getTime</span><span class="o">()</span> <span class="o">+</span> <span class="n">tokenValidMS</span><span class="o">))</span> <span class="c1">// 유효 시간 지정</span>
+          <span class="o">.</span><span class="na">signWith</span><span class="o">(</span><span class="nc">SignatureAlgorithm</span><span class="o">.</span><span class="na">HS256</span><span class="o">,</span> <span class="n">secretKey</span><span class="o">)</span> <span class="c1">// 암호화 알고리즘, secret 값 지정</span>
+          <span class="o">.</span><span class="na">compact</span><span class="o">();</span> <span class="c1">// 위의 내용을 압축 후 반환</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<p><img src="https://www.plantuml.com/plantuml/svg/SoWkIImgAStDuN8goYylJYrIqBLJ20NIplbv9KNvEJb04Ik5ejJ2qjJY4WNzn89C_UBCz3pTp3mkD5LGVS6fHMMPoQb0JPuk-W7XN7dv9QaA-ML01LXa5LvjQdYpR2vEHMzdzRoPFK7XpOAfhpTlKKXBBKdEGBVMHXUldZSBMbvthy7YLg_ma82Y_BBC5B07FLsGt80g1UGfl6cU-wPb8nQhiIY5M0WBJQZpq4Apk20_hpXLGHVgMAXRjK46S3cavgK0umC0" alt="flowchart3" /></p>
+
+<h3 id="4-authentication">(4) Authentication</h3>
+
+<p>Authentication은 Spring Security의 Filter와 JWT를 이용합니다.</p>
+
+<p>먼저 spring security에서 <strong>filter를 정의</strong>합니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+* http 요청에 대해 처리하는 내용을 정의함
+* @param http
+* @throws Exception
+*/</span>
+<span class="nd">@Override</span>
+<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">configure</span> <span class="o">(</span><span class="nc">HttpSecurity</span> <span class="n">http</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">Exception</span> <span class="o">{</span>
+<span class="n">http</span>
+  <span class="o">.</span><span class="na">httpBasic</span><span class="o">().</span><span class="na">disable</span><span class="o">()</span> <span class="c1">// spring-security에서 제공하는 /login 과 같은 페이지 비활성</span>
+  <span class="o">.</span><span class="na">csrf</span><span class="o">().</span><span class="na">disable</span><span class="o">()</span> <span class="c1">// Cross site request forgery 비활성</span>
+  <span class="o">.</span><span class="na">sessionManagement</span><span class="o">()</span>
+    <span class="o">.</span><span class="na">sessionCreationPolicy</span><span class="o">(</span><span class="nc">SessionCreationPolicy</span><span class="o">.</span><span class="na">STATELESS</span><span class="o">)</span> <span class="c1">// session을 stateless 형태로 관리</span>
+  <span class="o">.</span><span class="na">and</span><span class="o">()</span>
+     <span class="c1">// jwt를 이용하는 filter 추가</span>
+    <span class="o">.</span><span class="na">addFilterBefore</span><span class="o">(</span>
+      <span class="k">new</span> <span class="nf">JwtAuthenticationFilter</span><span class="o">(</span><span class="n">jwtTokenProvider</span><span class="o">),</span>
+      <span class="nc">UsernamePasswordAuthenticationFilter</span><span class="o">.</span><span class="na">class</span>
+    <span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>이렇게 모든 요청에 대해 <code class="language-plaintext highlighter-rouge">jwtAuthenticationFilter</code>를 통해 사전 검증을 합니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">doFilter</span><span class="o">(</span>
+  <span class="nc">ServletRequest</span> <span class="n">request</span><span class="o">,</span>
+  <span class="nc">ServletResponse</span> <span class="n">response</span><span class="o">,</span>
+  <span class="nc">FilterChain</span> <span class="n">chain</span>
+<span class="o">)</span> <span class="kd">throws</span> <span class="nc">IOException</span><span class="o">,</span> <span class="nc">ServletException</span> <span class="o">{</span>
+  <span class="c1">// request의 header에 포함된 Token 정보를 가져온다.</span>
+  <span class="nc">String</span> <span class="n">token</span> <span class="o">=</span> <span class="n">jwtTokenProvider</span><span class="o">.</span><span class="na">resolveToken</span><span class="o">((</span><span class="nc">HttpServletRequest</span><span class="o">)</span> <span class="n">request</span><span class="o">);</span>
+
+  <span class="c1">// token 정보가 존재할 때만 token을 검증</span>
+  <span class="k">if</span> <span class="o">(</span><span class="n">token</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">jwtTokenProvider</span><span class="o">.</span><span class="na">validateToken</span><span class="o">(</span><span class="n">token</span><span class="o">))</span> <span class="o">{</span>
+    <span class="c1">// token에서 값을 추출하여</span>
+    <span class="nc">Authentication</span> <span class="n">auth</span> <span class="o">=</span> <span class="n">jwtTokenProvider</span><span class="o">.</span><span class="na">getAuthentication</span><span class="o">(</span><span class="n">token</span><span class="o">);</span>
+    <span class="c1">// context에 저장한다.</span>
+    <span class="nc">SecurityContextHolder</span><span class="o">.</span><span class="na">getContext</span><span class="o">().</span><span class="na">setAuthentication</span><span class="o">(</span><span class="n">auth</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="n">chain</span><span class="o">.</span><span class="na">doFilter</span><span class="o">(</span><span class="n">request</span><span class="o">,</span> <span class="n">response</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>이렇게 Request Header에 Token 정보가 있을 때만 Token 검증 후 Token에 담긴 Authentication을 Security Context에 저장합니다. 그리고 다음과 같이 사용됩니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * AuthenticationCheck
+ * @return
+ * @throws AuthException
+ */</span>
+<span class="kd">public</span> <span class="nc">String</span> <span class="nf">AuthenticationCheck</span> <span class="o">()</span> <span class="kd">throws</span> <span class="nc">AuthException</span> <span class="o">{</span>
+  <span class="c1">// Security Context 에 저장한 authentication 정보 가져오기</span>
+  <span class="nc">Authentication</span> <span class="n">auth</span> <span class="o">=</span> <span class="nc">SecurityContextHolder</span><span class="o">.</span><span class="na">getContext</span><span class="o">().</span><span class="na">getAuthentication</span><span class="o">();</span>
+  <span class="c1">// Token 에서 가져온 User Id가 익명의 사용자일 경우 예외처리</span>
+  <span class="nc">String</span> <span class="n">userId</span> <span class="o">=</span> <span class="n">auth</span><span class="o">.</span><span class="na">getName</span><span class="o">();</span>
+  <span class="k">if</span> <span class="o">(</span><span class="n">userId</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">"anonymousUser"</span><span class="o">))</span> <span class="o">{</span>
+     <span class="k">throw</span> <span class="k">new</span> <span class="nf">AuthException</span><span class="o">();</span>
+  <span class="o">}</span>
+  <span class="k">return</span> <span class="n">userId</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>즉, Security의 Authentication 정보는 기본 값이 항상 <code class="language-plaintext highlighter-rouge">anoymousUser</code>입니다. 이런식으로 User 권한이 필요할 때 Token 정보를 통해서 검증이 가능합니다.</p>
+
+<p><img src="https://www.plantuml.com/plantuml/svg/SoWkIImgAStDuN8goYylJYrIqBLJ20NIplbv9KNvEJb04Ik5ejJ2qjJY4WNzn89C_UBCz3pTp3mkD5LGVS6fHMMPoQb0JPuk-W7XN7dv9QaA-ML01LXa5LvjQdYpR2vEHMzdzRoPFK7XpOAfhpTlKKXBBKdEGBVMHXUldZSBMbvthy7YLg_ma82Y_BBC5B07FLsGt80g1UGfl6cU-wPb8nQhiIY5M0WBJQZpq4Apk20_hpXLGHVgMAXRjK46S3cavgK0umC0" alt="flowchart4" /></p>
+
+<h3 id="5-exception">(5) Exception</h3>
+
+<p><code class="language-plaintext highlighter-rouge">Optional</code>과 Spring의 <code class="language-plaintext highlighter-rouge">RestControllerAdvice</code>을 이용하여 예외에 대한 Response를 만들었습니다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">ExceptionAdvice.java</code>의 일부입니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Slf4j</span>
+<span class="nd">@RequiredArgsConstructor</span>
+<span class="nd">@RestControllerAdvice</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ExceptionAdvice</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="kd">final</span> <span class="nc">ResponseService</span> <span class="n">responseService</span><span class="o">;</span>
+
+  <span class="cm">/**
+   * User select 에 대한 response 예외 처리
+   * @param request
+   * @param e
+   * @return USER_FAIL
+   */</span>
+  <span class="nd">@ExceptionHandler</span><span class="o">(</span><span class="nc">UserIdNotFoundException</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+  <span class="nd">@ResponseStatus</span><span class="o">(</span><span class="nc">HttpStatus</span><span class="o">.</span><span class="na">OK</span><span class="o">)</span>
+  <span class="kd">protected</span> <span class="nc">CommonResult</span> <span class="nf">userIdNotFoundException</span><span class="o">(</span><span class="nc">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span> <span class="nc">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">responseService</span><span class="o">.</span><span class="na">failResult</span><span class="o">(</span><span class="nc">CommonResponse</span><span class="o">.</span><span class="na">USER_FAIL</span><span class="o">);</span>
+  <span class="o">}</span>
+  <span class="c1">// 나머지 생략</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>아래의 코드에서 예외가 발생하면 <code class="language-plaintext highlighter-rouge">ExceptionAdvice</code>에서 처리됩니다.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * 유저 정보가 Null 이면 Exception 처리, 아니면 유저 정보 반환
+ * @param userId : User의 login ID
+ * @return
+ * @throws UserIdNotFoundException : 유저 정보 탐색에 대한 실패 처리
+ */</span>
+<span class="nd">@Override</span>
+<span class="kd">public</span> <span class="nc">User</span> <span class="nf">loadUserByUsername</span><span class="o">(</span><span class="nc">String</span> <span class="n">userId</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">UserIdNotFoundException</span> <span class="o">{</span>
+  <span class="k">return</span> <span class="nc">Optional</span><span class="o">.</span><span class="na">ofNullable</span><span class="o">(</span><span class="n">get</span><span class="o">(</span><span class="n">userId</span><span class="o">)).</span><span class="na">orElseThrow</span><span class="o">(</span><span class="nl">UserIdNotFoundException:</span><span class="o">:</span><span class="k">new</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>즉, ExceptionAdvice.java에 정의된 Exception 이 발생하면 ExceptionAdvice가 바로 관련 Response 데이터를 만들고 바로 브라우저에 return 합니다.</p>
+
+<p><img src="https://www.plantuml.com/plantuml/svg/VL6zIWD14ExlAUO1p0k8I52miCofQT8iTuCkd3Fdx5pKtYuMWe8H4cn4B2mK4Mny8M_p3juQpiGxIRdx_JDTfqQqECwYBU5JXmATJOXpiNGOOrA8rNDOXnwU5EWq8bO47bQi5cN7PehXRnLfjxy7kH4NQ0smYZsmAV8samfdMIMlJJ45QHLea_yQ1WZFT42cq2CajObHo_GxSwFpZuMVVlZ7AVZHm-pooOycQmFojrVb_RF_l2cl9r2-Z6TtuwWfhBl7A4ERu9BHnUlNs_lSQ3-afaPDSyH25L38XHDqhXLI5rxGVvvpovMhUkXo9eTH5ocjJlqD" alt="flowchart5" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">POST /api/video-like</code> 요청에 대한 예시입니다.</p>
+
+<p><img src="/images/portal/post/2020-01-20-ZUM-Pilot-provide-video/server/response01.jpg" alt="response01" /></p>
+
+<p>이런 응답을 반환합니다. 여기에 <code class="language-plaintext highlighter-rouge">request-body</code>를 추가하면 다음과 같습니다.</p>
+
+<p><img src="/images/portal/post/2020-01-20-ZUM-Pilot-provide-video/server/response02.jpg" alt="response02" /></p>
+
+<p>header에 JWT가 생략되었기 때문에 로그인이 필요하다는 응답을 반환합니다. 다시 header에 access token 정보를 담아서 요청하면</p>
+
+<p><img src="/images/portal/post/2020-01-20-ZUM-Pilot-provide-video/server/response03.jpg" alt="response03" /></p>
+
+<p>이렇게 정상적인 내용을 반환합니다.</p>
+
+<h2 id="8-reference">8. Reference</h2>
+
+<blockquote>
+  <ul>
+    <li>JPA
+      <ul>
+        <li><a href="https://ict-nroo.tistory.com/category/ICT%20Eng/JPA">개발자의 기록 습관</a></li>
+        <li><a href="https://gmlwjd9405.github.io/tags.html#jpa">Heee’s Development Blog</a></li>
+      </ul>
+    </li>
+    <li>Spring Security
+      <ul>
+        <li><a href="https://zuminternet.github.io/ZUM-Pilot-dynamic-board/">카페 형식 게시판 구현 - 파일럿 프로젝트</a></li>
+      </ul>
+    </li>
+    <li>Spring Ehcache
+      <ul>
+        <li><a href="https://jojoldu.tistory.com/57">SpringBoot + Ehcache 기본 예제 및 소개</a></li>
+      </ul>
+    </li>
+    <li>Swipe
+      <ul>
+        <li><a href="https://zuminternet.github.io/ZUM-Pilot-vuejs/">Vuejs로 모바일 웹 구축하기</a></li>
+      </ul>
+    </li>
+  </ul>
+</blockquote>
+
+<h2 id="9-마치며">9. 마치며</h2>
+
+<p>고등학교를 거쳐 대학교 시절까지 꾸준히 개발을 공부하고 무언가를 만들어왔지만, 이렇게 꼼꼼하게 신경쓰면서 프로젝트를 진행해본 적은 처음이었습니다. 그래서 짧은 시간이었지만 이런 프로젝트를 진행할 수 있어서 즐거웠고 이런 기회를 제공해준 회사와 팀장님께 감사했습니다.</p>
+
+<p>무엇보다 팀원들이 공부하고 기록한 자료를 참고하고 조언을 구하면서 이런 팀원들과 함께할 수 있다는 것 자체가 너무나 큰 축복임을 느꼈습니다.</p>
+
+<p>긴 글 읽어주셔서 감사합니다!</p>
+:ET

@@ -1,0 +1,276 @@
+I"�Y<p>사내에서 Query Repository로 사용하게 된 <code class="language-plaintext highlighter-rouge">jOOQ</code> 를 간단하게 정리해보겠습니다.</p>
+
+<h2 id="jooq가-뭐지">jOOQ가 뭐지?</h2>
+
+<p><img src="/images/portal/post/2017-06-25-JOOQ/icon.png" alt="JOOQ" /></p>
+
+<p><strong>Java Object Oriented Querying</strong></p>
+
+<p><code class="language-plaintext highlighter-rouge">jOOQ</code>는 자바 코드로 쿼리를 작성할 수 있는 <code class="language-plaintext highlighter-rouge">데이터베이스 인터페이스</code> 입니다.</p>
+
+<p>데이터베이스 스키마에서 생성 된 클래스의 쿼리를 작성하는 <code class="language-plaintext highlighter-rouge">내부 도메인 특정 언어</code>를 제공하며 <code class="language-plaintext highlighter-rouge">내부 도메인 특정 언어</code>로 SQL을 구현하므로 임의의 복잡성을 지닌 SQL문을 형식에 맞게 구성하고 실행할 수 있습니다.</p>
+
+<hr />
+
+<h2 id="내가-생각하는-jooq">내가 생각하는 jOOQ</h2>
+
+<p>단점도 분명 있겠지만, 조금이나마 사용해본 후 <code class="language-plaintext highlighter-rouge">jOOQ</code>가 좋다고 느낀 이유는 아래와 같습니다.</p>
+
+<h4 id="쿼리를-자바로-짤-수-있다-">쿼리를 자바로 짤 수 있다 !</h4>
+
+<p>Spring Boot를 사용하면서도 자바 기반의 Config가 정말 좋았습니다. QueryDSL을 접했을 때도 마찬가지..! 제 주언어는 자바이기에 자바로 작성하는게 가장 편하고 좋습니다.</p>
+
+<h4 id="type-safe를-선호">Type Safe를 선호</h4>
+
+<p>컴파일 단계에서 Type 매칭에 대한 에러를 확인할 수 있고 Code-assistant를 통해 편하게 개발할 수 있을 것 입니다.</p>
+
+<h4 id="컴파일-단계에서-쿼리의-구문-오류가-확인-가능">컴파일 단계에서 쿼리의 구문 오류가 확인 가능</h4>
+
+<p>Type Safe 외에도 DSL을 통해 자바 코드로 쿼리를 작성하여 기본적인 쿼리 구문 오류를 컴파일 단계에서 확인할 수 있습니다.</p>
+
+<h4 id="code-generator-지원">Code Generator 지원</h4>
+
+<p>데이터베이스를 스캔하여 <code class="language-plaintext highlighter-rouge">tables, records, sequences, POJOs, DAOs, stored procedures, user-defined types</code> 등 class들을 생성할 수 있습니다. 쿼리 수행에 필요한 대부분이 노가다없이 제공이 됩니다.</p>
+
+<hr />
+
+<h3 id="querydsl과-비슷한데">QueryDSL과 비슷한데..</h3>
+
+<p><code class="language-plaintext highlighter-rouge">jOOQ는</code> <code class="language-plaintext highlighter-rouge">자바 언어</code>로 SQL을 보다 잘 통합해주기 위한 도구입니다. 자바 언어로 쿼리를 작성할 수 있다는 것부터 굉장히 매력적입니다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">DSL</code>을 사용하는 다른 도구인 <code class="language-plaintext highlighter-rouge">QueryDSL</code>이 생각납니다. <code class="language-plaintext highlighter-rouge">QueryDSL</code>과 <code class="language-plaintext highlighter-rouge">jOOQ</code>의 비교는 더 상위 수준으로 올라가 <code class="language-plaintext highlighter-rouge">ORM</code>과 <code class="language-plaintext highlighter-rouge">SQL</code>의 비교가 될 것이고, 아마 관점과 호불호의 차이로 답을 내리기 힘들거라고 생각하여..</p>
+
+<p><img src="/images/portal/post/2017-06-25-JOOQ/nanj.png" alt="nanj" /></p>
+
+<p>이 부분에 대한 내용은 관련 링크로 대신합니다.</p>
+
+<p><a href="https://blog.jooq.org/2015/03/24/jooq-vs-hibernate-when-to-choose-which/">jOOQ vs. Hibernate: When to Choose Which</a> (이 글은 ORM과 SQL에 대한 선택을 다룬 글 입니다.), <a href="https://blog.jooq.org/2014/05/29/querydsl-vs-jooq-feature-completeness-vs-now-more-than-ever/">QueryDSL vs jOOQ</a> (jOOQ 개발자가 <code class="language-plaintext highlighter-rouge">QueryDSL</code>의 완성을 축하하면서 그래도 우리가 더 좋다를 써놓은 것 같은 글 입니다.)</p>
+
+<p>두 글 다 작성자가 jOOQ 개발자입니다;;;;</p>
+
+<p><br /></p>
+
+<h2 id="jooq-맛보기--with-spring-boot-">jOOQ 맛보기 ( With Spring Boot )</h2>
+
+<h3 id="프로젝트-세팅">프로젝트 세팅</h3>
+
+<p>Spring Initializer에서 보면 jOOQ를 지원하는 것을 볼 수 있습니다.</p>
+
+<p><img src="/images/portal/post/2017-06-25-JOOQ/spring-initilizer.png" alt="init" /></p>
+
+<p>그리고 지원되는 것이 무려 <code class="language-plaintext highlighter-rouge">boot starter</code>! 입니다. 간편하게 세팅이 끝날 것 같은 느낌이 듭니다.</p>
+
+<p><img src="/images/portal/post/2017-06-25-JOOQ/starter.png" alt="starter" /></p>
+
+<p><a href="http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html">Common application properties</a>를 찾아보면, 필요한 properties도 <code class="language-plaintext highlighter-rouge">SQLDialect</code>뿐이 없습니다.</p>
+
+<p>jOOQ 자동화 설정 클래스인 <code class="language-plaintext highlighter-rouge">org.springframework.boot.autoconfigure.jooq.JooqAutoConfiguration</code> 클래스를 들여다보면 데이터베이스에 대한 다양한 설정들이 보이고, 가장 핵심인 DSL API를 제공해주는 <code class="language-plaintext highlighter-rouge">DslContext</code> Bean 생성에 관한 내용도 보입니다.</p>
+
+<p><img src="/images/portal/post/2017-06-25-JOOQ/autoconfigure.png" alt="auto" /></p>
+
+<p>특별히 Customize할 부분이 없다면, Boot가 다 해주니 jOOQ 사용을 위한 프로젝트 세팅이 끝난 것으로 보입니다. !!</p>
+
+<hr />
+
+<h3 id="jooq-class-생성">jOOQ Class 생성</h3>
+
+<p>jOOQ는 jOOQ를 편하게 사용하기 위한 <code class="language-plaintext highlighter-rouge">CodeGen</code>을 제공합니다. 그리고 이 <code class="language-plaintext highlighter-rouge">CodeGen</code>을 사용하기 쉽게 만들어놓은 <a href="https://github.com/etiennestuder/gradle-jooq-plugin">gradle-jooq-plugin</a>이 있습니다. <a href="https://www.jooq.org/doc/3.7/manual/code-generation/codegen-gradle/">jOOQ 공식 홈페이지</a>에서도 이 플러그인 사용을 권장하고 있습니다.</p>
+
+<p>자세한 사용법은 <a href="https://github.com/etiennestuder/gradle-jooq-plugin">해당 플러그인 GitHub</a>을 참고!</p>
+
+<p>이 플러그인이 하는 일은 <code class="language-plaintext highlighter-rouge">jooq</code> 라는 extention을 통해 값을 셋팅받고 값을 가공하여 Jooq CodeGen으로 넘기는 일을 수행합니다.</p>
+
+<p>세팅되는 값 중 문서에 설명이 충분치 않은 몇 가지만 설명하겠습니다.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">jooq</span> <span class="o">{</span>
+   <span class="o">...</span>
+   <span class="n">sample</span><span class="o">(</span><span class="n">sourceSets</span><span class="o">.</span><span class="na">main</span><span class="o">)</span> <span class="o">{</span>
+       <span class="n">jdbc</span> <span class="o">{</span>
+           <span class="o">...</span>
+       <span class="o">}</span>
+       <span class="n">generator</span> <span class="o">{</span>
+           <span class="o">..</span>
+           <span class="n">strategy</span> <span class="o">{</span>
+               <span class="n">name</span> <span class="o">=</span> <span class="err">'</span><span class="n">org</span><span class="o">.</span><span class="na">jooq</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">DefaultGeneratorStrategy</span><span class="err">'</span>
+               <span class="o">..</span>
+           <span class="o">}</span>
+           <span class="n">database</span> <span class="o">{</span>
+               <span class="o">...</span>
+           <span class="o">}</span>
+           <span class="n">generate</span> <span class="o">{</span>
+               <span class="n">relations</span> <span class="o">=</span> <span class="kc">true</span>
+               <span class="n">deprecated</span> <span class="o">=</span> <span class="kc">false</span>
+               <span class="n">records</span> <span class="o">=</span> <span class="kc">true</span>
+               <span class="n">immutablePojos</span> <span class="o">=</span> <span class="kc">true</span>
+               <span class="n">fluentSetters</span> <span class="o">=</span> <span class="kc">true</span>
+               <span class="n">pojos</span> <span class="o">=</span> <span class="kc">true</span>
+               <span class="c1">// ...</span>
+           <span class="o">}</span>
+           <span class="n">target</span> <span class="o">{</span>
+               <span class="n">packageName</span> <span class="o">=</span> <span class="err">'</span><span class="n">nu</span><span class="o">.</span><span class="na">studer</span><span class="o">.</span><span class="na">sample</span><span class="err">'</span>
+               <span class="n">directory</span> <span class="o">=</span> <span class="err">'</span><span class="n">jooq</span><span class="err">'</span>
+           <span class="o">}</span>
+       <span class="o">}</span>
+   <span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+
+<p><br /></p>
+
+<h4 id="sample이라고-표기된-부분"><code class="language-plaintext highlighter-rouge">sample</code>이라고 표기된 부분</h4>
+
+<p>이 부분에는 데이터베이스의 이름을 작성할 수 있으며, 아래와 같이 여러 데이터베이스를 작성할 수도 있습니다.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">jooq</span> <span class="o">{</span>
+   <span class="o">...</span>
+   <span class="n">db1</span><span class="o">(</span><span class="n">sourceSets</span><span class="o">.</span><span class="na">main</span><span class="o">)</span> <span class="o">{</span>
+     <span class="o">...</span>
+   <span class="o">}</span>
+   <span class="n">db2</span><span class="o">(</span><span class="n">sourceSets</span><span class="o">.</span><span class="na">main</span><span class="o">)</span> <span class="o">{</span>
+     <span class="o">...</span>
+   <span class="o">}</span>
+   <span class="n">db3</span><span class="o">(</span><span class="n">sourceSets</span><span class="o">.</span><span class="na">main</span><span class="o">)</span> <span class="o">{</span>
+     <span class="o">...</span>
+   <span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>그리고 하나의 데이터베이스는 하나의 Gradle Task를 생성시킵니다.</p>
+
+<p><img src="/images/portal/post/2017-06-25-JOOQ/gene.png" alt="gene" /></p>
+
+<p>보면 알 수 있듯 생성되는 Gradle Task는 <code class="language-plaintext highlighter-rouge">generate[NAME]JooqSchemaSource</code>라는 형식으로 생성이 됩니다.</p>
+
+<p><br /></p>
+
+<h4 id="generator-strategy">Generator Strategy</h4>
+
+<p>말 그대로 생성 전략은 데이터베이스 스키마를 Class화 할 때 어떤 형태로 생성할지에 대한 전략을 나타냅니다.</p>
+
+<p>메서드 이름을 어떻게 할지, 클래스 이름을 어떻게 할지 등 다양한 상황에 대한 전략이 이곳에 명세되어 있습니다. <a href="https://github.com/jOOQ/jOOQ/blob/master/jOOQ-codegen/src/main/java/org/jooq/util/DefaultGeneratorStrategy.java">DefaultGeneratorStrategy</a> 클래스를 보면 상속하여 Customize할 수 있게 모두 열려 있습니다.</p>
+
+<p>Jooq에서 Customize Sample로 제공하는 <code class="language-plaintext highlighter-rouge">JPrefixGeneratorStrategy</code> 는 모든 클래스명 앞에 J를 붙이는 일을 해주는 Customize Strategy 입니다.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">JPrefixGeneratorStrategy</span> <span class="kd">extends</span> <span class="nc">DefaultGeneratorStrategy</span> <span class="o">{</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getJavaClassName</span><span class="o">(</span><span class="kd">final</span> <span class="nc">Definition</span> <span class="n">definition</span><span class="o">,</span> <span class="kd">final</span> <span class="nc">Mode</span> <span class="n">mode</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="sc">'J'</span> <span class="o">+</span> <span class="kd">super</span><span class="o">.</span><span class="na">getJavaClassName</span><span class="o">(</span><span class="n">definition</span><span class="o">,</span> <span class="n">mode</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span></code></pre></figure>
+
+<p><br /></p>
+
+<h4 id="generate-와-target">generate 와 target</h4>
+
+<p><code class="language-plaintext highlighter-rouge">generate</code>는 실제 <code class="language-plaintext highlighter-rouge">DSL</code>에서 사용될 수 있는 Table, Record 등과 POJO 객체, Enum 등 여러가지 클래스에 대한 생성 옵션을 줄 수 있습니다. 모든게 다 필요하진 않으니 필요한 클래스만 생성할 수 있습니다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">target</code>에는 생성되는 클래스들이 생성될 위치(directory)와 그 클래스들이 갖게 될 패키지를 설정할 수 있습니다. 임의의 패키지로 지정되어 버리면 사용할 클래스를 실제 프로젝트 패키지로 옮길 때 불편했었는데 편리한 기능인 것 같습니다.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java">  <span class="n">generate</span> <span class="o">{</span>
+    <span class="n">relations</span> <span class="o">=</span> <span class="kc">true</span>
+    <span class="n">deprecated</span> <span class="o">=</span> <span class="kc">true</span>
+    <span class="n">instanceFields</span> <span class="o">=</span> <span class="kc">true</span>
+    <span class="n">generatedAnnotation</span> <span class="o">=</span> <span class="kc">true</span>
+    <span class="n">records</span> <span class="o">=</span> <span class="kc">true</span>
+    <span class="n">pojos</span> <span class="o">=</span> <span class="kc">true</span>
+    <span class="n">immutablePojos</span> <span class="o">=</span> <span class="kc">false</span>
+    <span class="n">interfaces</span> <span class="o">=</span> <span class="kc">false</span>
+    <span class="n">daos</span> <span class="o">=</span> <span class="kc">false</span>
+    <span class="n">jpaAnnotations</span> <span class="o">=</span> <span class="kc">false</span>
+    <span class="n">validationAnnotations</span> <span class="o">=</span> <span class="kc">false</span>
+    <span class="n">globalObjectReferences</span> <span class="o">=</span> <span class="kc">true</span>
+    <span class="n">fluentSetters</span> <span class="o">=</span> <span class="kc">false</span>
+  <span class="o">}</span>
+  <span class="n">target</span> <span class="o">{</span>
+    <span class="n">packageName</span> <span class="o">=</span> <span class="s">"com.kingbbode.entities"</span>
+    <span class="n">directory</span> <span class="o">=</span> <span class="s">"jooq/generated"</span>
+  <span class="o">}</span></code></pre></figure>
+
+<p><br /></p>
+
+<h4 id="jooqruntime">jooqRuntime</h4>
+
+<p><a href="https://github.com/etiennestuder/gradle-jooq-plugin">gradle-jooq-plugin</a>은 코드 생성 runtime scope를 <code class="language-plaintext highlighter-rouge">jooqRumtime</code> 이란 runtime scope로 생성하여 사용하고 있습니다.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">jooqRuntime</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="na">configurations</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="s">"jooqRuntime"</span><span class="o">)</span>
+
+<span class="n">jooqRuntime</span><span class="o">.</span><span class="na">setDescription</span><span class="o">(</span><span class="s">"The classpath used to invoke the jOOQ generator. Add your JDBC drivers or generator extensions here."</span><span class="o">)</span>
+
+<span class="n">project</span><span class="o">.</span><span class="na">dependencies</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">jooqRuntime</span><span class="o">.</span><span class="na">name</span><span class="o">,</span> <span class="s">"org.jooq:jooq-codegen"</span><span class="o">)</span></code></pre></figure>
+
+<p>기본으로 <code class="language-plaintext highlighter-rouge">jooq-codegen</code> 을 <code class="language-plaintext highlighter-rouge">jooqRuntime</code> 에 포함시키고 있습니다. 이 jooqRuntime은 <code class="language-plaintext highlighter-rouge">build.gralde</code> 에서 작성하게 되는데, 항상 꼭 작성되어야 하는 내용은 데이터베이스 connector 들 입니다.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">dependencies</span> <span class="o">{</span>
+  <span class="o">...</span>
+  <span class="c1">//H2일 때</span>
+  <span class="n">jooqRuntime</span> <span class="err">'</span><span class="n">com</span><span class="o">.</span><span class="na">h2database</span><span class="o">:</span><span class="nl">h2:</span><span class="mf">1.4</span><span class="o">.</span><span class="mi">193</span><span class="err">'</span>
+  <span class="c1">//MySQL일 때</span>
+  <span class="n">jooqRuntime</span> <span class="err">'</span><span class="nl">mysql:</span><span class="n">mysql</span><span class="o">-</span><span class="n">connector</span><span class="o">-</span><span class="nl">java:</span><span class="mi">5</span><span class="o">.+</span><span class="err">'</span>
+  <span class="o">...</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>위에서 설명한 Customize Strategy로 사용할 Class가 있다면 <code class="language-plaintext highlighter-rouge">jooqRuntime</code> 에 포함시켜야 합니다.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">jooqRuntime</span> <span class="nf">project</span><span class="o">(</span><span class="err">'</span><span class="o">:</span><span class="n">custom</span><span class="o">-</span><span class="n">generator</span><span class="err">'</span><span class="o">)</span>  <span class="c1">// include sub-project that contains the custom generator strategy</span></code></pre></figure>
+
+<p>플러그인 사용법을 <a href="https://github.com/etiennestuder/gradle-jooq-plugin">해당 플러그인 GitHub</a>을 참고하여 jOOQ Class를 뽑아냅니다.</p>
+
+<hr />
+
+<h3 id="dsl">DSL</h3>
+
+<p>jOOQ 사용 관련 내용은 아주 많기때문에, 저는 TypeSafe와 컴파일 단계에서의 구문 오류 정도만 살피려고 합니다.</p>
+
+<p>jOOQ 사용에 대한 Tutorial은 <a href="https://www.javacodegeeks.com/2015/09/jooq-type-safe-db-querying.html">이 링크</a>를 추천드립니다.</p>
+
+<h4 id="typesafe">TypeSafe</h4>
+
+<p>jOOQ로부터 생성된 Class들은 유형 안정성을 갖습니다.</p>
+
+<p><img src="/images/portal/post/2017-06-25-JOOQ/typesafe.png" alt="typesafe" /></p>
+
+<p>(빨간줄을 보여주기 위하여 캡처로..)</p>
+
+<p>POSTS의 ID는 Integer Type이기 때문에 Integer와 String의 비교는 허용되지 않습니다.</p>
+
+<p>마찬가지로, 서브쿼리에서도 유형이 맞지 않으면 컴파일 되지 않습니다.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">dsl</span>
+  <span class="o">.</span><span class="na">insertInto</span><span class="o">(</span><span class="no">POSTS</span><span class="o">,</span> <span class="no">POSTS</span><span class="o">.</span><span class="na">NAME</span><span class="o">,</span> <span class="no">POSTS</span><span class="o">.</span><span class="na">ID</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">values</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="s">"kingbbode"</span><span class="o">)</span> <span class="o">&lt;--</span> <span class="no">ERROR</span>
+  <span class="o">.</span><span class="na">execute</span><span class="o">();</span></code></pre></figure>
+
+<p>위의 경우에도 String이 들어갈 곳에 Integer가 들어갔고, Integer가 들어갈 곳에 String이 들어갔기 때문에 컴파일되지 않습니다.</p>
+
+<p>순서가 보장되면서 유형 안정성을 잘 보여줍니다.</p>
+
+<p><br /></p>
+
+<h4 id="컴파일-단계에서-확인">컴파일 단계에서 확인</h4>
+
+<p>DSL을 통해 쿼리가 작성되기 때문에 문법적인 오류도 컴파일 단계에서 확인이 가능합니다.</p>
+
+<p><img src="/images/portal/post/2017-06-25-JOOQ/mistake.png" alt="misstake" /></p>
+
+<p>(빨간줄을 보여주기 위하여 캡처로..)</p>
+
+<p>빈 Where절, Integer 하나의 필드만 넘어가야할 서브쿼리에 두 개 필드 등 쿼리가 길어지거나, 정신이 없거나 등등 여러 경우에서 실수가 발생할 수 있는 부분을 확인할 수 있습니다.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="n">dsl</span>
+  <span class="o">.</span><span class="na">insertInto</span><span class="o">(</span><span class="no">POSTS</span><span class="o">,</span> <span class="no">POSTS</span><span class="o">.</span><span class="na">NAME</span><span class="o">,</span> <span class="no">POSTS</span><span class="o">.</span><span class="na">ID</span><span class="o">)</span>
+  <span class="o">.</span><span class="na">values</span><span class="o">(</span><span class="s">"kingbbode"</span><span class="o">)</span> <span class="o">&lt;--</span> <span class="no">ERROR</span>
+  <span class="o">.</span><span class="na">execute</span><span class="o">();</span></code></pre></figure>
+
+<p>Insert의 경우 values 값의 누락을 컴파일 단계에서 확인할 수 있습니다.</p>
+
+<p><br /></p>
+
+<h2 id="마무리">마무리</h2>
+
+<p>겉핥기 식으로 정말 간단하게 jOOQ를 정리해보았습니다.</p>
+
+<p>현재 jOOQ로 개발을 시작한지 얼마 되지 않았고, 큰 작업도 해보진 못했습니다. 그래도 왠지 재미있습니다. 이전에는 ORM이 그냥 최고인 줄 알았는데, jOOQ를 조사하다보니 여러가지 경우를 따져가며 무엇을 선택할지를 보는 시야도 중요하다고 느껴집니다.</p>
+
+<p><img src="/images/portal/post/2017-06-25-JOOQ/choose.png" alt="choose" /></p>
+
+<p>앞으로 더 재밌어질 것 같습니다. 더 많은 것을 하게 되면 또 글을 올리겠습니다.</p>
+:ET

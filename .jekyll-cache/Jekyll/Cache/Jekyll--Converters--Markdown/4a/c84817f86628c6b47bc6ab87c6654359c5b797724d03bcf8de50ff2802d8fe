@@ -1,0 +1,2136 @@
+I"K^<main class="home" id="post" role="main" itemprop="mainContentOfPage" itemscope="itemscope" itemtype="http://schema.org/Blog">
+    <div id="grid" class="row flex-grid">
+    
+        <article class="box-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+            
+            <!--
+            <span class="category">
+                <a href="https://zuminternet.github.io/categoria/portal/tech">
+                    <span>portal/tech</span>
+                </a>
+            </span>
+            -->
+            
+            <div class="box-body">
+                
+                    <div class="cover">
+                        
+
+
+
+                        <a href="/zum-front-recurit-review/" class="new-post">
+                            <!-- <img src="assets/img/placeholder.png" data-url="/images/front/post/2020-09-11-Zum-Chrome-Extension/0-thumbnail.png" class="preload"> -->
+                            <span class="img" style="background-image:url(/images/front/post/2020-09-11-Zum-Chrome-Extension/0-thumbnail.png)"></span>
+                        </a>
+                    </div>
+                
+                <div class="box-info">
+                    <div class="author-date">
+                        <div class="date">
+                            <meta itemprop="datePublished" content="2021-07-01T00:00:00+09:00" />
+                            <time itemprop="datePublished" datetime="2021-07-01T00:00:00+09:00" class="date">
+                                
+
+
+July 1, 2021
+
+                            </time>
+                        </div>
+                    </div>
+                    <a class="post-link" href="/zum-front-recurit-review/">
+                        <h2 class="post-title" itemprop="name">
+                            <span class="text">
+                                주니어 프론트엔드 개발자의 채용 프로세스 참여 후기
+                            </span>
+                        </h2>
+                    </a>
+                    <a class="post-link" href="/zum-front-recurit-review/">
+                        <p class="description">Vue.js로 줌 확장프로그램을 개발하는 과정을 공유합니다.</p>
+                    </a>
+                    <div class="tags">
+                        
+                            <a href="/tags/#experience">experience</a>
+                        
+                            <a href="/tags/#vue-js">Vue.js</a>
+                        
+                            <a href="/tags/#frontend">Frontend</a>
+                        
+                            <a href="/tags/#크롬-확장프로그램">크롬 확장프로그램</a>
+                        
+                            <a href="/tags/#웹스토어-배포">웹스토어 배포</a>
+                        
+                            <a href="/tags/#웹스토어-검수">웹스토어 검수</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </article>
+    
+        <article class="box-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+            
+            <!--
+            <span class="category">
+                <a href="https://zuminternet.github.io/categoria/portal/tech">
+                    <span>portal/tech</span>
+                </a>
+            </span>
+            -->
+            
+            <div class="box-body">
+                
+                    <div class="cover">
+                        
+
+
+
+                        <a href="/Zum-Chrome-Extension/">
+                            <!-- <img src="assets/img/placeholder.png" data-url="/images/front/post/2020-09-11-Zum-Chrome-Extension/0-thumbnail.png" class="preload"> -->
+                            <span class="img" style="background-image:url(/images/front/post/2020-09-11-Zum-Chrome-Extension/0-thumbnail.png)"></span>
+                        </a>
+                    </div>
+                
+                <div class="box-info">
+                    <div class="author-date">
+                        <div class="date">
+                            <meta itemprop="datePublished" content="2020-09-11T00:00:00+09:00" />
+                            <time itemprop="datePublished" datetime="2020-09-11T00:00:00+09:00" class="date">
+                                
+
+
+September 11, 2020
+
+                            </time>
+                        </div>
+                    </div>
+                    <a class="post-link" href="/Zum-Chrome-Extension/">
+                        <h2 class="post-title" itemprop="name">
+                            <span class="text">
+                                크롬 확장프로그램 개발⛏️ 회고
+                            </span>
+                        </h2>
+                    </a>
+                    <a class="post-link" href="/Zum-Chrome-Extension/">
+                        <p class="description">Vue.js로 줌 확장프로그램을 개발하는 과정을 공유합니다.</p>
+                    </a>
+                    <div class="tags">
+                        
+                            <a href="/tags/#experience">experience</a>
+                        
+                            <a href="/tags/#vue-js">Vue.js</a>
+                        
+                            <a href="/tags/#frontend">Frontend</a>
+                        
+                            <a href="/tags/#크롬-확장프로그램">크롬 확장프로그램</a>
+                        
+                            <a href="/tags/#웹스토어-배포">웹스토어 배포</a>
+                        
+                            <a href="/tags/#웹스토어-검수">웹스토어 검수</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </article>
+    
+        <article class="box-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+            
+            <!--
+            <span class="category">
+                <a href="https://zuminternet.github.io/categoria/portal/tech">
+                    <span>portal/tech</span>
+                </a>
+            </span>
+            -->
+            
+            <div class="box-body">
+                
+                    <div class="cover">
+                        
+
+
+
+                        <a href="/ZUM-Mobile-NodeJS/">
+                            <!-- <img src="assets/img/placeholder.png" data-url="/images/front/post/2020-06-20-ZUM-Mobile_SSR/title.png" class="preload"> -->
+                            <span class="img" style="background-image:url(/images/front/post/2020-06-20-ZUM-Mobile_SSR/title.png)"></span>
+                        </a>
+                    </div>
+                
+                <div class="box-info">
+                    <div class="author-date">
+                        <div class="date">
+                            <meta itemprop="datePublished" content="2020-06-20T00:00:00+09:00" />
+                            <time itemprop="datePublished" datetime="2020-06-20T00:00:00+09:00" class="date">
+                                
+
+
+June 20, 2020
+
+                            </time>
+                        </div>
+                    </div>
+                    <a class="post-link" href="/ZUM-Mobile-NodeJS/">
+                        <h2 class="post-title" itemprop="name">
+                            <span class="text">
+                                모바일 줌 SpringBoot → NodeJS 전환기 (feat. VueJS SSR)
+                            </span>
+                        </h2>
+                    </a>
+                    <a class="post-link" href="/ZUM-Mobile-NodeJS/">
+                        <p class="description">모바일 줌 프로젝트를 Node.js로 변경한 경험을 공유합니다</p>
+                    </a>
+                    <div class="tags">
+                        
+                            <a href="/tags/#experience">experience</a>
+                        
+                            <a href="/tags/#node-js">Node.js</a>
+                        
+                            <a href="/tags/#frontend">Frontend</a>
+                        
+                            <a href="/tags/#vue-js">Vue.js</a>
+                        
+                            <a href="/tags/#ssr">SSR</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </article>
+    
+        <article class="box-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+            
+            <!--
+            <span class="category">
+                <a href="https://zuminternet.github.io/categoria/lab/search">
+                    <span>lab/search</span>
+                </a>
+            </span>
+            -->
+            
+            <div class="box-body">
+                
+                    <div class="cover">
+                        
+
+
+
+                        <a href="/NEURIPS2019/">
+                            <!-- <img src="assets/img/placeholder.png" data-url="/images/lab/post/2020-02-27-NEURIPS2019/main.png" class="preload"> -->
+                            <span class="img" style="background-image:url(/images/lab/post/2020-02-27-NEURIPS2019/main.png)"></span>
+                        </a>
+                    </div>
+                
+                <div class="box-info">
+                    <div class="author-date">
+                        <div class="date">
+                            <meta itemprop="datePublished" content="2020-02-27T00:00:00+09:00" />
+                            <time itemprop="datePublished" datetime="2020-02-27T00:00:00+09:00" class="date">
+                                
+
+
+February 27, 2020
+
+                            </time>
+                        </div>
+                    </div>
+                    <a class="post-link" href="/NEURIPS2019/">
+                        <h2 class="post-title" itemprop="name">
+                            <span class="text">
+                                NeurIPS 2019 논문 통계
+                            </span>
+                        </h2>
+                    </a>
+                    <a class="post-link" href="/NEURIPS2019/">
+                        <p class="description">2019년도 NeurIPS 학회의 논문 통계를 공유합니다</p>
+                    </a>
+                    <div class="tags">
+                        
+                            <a href="/tags/#nips">NIPS</a>
+                        
+                            <a href="/tags/#trend">trend</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </article>
+    
+        <article class="box-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+            
+            <!--
+            <span class="category">
+                <a href="https://zuminternet.github.io/categoria/portal/tech">
+                    <span>portal/tech</span>
+                </a>
+            </span>
+            -->
+            
+            <div class="box-body">
+                
+                    <div class="cover">
+                        
+
+
+
+                        <a href="/ZUM-Pilot-provide-video/">
+                            <!-- <img src="assets/img/placeholder.png" data-url="/images/portal/post/2020-01-20-ZUM-Pilot-provide-video/thumbnail.png" class="preload"> -->
+                            <span class="img" style="background-image:url(/images/portal/post/2020-01-20-ZUM-Pilot-provide-video/thumbnail.png)"></span>
+                        </a>
+                    </div>
+                
+                <div class="box-info">
+                    <div class="author-date">
+                        <div class="date">
+                            <meta itemprop="datePublished" content="2020-01-20T00:00:00+09:00" />
+                            <time itemprop="datePublished" datetime="2020-01-20T00:00:00+09:00" class="date">
+                                
+
+
+January 20, 2020
+
+                            </time>
+                        </div>
+                    </div>
+                    <a class="post-link" href="/ZUM-Pilot-provide-video/">
+                        <h2 class="post-title" itemprop="name">
+                            <span class="text">
+                                주제별 영상 제공 웹 서비스
+                            </span>
+                        </h2>
+                    </a>
+                    <a class="post-link" href="/ZUM-Pilot-provide-video/">
+                        <p class="description">크롤링과 Youtube Data API를 이용하여 영상 제공 웹 서비스를 구축하는 과정에 대해 소개합니다.</p>
+                    </a>
+                    <div class="tags">
+                        
+                            <a href="/tags/#pilot">pilot</a>
+                        
+                            <a href="/tags/#spring">spring</a>
+                        
+                            <a href="/tags/#vue-js">vue.js</a>
+                        
+                            <a href="/tags/#crawling">crawling</a>
+                        
+                            <a href="/tags/#crawler">crawler</a>
+                        
+                            <a href="/tags/#youtubeplayerapi">YoutubePlayerApi</a>
+                        
+                            <a href="/tags/#youtubedataapi">YoutubeDataApi</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </article>
+    
+        <article class="box-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+            
+            <!--
+            <span class="category">
+                <a href="https://zuminternet.github.io/categoria/portal/tech">
+                    <span>portal/tech</span>
+                </a>
+            </span>
+            -->
+            
+            <div class="box-body">
+                
+                    <div class="cover">
+                        
+
+
+
+                        <a href="/ZUM-Activemq-virtual-destination/">
+                            <!-- <img src="assets/img/placeholder.png" data-url="/images/portal/post/2019-12-12-ZUM-Activemq-virtual-destination/thumbnail.png" class="preload"> -->
+                            <span class="img" style="background-image:url(/images/portal/post/2019-12-12-ZUM-Activemq-virtual-destination/thumbnail.png)"></span>
+                        </a>
+                    </div>
+                
+                <div class="box-info">
+                    <div class="author-date">
+                        <div class="date">
+                            <meta itemprop="datePublished" content="2019-12-12T00:00:00+09:00" />
+                            <time itemprop="datePublished" datetime="2019-12-12T00:00:00+09:00" class="date">
+                                
+
+
+December 12, 2019
+
+                            </time>
+                        </div>
+                    </div>
+                    <a class="post-link" href="/ZUM-Activemq-virtual-destination/">
+                        <h2 class="post-title" itemprop="name">
+                            <span class="text">
+                                Amazon MQ의 Virtual Topics를 활용한 (Pub-sub)메시지 로드밸런싱
+                            </span>
+                        </h2>
+                    </a>
+                    <a class="post-link" href="/ZUM-Activemq-virtual-destination/">
+                        <p class="description">AmazonMQ(ActiveMQ)의 Virtual Topics 사용 경험을 공유합니다.</p>
+                    </a>
+                    <div class="tags">
+                        
+                            <a href="/tags/#activemq">ActiveMQ</a>
+                        
+                            <a href="/tags/#amazonmq">AmazonMQ</a>
+                        
+                            <a href="/tags/#virtual-topics">Virtual Topics</a>
+                        
+                            <a href="/tags/#springboot">SpringBoot</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </article>
+    
+        <article class="box-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+            
+            <!--
+            <span class="category">
+                <a href="https://zuminternet.github.io/categoria/lab/search">
+                    <span>lab/search</span>
+                </a>
+            </span>
+            -->
+            
+            <div class="box-body">
+                
+                    <div class="cover">
+                        
+
+
+
+                        <a href="/IMAGE-SEARCH/">
+                            <!-- <img src="assets/img/placeholder.png" data-url="/images/lab/post/2019-11-04-IMAGE-SEARCH/rep.jpg" class="preload"> -->
+                            <span class="img" style="background-image:url(/images/lab/post/2019-11-04-IMAGE-SEARCH/rep.jpg)"></span>
+                        </a>
+                    </div>
+                
+                <div class="box-info">
+                    <div class="author-date">
+                        <div class="date">
+                            <meta itemprop="datePublished" content="2019-11-04T00:00:00+09:00" />
+                            <time itemprop="datePublished" datetime="2019-11-04T00:00:00+09:00" class="date">
+                                
+
+
+November 4, 2019
+
+                            </time>
+                        </div>
+                    </div>
+                    <a class="post-link" href="/IMAGE-SEARCH/">
+                        <h2 class="post-title" itemprop="name">
+                            <span class="text">
+                                셀럽 NOW - 딥러닝 기반의 연예 뉴스 분석 시스템
+                            </span>
+                        </h2>
+                    </a>
+                    <a class="post-link" href="/IMAGE-SEARCH/">
+                        <p class="description">줌닷컴의 이미지 검색 서비스, 셀럽 NOW의 뉴스 분석 시스템을 소개합니다</p>
+                    </a>
+                    <div class="tags">
+                        
+                            <a href="/tags/#image-search">image search</a>
+                        
+                            <a href="/tags/#deep-learning">deep learning</a>
+                        
+                            <a href="/tags/#image-processing">image processing</a>
+                        
+                            <a href="/tags/#nlp">nlp</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </article>
+    
+        <article class="box-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+            
+            <!--
+            <span class="category">
+                <a href="https://zuminternet.github.io/categoria/portal/tech">
+                    <span>portal/tech</span>
+                </a>
+            </span>
+            -->
+            
+            <div class="box-body">
+                
+                    <div class="cover">
+                        
+
+
+
+                        <a href="/ZUM-Webpack-dev-proxy-part2/">
+                            <!-- <img src="assets/img/placeholder.png" data-url="/images/front/post/2019-07-08-ZUM-Webpack-dev-proxy-part2/webpack-spring.png" class="preload"> -->
+                            <span class="img" style="background-image:url(/images/front/post/2019-07-08-ZUM-Webpack-dev-proxy-part2/webpack-spring.png)"></span>
+                        </a>
+                    </div>
+                
+                <div class="box-info">
+                    <div class="author-date">
+                        <div class="date">
+                            <meta itemprop="datePublished" content="2019-07-01T00:00:00+09:00" />
+                            <time itemprop="datePublished" datetime="2019-07-01T00:00:00+09:00" class="date">
+                                
+
+
+July 1, 2019
+
+                            </time>
+                        </div>
+                    </div>
+                    <a class="post-link" href="/ZUM-Webpack-dev-proxy-part2/">
+                        <h2 class="post-title" itemprop="name">
+                            <span class="text">
+                                Webpack dev server를 이용한 개발 환경 구성 Part2
+                            </span>
+                        </h2>
+                    </a>
+                    <a class="post-link" href="/ZUM-Webpack-dev-proxy-part2/">
+                        <p class="description">모바일 줌 개편을 진행하며 구성했던 개발 모드에 관한 경험을 공유합니다</p>
+                    </a>
+                    <div class="tags">
+                        
+                            <a href="/tags/#experience">experience</a>
+                        
+                            <a href="/tags/#frontend">Frontend</a>
+                        
+                            <a href="/tags/#vue-js">Vue.js</a>
+                        
+                            <a href="/tags/#webpack4">Webpack4</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </article>
+    
+        <article class="box-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+            
+            <!--
+            <span class="category">
+                <a href="https://zuminternet.github.io/categoria/portal/tech">
+                    <span>portal/tech</span>
+                </a>
+            </span>
+            -->
+            
+            <div class="box-body">
+                
+                    <div class="cover">
+                        
+
+
+
+                        <a href="/ZUM-Webpack-dev-proxy-part1/">
+                            <!-- <img src="assets/img/placeholder.png" data-url="/images/front/post/2019-07-08-ZUM-Webpack-dev-proxy-part1/webpack-js.png" class="preload"> -->
+                            <span class="img" style="background-image:url(/images/front/post/2019-07-08-ZUM-Webpack-dev-proxy-part1/webpack-js.png)"></span>
+                        </a>
+                    </div>
+                
+                <div class="box-info">
+                    <div class="author-date">
+                        <div class="date">
+                            <meta itemprop="datePublished" content="2019-07-01T00:00:00+09:00" />
+                            <time itemprop="datePublished" datetime="2019-07-01T00:00:00+09:00" class="date">
+                                
+
+
+July 1, 2019
+
+                            </time>
+                        </div>
+                    </div>
+                    <a class="post-link" href="/ZUM-Webpack-dev-proxy-part1/">
+                        <h2 class="post-title" itemprop="name">
+                            <span class="text">
+                                Webpack Dev Server를 이용한 개발 환경 구성 Part1
+                            </span>
+                        </h2>
+                    </a>
+                    <a class="post-link" href="/ZUM-Webpack-dev-proxy-part1/">
+                        <p class="description">모바일 줌 개편을 진행하며 구성했던 개발 모드 구성에 관한 경험을 공유합니다</p>
+                    </a>
+                    <div class="tags">
+                        
+                            <a href="/tags/#experience">experience</a>
+                        
+                            <a href="/tags/#frontend">Frontend</a>
+                        
+                            <a href="/tags/#vue-js">Vue.js</a>
+                        
+                            <a href="/tags/#webpack4">Webpack4</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </article>
+    
+        <article class="box-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+            
+            <!--
+            <span class="category">
+                <a href="https://zuminternet.github.io/categoria/portal/tech">
+                    <span>portal/tech</span>
+                </a>
+            </span>
+            -->
+            
+            <div class="box-body">
+                
+                    <div class="cover">
+                        
+
+
+
+                        <a href="/ZUM-Pilot-qkrtjdehd/">
+                            <!-- <img src="assets/img/placeholder.png" data-url="/images/portal/post/2019-06-05-ZUM-Pilot-qkrtjdehd/main.png" class="preload"> -->
+                            <span class="img" style="background-image:url(/images/portal/post/2019-06-05-ZUM-Pilot-qkrtjdehd/main.png)"></span>
+                        </a>
+                    </div>
+                
+                <div class="box-info">
+                    <div class="author-date">
+                        <div class="date">
+                            <meta itemprop="datePublished" content="2019-06-05T00:00:00+09:00" />
+                            <time itemprop="datePublished" datetime="2019-06-05T00:00:00+09:00" class="date">
+                                
+
+
+June 5, 2019
+
+                            </time>
+                        </div>
+                    </div>
+                    <a class="post-link" href="/ZUM-Pilot-qkrtjdehd/">
+                        <h2 class="post-title" itemprop="name">
+                            <span class="text">
+                                알람 서비스 - 파일럿 프로젝트
+                            </span>
+                        </h2>
+                    </a>
+                    <a class="post-link" href="/ZUM-Pilot-qkrtjdehd/">
+                        <p class="description">짧지만 강렬했던 파일럿 프로젝트 이야기</p>
+                    </a>
+                    <div class="tags">
+                        
+                            <a href="/tags/#springboot">SpringBoot</a>
+                        
+                            <a href="/tags/#vue-js">Vue.js</a>
+                        
+                            <a href="/tags/#pilot">pilot</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </article>
+    
+        <article class="box-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+            
+            <!--
+            <span class="category">
+                <a href="https://zuminternet.github.io/categoria/portal/tech">
+                    <span>portal/tech</span>
+                </a>
+            </span>
+            -->
+            
+            <div class="box-body">
+                
+                    <div class="cover">
+                        
+
+
+
+                        <a href="/ZUM-PILOT-WONOH/">
+                            <!-- <img src="assets/img/placeholder.png" data-url="/images/portal/post/2019-06-05-ZUM-PILOT-WONOH/project-structure2.PNG" class="preload"> -->
+                            <span class="img" style="background-image:url(/images/portal/post/2019-06-05-ZUM-PILOT-WONOH/project-structure2.PNG)"></span>
+                        </a>
+                    </div>
+                
+                <div class="box-info">
+                    <div class="author-date">
+                        <div class="date">
+                            <meta itemprop="datePublished" content="2019-06-05T00:00:00+09:00" />
+                            <time itemprop="datePublished" datetime="2019-06-05T00:00:00+09:00" class="date">
+                                
+
+
+June 5, 2019
+
+                            </time>
+                        </div>
+                    </div>
+                    <a class="post-link" href="/ZUM-PILOT-WONOH/">
+                        <h2 class="post-title" itemprop="name">
+                            <span class="text">
+                                게시판 CMS - 파일럿 프로젝트
+                            </span>
+                        </h2>
+                    </a>
+                    <a class="post-link" href="/ZUM-PILOT-WONOH/">
+                        <p class="description">신입 파일럿 프로젝트를 진행했던 경험을 공유합니다.</p>
+                    </a>
+                    <div class="tags">
+                        
+                            <a href="/tags/#experience">experience</a>
+                        
+                            <a href="/tags/#springboot">Springboot</a>
+                        
+                            <a href="/tags/#jpa">JPA</a>
+                        
+                            <a href="/tags/#vue-js">Vue.js</a>
+                        
+                            <a href="/tags/#pilot">pilot</a>
+                        
+                            <a href="/tags/#swagger">Swagger</a>
+                        
+                            <a href="/tags/#mysql">MySQL</a>
+                        
+                            <a href="/tags/#s3">S3</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </article>
+    
+        <article class="box-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+            
+            <!--
+            <span class="category">
+                <a href="https://zuminternet.github.io/categoria/portal/tech">
+                    <span>portal/tech</span>
+                </a>
+            </span>
+            -->
+            
+            <div class="box-body">
+                
+                    <div class="cover">
+                        
+
+
+
+                        <a href="/ZUM-Pilot-integer/">
+                            <!-- <img src="assets/img/placeholder.png" data-url="/images/portal/post/2019-04-22-ZUM-Pilot-integer/main2.png" class="preload"> -->
+                            <span class="img" style="background-image:url(/images/portal/post/2019-04-22-ZUM-Pilot-integer/main2.png)"></span>
+                        </a>
+                    </div>
+                
+                <div class="box-info">
+                    <div class="author-date">
+                        <div class="date">
+                            <meta itemprop="datePublished" content="2019-04-22T00:00:00+09:00" />
+                            <time itemprop="datePublished" datetime="2019-04-22T00:00:00+09:00" class="date">
+                                
+
+
+April 22, 2019
+
+                            </time>
+                        </div>
+                    </div>
+                    <a class="post-link" href="/ZUM-Pilot-integer/">
+                        <h2 class="post-title" itemprop="name">
+                            <span class="text">
+                                개발 컨텐츠 공유 서비스 - 파일럿 프로젝트
+                            </span>
+                        </h2>
+                    </a>
+                    <a class="post-link" href="/ZUM-Pilot-integer/">
+                        <p class="description">신입 개발자의 파일럿 프로젝트 회고록</p>
+                    </a>
+                    <div class="tags">
+                        
+                            <a href="/tags/#experience">experience</a>
+                        
+                            <a href="/tags/#springboot">Springboot</a>
+                        
+                            <a href="/tags/#jpa">JPA</a>
+                        
+                            <a href="/tags/#querydsl">QueryDSL</a>
+                        
+                            <a href="/tags/#vue-js">Vue.js</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </article>
+    
+        <article class="box-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+            
+            <!--
+            <span class="category">
+                <a href="https://zuminternet.github.io/categoria/portal/pilot">
+                    <span>portal/pilot</span>
+                </a>
+            </span>
+            -->
+            
+            <div class="box-body">
+                
+                    <div class="cover">
+                        
+
+
+
+                        <a href="/ZUM-Pilot-dynamic-board/">
+                            <!-- <img src="assets/img/placeholder.png" data-url="/images/portal/post/2019-04-19-ZUM-Pilot-dynamic-board/wallpaper2.png" class="preload"> -->
+                            <span class="img" style="background-image:url(/images/portal/post/2019-04-19-ZUM-Pilot-dynamic-board/wallpaper2.png)"></span>
+                        </a>
+                    </div>
+                
+                <div class="box-info">
+                    <div class="author-date">
+                        <div class="date">
+                            <meta itemprop="datePublished" content="2019-04-19T00:00:00+09:00" />
+                            <time itemprop="datePublished" datetime="2019-04-19T00:00:00+09:00" class="date">
+                                
+
+
+April 19, 2019
+
+                            </time>
+                        </div>
+                    </div>
+                    <a class="post-link" href="/ZUM-Pilot-dynamic-board/">
+                        <h2 class="post-title" itemprop="name">
+                            <span class="text">
+                                카페 형식 게시판 구현 - 파일럿 프로젝트
+                            </span>
+                        </h2>
+                    </a>
+                    <a class="post-link" href="/ZUM-Pilot-dynamic-board/">
+                        <p class="description">Spring Boot와 Vuejs를 이용한 동적인 게시판 구축하기</p>
+                    </a>
+                    <div class="tags">
+                        
+                            <a href="/tags/#springboot">springboot</a>
+                        
+                            <a href="/tags/#vue-js">vue.js</a>
+                        
+                            <a href="/tags/#pilot">pilot</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </article>
+    
+        <article class="box-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+            
+            <!--
+            <span class="category">
+                <a href="https://zuminternet.github.io/categoria/portal/tech">
+                    <span>portal/tech</span>
+                </a>
+            </span>
+            -->
+            
+            <div class="box-body">
+                
+                    <div class="cover">
+                        
+
+
+
+                        <a href="/ZUM-deploy-on-AWS/">
+                            <!-- <img src="assets/img/placeholder.png" data-url="/images/portal/post/2019-03-19-ZUM-deploy-on-AWS/00.PNG" class="preload"> -->
+                            <span class="img" style="background-image:url(/images/portal/post/2019-03-19-ZUM-deploy-on-AWS/00.PNG)"></span>
+                        </a>
+                    </div>
+                
+                <div class="box-info">
+                    <div class="author-date">
+                        <div class="date">
+                            <meta itemprop="datePublished" content="2019-03-19T00:00:00+09:00" />
+                            <time itemprop="datePublished" datetime="2019-03-19T00:00:00+09:00" class="date">
+                                
+
+
+Mark 19, 2019
+
+                            </time>
+                        </div>
+                    </div>
+                    <a class="post-link" href="/ZUM-deploy-on-AWS/">
+                        <h2 class="post-title" itemprop="name">
+                            <span class="text">
+                                Public Cloud(AWS) 기반 CD(Continuous Delivery or Continuous Deploy) 도입
+                            </span>
+                        </h2>
+                    </a>
+                    <a class="post-link" href="/ZUM-deploy-on-AWS/">
+                        <p class="description">AWS기반 배포 자동화 구축 및 사용 후기</p>
+                    </a>
+                    <div class="tags">
+                        
+                            <a href="/tags/#experience">experience</a>
+                        
+                            <a href="/tags/#infra">infra</a>
+                        
+                            <a href="/tags/#deploy">deploy</a>
+                        
+                            <a href="/tags/#aws">aws</a>
+                        
+                            <a href="/tags/#code-series">code-series</a>
+                        
+                            <a href="/tags/#lambda">lambda</a>
+                        
+                            <a href="/tags/#ec2">ec2</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </article>
+    
+        <article class="box-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+            
+            <!--
+            <span class="category">
+                <a href="https://zuminternet.github.io/categoria/portal/tech">
+                    <span>portal/tech</span>
+                </a>
+            </span>
+            -->
+            
+            <div class="box-body">
+                
+                    <div class="cover">
+                        
+
+
+
+                        <a href="/ZUM-Pilot-cms/">
+                            <!-- <img src="assets/img/placeholder.png" data-url="/images/portal/post/2018-10-11-ZUM-Pilot-cms/00-wall.png" class="preload"> -->
+                            <span class="img" style="background-image:url(/images/portal/post/2018-10-11-ZUM-Pilot-cms/00-wall.png)"></span>
+                        </a>
+                    </div>
+                
+                <div class="box-info">
+                    <div class="author-date">
+                        <div class="date">
+                            <meta itemprop="datePublished" content="2018-10-11T00:00:00+09:00" />
+                            <time itemprop="datePublished" datetime="2018-10-11T00:00:00+09:00" class="date">
+                                
+
+
+October 11, 2018
+
+                            </time>
+                        </div>
+                    </div>
+                    <a class="post-link" href="/ZUM-Pilot-cms/">
+                        <h2 class="post-title" itemprop="name">
+                            <span class="text">
+                                파일럿 프로젝트 회고록 - TV줌 CMS
+                            </span>
+                        </h2>
+                    </a>
+                    <a class="post-link" href="/ZUM-Pilot-cms/">
+                        <p class="description">7주간의 특별한 경험에 관한 이야기</p>
+                    </a>
+                    <div class="tags">
+                        
+                            <a href="/tags/#experience">experience</a>
+                        
+                            <a href="/tags/#springboot">springboot</a>
+                        
+                            <a href="/tags/#vuejs">vuejs</a>
+                        
+                            <a href="/tags/#redis">redis</a>
+                        
+                            <a href="/tags/#video-js">video.js</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </article>
+    
+        <article class="box-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+            
+            <!--
+            <span class="category">
+                <a href="https://zuminternet.github.io/categoria/search/tech">
+                    <span>search/tech</span>
+                </a>
+            </span>
+            -->
+            
+            <div class="box-body">
+                
+                    <div class="cover">
+                        
+
+
+
+                        <a href="/SearchResultsClustering/">
+                            <!-- <img src="assets/img/placeholder.png" data-url="/images/search/post/2018-09-12-SearchResultsClustering/carrot-search.png" class="preload"> -->
+                            <span class="img" style="background-image:url(/images/search/post/2018-09-12-SearchResultsClustering/carrot-search.png)"></span>
+                        </a>
+                    </div>
+                
+                <div class="box-info">
+                    <div class="author-date">
+                        <div class="date">
+                            <meta itemprop="datePublished" content="2018-09-12T00:00:00+09:00" />
+                            <time itemprop="datePublished" datetime="2018-09-12T00:00:00+09:00" class="date">
+                                
+
+
+September 12, 2018
+
+                            </time>
+                        </div>
+                    </div>
+                    <a class="post-link" href="/SearchResultsClustering/">
+                        <h2 class="post-title" itemprop="name">
+                            <span class="text">
+                                Search Results clustering Engine, carrot<sup>2</sup>
+                            </span>
+                        </h2>
+                    </a>
+                    <a class="post-link" href="/SearchResultsClustering/">
+                        <p class="description">carrot<sup>2</sup>에 관한 스터디 내용 정리</p>
+                    </a>
+                    <div class="tags">
+                        
+                            <a href="/tags/#solr">solr</a>
+                        
+                            <a href="/tags/#clustering">clustering</a>
+                        
+                            <a href="/tags/#carrot2">carrot2</a>
+                        
+                            <a href="/tags/#search">search</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </article>
+    
+        <article class="box-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+            
+            <!--
+            <span class="category">
+                <a href="https://zuminternet.github.io/categoria/portal/pilot">
+                    <span>portal/pilot</span>
+                </a>
+            </span>
+            -->
+            
+            <div class="box-body">
+                
+                    <div class="cover">
+                        
+
+
+
+                        <a href="/ZUM-Pilot-vuejs/">
+                            <!-- <img src="assets/img/placeholder.png" data-url="/images/portal/post/2018-08-23-ZUM-Pilot-partjun/vuejs-wallpaper-1_0.png" class="preload"> -->
+                            <span class="img" style="background-image:url(/images/portal/post/2018-08-23-ZUM-Pilot-partjun/vuejs-wallpaper-1_0.png)"></span>
+                        </a>
+                    </div>
+                
+                <div class="box-info">
+                    <div class="author-date">
+                        <div class="date">
+                            <meta itemprop="datePublished" content="2018-08-23T00:00:00+09:00" />
+                            <time itemprop="datePublished" datetime="2018-08-23T00:00:00+09:00" class="date">
+                                
+
+
+August 23, 2018
+
+                            </time>
+                        </div>
+                    </div>
+                    <a class="post-link" href="/ZUM-Pilot-vuejs/">
+                        <h2 class="post-title" itemprop="name">
+                            <span class="text">
+                                Vuejs로 모바일 웹 구축하기
+                            </span>
+                        </h2>
+                    </a>
+                    <a class="post-link" href="/ZUM-Pilot-vuejs/">
+                        <p class="description">줌 모바일 웹을 Vuejs로 마이그레이션 했던 경험을 공유 합니다.</p>
+                    </a>
+                    <div class="tags">
+                        
+                            <a href="/tags/#spring">spring</a>
+                        
+                            <a href="/tags/#boot">boot</a>
+                        
+                            <a href="/tags/#vue-js">vue.js</a>
+                        
+                            <a href="/tags/#pilot">pilot</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </article>
+    
+        <article class="box-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+            
+            <!--
+            <span class="category">
+                <a href="https://zuminternet.github.io/categoria/portal/pilot">
+                    <span>portal/pilot</span>
+                </a>
+            </span>
+            -->
+            
+            <div class="box-body">
+                
+                    <div class="cover">
+                        
+
+
+
+                        <a href="/ZUM-Pilot-youngwoo/">
+                            <!-- <img src="assets/img/placeholder.png" data-url="/images/portal/post/2017-10-27-ZUM-Pilot-youngwoo/db.png" class="preload"> -->
+                            <span class="img" style="background-image:url(/images/portal/post/2017-10-27-ZUM-Pilot-youngwoo/db.png)"></span>
+                        </a>
+                    </div>
+                
+                <div class="box-info">
+                    <div class="author-date">
+                        <div class="date">
+                            <meta itemprop="datePublished" content="2017-10-27T00:00:00+09:00" />
+                            <time itemprop="datePublished" datetime="2017-10-27T00:00:00+09:00" class="date">
+                                
+
+
+October 27, 2017
+
+                            </time>
+                        </div>
+                    </div>
+                    <a class="post-link" href="/ZUM-Pilot-youngwoo/">
+                        <h2 class="post-title" itemprop="name">
+                            <span class="text">
+                                처음 만난 스프링 파일럿 프로젝트
+                            </span>
+                        </h2>
+                    </a>
+                    <a class="post-link" href="/ZUM-Pilot-youngwoo/">
+                        <p class="description">줌에서 스프링을 만나다!. 파일럿 프로젝트를 진행하면서  사용했던 기술들을 어떤 식으로 적용했나에 대한 후기를 작성한 글입니다</p>
+                    </a>
+                    <div class="tags">
+                        
+                            <a href="/tags/#spring">spring</a>
+                        
+                            <a href="/tags/#boot">boot</a>
+                        
+                            <a href="/tags/#pilot">pilot</a>
+                        
+                            <a href="/tags/#신입">신입</a>
+                        
+                            <a href="/tags/#zum">zum</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </article>
+    
+        <article class="box-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+            
+            <!--
+            <span class="category">
+                <a href="https://zuminternet.github.io/categoria/portal/tech">
+                    <span>portal/tech</span>
+                </a>
+            </span>
+            -->
+            
+            <div class="box-body">
+                
+                    <div class="cover">
+                        
+
+
+
+                        <a href="/spring_cloud_stream_rabbitmq_02/">
+                            <!-- <img src="assets/img/placeholder.png" data-url="/images/portal/post/2017-7-12-spring_cloud_stream_rabbitmq_02/20170610_arche_tobe.png" class="preload"> -->
+                            <span class="img" style="background-image:url(/images/portal/post/2017-7-12-spring_cloud_stream_rabbitmq_02/20170610_arche_tobe.png)"></span>
+                        </a>
+                    </div>
+                
+                <div class="box-info">
+                    <div class="author-date">
+                        <div class="date">
+                            <meta itemprop="datePublished" content="2017-07-12T00:00:00+09:00" />
+                            <time itemprop="datePublished" datetime="2017-07-12T00:00:00+09:00" class="date">
+                                
+
+
+July 12, 2017
+
+                            </time>
+                        </div>
+                    </div>
+                    <a class="post-link" href="/spring_cloud_stream_rabbitmq_02/">
+                        <h2 class="post-title" itemprop="name">
+                            <span class="text">
+                                SPRING CLOUD STREAM, MQ 도입 사례 -2
+                            </span>
+                        </h2>
+                    </a>
+                    <a class="post-link" href="/spring_cloud_stream_rabbitmq_02/">
+                        <p class="description">SPRING CLOUD STREAM, MQ(Message Queuing) 도입 사례를 공유합니다.</p>
+                    </a>
+                    <div class="tags">
+                        
+                            <a href="/tags/#spring">spring</a>
+                        
+                            <a href="/tags/#cloud">cloud</a>
+                        
+                            <a href="/tags/#rabbitmq">rabbitmq</a>
+                        
+                            <a href="/tags/#microservices">microservices</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </article>
+    
+        <article class="box-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+            
+            <!--
+            <span class="category">
+                <a href="https://zuminternet.github.io/categoria/portal/tech">
+                    <span>portal/tech</span>
+                </a>
+            </span>
+            -->
+            
+            <div class="box-body">
+                
+                    <div class="cover">
+                        
+
+
+
+                        <a href="/spring_cloud_stream_rabbitmq_01/">
+                            <!-- <img src="assets/img/placeholder.png" data-url="/images/portal/post/2017-7-11-spring_cloud_stream_rabbitmq_01/337882_1_En_9_Fig1_HTML.gif" class="preload"> -->
+                            <span class="img" style="background-image:url(/images/portal/post/2017-7-11-spring_cloud_stream_rabbitmq_01/337882_1_En_9_Fig1_HTML.gif)"></span>
+                        </a>
+                    </div>
+                
+                <div class="box-info">
+                    <div class="author-date">
+                        <div class="date">
+                            <meta itemprop="datePublished" content="2017-07-11T00:00:00+09:00" />
+                            <time itemprop="datePublished" datetime="2017-07-11T00:00:00+09:00" class="date">
+                                
+
+
+July 11, 2017
+
+                            </time>
+                        </div>
+                    </div>
+                    <a class="post-link" href="/spring_cloud_stream_rabbitmq_01/">
+                        <h2 class="post-title" itemprop="name">
+                            <span class="text">
+                                SPRING CLOUD STREAM, MQ 도입 사례 - 1
+                            </span>
+                        </h2>
+                    </a>
+                    <a class="post-link" href="/spring_cloud_stream_rabbitmq_01/">
+                        <p class="description">SPRING CLOUD STREAM, MQ(Message Queuing) 도입 사례를 공유합니다.</p>
+                    </a>
+                    <div class="tags">
+                        
+                            <a href="/tags/#spring">spring</a>
+                        
+                            <a href="/tags/#cloud">cloud</a>
+                        
+                            <a href="/tags/#rabbitmq">rabbitmq</a>
+                        
+                            <a href="/tags/#microservices">microservices</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </article>
+    
+        <article class="box-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+            
+            <!--
+            <span class="category">
+                <a href="https://zuminternet.github.io/categoria/portal/tech">
+                    <span>portal/tech</span>
+                </a>
+            </span>
+            -->
+            
+            <div class="box-body">
+                
+                    <div class="cover">
+                        
+
+
+
+                        <a href="/OAuth2-Social/">
+                            <!-- <img src="assets/img/placeholder.png" data-url="/images/portal/post/2017-07-04-OAuth2-Social/oauth2-640x410.jpg" class="preload"> -->
+                            <span class="img" style="background-image:url(/images/portal/post/2017-07-04-OAuth2-Social/oauth2-640x410.jpg)"></span>
+                        </a>
+                    </div>
+                
+                <div class="box-info">
+                    <div class="author-date">
+                        <div class="date">
+                            <meta itemprop="datePublished" content="2017-07-04T00:00:00+09:00" />
+                            <time itemprop="datePublished" datetime="2017-07-04T00:00:00+09:00" class="date">
+                                
+
+
+July 4, 2017
+
+                            </time>
+                        </div>
+                    </div>
+                    <a class="post-link" href="/OAuth2-Social/">
+                        <h2 class="post-title" itemprop="name">
+                            <span class="text">
+                                Spring Boot &amp; OAuth2 기반 소셜 댓글 시스템 개발하기
+                            </span>
+                        </h2>
+                    </a>
+                    <a class="post-link" href="/OAuth2-Social/">
+                        <p class="description">페이스북, 구글, 트위터, 카카오 등 국내에서 많이 쓰이는 서비스들의 OAuth인증을 통한 댓글 시스템 구현하기</p>
+                    </a>
+                    <div class="tags">
+                        
+                            <a href="/tags/#spring-boot">Spring Boot</a>
+                        
+                            <a href="/tags/#oauth2">OAuth2</a>
+                        
+                            <a href="/tags/#social">Social</a>
+                        
+                            <a href="/tags/#comment">Comment</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </article>
+    
+        <article class="box-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+            
+            <!--
+            <span class="category">
+                <a href="https://zuminternet.github.io/categoria/portal/tech">
+                    <span>portal/tech</span>
+                </a>
+            </span>
+            -->
+            
+            <div class="box-body">
+                
+                    <div class="cover">
+                        
+
+
+
+                        <a href="/NEXUS-3XX-MAVEN-NPM/">
+                            <!-- <img src="assets/img/placeholder.png" data-url="/images/portal/post/2017-07-04-NEXUS-3XX-MAVEN-NPM/images.jpeg" class="preload"> -->
+                            <span class="img" style="background-image:url(/images/portal/post/2017-07-04-NEXUS-3XX-MAVEN-NPM/images.jpeg)"></span>
+                        </a>
+                    </div>
+                
+                <div class="box-info">
+                    <div class="author-date">
+                        <div class="date">
+                            <meta itemprop="datePublished" content="2017-07-04T00:00:00+09:00" />
+                            <time itemprop="datePublished" datetime="2017-07-04T00:00:00+09:00" class="date">
+                                
+
+
+July 4, 2017
+
+                            </time>
+                        </div>
+                    </div>
+                    <a class="post-link" href="/NEXUS-3XX-MAVEN-NPM/">
+                        <h2 class="post-title" itemprop="name">
+                            <span class="text">
+                                Spring Nexus 3.X - Maven, NPM 저장소로 이용하기
+                            </span>
+                        </h2>
+                    </a>
+                    <a class="post-link" href="/NEXUS-3XX-MAVEN-NPM/">
+                        <p class="description">Nexus에서 Maven 저장소, NPM 저장소를 구성하고 사용하는 내용을 정리</p>
+                    </a>
+                    <div class="tags">
+                        
+                            <a href="/tags/#ci">ci</a>
+                        
+                            <a href="/tags/#repository">repository</a>
+                        
+                            <a href="/tags/#maven">maven</a>
+                        
+                            <a href="/tags/#npm">npm</a>
+                        
+                            <a href="/tags/#gradle">gradle</a>
+                        
+                            <a href="/tags/#nexus">nexus</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </article>
+    
+        <article class="box-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+            
+            <!--
+            <span class="category">
+                <a href="https://zuminternet.github.io/categoria/portal/tech">
+                    <span>portal/tech</span>
+                </a>
+            </span>
+            -->
+            
+            <div class="box-body">
+                
+                    <div class="cover">
+                        
+
+
+
+                        <a href="/JOOQ/">
+                            <!-- <img src="assets/img/placeholder.png" data-url="/images/portal/post/2017-06-25-JOOQ/icon.png" class="preload"> -->
+                            <span class="img" style="background-image:url(/images/portal/post/2017-06-25-JOOQ/icon.png)"></span>
+                        </a>
+                    </div>
+                
+                <div class="box-info">
+                    <div class="author-date">
+                        <div class="date">
+                            <meta itemprop="datePublished" content="2017-06-25T00:00:00+09:00" />
+                            <time itemprop="datePublished" datetime="2017-06-25T00:00:00+09:00" class="date">
+                                
+
+
+June 25, 2017
+
+                            </time>
+                        </div>
+                    </div>
+                    <a class="post-link" href="/JOOQ/">
+                        <h2 class="post-title" itemprop="name">
+                            <span class="text">
+                                jOOQ !! (Java Object Oriented Querying)
+                            </span>
+                        </h2>
+                    </a>
+                    <a class="post-link" href="/JOOQ/">
+                        <p class="description">jOOQ가 뭐지? 사내에서 Query Repository로 사용하게 된 `jOOQ` 를 간단하게 정리</p>
+                    </a>
+                    <div class="tags">
+                        
+                            <a href="/tags/#sql">sql</a>
+                        
+                            <a href="/tags/#database">database</a>
+                        
+                            <a href="/tags/#springboot">springboot</a>
+                        
+                            <a href="/tags/#spring">spring</a>
+                        
+                            <a href="/tags/#jooq">jooq</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </article>
+    
+        <article class="box-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+            
+            <!--
+            <span class="category">
+                <a href="https://zuminternet.github.io/categoria/portal/tech">
+                    <span>portal/tech</span>
+                </a>
+            </span>
+            -->
+            
+            <div class="box-body">
+                
+                    <div class="cover">
+                        
+
+
+
+                        <a href="/JENKINS-BUILD/">
+                            <!-- <img src="assets/img/placeholder.png" data-url="/images/portal/post/2017-05-10-JENKINS-BUILD/list.png" class="preload"> -->
+                            <span class="img" style="background-image:url(/images/portal/post/2017-05-10-JENKINS-BUILD/list.png)"></span>
+                        </a>
+                    </div>
+                
+                <div class="box-info">
+                    <div class="author-date">
+                        <div class="date">
+                            <meta itemprop="datePublished" content="2017-05-10T00:00:00+09:00" />
+                            <time itemprop="datePublished" datetime="2017-05-10T00:00:00+09:00" class="date">
+                                
+
+
+May 10, 2017
+
+                            </time>
+                        </div>
+                    </div>
+                    <a class="post-link" href="/JENKINS-BUILD/">
+                        <h2 class="post-title" itemprop="name">
+                            <span class="text">
+                                젠킨스 사용하여 자동 배포환경 만들기!
+                            </span>
+                        </h2>
+                    </a>
+                    <a class="post-link" href="/JENKINS-BUILD/">
+                        <p class="description">푸시-빌드-전송-배포가 지겹다! 이젠 자동으로 하고싶다!하여 만들었습니다.</p>
+                    </a>
+                    <div class="tags">
+                        
+                            <a href="/tags/#jenkins">jenkins</a>
+                        
+                            <a href="/tags/#ci">ci</a>
+                        
+                            <a href="/tags/#deploy">deploy</a>
+                        
+                            <a href="/tags/#gradle">gradle</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </article>
+    
+        <article class="box-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+            
+            <!--
+            <span class="category">
+                <a href="https://zuminternet.github.io/categoria/portal/tech">
+                    <span>portal/tech</span>
+                </a>
+            </span>
+            -->
+            
+            <div class="box-body">
+                
+                    <div class="cover">
+                        
+
+
+
+                        <a href="/Coffee-ES6/">
+                            <!-- <img src="assets/img/placeholder.png" data-url="/images/portal/post/2017-03-22-Coffee-ES6/coffee.png" class="preload"> -->
+                            <span class="img" style="background-image:url(/images/portal/post/2017-03-22-Coffee-ES6/coffee.png)"></span>
+                        </a>
+                    </div>
+                
+                <div class="box-info">
+                    <div class="author-date">
+                        <div class="date">
+                            <meta itemprop="datePublished" content="2017-03-22T00:00:00+09:00" />
+                            <time itemprop="datePublished" datetime="2017-03-22T00:00:00+09:00" class="date">
+                                
+
+
+Mark 22, 2017
+
+                            </time>
+                        </div>
+                    </div>
+                    <a class="post-link" href="/Coffee-ES6/">
+                        <h2 class="post-title" itemprop="name">
+                            <span class="text">
+                                실서비스에서 CoffeeScript를 ES6로 변환하기
+                            </span>
+                        </h2>
+                    </a>
+                    <a class="post-link" href="/Coffee-ES6/">
+                        <p class="description">사내의 모바일웹 프로젝트의 프론트 환경이 CoffeeScript로 개발되어 있어 여러가지 불편을 겪었습니다. 이는 오랫동안 풀어야 할 숙원사업(?)이였는데 이를 해결하며 느꼈던 점, 절차, 노하우를 공유하고자 합니다. 제가 느꼈던 CoffeeScript 환경의 문제와 Webpack + ES6 도입 이유를 정리해 보았습니다.</p>
+                    </a>
+                    <div class="tags">
+                        
+                            <a href="/tags/#coffeescript">CoffeeScript</a>
+                        
+                            <a href="/tags/#es6">ES6</a>
+                        
+                            <a href="/tags/#decaffeinate">decaffeinate</a>
+                        
+                            <a href="/tags/#webpack">Webpack</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </article>
+    
+        <article class="box-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+            
+            <!--
+            <span class="category">
+                <a href="https://zuminternet.github.io/categoria/portal/pilot">
+                    <span>portal/pilot</span>
+                </a>
+            </span>
+            -->
+            
+            <div class="box-body">
+                
+                    <div class="cover">
+                        
+
+
+
+                        <a href="/ZUM-Pilot-jeonghoon/">
+                            <!-- <img src="assets/img/placeholder.png" data-url="/images/portal/post/2017-02-24-ZUM-Pilot-jeonghoon/IMG_1521.JPG" class="preload"> -->
+                            <span class="img" style="background-image:url(/images/portal/post/2017-02-24-ZUM-Pilot-jeonghoon/IMG_1521.JPG)"></span>
+                        </a>
+                    </div>
+                
+                <div class="box-info">
+                    <div class="author-date">
+                        <div class="date">
+                            <meta itemprop="datePublished" content="2017-02-24T00:00:00+09:00" />
+                            <time itemprop="datePublished" datetime="2017-02-24T00:00:00+09:00" class="date">
+                                
+
+
+February 24, 2017
+
+                            </time>
+                        </div>
+                    </div>
+                    <a class="post-link" href="/ZUM-Pilot-jeonghoon/">
+                        <h2 class="post-title" itemprop="name">
+                            <span class="text">
+                                소셜 댓글 파일럿 프로젝트
+                            </span>
+                        </h2>
+                    </a>
+                    <a class="post-link" href="/ZUM-Pilot-jeonghoon/">
+                        <p class="description">나에게도 봄이 왔다. 입사 파일럿 프로젝트를 진행하면서 제가 느낀점(잘한점/부족한점)과 회고에 대한 글입니다.</p>
+                    </a>
+                    <div class="tags">
+                        
+                            <a href="/tags/#spring">spring</a>
+                        
+                            <a href="/tags/#boot">boot</a>
+                        
+                            <a href="/tags/#pilot">pilot</a>
+                        
+                            <a href="/tags/#신입">신입</a>
+                        
+                            <a href="/tags/#zum">zum</a>
+                        
+                            <a href="/tags/#줌인터넷">줌인터넷</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </article>
+    
+        <article class="box-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+            
+            <!--
+            <span class="category">
+                <a href="https://zuminternet.github.io/categoria/portal/tech">
+                    <span>portal/tech</span>
+                </a>
+            </span>
+            -->
+            
+            <div class="box-body">
+                
+                    <div class="cover">
+                        
+
+
+
+                        <a href="/BUG-TRACKING-5/">
+                            <!-- <img src="assets/img/placeholder.png" data-url="/images/portal/post/2017-02-22-BUG-TRACKING-5/result1.jpg" class="preload"> -->
+                            <span class="img" style="background-image:url(/images/portal/post/2017-02-22-BUG-TRACKING-5/result1.jpg)"></span>
+                        </a>
+                    </div>
+                
+                <div class="box-info">
+                    <div class="author-date">
+                        <div class="date">
+                            <meta itemprop="datePublished" content="2017-02-22T00:00:00+09:00" />
+                            <time itemprop="datePublished" datetime="2017-02-22T00:00:00+09:00" class="date">
+                                
+
+
+February 22, 2017
+
+                            </time>
+                        </div>
+                    </div>
+                    <a class="post-link" href="/BUG-TRACKING-5/">
+                        <h2 class="post-title" itemprop="name">
+                            <span class="text">
+                                버그 트래킹 일지(5) - 대망의 적용 배포 그리고 결론
+                            </span>
+                        </h2>
+                    </a>
+                    <a class="post-link" href="/BUG-TRACKING-5/">
+                        <p class="description">웹 서비스(Spring Framework)의 세션을 Membase(현재의 Couchbase)로 관리하면서 발생한 이슈입니다. 이슈를 해결해 나가는 과정을 기록으로 남깁니다.</p>
+                    </a>
+                    <div class="tags">
+                        
+                            <a href="/tags/#membase">membase</a>
+                        
+                            <a href="/tags/#bugtracking">bugtracking</a>
+                        
+                            <a href="/tags/#resource">resource</a>
+                        
+                            <a href="/tags/#io">io</a>
+                        
+                            <a href="/tags/#nosql">nosql</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </article>
+    
+        <article class="box-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+            
+            <!--
+            <span class="category">
+                <a href="https://zuminternet.github.io/categoria/portal/tech">
+                    <span>portal/tech</span>
+                </a>
+            </span>
+            -->
+            
+            <div class="box-body">
+                
+                    <div class="cover">
+                        
+
+
+
+                        <a href="/BUG-TRACKING-4/">
+                            <!-- <img src="assets/img/placeholder.png" data-url="/images/portal/post/2017-02-22-BUG-TRACKING-4/sevlet.png" class="preload"> -->
+                            <span class="img" style="background-image:url(/images/portal/post/2017-02-22-BUG-TRACKING-4/sevlet.png)"></span>
+                        </a>
+                    </div>
+                
+                <div class="box-info">
+                    <div class="author-date">
+                        <div class="date">
+                            <meta itemprop="datePublished" content="2017-02-22T00:00:00+09:00" />
+                            <time itemprop="datePublished" datetime="2017-02-22T00:00:00+09:00" class="date">
+                                
+
+
+February 22, 2017
+
+                            </time>
+                        </div>
+                    </div>
+                    <a class="post-link" href="/BUG-TRACKING-4/">
+                        <h2 class="post-title" itemprop="name">
+                            <span class="text">
+                                버그 트래킹 일지(4) - 의심하고 또 의심하자
+                            </span>
+                        </h2>
+                    </a>
+                    <a class="post-link" href="/BUG-TRACKING-4/">
+                        <p class="description">웹 서비스(Spring Framework)의 세션을 Membase(현재의 Couchbase)로 관리하면서 발생한 이슈입니다. 이슈를 해결해 나가는 과정을 기록으로 남깁니다.</p>
+                    </a>
+                    <div class="tags">
+                        
+                            <a href="/tags/#membase">membase</a>
+                        
+                            <a href="/tags/#bugtracking">bugtracking</a>
+                        
+                            <a href="/tags/#resource">resource</a>
+                        
+                            <a href="/tags/#io">io</a>
+                        
+                            <a href="/tags/#nosql">nosql</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </article>
+    
+        <article class="box-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+            
+            <!--
+            <span class="category">
+                <a href="https://zuminternet.github.io/categoria/portal/tech">
+                    <span>portal/tech</span>
+                </a>
+            </span>
+            -->
+            
+            <div class="box-body">
+                
+                    <div class="cover">
+                        
+
+
+
+                        <a href="/BUG-TRACKING-3/">
+                            <!-- <img src="assets/img/placeholder.png" data-url="/images/portal/post/2017-02-22-BUG-TRACKING-3/a_failover_before.png" class="preload"> -->
+                            <span class="img" style="background-image:url(/images/portal/post/2017-02-22-BUG-TRACKING-3/a_failover_before.png)"></span>
+                        </a>
+                    </div>
+                
+                <div class="box-info">
+                    <div class="author-date">
+                        <div class="date">
+                            <meta itemprop="datePublished" content="2017-02-22T00:00:00+09:00" />
+                            <time itemprop="datePublished" datetime="2017-02-22T00:00:00+09:00" class="date">
+                                
+
+
+February 22, 2017
+
+                            </time>
+                        </div>
+                    </div>
+                    <a class="post-link" href="/BUG-TRACKING-3/">
+                        <h2 class="post-title" itemprop="name">
+                            <span class="text">
+                                버그 트래킹 일지(3) - 임시방편보단 장기적으로
+                            </span>
+                        </h2>
+                    </a>
+                    <a class="post-link" href="/BUG-TRACKING-3/">
+                        <p class="description">웹 서비스(Spring Framework)의 세션을 Membase(현재의 Couchbase)로 관리하면서 발생한 이슈입니다. 이슈를 해결해 나가는 과정을 기록으로 남깁니다.</p>
+                    </a>
+                    <div class="tags">
+                        
+                            <a href="/tags/#membase">membase</a>
+                        
+                            <a href="/tags/#bugtracking">bugtracking</a>
+                        
+                            <a href="/tags/#resource">resource</a>
+                        
+                            <a href="/tags/#io">io</a>
+                        
+                            <a href="/tags/#nosql">nosql</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </article>
+    
+        <article class="box-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+            
+            <!--
+            <span class="category">
+                <a href="https://zuminternet.github.io/categoria/portal/tech">
+                    <span>portal/tech</span>
+                </a>
+            </span>
+            -->
+            
+            <div class="box-body">
+                
+                    <div class="cover">
+                        
+
+
+
+                        <a href="/BUG-TRACKING-2/">
+                            <!-- <img src="assets/img/placeholder.png" data-url="/images/portal/post/2017-02-22-BUG-TRACKING-2/couchbaseuseram.png" class="preload"> -->
+                            <span class="img" style="background-image:url(/images/portal/post/2017-02-22-BUG-TRACKING-2/couchbaseuseram.png)"></span>
+                        </a>
+                    </div>
+                
+                <div class="box-info">
+                    <div class="author-date">
+                        <div class="date">
+                            <meta itemprop="datePublished" content="2017-02-22T00:00:00+09:00" />
+                            <time itemprop="datePublished" datetime="2017-02-22T00:00:00+09:00" class="date">
+                                
+
+
+February 22, 2017
+
+                            </time>
+                        </div>
+                    </div>
+                    <a class="post-link" href="/BUG-TRACKING-2/">
+                        <h2 class="post-title" itemprop="name">
+                            <span class="text">
+                                버그 트래킹 일지(2) - 로그를 보자!
+                            </span>
+                        </h2>
+                    </a>
+                    <a class="post-link" href="/BUG-TRACKING-2/">
+                        <p class="description">웹 서비스(Spring Framework)의 세션을 Membase(현재의 Couchbase)로 관리하면서 발생한 이슈입니다. 이슈를 해결해 나가는 과정을 기록으로 남깁니다.</p>
+                    </a>
+                    <div class="tags">
+                        
+                            <a href="/tags/#membase">membase</a>
+                        
+                            <a href="/tags/#bugtracking">bugtracking</a>
+                        
+                            <a href="/tags/#resource">resource</a>
+                        
+                            <a href="/tags/#io">io</a>
+                        
+                            <a href="/tags/#nosql">nosql</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </article>
+    
+        <article class="box-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+            
+            <!--
+            <span class="category">
+                <a href="https://zuminternet.github.io/categoria/portal/tech">
+                    <span>portal/tech</span>
+                </a>
+            </span>
+            -->
+            
+            <div class="box-body">
+                
+                    <div class="cover">
+                        
+
+
+
+                        <a href="/BUG-TRACKING-1/">
+                            <!-- <img src="assets/img/placeholder.png" data-url="/images/portal/post/2017-02-22-BUG-TRACKING-1/vbucket.png" class="preload"> -->
+                            <span class="img" style="background-image:url(/images/portal/post/2017-02-22-BUG-TRACKING-1/vbucket.png)"></span>
+                        </a>
+                    </div>
+                
+                <div class="box-info">
+                    <div class="author-date">
+                        <div class="date">
+                            <meta itemprop="datePublished" content="2017-02-22T00:00:00+09:00" />
+                            <time itemprop="datePublished" datetime="2017-02-22T00:00:00+09:00" class="date">
+                                
+
+
+February 22, 2017
+
+                            </time>
+                        </div>
+                    </div>
+                    <a class="post-link" href="/BUG-TRACKING-1/">
+                        <h2 class="post-title" itemprop="name">
+                            <span class="text">
+                                버그 트래킹 일지(1) - 시작은 사전지식 확보부터
+                            </span>
+                        </h2>
+                    </a>
+                    <a class="post-link" href="/BUG-TRACKING-1/">
+                        <p class="description">웹 서비스(Spring Framework)의 세션을 Membase(현재의 Couchbase)로 관리하면서 발생한 이슈입니다. 이슈를 해결해 나가는 과정을 기록으로 남깁니다.</p>
+                    </a>
+                    <div class="tags">
+                        
+                            <a href="/tags/#membase">membase</a>
+                        
+                            <a href="/tags/#bugtracking">bugtracking</a>
+                        
+                            <a href="/tags/#resource">resource</a>
+                        
+                            <a href="/tags/#io">io</a>
+                        
+                            <a href="/tags/#nosql">nosql</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </article>
+    
+        <article class="box-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+            
+            <!--
+            <span class="category">
+                <a href="https://zuminternet.github.io/categoria/portal/pilot">
+                    <span>portal/pilot</span>
+                </a>
+            </span>
+            -->
+            
+            <div class="box-body">
+                
+                    <div class="cover">
+                        
+
+
+
+                        <a href="/ZUM-Pilot-ryudung/">
+                            <!-- <img src="assets/img/placeholder.png" data-url="/images/portal/post/2017-01-06--ZUM-Pilot-ryudung/thum.png" class="preload"> -->
+                            <span class="img" style="background-image:url(/images/portal/post/2017-01-06--ZUM-Pilot-ryudung/thum.png)"></span>
+                        </a>
+                    </div>
+                
+                <div class="box-info">
+                    <div class="author-date">
+                        <div class="date">
+                            <meta itemprop="datePublished" content="2017-01-06T00:00:00+09:00" />
+                            <time itemprop="datePublished" datetime="2017-01-06T00:00:00+09:00" class="date">
+                                
+
+
+January 6, 2017
+
+                            </time>
+                        </div>
+                    </div>
+                    <a class="post-link" href="/ZUM-Pilot-ryudung/">
+                        <h2 class="post-title" itemprop="name">
+                            <span class="text">
+                                계층형 댓글 파일럿 프로젝트
+                            </span>
+                        </h2>
+                    </a>
+                    <a class="post-link" href="/ZUM-Pilot-ryudung/">
+                        <p class="description">개발자로 첫 발을 내딛으며.</p>
+                    </a>
+                    <div class="tags">
+                        
+                            <a href="/tags/#spring">spring</a>
+                        
+                            <a href="/tags/#boot">boot</a>
+                        
+                            <a href="/tags/#pilot">pilot</a>
+                        
+                            <a href="/tags/#zum">zum</a>
+                        
+                            <a href="/tags/#zuminternet">zuminternet</a>
+                        
+                            <a href="/tags/#줌인터넷">줌인터넷</a>
+                        
+                            <a href="/tags/#포털개발">포털개발</a>
+                        
+                            <a href="/tags/#신입">신입</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </article>
+    
+        <article class="box-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+            
+            <!--
+            <span class="category">
+                <a href="https://zuminternet.github.io/categoria/portal/tech">
+                    <span>portal/tech</span>
+                </a>
+            </span>
+            -->
+            
+            <div class="box-body">
+                
+                    <div class="cover">
+                        
+
+
+
+                        <a href="/TEAMUP-BOT-TIP/">
+                            <!-- <img src="assets/img/placeholder.png" data-url="/images/portal/post/2016-10-17-TEAMUP-BOT-TIP/list.jpg" class="preload"> -->
+                            <span class="img" style="background-image:url(/images/portal/post/2016-10-17-TEAMUP-BOT-TIP/list.jpg)"></span>
+                        </a>
+                    </div>
+                
+                <div class="box-info">
+                    <div class="author-date">
+                        <div class="date">
+                            <meta itemprop="datePublished" content="2016-10-17T00:00:00+09:00" />
+                            <time itemprop="datePublished" datetime="2016-10-17T00:00:00+09:00" class="date">
+                                
+
+
+October 17, 2016
+
+                            </time>
+                        </div>
+                    </div>
+                    <a class="post-link" href="/TEAMUP-BOT-TIP/">
+                        <h2 class="post-title" itemprop="name">
+                            <span class="text">
+                                Spring Boot로 TEAMUP(회사 메신져) BOT 만들기 - (2)
+                            </span>
+                        </h2>
+                    </a>
+                    <a class="post-link" href="/TEAMUP-BOT-TIP/">
+                        <p class="description">Spring Boot로 TEAMUP(사내 메신져) BOT 뼈대 만들기 Part2!</p>
+                    </a>
+                    <div class="tags">
+                        
+                            <a href="/tags/#springboot">springboot</a>
+                        
+                            <a href="/tags/#bot">bot</a>
+                        
+                            <a href="/tags/#spring">spring</a>
+                        
+                            <a href="/tags/#teamup">teamup</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </article>
+    
+        <article class="box-item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+            
+            <!--
+            <span class="category">
+                <a href="https://zuminternet.github.io/categoria/portal/tech">
+                    <span>portal/tech</span>
+                </a>
+            </span>
+            -->
+            
+            <div class="box-body">
+                
+                    <div class="cover">
+                        
+
+
+
+                        <a href="/TEAMUP-BOT-START/">
+                            <!-- <img src="assets/img/placeholder.png" data-url="/images/portal/post/2016-10-13-TEAMUP-BOT-START/list.jpg" class="preload"> -->
+                            <span class="img" style="background-image:url(/images/portal/post/2016-10-13-TEAMUP-BOT-START/list.jpg)"></span>
+                        </a>
+                    </div>
+                
+                <div class="box-info">
+                    <div class="author-date">
+                        <div class="date">
+                            <meta itemprop="datePublished" content="2016-10-13T00:00:00+09:00" />
+                            <time itemprop="datePublished" datetime="2016-10-13T00:00:00+09:00" class="date">
+                                
+
+
+October 13, 2016
+
+                            </time>
+                        </div>
+                    </div>
+                    <a class="post-link" href="/TEAMUP-BOT-START/">
+                        <h2 class="post-title" itemprop="name">
+                            <span class="text">
+                                Spring Boot로 TEAMUP(회사 메신져) BOT 만들기 - (1)
+                            </span>
+                        </h2>
+                    </a>
+                    <a class="post-link" href="/TEAMUP-BOT-START/">
+                        <p class="description">Spring Boot로 TEAMUP(사내 메신져) BOT 뼈대 만들기 Part1!</p>
+                    </a>
+                    <div class="tags">
+                        
+                            <a href="/tags/#springboot">springboot</a>
+                        
+                            <a href="/tags/#bot">bot</a>
+                        
+                            <a href="/tags/#spring">spring</a>
+                        
+                            <a href="/tags/#teamup">teamup</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </article>
+    
+    </div>
+</main>
+:ET

@@ -6,7 +6,7 @@ title: Webpack dev server를 이용한 개발 환경 구성 Part2
 
 description: 백엔드 프록시 개발 모드 구현과 그 설명
 
-image: /images/portal/post/2019-07-08-ZUM-Webpack-dev-proxy-part2/webpack-spring.png
+image: /images/front/post/2019-07-08-ZUM-Webpack-dev-proxy-part2/webpack-spring.png
 
 introduction: 모바일 줌 개편을 진행하며 구성했던 개발 모드에 관한 경험을 공유합니다
 
@@ -35,7 +35,7 @@ Webpack Hot Reload 또는 [Hot Module Replacement](https://webpack.js.org/concep
 Netflix의 [SPA를 사용하지 않아](https://medium.com/dev-channel/a-netflix-web-performance-case-study-c0bcde26a9d9)
 퍼포먼스를 향상시켰다는 글은 프론트엔드 진영에 큰 파장을 불러일으켰지만 확실히 일리있는 말이었습니다.
 
-![음..](/images/portal/post/2019-07-08-ZUM-Webpack-dev-proxy-part2/burn.jpg)
+![음..](/images/front/post/2019-07-08-ZUM-Webpack-dev-proxy-part2/burn.jpg)
 *음...*
 
 Vue.js가 장점으로 내세우기도 하는 SPA의 좋은 활용법 중 하나는 페이지의 일부 영역만, 혹은 일부 페이지만
@@ -75,10 +75,10 @@ dev 모드는 크게 세 가지 기능 지원을 목표로 합니다.
 
 그림으로 보면 아래와 같습니다.
 
-![dev-spa](../../images/portal/post/2019-07-08-ZUM-Webpack-dev-proxy-part2/dev_spa.png)
+![dev-spa](images/front/post/2019-07-08-ZUM-Webpack-dev-proxy-part2/dev_spa.png)
 *SPA를 지원하는 URL로 요청한 경우.  템플릿 엔진에서 만들어진 HTML에 스크립트 태그를 삽입한다.*
 
-![dev-other](../../images/portal/post/2019-07-08-ZUM-Webpack-dev-proxy-part2/dev_other.png)
+![dev-other](images/front/post/2019-07-08-ZUM-Webpack-dev-proxy-part2/dev_other.png)
 *그 외 요청.  백엔드에서 온 응답 그대로 반환한다.*
 
 
@@ -266,20 +266,20 @@ http://localhost:8080로 bypass됩니다. 그리고 요청 URL이 `/`인 경우 
 
 ### 3. 테스트
 
-![프록시 응답](/images/portal/post/2019-07-08-ZUM-Webpack-dev-proxy-part2/reverse-proxy.png)
+![프록시 응답](/images/front/post/2019-07-08-ZUM-Webpack-dev-proxy-part2/reverse-proxy.png)
 *http://localhost:3000 요청 결과*
 
 Webpack Dev Server인 3000포트로 요청한 응답입니다.  
 `</html>` 태그 이전 스크립트 삽입 태그가 포함된 것을 볼 수 있습니다.
 또, 템플릿 엔진으로 만들어진 문자열인 'hello'도 확인할 수 있습니다.
 
-![백엔드 직접 요청](/images/portal/post/2019-07-08-ZUM-Webpack-dev-proxy-part2/no-proxy.png)
+![백엔드 직접 요청](/images/front/post/2019-07-08-ZUM-Webpack-dev-proxy-part2/no-proxy.png)
 *http://localhost:8080 요청 결과*
 
 백엔드 서버인 8080포트로 직접 요청한 응답입니다.  
 프록시 로직이 없으므로 템플릿 엔진에서 작성한 그대로 응답합니다.
 
-![굿2](/images/portal/post/2019-07-08-ZUM-Webpack-dev-proxy-part2/good2.jpg)
+![굿2](/images/front/post/2019-07-08-ZUM-Webpack-dev-proxy-part2/good2.jpg)
 *물론 페이지 이동이나 form 관련 리다이렉트도 잘 작동합니다*
 
 
@@ -296,7 +296,7 @@ Webpack Dev Server인 3000포트로 요청한 응답입니다.
 Webpack 프로젝트 기본 룰과 마찬가지로 css/js 태그가 없는 템플릿 파일*(ex: _index.peb)*을 만들어 놓고, 
 번들링할 때 그 템플릿 파일을 로드, 웹팩이 생성한 css/js를 삽입한 템플릿 파일*(ex: index.peb)*을 생성하게 하는 것입니다.  
 
-![생성되는 템플릿](../../images/portal/post/2019-07-08-ZUM-Webpack-dev-proxy-part2/generate_template.png)
+![생성되는 템플릿](images/front/post/2019-07-08-ZUM-Webpack-dev-proxy-part2/generate_template.png)
 *위 그림과 같은 순서를 따릅니다*
 
 이 방법을 적용하려면 HtmlWebpackPlugin이 지원하는 String interpolation과 관련된 문제가 조금 있지만 꽤나 훌륭하게 작동합니다.
@@ -341,5 +341,5 @@ Part1에서 말씀드렸듯 저는 **보여지는** 것은 프론트엔드로, *
 특히 publish 모드는 정해진 JS 파일만을 사용하게 구성했으니 주기적으로 JS 파일 갱신을 위한 작업이 필요합니다.
 
 하지만
-![끝](/images/portal/post/2019-07-08-ZUM-Webpack-dev-proxy-part2/end.jpeg)
+![끝](/images/front/post/2019-07-08-ZUM-Webpack-dev-proxy-part2/end.jpeg)
 
