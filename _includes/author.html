@@ -1,12 +1,25 @@
-{% assign author = site.data.members[page.author] || site.data.members.default %}
 <section class="author" itemprop="author">
   <div class="details" itemscope itemtype="http://schema.org/Person">
-    <img itemprop="image" class="img-rounded" src="{{ author.profileImage }}" alt="{{ site.name }}">
+    {% if page.author %}
+    {% assign author = site.data.members[page.author] %}
+    <a href="{{ author.outlink }}" target="_blank">
+      <img itemprop="image" class="img-rounded" src="{{ author.profileImage }}" alt="{{ author.name }}">
+    </a>
     <p class="def">{{ author.org }}</p>
     <h3 class="name">
       <a itemprop="name" href="https://github.com/{{ site.github_username }}">{{ author.name }}</a>
     </h3>
     <p class="desc">{{ author.description }}</p>
+
+    {% else %}
+    <img itemprop="image" class="img-rounded" src="/images/portal/author/zum.png" alt="줌인터넷">
+    <p class="def">줌인터넷</p>
+    <h3 class="name">
+      <a itemprop="name" href="https://github.com/{{ site.github_username }}">ZUM TECH BLOG</a>
+    </h3>
+    <p class="desc"></p>
+
+    {% endif %}
     <!-- <p>
       {% if site.github_username %}
       <a itemprop="github" href="https://github.com/{{ site.github_username }}" title="Github">

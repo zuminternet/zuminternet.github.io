@@ -6,6 +6,7 @@ image: /images/front/post/2020-09-11-Zum-Chrome-Extension/0-thumbnail.png
 introduction: Vue.js로 줌 확장프로그램을 개발하는 과정을 공유합니다.
 category: portal/tech
 tag: [experience, Vue.js, Frontend, 크롬 확장프로그램, 웹스토어 배포, 웹스토어 검수]
+author: junilhwang
 ---
 
 

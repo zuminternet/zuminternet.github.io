@@ -2,11 +2,16 @@
     position relative
     top rem(30px)
     background #fff
+    letter-spacing rem(-0.5px)
     +above(cut)
         top rem(50px)
 
 .post-content
     padding rem(40px) 0
+
+    strong
+        color #2453c3
+
     img
         max-width 100%
         margin rem(0px) auto
@@ -37,7 +42,7 @@
             font-size rem(20px)
             line-height rem(40px)
             margin 0 auto rem(29px)
-    h1.post-title 
+    h1.post-title
         margin 0 auto
         line-height rem(40px)
         +above(cut)
@@ -65,16 +70,16 @@
             margin-right rem(10px)
             +above(cut)
                 margin-right rem(30px)
-    li 
-        padding rem(10px) 0
-        ul 
+    li
+        padding-bottom rem(10px) 0
+        ul
             margin-bottom 0
     p, li
         color texts
         code
-            color #bf616a
+            color #EB5757
             word-wrap break-word
-            background lightGray
+            background rgba(135,131,120,0.15)
             padding rem(3px) rem(5px)
             border-radius 3px
             font-size rem(18px)
@@ -92,11 +97,13 @@
         +above(cut)
             font-size rem(47px)
     h2
+        margin-top rem(100px)
         font-size rem(24px)
         line-height 1.4
         +above(cut)
             font-size rem(37px)
     h3
+        margin-top rem(60px)
         font-size rem(20px)
         line-height 1.4
         +above(cut)
@@ -135,11 +142,11 @@
         th, td
             border rem(2px) solid #ccc
             padding rem(5px)
-    
+
     td > pre
         padding 0
         margin 0
-    
+
     td.gutter.gl
         padding-right rem(25px)
         line-height rem(24px)
