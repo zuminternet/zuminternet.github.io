@@ -11,6 +11,10 @@ author: junilhwang
 
 > 본 포스트는 기술적인 내용이 아닌, 주니어 개발자인 필자가 함께 일하게 될 신입 개발자 분들을 모시는 과정에 대해 소개하는 글입니다.
 
+<p style="text-align: right">
+  <img style="margin: 0; display: inline-block;" src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fzuminternet.github.io%2Fzum-front-recurit-review%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=%EC%A1%B0%ED%9A%8C%EC%88%98&edge_flat=true" alt="조회수" />
+</p>
+
 ## 1. 변화, 그리고 모집
 
 올해 들어 줌인터넷에는 굉장히 많은 변화가 있었습니다. 먼저 [줌 닷컴](https://zum.com)의 대대적인 개편이 있었습니다. `Spring Boot` 로 작성 된 레거시 프로젝트를 버리고, `nodejs` + `vuejs` 를 적용하면서 거의 모든 것을 갈아엎었습니다.
