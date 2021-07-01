@@ -1,0 +1,185 @@
+I"�D<blockquote>
+  <p>줌닷컴의 이미지 검색 서비스, 셀럽 NOW의 뉴스 분석 시스템을 소개합니다!</p>
+</blockquote>
+
+<h2 id="목차">목차</h2>
+<ol>
+  <li>Intro</li>
+  <li>Query 문서 탐색</li>
+  <li>중복 이미지 제거 및 연관 이미지 클러스터링</li>
+  <li>뉴스 문서 정렬</li>
+  <li>결론</li>
+  <li>Reference</li>
+</ol>
+
+<h2 id="들어가기-전에">들어가기 전에</h2>
+<p>본 문서는 최근 줌닷컴에 런칭된 서비스 “셀럽NOW” 에 대한 내용을 다루기 위해 작성된 글입니다. 셀럽NOW는 유명 연예인들의 뉴스와 사진을 고품질 이미지 순(그리드) 또는 최신 이벤트 순(타임라인) 으로 제공하여 포털 사용자에게 더 높은 수준의 검색 결과를 보여줌으로써 서비스 만족도를 높일 수 있는 시스템입니다.</p>
+
+<p>시스템 개발에는 최신 딥러닝 기술(face detection, semantic segmentation, image classification, image quality assessment) 뿐만 아니라 자연어 처리(NLTK, 문장분리, 구문분석, 인명사전, 대표인명 추출) 및 영상 처리(color science, image classification, image analysis) 기술이 접목되었습니다.</p>
+
+<p>각 기술들의 수학적 내용은 복잡하고 어렵지만, 그런 복잡하고 어려운 이야기보다 각 기술들을 포털 서비스에 어떻게 적용하였는지 기술 응용 측면에서 최대한 쉽게 서술하였습니다.</p>
+
+<h2 id="1-intro">1. Intro</h2>
+<p>포털에서 이슈 검색어를 살펴보면 그림 1과 같이 연예인의 이름이 꾸준히 상위에 노출되는 것을 볼 수 있습니다. 이처럼 인터넷 이용자들은 연예인에 대한 관심이 아주 높고, 각자 선호하는 연예인의 최근 소식 및 사진을 지속적으로 검색하며 꾸준히 접하고 있습니다.</p>
+
+<p><img src="/images/lab/post/2019-11-04-IMAGE-SEARCH/1.png" alt="1.png" />
+<em>그림 1. 이슈 검색어 예시</em></p>
+
+<p>이러한 사용자들의 검색 니즈에 대응하기 위해서는 연예인의 최근소식 및 사진을 효과적으로 제공할 수 있는 시스템의 개발이 필요합니다. 연예인 사진 제공 방법에는 두 가지 방법이 있습니다.</p>
+
+<p>첫번째, 그리드 방식입니다. 뉴스 이미지를 그림 2와 같이 격자 형태로 나열하되, 고품질의 이미지를 상위에 노출 시키는 방식입니다. 사용자가 보고자 하는 연예인 이미지 중 고품질 이미지를 우선적으로 제공함과 동시에 그림 1과 같이 연관 이미지를 묶어서 보여줌으로써 사용자 만족도를 높일 수 있는 UI 입니다.</p>
+
+<p><img src="/images/lab/post/2019-11-04-IMAGE-SEARCH/2.png" alt="2.png" />
+<em>그림 2. 그리드 UI</em></p>
+
+<p><img src="/images/lab/post/2019-11-04-IMAGE-SEARCH/3.png" alt="3.png" />
+<em>그림 3. 연관 이미지 예시</em></p>
+
+<p>두 번째는 타임라인 방식입니다. 뉴스 이미지를 그림 4와 같이 수직방향으로 나열하되, 최신 이벤트 순으로 노출하는 방식입니다. 연예인의 최신 근황을 제공해 줄 뿐만 아니라 날짜/이벤트에 따라 구분지어 제공함으로써 사용자의 만족도를 높일 수 있는 UI입니다.</p>
+
+<p><img src="/images/lab/post/2019-11-04-IMAGE-SEARCH/4.png" alt="4.png" />
+<em>그림 4. 타임라인 UI</em></p>
+
+<p>셀럽 NOW 는 연예인 이름이 쿼리로 입력되었을 때 위에서 언급한 타임라인 및 그리드 UI 를 제공해주는 서비스입니다. 즉, input 은 연예인 명이며 output은 뉴스 이미지 집합인 것입니다. Input 쿼리가 입력되었을 때 문서가 노출되는 알고리즘은 아래와 같이 크게 3단계로 구분됩니다.</p>
+<ol>
+  <li>Query에 해당하는 문서를 탐색하는 단계</li>
+  <li>중복 이미지를 제거하고, 연관 이미지끼리 클러스터링 하는 단계</li>
+  <li>뉴스 문서를 정렬하여 노출 순서를 결정하는 단계</li>
+</ol>
+
+<h2 id="2-query-문서-탐색">2. Query 문서 탐색</h2>
+<p>Query에 해당하는 뉴스 문서 탐색은 뉴스 문서에 나오는 연예인 명의 역색인으로 해결할 수 있습니다. 따라서 뉴스 문서가 어떤 연예인에 대한 문서인지, 특히 주체가 누구인지 파악하는게 중요합니다. 여기서 주체란 문서의 주인공을 뜻합니다. 문서 내에 주체가 언급되는 것은 자명하지만, 언급되는 인물 모두가 주체가 되는 것은 아닙니다.<br />
+아래 그림 5의 예시에서 등장인물은 [방민아, 여진구, 홍종현, 최성원, 홍서영] 이지만 뉴스에서 이야기하고자 하는 인물은 “방민아” 입니다. 즉, 주체는 “방민아” 이며, 나머지는 단순 등장인물인 것입니다. 즉, 뉴스의 등장 인물 중 누가 주체인지를 판단할 수 있어야 합니다.</p>
+
+<p><img src="/images/lab/post/2019-11-04-IMAGE-SEARCH/5.png" alt="5.png" />
+<em>그림 5. 문서 내 등장인물과 주체</em></p>
+
+<p>주체 검출 방법은 그림 6과 같습니다. NLTK, 인명사전, 문장분리, 구문분석 등 다양한 자연어처리 기술을 적용하여 문서 내 등장 인물을 찾고 그 중에 누가 주체인지를 판단하게 됩니다.</p>
+
+<p><img src="/images/lab/post/2019-11-04-IMAGE-SEARCH/6.png" alt="6.png" />
+<em>그림 6. 문서 주체 추출 방법</em></p>
+
+<h2 id="3-중복-이미지-제거-및-연관-이미지-클러스터링">3. 중복 이미지 제거 및 연관 이미지 클러스터링</h2>
+<p>뉴스 문서들을 보다 보면 서로 다른 문서임에도 불구하고 문서 안에 포함된 이미지가 비슷한 경우가 굉장히 많습니다. 사용자에게 비슷한 이미지를 모두 보여주면 시스템의 품질도 굉장히 낮아보일 뿐더러, 필요없는 데이터 양의 증가로 인하여 처리 속도도 느려지게 됩니다.<br />
+따라서 그림 7과 같이 비슷한 이미지를 하나로 묶어서 보여주고, 동일한 이미지의 경우 하나만 노출시켜 시스템의 품질을 높일 필요가 있습니다. 이를 위해 이미지 유사도를 나타낼 수 있는 특성을 임베딩하고, 임베딩된 벡터를 클러스터링 하였습니다.</p>
+
+<p><img src="/images/lab/post/2019-11-04-IMAGE-SEARCH/7.png" alt="7.png" />
+<em>그림 7. 비슷한 이미지가 반복 되는 경우</em></p>
+
+<h3 id="feature-vector-extraction">Feature vector extraction</h3>
+<p>이미지 특성을 임베딩하기 위해 유사한 이미지가 나오는 경우를 분석하여 다음과 같이 세 가지 케이스로 분류하였습니다. 첫 번째, 같은 장소에서 같은 배경을 각도만 달리하여 사진을 찍거나, 시간차를 두고 사진을 찍은 경우입니다.<br />
+그림 8과 같이 기본적으로 인물과 장소가 동일하기 때문에 영상 전반에 걸친 컬러가 비슷할 수 밖에 없습니다.<br />
+따라서 영상의 컬러 특성을 분석하여 임베딩 벡터를 제작하였습니다.</p>
+
+<p><img src="/images/lab/post/2019-11-04-IMAGE-SEARCH/8.png" alt="8.png" />
+<em>그림 8. 배경과 인물이 모두 동일한 경우</em></p>
+
+<p>두 번째, 사진 촬영 장소 또는 각도가 다르지만 인물의 포즈는 비슷한 경우입니다.<br />
+그림 9와 같이 주요 객체 외 배경의 컬러는 다르지만 객체의 형태 또는 구도가 매우 비슷합니다.<br />
+따라서, 영상 내 객체의 shape 특성 등을 분석하여 임베딩 벡터를 제작하였습니다.</p>
+
+<p><img src="/images/lab/post/2019-11-04-IMAGE-SEARCH/9.png" alt="9.png" />
+<em>그림 9. 동일한 인물을 다른 배경으로 찍은 경우</em></p>
+
+<p>마지막으로 영상의 원본은 동일하지만 crop, resizing, enhancement, shifting, compression 등의 왜곡이 발생한 경우입니다. 그림 10과 같이 영상을 cropping 했거나, 밝기 또는 색을 변화시켜 왜곡이 발생하였지만 영상의 전체적인 구도 또는 객체 배열 형태가 비슷합니다. 따라서, 영상의 spatial 특성이 아닌 주파수 특성을 분석하여 임베딩 벡터를 제작하였습니다.</p>
+
+<p><img src="/images/lab/post/2019-11-04-IMAGE-SEARCH/10.png" alt="10.png" />
+<em>그림 10. 영상에 왜곡이 발생한 경우</em></p>
+
+<h3 id="이미지-클러스터링">이미지 클러스터링</h3>
+<p>위에서 정의된 세 가지 임베딩 벡터를 활용하여 이미지 클러스터링을 수행하였습니다. 이미지 클러스터링에는 그림 11과 같이 매우 다양한 알고리즘이 존재합니다. 본 시스템에서는 각 임베딩 벡터 간 특성을 고려하여 두 가지 이상의 클러스터링 알고리즘을 적용한 뒤 각각의 결과를 앙상블하였습니다.</p>
+
+<p><img src="/images/lab/post/2019-11-04-IMAGE-SEARCH/11.png" alt="11.png" />
+<em>그림 11. 이미지 클러스터링 알고리즘 예시</em></p>
+
+<h2 id="4-뉴스-문서-정렬">4. 뉴스 문서 정렬</h2>
+<p>쿼리에 해당하는 문서 탐색, 중복 이미지 제거, 유사 이미지 클러스터링 과정을 거쳐서 하나의 주체에 대하여 여러 개의 클러스터가 만들어졌습니다. 이제 각 클러스터를 사용자에게 제공할 때 어떤 순서로 어떻게 제공하는지 결정하는 과정이 필요합니다. 문서 제공 방법에는 두 가지 방법이 있습니다.<br />
+첫 번째는 이미지 기반 정렬 방식을 적용하여 고품질의 이미지를 상위에 보여주는 그리드 UI,<br />
+두 번째는 이벤트 기반 정렬 방식을 적용하여 이벤트 발생 시간 순서대로 보여주는 타임라인 UI입니다.</p>
+
+<h3 id="이미지-기반-정렬">이미지 기반 정렬</h3>
+<p>그림 12와 같이 이미지를 품질 순서대로 정렬하여 사용자에게 보여주는 방법입니다.<br />
+사용자에게 고품질의 연예인 이미지를 보여줌으로써 검색 결과의 만족도를 높일 수 있습니다.</p>
+
+<p><img src="/images/lab/post/2019-11-04-IMAGE-SEARCH/12.png" alt="12.png" /></p>
+
+<p><em>그림 12. 이미지 기반 정렬 예시</em></p>
+
+<p>이미지 기반 정렬을 하기 위해 이미지 품질에 대한 딥러닝 모델을 적용하였습니다. 하지만 셀럽NOW는 인물 이미지에 특화된 시스템이기 때문에 일반적인 이미지가 아닌 인물 이미지에 대한 품질 정의가 필요합니다. 사진관에서 증명사진을 찍거나, 연예인의 화보를 보면 배경이 아주 깔끔하고 깨끗한 것을 볼 수 있습니다. 배경이 깔끔해야 인물이 부각되고 인물 자체에 시선이 집중되어 인물 이미지의 품질이 높아지는 것입니다. 즉, 배경의 특징에 따라 인물 이미지의 품질이 달라지게 됩니다.<br />
+따라서 배경의 특징을 모델링하여 이미지의 품질을 정량화함으로써 셀럽 NOW에 특화된 모델을 제작하였습니다.</p>
+
+<p><img src="/images/lab/post/2019-11-04-IMAGE-SEARCH/13.png" alt="13.png" />
+<em>그림 13. Image score 계산 흐름도</em></p>
+
+<h3 id="이벤트-기반-정렬">이벤트 기반 정렬</h3>
+<p>그림 14와 같이 이미지를 이벤트 발생 시간 순서대로 정렬하여 사용자에게 보여주는 방법입니다.<br />
+사용자에게 연예인의 최신 근황을 제공할 뿐만 아니라 이벤트의 카테고리 종류까지도 분류하여 제공함으로써 사용자의 만족도를 높일 수 있습니다.</p>
+
+<p><img src="/images/lab/post/2019-11-04-IMAGE-SEARCH/14.png" alt="14.png" />
+<em>그림 14. 이벤트 기반 정렬 예시</em></p>
+
+<p>이벤트 시간 정렬을 하기 위해서는 뉴스 이벤트가 발생한 시간을 구해야 합니다. 뉴스 문서에는 문서가 게재된 시간이 명시되어 있지만 그림 15처럼 실제 이벤트 발생 시간과 기사 게재 시간이 다른 경우가 많습니다. 정확한 이벤트 발생 시간을 추출하기 위해서 본문 내 시간 정보와 기사 게재 시간 정보를 활용하였습니다.</p>
+
+<p><img src="/images/lab/post/2019-11-04-IMAGE-SEARCH/15.png" alt="15.png" />
+<em>그림 15. 기사 게재 시간과 이벤트 발생 시간의 차이</em></p>
+
+<p>하지만, 이벤트 시간이 동일하다고 해서 동일한 이벤트 아닙니다. 활동이 왕성한 스타의 경우 하루에 여러 개의 이벤트 활동을 하는 경우가 흔합니다. 여러 이벤트들을 혼합해서 제공하면 시스템의 품질이 떨어지게 됩니다. 따라서, 이벤트 시간 뿐만 아니라 그림 16과 같이 이벤트 카테고리도 같이 분류할 필요가 있습니다.</p>
+
+<p><img src="/images/lab/post/2019-11-04-IMAGE-SEARCH/16.png" alt="16.png" />
+<em>그림 16. 이벤트 카테고리 분류 예시</em></p>
+
+<p>연예 뉴스 이벤트는 화보, 시상식, 입출국, 일상, 행사, 공연 등 굉장히 많은 카테고리로 분류할 수 있습니다. 표현이 정확하고, 전달하는 바가 명확해야 하는 뉴스 문서의 특성 상 그림 17과 같이 대부분의 뉴스 본문에 카테고리에 대한 힌트가 포함되어 있습니다. 따라서 본문 내 텍스트 분석만으로도 카테고리 분류가 가능합니다. 본 시스템에서는 decision tree를 사용하여 이벤트 카테고리를 분류하였습니다.</p>
+
+<p><img src="/images/lab/post/2019-11-04-IMAGE-SEARCH/17.png" alt="17.png" />
+<em>그림 17. 카테고리 분류 키워드 예시</em></p>
+
+<h2 id="5-결론">5. 결론</h2>
+<p>셀럽 NOW는 스타 연예인의 고품질 이미지와 최근 소식을 찾는 사용자들의 니즈에 대응하기 위하여 연예 뉴스 문서를 분석하고, 사용자에게 보다 나은 검색 결과를 제공하기 위하여 개발된 시스템입니다. 시스템의 개발에는 최신 딥러닝 기술 뿐만 아니라 고전적인 자연어 처리 및 영상 처리 기술이 사용되었습니다. 특히 자연어 처리와 영상 처리 기술을 접목시켜 각 데이터를 다루는 함수의 단점을 보완함으로써 시스템의 전반적인 성능을 향상시킬 수 있었습니다.</p>
+
+<p>주요 개발 내용은 다음과 같습니다.</p>
+<ul>
+  <li>뉴스 문서의 주체 추출 기술 개발 및 주체 불일치 문서 제거 기술 개발</li>
+  <li>인물 이미지를 품질 순서대로 보여줄 수 있는 이미지 스코어링 기술 개발</li>
+  <li>중복된 이미지를 제거하여 시스템의 성능을 높일 수 있는 중복 이미지 제거 기술 개발</li>
+  <li>비슷한 이미지를 클러스터링 함으로써 연관 이미지 제공이 가능한 이미지 클러스터링 기술 개발</li>
+  <li>뉴스 문서의 이벤트 발생 시간 추출 기술 개발</li>
+  <li>뉴스 문서의 이벤트 카테고리 분류 기술 개발</li>
+</ul>
+
+<p>현재는 연예 뉴스 대상으로만 하고 있으나, 향후 문화, 스포츠 등으로 적용 범위를 넓혀나갈 계획에 있습니다.<br />
+또한 연예인 얼굴 인식 기술, 동명이인 처리 등의 기술을 적용하여 시스템의 성능을 보완해 나갈 예정입니다.</p>
+
+<p>셀럽 NOW는 zum.com 에서 서비스되고 있으니 많은 이용 부탁 드립니다. 감사합니다.</p>
+
+<h2 id="6-reference">6. Reference</h2>
+<p>[1] Jain, Anil K. (1989). Fundamentals of Digital Image Processing. New Jersey, United States of America: Prentice Hall</p>
+
+<p>[2] Mathematical morphology: from theory to applications, Laurent Najman and Hugues Talbot. ISTE-Wiley. 2010</p>
+
+<p>[3] John Canny, A Computational Approach to Edge Detection, IEEE, 1986</p>
+
+<p>[4] International Color Consortium, Specification ICC.1:2004-10 (Profile version 4.2.0.0) Image technology colour management — Architecture, profile format, and data structure, 2006</p>
+
+<p>[5] Sharma, G. (2004). The CIEDE2000 Color-Difference Formula: Implementation Notes, Supplementary Test Data, and Mathematical Observations</p>
+
+<p>[6] Kaipeng Zhang, Zhanpeng Zhang, Zhifeng Li, Yu Qiao, Joint Face Detection and Alignment using Multi-task Cascaded Convolutional Networks, IEEE signal processing, 2016</p>
+
+<p>[7] Jiankang Deng, Jia Guo, Xue Niannan, and Stefanos Zafeiriou. Arcface: Additive angular margin loss for deep face recognition. CVPR, 2019</p>
+
+<p>[8] Hossein Talebi, Neural Image Assessment, IEEE, 2018</p>
+
+<p>[9] Sebastian Bosse, Deep Neural Networks for No-Reference and Full-Reference Image Quality Assessment, IEEE, 2016</p>
+
+<p>[10] C Szegedy, Inception-v4, Inception-ResNet and the Impact of Residual Connections on Learning, 2016</p>
+
+<p>[11] Satendra Pal Singh, Gaurav Bhatnagar, A robust image hashing based on discrete wavelet transform, IEEE, 2017</p>
+
+<p>[12] M. de Berg, A. Gunawan, and M. Roeloffzen, Faster dbscan and hdbscan in low-dimensional euclidean spaces, in International Symposium on Algorithms and Computation, 2017</p>
+
+<p>[13] D. Comaniciu and P. Meer, Mean shift: A robust approach toward feature space analysis, IEEE Trans, Pattern Anal, Machine Intell., 24:603–619, 2002</p>
+
+<p>[14] Ester, Martin; Kriegel, Hans-Peter; Sander, Jörg; Xu, Xiaowei. Simoudis, Evangelos; Han, Jiawei; Fayyad, Usama M. (eds.). A density-based algorithm for discovering clusters in large spatial databases with noise. Proceedings of the Second International Conference on Knowledge Discovery and Data Mining (KDD-96). AAAI Press. 1996</p>
+
+<p>[15] L.-C. Chen, G. Papandreou, I. Kokkinos, K. Murphy, and A. L. Yuille. Deeplab: Semantic image segmentation with deep convolutional nets, atrous convolution, and fully connected crfs. TPAMI, 2017</p>
+
+:ET

@@ -2,10 +2,11 @@
 layout: post
 title: 크롬 확장프로그램 개발⛏️ 회고
 description: Vue.js를 이용하여 줌 확장프로그램을 개발하는 과정에 대한 회고입니다.
-image: /images/portal/post/2020-09-11-Zum-Chrome-Extension/0-thumbnail.png
+image: /images/front/post/2020-09-11-Zum-Chrome-Extension/0-thumbnail.png
 introduction: Vue.js로 줌 확장프로그램을 개발하는 과정을 공유합니다.
 category: portal/tech
 tag: [experience, Vue.js, Frontend, 크롬 확장프로그램, 웹스토어 배포, 웹스토어 검수]
+author: junilhwang
 ---
 
 
@@ -33,7 +34,7 @@ tag: [experience, Vue.js, Frontend, 크롬 확장프로그램, 웹스토어 배�
 
 굉장히 다양한 성격의 확장프로그램이 많았고, 먼저 **어떤 형태의 확장프로그램을 만들어야 좋을지** 리서치를 했습니다.
 
-![리서치](/images/portal/post/2020-09-11-Zum-Chrome-Extension/1-research.png)
+![리서치](/images/front/post/2020-09-11-Zum-Chrome-Extension/1-research.png)
 
 여러가지 논의가 나왔고 바로가기 링크, 위젯, 웰페이퍼, 검생 등의 기능을 **골고루 포함한** 확장프로그램을 만들기로 결정되었습니다.
 
@@ -45,55 +46,55 @@ tag: [experience, Vue.js, Frontend, 크롬 확장프로그램, 웹스토어 배�
 
 먼저 결과물부터 간단하게 소개해드리겠습니다.
 
-![전체화면](/images/portal/post/2020-09-11-Zum-Chrome-Extension/0-thumbnail.png)
+![전체화면](/images/front/post/2020-09-11-Zum-Chrome-Extension/0-thumbnail.png)
 
 결과물은 생각보다 이쁘게 만들어졌습니다 👏👏👏
 
 1. 날씨<br>
-![2-weather_1](/images/portal/post/2020-09-11-Zum-Chrome-Extension/2-weather_1.png){:style="height:75px;display:inline-block;box-shadow:0 0 10px #ddd;padding:0"}
-![2-weather_2](/images/portal/post/2020-09-11-Zum-Chrome-Extension/2-weather_2.png){:style="height:75px;display:inline-block;box-shadow:0 0 10px #ddd;padding:0"}
+![2-weather_1](/images/front/post/2020-09-11-Zum-Chrome-Extension/2-weather_1.png){:style="height:75px;display:inline-block;box-shadow:0 0 10px #ddd;padding:0"}
+![2-weather_2](/images/front/post/2020-09-11-Zum-Chrome-Extension/2-weather_2.png){:style="height:75px;display:inline-block;box-shadow:0 0 10px #ddd;padding:0"}
   - 현재 위치에 대한 **기온, 대기상태, 미세먼지 농도** 등을 보여줍니다.
   - 지역별 날씨를 한 눈에 볼 순 없지만 **특정 위치에 대한 날씨**는 조회할 수 있습니다.
 
 2. 시계<br>
-![3-clock](/images/portal/post/2020-09-11-Zum-Chrome-Extension/3-clock.png){:style="height:75px;display:inline-block;box-shadow:0 0 10px #ddd;padding:0"}
+![3-clock](/images/front/post/2020-09-11-Zum-Chrome-Extension/3-clock.png){:style="height:75px;display:inline-block;box-shadow:0 0 10px #ddd;padding:0"}
 - 현재 시각을 보여줍니다.
 
 3. 운세<br>
-![4-fortune](/images/portal/post/2020-09-11-Zum-Chrome-Extension/4-fortune.png){:style="height:200px;box-shadow:0 0 10px #ddd;padding:0;margin:0;"}
+![4-fortune](/images/front/post/2020-09-11-Zum-Chrome-Extension/4-fortune.png){:style="height:200px;box-shadow:0 0 10px #ddd;padding:0;margin:0;"}
 - 띠별운세, 별자리운세, 개인운세 등을 조회할 수 있습니다.
 - 더보기는 검색줌과 연결되어 있습니다.
 
 4. 검색<br>
-![5-search](/images/portal/post/2020-09-11-Zum-Chrome-Extension/5-search.png){:style="height:300px;box-shadow:0 0 10px #ddd;padding:0;margin:0;"}
+![5-search](/images/front/post/2020-09-11-Zum-Chrome-Extension/5-search.png){:style="height:300px;box-shadow:0 0 10px #ddd;padding:0;margin:0;"}
 - 줌, 네이버, 다음, 구글, 유튜브 등의 검색엔진으로 검색 가능합니다.
 - 기획에는 없지만 개인적으로 네이버처럼 키보드 입력시 바로 검색엔진에 커서가 가도록 하고 싶은데 생각만 하는 중입니다.
 
 
 5. 추천사이트, 자주방문한 사이트<br>
-![6-sites](/images/portal/post/2020-09-11-Zum-Chrome-Extension/6-sites.png){:style="height:300px;box-shadow:0 0 10px #ddd;padding:0;margin:0;"}
+![6-sites](/images/front/post/2020-09-11-Zum-Chrome-Extension/6-sites.png){:style="height:300px;box-shadow:0 0 10px #ddd;padding:0;margin:0;"}
 - 추천 사이트를 커스텀하여 관리할 수 있습니다.
 - 자주 방문하는 사이트가 자동으로 표시됩니다.
 - 개인적으로 제일 많이 사용하는 영역입니다.
 
 6. 주제별 컨텐츠<br>
-![7-contents](/images/portal/post/2020-09-11-Zum-Chrome-Extension/7-contents.png)
+![7-contents](/images/front/post/2020-09-11-Zum-Chrome-Extension/7-contents.png)
 - 주요뉴스, TV연예, 스포츠, 라이프, 여행/푸드 등의 컨텐츠를 조회할 수 있습니다.
 - 개인적으로 라이프, 여행/푸드에 올라오는 컨텐츠가 재미있어서 많이 보는 편입니다.
 
 7. 이슈검색어<br>
-![8-issueword](/images/portal/post/2020-09-11-Zum-Chrome-Extension/8-issueword.png){:style="height:400px;box-shadow:0 0 10px #ddd;padding:0;margin:0;"}
+![8-issueword](/images/front/post/2020-09-11-Zum-Chrome-Extension/8-issueword.png){:style="height:400px;box-shadow:0 0 10px #ddd;padding:0;margin:0;"}
 - 실시간 이슈를 확인할 수 있습니다.
 - 사실 눈에 잘 띄지 않아서 UI 개선이 필요한 영역입니다.
 
 8. 설정
-- ![9-setting_0](/images/portal/post/2020-09-11-Zum-Chrome-Extension/9-setting_0.png){:style="height:200px;box-shadow:0 0 10px #ddd;padding:0;margin:0;"}
-- 설정 영역의 경우 사이트 좌측 하단에 존재합니다. 잘 보이시나요? ![9-setting_1](/images/portal/post/2020-09-11-Zum-Chrome-Extension/9-setting_1.png){:style="height:50px;box-shadow:0 0 10px #ddd;padding:0;margin:0;"}
+- ![9-setting_0](/images/front/post/2020-09-11-Zum-Chrome-Extension/9-setting_0.png){:style="height:200px;box-shadow:0 0 10px #ddd;padding:0;margin:0;"}
+- 설정 영역의 경우 사이트 좌측 하단에 존재합니다. 잘 보이시나요? ![9-setting_1](/images/front/post/2020-09-11-Zum-Chrome-Extension/9-setting_1.png){:style="height:50px;box-shadow:0 0 10px #ddd;padding:0;margin:0;"}
   이렇게 생겼답니다. 이 영역도 어느정도 눈에 띄도록 개편이 필요할 것같습니다.
 - 배경화면, 위치설정, 추천사이트 등에 대해 설정할 수 있습니다.
-![9-setting_2](/images/portal/post/2020-09-11-Zum-Chrome-Extension/9-setting_2.png){:style="height:350px;box-shadow:0 0 10px #ddd;padding:0;margin:0;display:inline-block;"}
-![9-setting_3](/images/portal/post/2020-09-11-Zum-Chrome-Extension/9-setting_3.png){:style="height:350px;box-shadow:0 0 10px #ddd;padding:0;margin:0;display:inline-block;"}
-![9-setting_4](/images/portal/post/2020-09-11-Zum-Chrome-Extension/9-setting_4.png){:style="height:350px;box-shadow:0 0 10px #ddd;padding:0;margin:0;display:inline-block;"}  
+![9-setting_2](/images/front/post/2020-09-11-Zum-Chrome-Extension/9-setting_2.png){:style="height:350px;box-shadow:0 0 10px #ddd;padding:0;margin:0;display:inline-block;"}
+![9-setting_3](/images/front/post/2020-09-11-Zum-Chrome-Extension/9-setting_3.png){:style="height:350px;box-shadow:0 0 10px #ddd;padding:0;margin:0;display:inline-block;"}
+![9-setting_4](/images/front/post/2020-09-11-Zum-Chrome-Extension/9-setting_4.png){:style="height:350px;box-shadow:0 0 10px #ddd;padding:0;margin:0;display:inline-block;"}  
 
 ***
 
@@ -235,7 +236,7 @@ img-src chrome://favicon/ https://*.zumst.com/;
 
 이렇게 명시했기 때문에 확장프로그램 내에서 외부 리소스를 요청하면 다음과 같이 CSP가 포함된 응답을 건내줍니다.
 
-![10-CSP](/images/portal/post/2020-09-11-Zum-Chrome-Extension/10-CSP.png)
+![10-CSP](/images/front/post/2020-09-11-Zum-Chrome-Extension/10-CSP.png)
 
 그리고 [이 문서](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)를 살펴보면
 `<meta>` 태그를 이용하여 다음과 같이 명시하는 것도 가능합니다.
@@ -272,8 +273,8 @@ chrome.bookmarks.getTree(console.log); // 북마크를 트리 형태로 조회�
 
 ```
 
-![11-chrome-api_01](/images/portal/post/2020-09-11-Zum-Chrome-Extension/11-chrome-api_1.png)
-![11-chrome-api_02](/images/portal/post/2020-09-11-Zum-Chrome-Extension/11-chrome-api_2.png)
+![11-chrome-api_01](/images/front/post/2020-09-11-Zum-Chrome-Extension/11-chrome-api_1.png)
+![11-chrome-api_02](/images/front/post/2020-09-11-Zum-Chrome-Extension/11-chrome-api_2.png)
 
 API 호출 결과는 `callback`에게 반환하기 때문에 조금 더 유연하게 사용하기 위해선 `Promise`로 감싸서 사용해야합니다.
 
@@ -307,7 +308,7 @@ BookmarkService.getListAboutTree().then(console.log);
 
 #### 3) 개발모드에 대한 핸들링
 
-![13-localserver](/images/portal/post/2020-09-11-Zum-Chrome-Extension/13-localserver.jpg)
+![13-localserver](/images/front/post/2020-09-11-Zum-Chrome-Extension/13-localserver.jpg)
 
 확장프로그램을 개발할 땐 **로컬서버에서 작업**했습니다.
 크롬에 확장프로그램 개발모드가 따로 있어서 이를 이용해도 됐으나,
@@ -389,17 +390,17 @@ if (process.env.NODE_ENV === 'development') {
 이번에는 확장프로그램을 크롬 개발자 모드에서 확인하는 방법에 대해 소개하겠습니다.
 
 - 크롬 브라우저에서 주소창에 `chrome://extensions/`을 치고 접근하면 설치된 `확장프로그램 목록`을 확인할 수 있습니다.
-![15-devmode_01](/images/portal/post/2020-09-11-Zum-Chrome-Extension/15-devmode_01.jpg){:style="border:1px solid #666;padding:0;margin:0"}
+![15-devmode_01](/images/front/post/2020-09-11-Zum-Chrome-Extension/15-devmode_01.jpg){:style="border:1px solid #666;padding:0;margin:0"}
 
 - `개발자 모드`를 활성화하면 `압축해제된 확장 프로그램을 로드합니다.` 버튼이 생기고, 각각의 확장프로그램에 대한 `meta` 정보도 볼 수 있습니다.
-![15-devmode_02](/images/portal/post/2020-09-11-Zum-Chrome-Extension/15-devmode_02.jpg){:style="border:1px solid #666;padding:0;margin:0"}
+![15-devmode_02](/images/front/post/2020-09-11-Zum-Chrome-Extension/15-devmode_02.jpg){:style="border:1px solid #666;padding:0;margin:0"}
 `압축해제된 확장 프로그램을 로드합니다.`를 클릭한 후에 확장프로그램을 업로드하면 됩니다!
 
 - 이 때 `manifest.json`이 포함된 폴더를 업로드 해야합니다.
-![15-devmode_01](/images/portal/post/2020-09-11-Zum-Chrome-Extension/15-devmode_01.gif){:style="border:1px solid #666;padding:0;margin:0"}
+![15-devmode_01](/images/front/post/2020-09-11-Zum-Chrome-Extension/15-devmode_01.gif){:style="border:1px solid #666;padding:0;margin:0"}
 
 - 혹은 `드래그 앤 드롭`으로 추가할 수 있습니다. 이 때 `manifest.json`이 폴더나 압축파일에 포함되어 있어야 합니다.
-![15-devmode_02](/images/portal/post/2020-09-11-Zum-Chrome-Extension/15-devmode_02.gif){:style="border:1px solid #666;padding:0;margin:0"}
+![15-devmode_02](/images/front/post/2020-09-11-Zum-Chrome-Extension/15-devmode_02.gif){:style="border:1px solid #666;padding:0;margin:0"}
 
 위의 과정을 거쳐서 개발된 확장프로그램의 기능이 정상적으로 작동하는지 확인해볼 수 있습니다.
 
@@ -409,7 +410,7 @@ if (process.env.NODE_ENV === 'development') {
 
 ### (1) Back-End
 
-![12-architecture_01](/images/portal/post/2020-09-11-Zum-Chrome-Extension/12-architecture_01.png)
+![12-architecture_01](/images/front/post/2020-09-11-Zum-Chrome-Extension/12-architecture_01.png)
 
 1. **`Personal Fortune API`**
   - Input: 성별, 생년월일
@@ -430,7 +431,7 @@ if (process.env.NODE_ENV === 'development') {
 
 ### (2) Front-End
 
-![12-architecture_05](/images/portal/post/2020-09-11-Zum-Chrome-Extension/12-architecture_05.png)
+![12-architecture_05](/images/front/post/2020-09-11-Zum-Chrome-Extension/12-architecture_05.png)
 
 Front-End는 위와 같은 모습으로 설계하였습니다. 일반적인 `Single Page Application` 프로젝트의 구조입니다.
 
@@ -598,34 +599,34 @@ buildZip(DEST_DIR, DEST_ZIP_DIR, zipFilename)
 이제 앱스토어에 배포하는 과정에 대해 간단하게 소개하겠습니다.
 
 - [크롬 웹 스토어](https://chrome.google.com/webstore/category/extensions?hl=ko&authuser=2)에 접속 후 `설정 아이콘`을 클릭하면 `개발자 대시보드` 메뉴가 보입니다. 
-![14-01_webstore](/images/portal/post/2020-09-11-Zum-Chrome-Extension/14-01_webstore.jpg){:style="border:1px solid #666;padding:0;margin:0"}
+![14-01_webstore](/images/front/post/2020-09-11-Zum-Chrome-Extension/14-01_webstore.jpg){:style="border:1px solid #666;padding:0;margin:0"}
 
 - 대시보드에 접근하고, 확장프로그램을 등록하기 위해선 `등록수수료(5$)`를 결제해야합니다. 
-![14-02_dashboard](/images/portal/post/2020-09-11-Zum-Chrome-Extension/14-02_dashboard.jpg){:style="border:1px solid #666;padding:0;margin:0"}
+![14-02_dashboard](/images/front/post/2020-09-11-Zum-Chrome-Extension/14-02_dashboard.jpg){:style="border:1px solid #666;padding:0;margin:0"}
 
 - 다음과 같은 정보들을 입력하고 결제를 진행하면 됩니다.
-![14-03_cash](/images/portal/post/2020-09-11-Zum-Chrome-Extension/14-03_cash.jpg){:style="border:1px solid #666;padding:0;margin:0"}
+![14-03_cash](/images/front/post/2020-09-11-Zum-Chrome-Extension/14-03_cash.jpg){:style="border:1px solid #666;padding:0;margin:0"}
 
 - 등록 수수로 결제가 완료되면 [대시보드](https://chrome.google.com/u/2/webstore/devconsole/a5efa500-a9c0-4385-b070-b1873b2d8212?hl=ko) 페이지에 접근할 수 있습니다.
-![14-04_new_01](/images/portal/post/2020-09-11-Zum-Chrome-Extension/14-04_new_01.jpg){:style="border:1px solid #666;padding:0;margin:0"}
+![14-04_new_01](/images/front/post/2020-09-11-Zum-Chrome-Extension/14-04_new_01.jpg){:style="border:1px solid #666;padding:0;margin:0"}
 
 - `새 항목` 버튼을 클릭하면 항목을 추가하는 팝업이 열립니다. `파일 탐색` 버튼을 클릭하여 `확장프로그램 zip 파일`을 업로드하면 됩니다.
-![14-04_new_02](/images/portal/post/2020-09-11-Zum-Chrome-Extension/14-04_new_02.jpg){:style="border:1px solid #666;padding:0;margin:0"}
+![14-04_new_02](/images/front/post/2020-09-11-Zum-Chrome-Extension/14-04_new_02.jpg){:style="border:1px solid #666;padding:0;margin:0"}
 
 - 업로드가 완료되면 확장프로그램의 정보를 입력하는 페이지로 넘어갑니다. 먼저 `스토어 등록정보`에서 `설명`란을 입력해야합니다. 나머지는 `manifest.json`의 내용으로 채워집니다.
-![14-05_detail_01](/images/portal/post/2020-09-11-Zum-Chrome-Extension/14-05_detail_01.jpg){:style="border:1px solid #666;padding:0;margin:0;"}
+![14-05_detail_01](/images/front/post/2020-09-11-Zum-Chrome-Extension/14-05_detail_01.jpg){:style="border:1px solid #666;padding:0;margin:0;"}
 
 - `그래픽 저작물`은 확장프로그램 설치 페이지에 접근했을 때 보여지는 이미지입니다. 규격에 맞게 이미지를 만들어서 업로드하면 됩니다
-![14-05_detail_02](/images/portal/post/2020-09-11-Zum-Chrome-Extension/14-05_detail_02.jpg){:style="border:1px solid #666;padding:0;margin:0;"}
+![14-05_detail_02](/images/front/post/2020-09-11-Zum-Chrome-Extension/14-05_detail_02.jpg){:style="border:1px solid #666;padding:0;margin:0;"}
 
 - `추가 입력란`에는 확장프로그램에 대한 문의를 받을 수 있는 정보들을 입력합니다.
-![14-05_detail_03](/images/portal/post/2020-09-11-Zum-Chrome-Extension/14-05_detail_03.jpg){:style="border:1px solid #666;padding:0;margin:0;"}
+![14-05_detail_03](/images/front/post/2020-09-11-Zum-Chrome-Extension/14-05_detail_03.jpg){:style="border:1px solid #666;padding:0;margin:0;"}
 
 - `개인정보 보호 탭`에서 `manifest.json`에 정의한 `permission`에 대한 설명을 작성해야합니다.
-![14-05_detail_04](/images/portal/post/2020-09-11-Zum-Chrome-Extension/14-05_detail_04.jpg){:style="border:1px solid #666;padding:0;margin:0;"}
+![14-05_detail_04](/images/front/post/2020-09-11-Zum-Chrome-Extension/14-05_detail_04.jpg){:style="border:1px solid #666;padding:0;margin:0;"}
 
 - 앞서 언급한 항목들을 모두 입력한 뒤에 제출하면 `검수`후에 `거부` 및 `게시` 여부를 이메일로 알려주고, 대시보드에서 확인할 수 있습니다.
-![14-05_detail_05](/images/portal/post/2020-09-11-Zum-Chrome-Extension/14-05_detail_05.jpg){:style="border:1px solid #666;padding:0;margin:0;"}
+![14-05_detail_05](/images/front/post/2020-09-11-Zum-Chrome-Extension/14-05_detail_05.jpg){:style="border:1px solid #666;padding:0;margin:0;"}
 
 이렇게 배포하는 과정은 어렵지 않습니다.
 
@@ -643,7 +644,7 @@ buildZip(DEST_DIR, DEST_ZIP_DIR, zipFilename)
 
 - 5월 29일에 개발이 완료되어서 6월 1일에 첫 번째 게시 요청을 올렸습니다.
 - **그리고, 정말 다양한 사유로 반려되었습니다.**
-![16-validate_01](/images/portal/post/2020-09-11-Zum-Chrome-Extension/16-validate_01.jpg){:style="border:1px solid #666;padding:0;margin:0;"}
+![16-validate_01](/images/front/post/2020-09-11-Zum-Chrome-Extension/16-validate_01.jpg){:style="border:1px solid #666;padding:0;margin:0;"}
 - 사실 예상했던 일이었습니다.
 - ~~그러나 검수 과정이 한 달 넘게 지속 될 것은 예상하지 못했죠..~~
 
@@ -675,23 +676,23 @@ buildZip(DEST_DIR, DEST_ZIP_DIR, zipFilename)
 - 빈 화면 부터 시작하여 각각의 컴포넌트를 쪼개어서 한 번에 검수 요청을 보냈습니다.
   - 일단 `외부 API 요청`이 필요하지 않은 모듈부터 검수요청을 보냈습니다.
   - `검색 모듈`
-    ![16-validate_03](/images/portal/post/2020-09-11-Zum-Chrome-Extension/16-validate_03.png){:style="border:1px solid #666;padding:0;margin:0;"}
+    ![16-validate_03](/images/front/post/2020-09-11-Zum-Chrome-Extension/16-validate_03.png){:style="border:1px solid #666;padding:0;margin:0;"}
   - `시계 모듈`
-    ![16-validate_02](/images/portal/post/2020-09-11-Zum-Chrome-Extension/16-validate_02.png){:style="border:1px solid #666;padding:0;margin:0;"}
+    ![16-validate_02](/images/front/post/2020-09-11-Zum-Chrome-Extension/16-validate_02.png){:style="border:1px solid #666;padding:0;margin:0;"}
   - `메모 모듈`
-    ![16-validate_04](/images/portal/post/2020-09-11-Zum-Chrome-Extension/16-validate_04.png){:style="border:1px solid #666;padding:0;margin:0;"}
+    ![16-validate_04](/images/front/post/2020-09-11-Zum-Chrome-Extension/16-validate_04.png){:style="border:1px solid #666;padding:0;margin:0;"}
   - `사이트 모듈`
-    ![16-validate_05](/images/portal/post/2020-09-11-Zum-Chrome-Extension/16-validate_05.png){:style="border:1px solid #666;padding:0;margin:0;"}
+    ![16-validate_05](/images/front/post/2020-09-11-Zum-Chrome-Extension/16-validate_05.png){:style="border:1px solid #666;padding:0;margin:0;"}
 - **모든 API를 제외하고 MockUp 데이터만 사용**하여 올렸습니다.
 - **확장프로그램의 제목, 설명, 스크린샷 등을 수정**하여 올렸습니다.
 
 그 결과..
 
-![16-validate_06](/images/portal/post/2020-09-11-Zum-Chrome-Extension/16-validate_06.png){:style="border:1px solid #666;padding:0;margin:0;"}
+![16-validate_06](/images/front/post/2020-09-11-Zum-Chrome-Extension/16-validate_06.png){:style="border:1px solid #666;padding:0;margin:0;"}
 
 **전부 반려되었습니다....**
 
-![emoticon_01](/images/portal/post/2020-09-11-Zum-Chrome-Extension/emoticon_01.png)
+![emoticon_01](/images/front/post/2020-09-11-Zum-Chrome-Extension/emoticon_01.png)
 
 이 결과를 확인했을 때 많이 들어본 말이 떠올랐습니다.
 
@@ -710,7 +711,7 @@ buildZip(DEST_DIR, DEST_ZIP_DIR, zipFilename)
   - 사실 거의 확정하고 있었습니다.
 - 그래서 Core를 제거하고, **앞선 과정(처음부터 다시만들기)을 반복**했습니다.
 
-![16-validate_07](/images/portal/post/2020-09-11-Zum-Chrome-Extension/16-validate_07.png){:style="border:1px solid #666;padding:0;margin:0;"}
+![16-validate_07](/images/front/post/2020-09-11-Zum-Chrome-Extension/16-validate_07.png){:style="border:1px solid #666;padding:0;margin:0;"}
 
 ***
 
@@ -718,10 +719,10 @@ buildZip(DEST_DIR, DEST_ZIP_DIR, zipFilename)
 
 Core 패키지를 제외한 후에 검수 요청한 것들은 대부분 통과했습니다.
 
-![16-validate_08](/images/portal/post/2020-09-11-Zum-Chrome-Extension/16-validate_08.png){:style="border:1px solid #666;padding:0;margin:0;"}
+![16-validate_08](/images/front/post/2020-09-11-Zum-Chrome-Extension/16-validate_08.png){:style="border:1px solid #666;padding:0;margin:0;"}
 
-![emoticon_03](/images/portal/post/2020-09-11-Zum-Chrome-Extension/emoticon_03.png){:style="padding:0;margin:0;display:inline-block"}
-![emoticon_04](/images/portal/post/2020-09-11-Zum-Chrome-Extension/emoticon_04.png){:style="padding:0;margin:0;display:inline-block"}
+![emoticon_03](/images/front/post/2020-09-11-Zum-Chrome-Extension/emoticon_03.png){:style="padding:0;margin:0;display:inline-block"}
+![emoticon_04](/images/front/post/2020-09-11-Zum-Chrome-Extension/emoticon_04.png){:style="padding:0;margin:0;display:inline-block"}
 
 **이 때 알 수 있던 사실은 다음과 같습니다.**
 
@@ -768,11 +769,11 @@ module.exports = {
 
 **그런데 약 한 달을 더 검수에 더 시달려야했습니다... 😂😂**
 
-![16-validate_09](/images/portal/post/2020-09-11-Zum-Chrome-Extension/16-validate_09.png){:style="border:1px solid #666;padding:0;margin:0;"}
+![16-validate_09](/images/front/post/2020-09-11-Zum-Chrome-Extension/16-validate_09.png){:style="border:1px solid #666;padding:0;margin:0;"}
 
 이렇게 반려된 이유는 `검색 모듈` 때문이었는데
 
-![16-validate_03](/images/portal/post/2020-09-11-Zum-Chrome-Extension/16-validate_03.png){:style="border:1px solid #666;padding:0;margin:0;"}
+![16-validate_03](/images/front/post/2020-09-11-Zum-Chrome-Extension/16-validate_03.png){:style="border:1px solid #666;padding:0;margin:0;"}
 
 사용자에게 무언가를 입력받은 후 특정 페이지에 넘겨줄 경우, 마찬가지로 `https`로 처리해야 했습니다.
 즉, 입력정보를 암호화해야 하는 것입니다.
@@ -782,7 +783,7 @@ module.exports = {
 
 **결과는 앞서 올린 사진처럼 모두 반려되었습니다.**
 
-![emoticon_01](/images/portal/post/2020-09-11-Zum-Chrome-Extension/emoticon_01.png)
+![emoticon_01](/images/front/post/2020-09-11-Zum-Chrome-Extension/emoticon_01.png)
 
 어쨌든 많은 우여곡절 끝에 마지막 베타버전을 배포할 수 있었습니다.
 
@@ -836,4 +837,4 @@ module.exports = {
                   
 ***
 
-![emoticon_05](/images/portal/post/2020-09-11-Zum-Chrome-Extension/emoticon_05.png)
+![emoticon_05](/images/front/post/2020-09-11-Zum-Chrome-Extension/emoticon_05.png)

@@ -1,0 +1,343 @@
+I"qq<blockquote>
+  <p>Part1에서는 프론트엔드 단독 개발 모드를 구성하는 방법을,<br />
+Part2에서는 백엔드 연동 개발 모드를 구성한 방법에 대해 공유합니다.</p>
+  <ul>
+    <li>설명드릴 예제 코드는 <a href="https://webpack.js.org/">Webpack4</a>, <a href="https://github.com/axios/axios">Axios</a>를 이용합니다.</li>
+  </ul>
+</blockquote>
+
+<h2 id="목차">목차</h2>
+<ol>
+  <li>들어가기 전에</li>
+  <li>도입 배경</li>
+  <li>NPM 스크립트 소개</li>
+  <li>각 모드별 구성 방법<br />
+4-1. publish 모드<br />
+4-2. dev 모드</li>
+  <li>정리</li>
+  <li>마치며</li>
+</ol>
+
+<p>1~4까지는 Part 1, 5~7은 Part2로 나누어 설명을 진행하겠습니다.</p>
+
+<h2 id="1-들어가기-전에">1. 들어가기 전에</h2>
+<p>최근 <a href="https://github.com/trending/javascript?since=monthly">Github 트렌드 Javascript</a>를 보면 번들링 툴은 <a href="https://github.com/webpack/webpack">Webpack</a>이 압도적인 자리를 차지합니다.
+많은 프레임워크와 라이브러리가 이미 Webpack을 기반으로 하고 있고, 계속된 업데이트로 기능을 더해나가고 있기 때문일 것입니다.</p>
+
+<p><img src="images/front/post/2019-07-08-ZUM-Webpack-dev-proxy-part1/webpack.png" alt="Webpack" />
+<em>웹팩은 언제까지 갈런지?</em></p>
+
+<p>줌인터넷에서도 Webpack을 기반으로 프론트엔드 개발을 진행합니다.
+특히 2018년 하반기에 <a href="https://vuejs.org/">Vue.js</a>를 기반으로 진행한 모바일 줌 개편에는 Webpack의 많은 기능들을 활용하였는데
+그 중 <a href="https://webpack.js.org/configuration/dev-server/">Webpack Dev Server</a>를 활용하여 프론트엔드 개발 모드를 분리 구성함으로써
+효과적으로, 더 빠르고 편리하게 개발한 경험을 공유하고자 합니다.</p>
+
+<h2 id="2-도입-배경">2. 도입 배경</h2>
+<p>당시 모바일 줌 개발에 들어가기 전 몇가지 고려할 사항이 있었습니다.</p>
+
+<ol>
+  <li><strong>JS 파일 및 자바 백엔드는 하나의 웹 어플리케이션 서버로 배포</strong><br />
+  프론트엔드 프레임워크가 자리잡은 이후, HTML,CSS,JS 등 static 요소와 비즈니스 로직을 포함하는
+  API 서버를 분리하여 배포하고 운영하는 사이트들이 생겼습니다. 하지만 이번 프로젝트는
+  기존 방식대로 하나의 웹 어플리케이션으로 배포하기로 결정되었습니다.</li>
+  <li><strong>빠른 개발 및 협업을 위해 프론트엔드와 백엔드 분리 개발</strong><br />
+  릴리즈 날짜는 정해져 있었지만 기획 및 디자인이 수정되면서 개발 기간은 점점 짧아지기 시작했습니다.
+  이전 개발 프로세스 그대로 기획-디자인-퍼블리싱-개발 순으로 진행하기에는 부담되는 개발 일정이었습니다.</li>
+  <li><strong>템플릿 엔진 사용</strong><br />
+앞서 말씀드린대로 하나의 웹 어플리케이션으로 배포하게 된 이유 중 하나는 템플릿 엔진 사용을 위해서였습니다.
+모든 정보를 AJAX로 가져오는 것도 좋지만 몇 가지 개선을 위해 템플릿 엔진을 활용하게 되었습니다. 
+문제는 프론트엔드 개발 환경에서 백엔드 템플릿 엔진으로 만들어 낸 템플릿 파일을 사용할 수 없다는 점이었습니다.</li>
+  <li><strong>stub 데이터는 제공받을 수 있지만 API 개발까지는 시간이 필요</strong><br />
+기획 및 개발 일정이 계속 변경되면서 각 서브 도메인의 API 개발이 언제 마무리될지 알 수 없게 되었습니다.
+일단 데이터 규격을 맞추는 것으로 급한 불은 껐지만, API로 직접 개발이 가능해질때까지 기다릴 수는 없었습니다.</li>
+</ol>
+
+<p><img src="images/front/post/2019-07-08-ZUM-Webpack-dev-proxy-part1/what.jpg" alt="time" />
+<em>갈 길이 멀다…</em></p>
+
+<p>이렇게 한정된 리소스와 개발 기간을 해결하기 위해 <strong>stub 데이터만을 이용하는 프론트엔드 개발</strong> 모드와 
+<strong>백엔드 데이터를 연동하는 프론트엔드 개발</strong> 모드로 분리할 필요가 있었습니다.<br />
+말 그대로 <strong>눈에 보이는 부분</strong>의 개발과 <strong>데이터를 다루는 부분</strong>의 개발을 분리하여 동시에 진행하고자 한 것입니다.</p>
+
+<p><img src="images/front/post/2019-07-08-ZUM-Webpack-dev-proxy-part1/goal.png" alt="목표 개발 프로세스" />
+<em>결과적으로 위 그림과 같은 프로세스로 개발을 진행할 수 있었습니다</em></p>
+
+<h2 id="3-npm-스크립트-소개">3. NPM 스크립트 소개</h2>
+
+<p>먼저 package.json 파일에 정의한 스크립트를 소개합니다.</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">{</span>
+  <span class="cm">/* package.json */</span>
+  <span class="c1">// config 폴더 안에 있는 webpack.[dev-pub].conf.js 파일에 각 모드에 관한 상세 설정을 작성했다</span>
+  
+  <span class="dl">"</span><span class="s2">scripts</span><span class="dl">"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="dl">"</span><span class="s2">publish</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">cross-env webpack-dev-server --inline --progress --config config/webpack.pub.conf.js</span><span class="dl">"</span><span class="p">,</span>
+      <span class="dl">"</span><span class="s2">dev</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">cross-env webpack-dev-server --inline --progress --config config/webpack.dev.conf.js</span><span class="dl">"</span><span class="p">,</span>
+      <span class="c1">// ... 이하 생략</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<table>
+  <thead>
+    <tr>
+      <th>NPM 스크립트</th>
+      <th>설명</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>publish</td>
+      <td>백엔드 프로젝트가 불필요한 단독 실행 모드. stub 데이터를 사용</td>
+    </tr>
+    <tr>
+      <td>dev</td>
+      <td>백엔드 서버에 리버스 프록시로 접속하는 실행 모드</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>package.json 파일은 Vue-CLI2가 만들어 주는 형태와 크게 다르지 않습니다. 
+다만 실행가능한 스크립트를 한 줄 추가했습니다.</p>
+
+<p>앞서 말씀드린 대로 <em>stub 데이터를 활용한 프론트엔드 단독 실행 모드</em>는 publish 라고 정했고,
+리버스 프록시를 이용하여 <em>백엔드 서버를 이용하는 모드</em>는 dev 모드라 정하고 구성했습니다.<br />
+이제부터는 두가지 스크립트를 publish / dev 모드라고 설명하겠습니다.</p>
+
+<p>각 모드의 특징은 아래와 같습니다.</p>
+<ol>
+  <li><strong>publish</strong>  <br />
+<img src="images/front/post/2019-07-08-ZUM-Webpack-dev-proxy-part1/publish.png" alt="publish 모드" />
+    <ul>
+      <li>프론트엔드 단독 실행 모드. 백엔드 불필요.</li>
+      <li><code class="language-plaintext highlighter-rouge">/api/...</code> 경로로 AJAX 호출시 <code class="language-plaintext highlighter-rouge">/stub</code> 폴더 내의 JS 파일(JSON 데이터)을 응답</li>
+      <li>API 추가시 경로에 해당하는 폴더에 JS 파일을 추가하여 적용</li>
+      <li>JS 파일 수정으로 글자 수 변경, 이미지 링크 깨짐, 데이터 형식 등 다양한 UI 테스트/개발 진행</li>
+    </ul>
+  </li>
+  <li><strong>dev</strong><br />
+<img src="images/front/post/2019-07-08-ZUM-Webpack-dev-proxy-part1/dev.png" alt="dev 모드" />
+    <ul>
+      <li>프론트엔드와 백엔드 연동 모드.<br />
+  하나의 웹앱으로 빌드하고 배포한 상태와 유사함.</li>
+      <li>모든 요청이 백엔드로 bypass</li>
+      <li>페이지 접속시 백엔드에서 템플릿 엔진으로 생성한 HTML 반환</li>
+      <li>Webpack Hot Reload: Chunk 및 Hash와 상관 없이 항상 <a href="https://webpack.js.org/concepts/hot-module-replacement/">Webpack Hot Reload</a> 지원</li>
+      <li>CORS 설정 없이 <code class="language-plaintext highlighter-rouge">/api/...</code> URL로 백엔드 API를 호출 가능</li>
+    </ul>
+  </li>
+</ol>
+
+<p>publish 모드는 <strong>AJAX 요청시 JS 파일이 응답</strong>되니 파일 수정으로 데이터의 구조를 바꾸거나
+예외 상황을 만들어 테스트할 수 있고, 새로운 API가 필요할 때에도 파일 추가만으로 동작합니다.<br />
+dev 모드는 <strong>모든 요청이 백엔드로 bypass</strong> 되므로 
+외부 API와 연동, 비즈니스 로직 개발 등 백엔드 API 개발과 프론트엔드에서의 AJAX 요청 개발에 집중할 수 있는 환경으로 구성되었습니다.</p>
+
+<h2 id="4-각-모드별-구성">4. 각 모드별 구성</h2>
+<p>개발 모드를 분리 구성하기 위해 webpack 설정 파일을 추가했습니다.<br />
+먼저 publish, dev, build 공통적으로 사용되는 옵션을 정의한 <strong>webpack.base.conf.js</strong> 파일과<br />
+각 개발 모드별로 <strong>webpack.[dev/publish].conf.js</strong>, 빌드 시 사용하는
+<strong>webpack.prod.conf.js</strong> 파일입니다.<br />
+이 파일들 역시 <a href="https://cli.vuejs.org/">Vue-CLI2</a>가 생성한 파일과 크게 다르지 않으므로 주요 코드만 설명합니다.</p>
+
+<blockquote>
+  <p>Vue CLI3로도 가능하지만 설정할 것이 조금 더 많아집니다.</p>
+</blockquote>
+
+<h2 id="4-1-publish-모드-구성">4-1. publish 모드 구성</h2>
+
+<h3 id="목표">목표</h3>
+<p>publish 모드는 크게 세 가지 기능 구현을 목표로 합니다.</p>
+
+<ul>
+  <li>백엔드 API 서버와 전혀 무관하게 프론트 어플리케이션 실행 가능</li>
+  <li>Axios를 이용해 AJAX 호출시 stub 폴더 내에 있는 JS 파일(JSON 데이터)을 읽어오도록 구성</li>
+  <li>GET / POST와 같은 요청 메소드 구분 작동 가능</li>
+</ul>
+
+<p>구현을 위해 아래와 같은 순서로 작업합니다.</p>
+
+<h4 id="1-환경-변수-선언-webpackdefineplugin">1. 환경 변수 선언 (webpack.DefinePlugin)</h4>
+
+<p>먼저 모드별 분기 처리를 위해 webpack.DefinePlugin을 이용하여 환경 변수를 설정합니다. <br />
+아래 구문을 통해 현재 실행 모드를 전역 변수로 등록하여 코드 내에서 구분할 수 있게 됩니다.</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript">  <span class="cm">/* webpack.pub.conf.js */</span>
+  <span class="c1">// publish 모드에서 사용할 변수와 플러그인 설정</span>
+
+  <span class="nx">plugins</span><span class="p">:</span> <span class="p">[</span>
+    <span class="k">new</span> <span class="nx">webpack</span><span class="p">.</span><span class="nx">DefinePlugin</span><span class="p">({</span> <span class="c1">// 현재 실행 환경을 글로벌 변수로 선언</span>
+      <span class="dl">'</span><span class="s1">process.env</span><span class="dl">'</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="dl">'</span><span class="s1">publish</span><span class="dl">'</span><span class="p">)</span>
+    <span class="p">}),</span>
+    
+    <span class="c1">// 그 외 생략</span>
+  <span class="p">]</span></code></pre></figure>
+
+<p>여기서 선언한 process.env 를 통해 현재 실행 스크립트를 구분함으로써 특정 로직을 수행할 수 있습니다.</p>
+<blockquote>
+  <p>위 구문에 대한 자세한 설명은 <a href="https://webpack.js.org/plugins/define-plugin/">Webpack DefinePlugin 플러그인 페이지</a>를 참조하시기 바랍니다.</p>
+</blockquote>
+
+<h4 id="2-axios-인스턴스-baseurl-설정-또는-요청-url-몽키패칭">2. Axios 인스턴스 baseURL 설정 또는 요청 URL 몽키패칭</h4>
+
+<p>publish 모드에서는 Axios를 이용한 AJAX 호출시 URL 앞에 /stub를 붙이도록 설정합니다.<br />
+<strong>ex) /api/example -&gt; /stub/api/example</strong><br />
+<code class="language-plaintext highlighter-rouge">html</code> <code class="language-plaintext highlighter-rouge">image</code>와 같은 요소는 webpack dev server의 기본 옵션 그대로 응답하면서 백엔드 API 호출만
+따로 관리하기 위해서입니다.</p>
+
+<p>Axios 인스턴스를 생성하여 사용하는 경우에는 생성자의 <a href="https://github.com/axios/axios#creating-an-instance">baseURL 옵션</a> 등으로 지정할 수 있고, 
+인스턴스를 생성하지 않는다면 Axios를 몽키패칭하거나 <a href="https://github.com/axios/axios#config-defaults">defaults.*</a> 값을 설정하는 방법이 있습니다.</p>
+
+<blockquote>
+  <p>이 글에서는 예시 코드를 줄이기 위해 몽키패칭하는 방법만 소개하겠습니다.</p>
+</blockquote>
+
+<h5 id="axios-객체-몽키패칭">Axios 객체 몽키패칭</h5>
+
+<p>위험성이 있지만 개발 환경에만 적용할 예정이고, 모든 요청을 마음대로 컨트롤할 수 있어 선호합니다.</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="cm">/* _core/axios.js */</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NODE_ENV</span> <span class="o">===</span> <span class="dl">'</span><span class="s1">publish</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// publish 모드에서만 패칭</span>
+
+  <span class="p">[</span><span class="dl">'</span><span class="s1">request</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">get</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">delete</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">head</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">options</span><span class="dl">'</span><span class="p">,</span>
+    <span class="dl">'</span><span class="s1">post</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">put</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">patch</span><span class="dl">'</span><span class="p">].</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">method</span> <span class="o">=&gt;</span> <span class="p">{</span>
+
+    <span class="kd">const</span> <span class="nx">_method</span> <span class="o">=</span> <span class="nx">Axios</span><span class="p">[</span><span class="nx">method</span><span class="p">];</span>
+    <span class="nx">Axios</span><span class="p">[</span><span class="nx">method</span><span class="p">]</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="p">...</span><span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">let</span> <span class="nx">parsedUrl</span> <span class="o">=</span> <span class="nx">url</span> <span class="o">+</span> <span class="dl">'</span><span class="s1">.js</span><span class="dl">'</span><span class="p">;</span> 
+      <span class="k">if</span> <span class="p">(</span><span class="nx">parsedUrl</span><span class="p">.</span><span class="nx">charAt</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">!==</span> <span class="dl">'</span><span class="s1">/</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">parsedUrl</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">/</span><span class="dl">'</span> <span class="o">+</span> <span class="nx">parsedUrl</span><span class="p">;</span> 
+      <span class="p">}</span>
+
+      <span class="k">return</span> <span class="nx">_method</span><span class="p">(</span><span class="s2">`/stub</span><span class="p">${</span><span class="nx">parsedUrl</span><span class="p">}</span><span class="s2">`</span><span class="p">,</span> <span class="p">...</span><span class="nx">args</span><span class="p">);</span>
+    <span class="p">};</span>
+
+  <span class="p">});</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>요청 URL 앞에는 <strong>/stub</strong>, 뒤에는 <strong>.js</strong>를 붙이는 로직입니다.<br />
+만약 다른 도메인으로 요청하는 경우도 있다면 추가 로직이 필요합니다.<br />
+위 파일을 적당한 곳에 import하면 Axios의 request method들이 작성한 로직을 수행하게 됩니다.</p>
+
+<h4 id="3-stub-폴더-및-파일-생성">3. stub 폴더 및 파일 생성</h4>
+
+<p>이제 프론트엔드 개발중 사용하게 될 stub 데이터를 작성합니다.
+루트 폴더 내에 stub 폴더를 만들고 stub 데이터를 export하는 JS 파일을 추가합니다.</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="cm">/* /stub/api/example.js */</span>
+
+<span class="kd">const</span> <span class="nx">userList</span> <span class="o">=</span> <span class="p">[];</span> <span class="c1">// 데이터를 저장할 배열</span>
+
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="kd">get</span><span class="p">(</span><span class="nx">req</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// get 요청</span>
+    <span class="k">return</span> <span class="nx">userList</span><span class="p">;</span>
+  <span class="p">},</span>
+  
+  <span class="nx">post</span><span class="p">(</span><span class="nx">req</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// post 요청</span>
+    <span class="kd">const</span> <span class="p">{</span><span class="nx">id</span><span class="p">,</span> <span class="nx">name</span><span class="p">}</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">;</span> <span class="c1">// id와 name 획득</span>
+                                 <span class="c1">// 이 구문은 아래에서 선언할 express의 json 파싱 미들 웨어가 필요</span>
+
+    <span class="kd">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="p">{</span><span class="na">id</span><span class="p">:</span> <span class="nx">id</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span> <span class="nx">name</span><span class="p">};</span> <span class="c1">// 유저 정보 추가</span>
+    <span class="nx">userList</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">user</span><span class="p">);</span>
+    
+    <span class="k">return</span> <span class="nx">userList</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span></code></pre></figure>
+
+<p>export할 객체에는 Http 요청 Method에 해당하는 함수를 구현합니다. 
+눈치채셨겠지만 Webpack Dev Server로 요청이 왔을 때 
+요청 URL과 일치하는 JS 파일을 찾아 import하고, 객체의 메소드를 실행하여 결과를 반환합니다. 
+간단하지만 아주 강력한 코드죠.</p>
+
+<p><img src="images/front/post/2019-07-08-ZUM-Webpack-dev-proxy-part1/file-load.png" alt="파일 로드 방식" /></p>
+
+<p>이제 Webpack Dev Server에서 사용할 응답 데이터 파일이 준비되었습니다.</p>
+
+<h4 id="4-webpack-dev-server의-before-훅-로직-추가">4. Webpack Dev Server의 before 훅 로직 추가</h4>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="cm">/* webpack.pub.conf.js */</span>
+<span class="c1">// publish 모드에서 사용하는 Webpack Dev Server에 stub 데이터 파일을 연결합니다</span>
+
+<span class="nx">devServer</span><span class="p">:</span> <span class="p">{</span>
+    <span class="c1">// 생략</span>
+    <span class="nl">before</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">app</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">express</span><span class="dl">'</span><span class="p">).</span><span class="nx">json</span><span class="p">());</span> <span class="c1">// POST 요청 body 파싱 미들웨어 등록</span>
+          <span class="kd">const</span> <span class="nx">root</span> <span class="o">=</span> <span class="nx">path</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="nx">__dirname</span><span class="p">,</span> <span class="dl">'</span><span class="s1">..</span><span class="dl">'</span><span class="p">);</span>
+    
+          <span class="cm">/**
+           * /stub으로 요청된 데이터 처리
+           */</span>
+          <span class="nx">app</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span><span class="dl">'</span><span class="s1">/stub/**</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="kd">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">root</span><span class="p">}${</span><span class="nx">req</span><span class="p">.</span><span class="nx">path</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+            <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">data</span><span class="p">[</span><span class="nx">method</span><span class="p">](</span><span class="nx">req</span><span class="p">));</span>
+          <span class="p">});</span>
+    
+        <span class="p">}</span>
+  <span class="p">}</span></code></pre></figure>
+
+<p>Webpack Dev Server에서 지원하는 hook 중 <a href="https://webpack.js.org/configuration/dev-server/#devserverbefore">before 훅</a>에서 요청 처리를 진행합니다.<br />
+post 요청 처리를 위해 미들웨어를 등록하고 
+Axios 패칭 구문에서 설정한대로 <code class="language-plaintext highlighter-rouge">/stub/**</code> URL로 온 요청의 path를 파일 위치로 변경한 후
+JS 파일을 import 하고 실행하는 로직을 수행합니다.</p>
+
+<p><img src="images/front/post/2019-07-08-ZUM-Webpack-dev-proxy-part1/req-res.png" alt="before hook 로직" />
+<em>post 요청이라면 b.post(request)가 호출됩니다</em></p>
+
+<p>이제 public 모드 설정이 끝났습니다.<br />
+새로운 API가 추가될 때마다 <em>/stub</em> 폴더 아래 경로에 JS 파일을 추가하면 되고,
+API에서 query parameter 처리와 같이 request와 관련된 로직이 필요하면 
+Node Express 문법 그대로 <a href="https://expressjs.com/ko/api.html">request 객체에서 데이터를 획득</a>할 수 있습니다.<br />
+결과적으로 <strong>백엔드 프로젝트와 관계 없이 단독 실행</strong>이 가능하며, <strong>JS 파일을 변경하는 것</strong>으로 다양한
+데이터를 테스트 해볼 수 있는 환경을 구성한 것입니다.</p>
+
+<h4 id="5-테스트">5. 테스트</h4>
+
+<p>post 요청을 통해 데이터를 삽입하고 get 요청으로 데이터를 조회하는 테스트입니다.</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="cm">/*** Step 1 ***/</span>
+<span class="k">await</span> <span class="nx">axios</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">/api/example</span><span class="dl">'</span><span class="p">)</span>
+           <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="o">=&gt;</span> <span class="p">{</span>
+             <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">get</span><span class="dl">'</span><span class="p">);</span>
+             <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+           <span class="p">})</span>
+<span class="c1">// get</span>
+<span class="c1">// []</span>
+
+
+<span class="cm">/*** Step 2 ***/</span>
+<span class="k">await</span> <span class="nx">axios</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="dl">'</span><span class="s1">/api/example</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span><span class="na">id</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">jack</span><span class="dl">'</span><span class="p">})</span>
+           <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="o">=&gt;</span> <span class="p">{</span>
+             <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">post</span><span class="dl">'</span><span class="p">);</span>
+             <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+           <span class="p">});</span>
+<span class="c1">// post</span>
+<span class="c1">// [ {id: 100, name: 'jack'} ]</span>
+
+
+<span class="cm">/*** Step 3 ***/</span>
+<span class="k">await</span> <span class="nx">axios</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">'</span><span class="s1">/api/example</span><span class="dl">'</span><span class="p">)</span>
+           <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">response</span> <span class="o">=&gt;</span> <span class="p">{</span>
+             <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">get2</span><span class="dl">'</span><span class="p">);</span>
+             <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
+           <span class="p">});</span>
+<span class="c1">// get</span>
+<span class="c1">// [ {id: 100, name: 'jack'} ]</span></code></pre></figure>
+
+<p>의도대로 작동하는 것을 확인할 수 있습니다.</p>
+
+<h3 id="더해서">더해서…</h3>
+<p>JS 파일로 응답하는 publish 모드에 대해 설명드렸습니다.<br />
+그리 특별한 내용은 아니니 전체적으로 정리한다는 느낌으로 읽어 주셨으면 좋을 것 같습니다.</p>
+
+<p>사실 publish 모드의 구성은 <a href="https://gruntjs.com/">grunt</a>나 <a href="https://github.com/rollup/rollup">rollup</a>과 같은 번들링 도구를 사용하면서 Node Express를 함께 실행하는 방식과
+근본적으로 다르지 않습니다. 하지만 직접 Node 서버를 구성한다면 개발 환경에 어울리지 않는 의미없고 귀찮은 설정이 필요합니다. 
+대표적으로 <a href="https://developer.mozilla.org/ko/docs/Web/HTTP/Access_control_CORS">CORS</a> 설정과 <a href="https://www.npmjs.com/package/nodemon">Nodemon</a> 설정이 있겠네요.</p>
+
+<p><img src="images/front/post/2019-07-08-ZUM-Webpack-dev-proxy-part1/good.jpg" alt="굿" />
+<em>귀찮은건 질색</em></p>
+
+<p>이어질 Part2에서는 리버스 프록시 설정을 이용하여 모든 요청을 백엔드 서버로 bypass하면서도
+Webpack의 Hot Reload 기능을 사용할 수 있는 <strong>dev 모드 구성 방법</strong>과 <strong>배포를 위한 추가 설정</strong>에 대해 설명하겠습니다.</p>
+
+:ET

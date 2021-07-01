@@ -1,0 +1,112 @@
+I"�<p>주니어개발자의 버그 트래킹 일지입니다!</p>
+
+<p>주 내용은 웹 서비스의 세션을 Membase(현재의 Couchbase)로 관리하면서 발생한 이슈입니다. 이슈를 해결해 나가는 과정을 기록으로 남깁니다.</p>
+
+<p><a href="https://zuminternet.github.io/BUG-TRACKING-1">버그 트래킹 일지(1) - 시작은 사전지식 확보부터</a><br />
+<a href="https://zuminternet.github.io/BUG-TRACKING-2">버그 트래킹 일지(2) - 로그를 보자!</a><br />
+<a href="https://zuminternet.github.io/BUG-TRACKING-3">버그 트래킹 일지(3) - 임시방편보단 장기적으로</a><br />
+<a href="https://zuminternet.github.io/BUG-TRACKING-4">버그 트래킹 일지(4) - 의심하고 또 의심하자</a><br />
+<strong>버그 트래킹 일지(5) - 대망의 적용 배포 그리고 결론</strong></p>
+
+<h3 id="버그트래킹-환경">버그트래킹 환경</h3>
+
+<ul>
+  <li>
+    <p>Membase Server</p>
+
+    <ul>
+      <li>Version : 1.7.2</li>
+      <li>
+        <p>Node</p>
+
+        <ul>
+          <li>4개</li>
+          <li>노드당 Replica 2개</li>
+          <li>노드당 할당 메모리 2GB</li>
+        </ul>
+      </li>
+      <li>
+        <p>Bucket</p>
+
+        <ul>
+          <li>1개</li>
+          <li>메모리 8GB(노드당 메모리 * 노드 수)</li>
+        </ul>
+      </li>
+      <li>
+        <p>각 서버 스팩</p>
+
+        <ul>
+          <li>RAM 8GB</li>
+          <li>HDD 30GB</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>WEB Server</p>
+
+    <ul>
+      <li>Spring Boot Web Application(version 1.2)
+        <ul>
+          <li>SpyMemCached(version 2.7.3)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<h2 id="대망의-적용-배포-그리고-결론">대망의 적용 배포 그리고 결론</h2>
+
+<ul>
+  <li>불필요 요청 제거</li>
+  <li>동적 빈 생성 모듈 개발</li>
+  <li>Spring Security Skip Filter 개발</li>
+</ul>
+
+<p>위 과정을 거쳐, 지난 2월 14일 릴리즈!</p>
+
+<p>결과는?</p>
+
+<p><img src="/images/portal/post/2017-02-22-BUG-TRACKING-5/result1.jpg" alt="great" /></p>
+
+<p><strong>효과가 굉장했다!</strong></p>
+
+<p><img src="/images/portal/post/2017-02-22-BUG-TRACKING-5/result2.jpg" alt="result" /></p>
+
+<p>배포 직후 급감하기 시작하더니,</p>
+
+<p><img src="/images/portal/post/2017-02-22-BUG-TRACKING-5/result22.png" alt="result" /></p>
+
+<p>감소 이후 안정적인 형태를 보이기 시작합니다!</p>
+
+<p><img src="/images/portal/post/2017-02-22-BUG-TRACKING-5/result3.png" alt="result" /></p>
+
+<p>oepration 감소로 이루려고 했던 disk write queue도 매우 크게 감소했습니다.</p>
+
+<p><strong>결론</strong></p>
+
+<p>operation : <strong>97%</strong> 감소<br /> disk write queue : <strong>99.9%</strong> 감소<br />cpu 사용량 : <strong>95%</strong> 감소<br /> 서비스 영향 : <strong>없음</strong></p>
+
+<p><strong>효과가 굉장했다!</strong></p>
+
+<h2 id="마무리">마무리</h2>
+
+<p>Membase의 1도 모르는 상태에서 Bug Tracking을 해보았습니다.</p>
+
+<p>오래된 프로젝트인지라 버전이 너무 낮아 문서를 찾기도 힘들었고…</p>
+
+<p><img src="/images/portal/post/2017-02-22-BUG-TRACKING-5/notfound.png" alt="Forum 답글" /></p>
+
+<p>한국 사용자 모임이 없는 Couchbase에 영어로 질문을 해가며(결론은 버전을 올리란,,) 힘겹게 문제를 해결해나가 보았습니다.</p>
+
+<p><img src="/images/portal/post/2017-02-22-BUG-TRACKING-5/reply.png" alt="Forum 답글" /></p>
+
+<p>긴 버그 트래킹(약 2주) 끝에 Operation 이상을 확인했고, 끊임없이 의심하며 기존 시스템을 바꾸어 나갔고 결과적으로 서비스에 큰 안정화를 가져올 수 있었습니다.</p>
+
+<p>서버의 메모리부터 각종 데몬들과 용어들까지, 코드 외에도 알아야하고 배워나가야하는게 정말 많다는 것을 느꼈습니다. 이번 Bug Tracking 경험이 나중에 있을 개발에 많은 도움이 될 것 같습니다.</p>
+
+<p><strong>끝!</strong></p>
+:ET
