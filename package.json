@@ -27,6 +27,7 @@
   "homepage": "https://github.com/thiagorossener/thiagorossener.github.io#readme",
   "devDependencies": {
     "autoprefixer-stylus": "^0.14.0",
+    "axios": "^0.21.1",
     "browser-sync": "^2.26.5",
     "child_process": "^1.0.2",
     "gulp": "~4.0.2",
@@ -37,9 +38,8 @@
     "gulp-uglify": "^3.0.2",
     "jeet": "^7.2.0",
     "kouto-swiss": "^1.1.0",
+    "lodash": "^4.17.21",
     "minimist": "^1.2.3",
-    "rupture": "^0.7.1",
-    "axios": "^0.21.1",
-    "lodash": "^4.17.21"
+    "rupture": "^0.7.1"
   }
 }
