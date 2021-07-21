@@ -5,21 +5,48 @@ description: 신입 프론트엔드 개발자들이 파일럿 프로젝트로 �
 image: /images/front/post/2021-07-21-zum-front-investing-clone/0-thumbnail.png
 introduction: 신입 프론트엔드 개발자들이 파일럿 프로젝트로 진행한 INVESTING.COM 클론 코딩 경험을 공유합니다.
 category: portal/tech
-tag: [Frontend, pilot, 회고, javascript, Vue.js, CANVAS API, SSR, Typescript]
+tag: [Frontend, pilot, 회고, javascript, typescript, Vue.js, CANVAS API, SSR,]
 author: karl
 ---
 
-> **파일럿 프로젝트** <br>줌인터넷 서비스개발팀 프론트엔드 파트 주니어 개발자들이 수습 기간 동안진행했던 파일럿 프로젝트 입니다. 진행된 프로젝트는 [GitHub 레포지토리](https://github.com/zuminternet/investing-app-clone)에서 확인하실 수 있습니다.
+> **파일럿 프로젝트** <br>줌인터넷 서비스개발팀 프론트엔드 파트 주니어 개발자들(재민, 도경, 정훈)이 수습 기간 동안진행했던 파일럿 프로젝트 입니다. 진행된 프로젝트는 [GitHub 레포지토리](https://github.com/zuminternet/investing-app-clone)에서 확인하실 수 있습니다.
 
-<br>
 
 <p style="text-align: right">
   <img style="margin: 0; display: inline-block;" src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=http%3A%2F%2Flocalhost%3A4000%2Fzum-front-investing-clone%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false" alt="조회수" />
 </p>
 
-# 프로젝트 개요
+# 목차
+1. 프로젝트 개요<br>
+  1.1 프로젝트 주제<br>
+  1.2 요구사항<br>
+  1.3 프로젝트 기능소개
 
-## 프로젝트 주제
+2. 협업 방법
+
+3. 프로젝트 구조<br>
+  3.1 프로젝트 전체 구조<br>
+  3.2 패키지별 구조<br>
+  3.3 Backend 구조<br>
+  3.4 Frontend 구조<br>
+  3.5 common 구조
+
+4. 기술적 고민<br>
+  4.1 재민 님의 고민<br>
+  4.2 도경 님의 고민<br>
+  4.3 정훈 님의 고민
+
+5. 회고<br>
+  5.1 재민 님의 회고<br>
+  5.2 도경 님의 회고<br>
+  5.3 정훈 님의 회고
+
+6. 마치며
+
+
+# 1. 프로젝트 개요
+
+## 1.1. 프로젝트 주제
 
 파일럿 프로젝트의 의의는 미리 실무를 위한 웹 서비스 기반 지식, 기술을 습득하여 신규 입사자들이 보다 빨리 실무에 적응할 수 있도록 하는 데 있습니다.
 
@@ -31,11 +58,12 @@ author: karl
 
 ### [INVESTING.COM](http://investing.COM) 클론코딩
 
-![1](/images/front/post/2021-07-21-zum-front-investing-clone/1.jpg)
+![1](/images/front/post/2021-07-21-zum-front-investing-clone/1.jpg){: width="50%" height="50%"}
+*모바일 INVESTING.COM*
 
 앞으로 진행될 프로젝트에선 주식, 원자재, 가상화폐 등의 자산들을 폭넓게 다룰 예정입니다. 많은 투자 지표들을 상세히 다루고 캔들 차트, 라인 차트 등 풍부한 그래픽 자료를 제공해야 합니다.
 
-그러한 컨텐츠를 이미 제공하고 있는 [INVESTING.COM](http://investing.COM) 이 있었습니다. [INVESTING.COM](http://investing.COM)은 전세계 거래소 250곳의 실시간 데이터, 관련 뉴스 및 분석을 44개의 언어로 제공하는 금융시장 플랫폼입니다. 월간 2,100만 명의 이용자를 자랑합니다. 투자자들이 한 번에 필요한 정보를 모두 확인할 수 있는 장소를 제공하는 것을 목표로 하고 있습니다.
+그러한 컨텐츠를 이미 제공하고 있는 [INVESTING.COM](http://investing.COM) 이 있었습니다. [INVESTING.COM](http://investing.COM) 은 전세계 거래소 250곳의 실시간 데이터, 관련 뉴스 및 분석을 44개의 언어로 제공하는 금융시장 플랫폼입니다. 월간 2,100만 명의 이용자를 자랑합니다. 투자자들이 한 번에 필요한 정보를 모두 확인할 수 있는 장소를 제공하는 것을 목표로 하고 있습니다.
 
 이러한 서비스를 클론 코딩하면서 기술적, 도메인적 이슈를 해결하는 경험, 실무에 필요한 지식 및 기술을 얻을 수 있으리라 생각했습니다.
 
@@ -43,22 +71,18 @@ author: karl
 
 개발은 5. 10 ~ 6. 24 까지 약 7주간 이루어졌습니다.
 
-## 요구사항
+## 1.2. 요구사항
 
-### 기술적 요구사항
+### 1.2.1 기술적 요구사항
 
 - 필수
-
   - 공통
-
     - `zum-portal-core-js` (사내 라이브러리) 완벽 이해 및 사용
-
+    
   - Front-end
-
     - `Vue.js 2`
     - `Webpack`
     - 차트
-
       - `Canvas API`, `SVG API`를 이용해서 직접 만들어보기
       - 그 후 `ChartIQ`, `Highcharts` 등 응용해보기
       - 성능 최적화
@@ -68,83 +92,59 @@ author: karl
     - 비즈니스 로직에 `TypeScript` 사용
     - `SASS` 사용
     - 비동기 프로그래밍 최적화 (로딩 전/후 처리)
-
   - Back-end
-
     - `Node.js` + `Express.js` + `Typescript` 사용
     - `Cache` + `Scheduling` 적극 사용
     - 주식 관련 외부 API는 자유롭게 선택 사용
     - 회원 시스템
-
       - `OAuth 2.0` (구글 로그인)
       - `JWT` 인증
       - 이메일/ 비밀번호/ 닉네임을 통한 일반 로그인
       - 마이페이지 (닉네임/ 비밀번호 수정)
 
     - `DB`는 자유롭게 선택
-
 - 선택
-
   - Front-end
-
     - 동적 컴포넌트 (`Dynamic Component`, `Composition API` 사용)
     - `Vue Component`에 `TypeScript` 적용
-
   - Back-end
     - `TypeORM` 사용
 
-### 기능적 요구 사항
+### 1.2.2 기능적 요구 사항
 
 - 필수
-
   - 기본 테마/ 다크 테마 지원
   - 로그인
-
     - Google 로그인
     - 일반 로그인
     - 자동 로그인
-
   - 뉴스 및 분석
-
     - 피드 (카테고리 별 뉴스)
     - 상세 페이지
-
       - 타이틀, 컨텐츠, 매체사, 작성일을 렌더링
-
     - 스와이프 기능으로 카테고리 이동
-
   - 실시간 시세
-
     - 자산(주식, 가상화폐, 지수)의 실시간 가격
-
   - 종목별 상세페이지
-
     - 차트
-
       - 확대, 축소
       - 구간 변경
       - 형태 변경
-
     - 종목 상세 정보
     - 뉴스탭
     - 종목 의견(댓글)
 
 - 선택
-
   - 뉴스 및 분석
-
     - 무한스크롤, 댓글, 검색
-
   - 실시간 시세
-
     - 정렬(가격, 등락률)
-
   - 즐겨찾기 및 검색
 
-## 프로젝트 기능 소개
+## 1.3. 프로젝트 기능 소개
 
 ![2](/images/front/post/2021-07-21-zum-front-investing-clone/2.png)
-
+*업무 분장표*
 우선 간단하게 태스크들을 정의하고 분배하였습니다. 무엇을 해야 할지 인지한 상태에서 개발을 시작할 수 있었습니다.
 
 ~~검색, 관심목록은 저렇게 나눌 땐 몰랐는데 양이 만만치 않았습니다...~~
@@ -155,13 +155,13 @@ author: karl
 
 개별 개발 기능은 각자가 전담하여 자신의 코딩 스타일, 역량을 잘 드러내도록 개발하였습니다. 신규 입사자들을 더 파악하여 팀에 잘 녹아들 수 있도록 도움을 주기 위해서입니다.
 
-## 공통 개발 기능
+### 1.3.1 공통 개발 기능
 
 ### Google 및 자동 로그인
 
 ![3](/images/front/post/2021-07-21-zum-front-investing-clone/3.gif)
+*재민 님 프로젝트*
 
-재민 님 프로젝트
 
 - `OAuth 2.0`을 활용해 Google 로그인을 구현했습니다.
 - 로그인 시도 서버에서 회원 여부를 검토합니다.
@@ -171,8 +171,7 @@ author: karl
 ### 이메일 회원가입 및 로그인
 
 ![4](/images/front/post/2021-07-21-zum-front-investing-clone/4.gif)
-
-재민 님 프로젝트
+*재민 님 프로젝트*
 
 - 이메일을 통해 회원가입 및 로그인할 수 있습니다
 - 마찬가지로 회원 여부를 검토, 미가입 사용라면 계정을 생성합니다.
@@ -181,12 +180,10 @@ author: karl
 ### 마켓 페이지
 
 ![5](/images/front/post/2021-07-21-zum-front-investing-clone/5.gif)
-
-도경 님 프로젝트
+*도경 님 프로젝트*
 
 ![6](/images/front/post/2021-07-21-zum-front-investing-clone/6.png)
-
-정훈 님 프로젝트
+*정훈 님 프로젝트*
 
 - 주식, 지수, 가상화폐 전체 종목을 나열 합니다.
 - 현재가, 전일 대비 가격 변동이 실시간으로 반영되며 보기 쉽게 강조해줍니다. (상승 시 빨간색, 하락 시 파란색)
@@ -195,8 +192,7 @@ author: karl
 ### 다크모드 지원 & 스와이프
 
 ![7](/images/front/post/2021-07-21-zum-front-investing-clone/7.gif)
-
-재민 님 프로젝트
+*재민 님 프로젝트*
 
 - 홈페이지에서 버튼 토글링을 통해 기본/다크 모드를 설정할 수 있습니다.
 - 스와이프를 통해 탭 간 이동을 할 수 있습니다.
@@ -204,16 +200,13 @@ author: karl
 ### 비동기 처리 UI(Loading, Error 등)
 
 ![8](/images/front/post/2021-07-21-zum-front-investing-clone/8.gif)
-
-정훈 님 프로젝트
+*정훈 님 프로젝트*
 
 ![9](/images/front/post/2021-07-21-zum-front-investing-clone/9.gif)
-
-재민 님 프로젝트
+*재민 님 프로젝트*
 
 ![10](/images/front/post/2021-07-21-zum-front-investing-clone/10.gif)
-
-재민 님 프로젝트
+*재민 님 프로젝트*
 
 - 서버에 요청하는 즉시 데이터가 오는 것은 아니기 때문에 비동기 대응이 필요했습니다.
 - 정훈 님은 [Webull](https://www.webull.com/)의 로딩 UI를 참고하셨고, 도경 님과 저는 Spinner Loading을 구현하여 적용하였습니다.
@@ -221,17 +214,14 @@ author: karl
 
 ### 차트
 
-![11](/images/front/post/2021-07-21-zum-front-investing-clone/11.gif)
-
-도경 님 프로젝트
+![11](/images/front/post/2021-07-21-zum-front-investing-clone/11.gif){: width="80%" height="80%"}
+*도경 님 프로젝트*
 
 ![12](/images/front/post/2021-07-21-zum-front-investing-clone/12.gif)
-
-재민 님 프로젝트
+*재민 님 프로젝트*
 
 ![13](/images/front/post/2021-07-21-zum-front-investing-clone/13.png)
-
-정훈 님 프로젝트
+*정훈 님 프로젝트*
 
 - 모두 `CANVAS API`를 활용하여 라이브러리 없이 제작하였습니다.
 - 캔들 차트, 라인 차트를 제공합니다. (형태 변경)
@@ -239,17 +229,15 @@ author: karl
 - 마우스, 손가락 상호작용을 통한 확대, 축소, 드래그를 제공합니다. (확대, 축소)
 - 이동평균선, 가격구분선, 일자구분선, 거래량 차트를 제공합니다.
 
-## 개별 개발 기능
+### 1.3.2 개별 개발 기능
 
 ### 자산종목 상세 페이지
 
 ![14](/images/front/post/2021-07-21-zum-front-investing-clone/14.gif)
-
-재민 님 프로젝트
+*재민 님 프로젝트*
 
 ![15](/images/front/post/2021-07-21-zum-front-investing-clone/15.gif)
-
-재민 님 프로젝트
+*재민 님 프로젝트*
 
 - 마켓 페이지에서 종목 선택 시 해당 종목의 상세페이지로 이동합니다.
 - 가격 정보 박스에서 실시간 가격 변동을 반영합니다.
@@ -260,8 +248,7 @@ author: karl
 ### 관심목록 페이지
 
 ![16](/images/front/post/2021-07-21-zum-front-investing-clone/16.gif)
-
-재민 님 프로젝트
+*재민 님 프로젝트*
 
 - 관심 목록에 등록하면 해당 종목을 빠르게 찾아볼 수 있습니다.
 - 종목 상세페이지, 검색페이지에서 북마크 버튼을 통해 관심 종목을 추가/삭제할 수 있습니다.
@@ -269,8 +256,7 @@ author: karl
 ### 종목검색 페이지
 
 ![17](/images/front/post/2021-07-21-zum-front-investing-clone/17.gif)
-
-재민 님 프로젝트
+*재민 님 프로젝트*
 
 ### 댓글 기능
 
@@ -280,30 +266,26 @@ author: karl
 - 북마크 버튼을 통해 관심 종목을 추가/삭제할 수 있습니다.
 
 ![18](/images/front/post/2021-07-21-zum-front-investing-clone/18.gif)
-
-정훈 님 프로젝트
+*정훈 님 프로젝트*
 
 - 종목, 뉴스 및 분석에 관련된 댓글을 달 수 있습니다.
 - 로그인 여부를 확인하고, 비 로그인 상태면 로그인 화면으로 리다이렉트 합니다.
 
 ![19](/images/front/post/2021-07-21-zum-front-investing-clone/19.gif)
-
-정훈 님 프로젝트
+*정훈 님 프로젝트*
 
 - 댓글에 토글링을 통해 좋아요/ 좋아요 취소를 할 수 있습니다.
 
 ### 뉴스, 분석 리스트 및 상세 페이지
 
 ![20](/images/front/post/2021-07-21-zum-front-investing-clone/20.gif)
-
-도경 님 프로젝트
+*도경 님 프로젝트*
 
 - 최신순, 인기순(댓글순)으로 뉴스 리스트를 제공합니다.
 - 더 불러오기 기능을 제공합니다.
 
 ![21](/images/front/post/2021-07-21-zum-front-investing-clone/21.gif)
-
-도경 님 프로젝트
+*도경 님 프로젝트*
 
 - 상세 페이지에선 제목, 매체사, 썸네일, 내용, 관련 댓글들을 제공합니다.
 - 새로운 댓글을 추가하는 등 댓글 기능을 활용할 수 있습니다.
@@ -311,14 +293,13 @@ author: karl
 ### 더보기 페이지
 
 ![22](/images/front/post/2021-07-21-zum-front-investing-clone/22.gif)
-
-도경 님 프로젝트
+*도경 님 프로젝트*
 
 - 로그인/ 로그아웃 기능을 제공합니다.
 - 닉네임, 비밀번호 변경 기능을 제공합니다.
 - 다크모드 ON/OFF 기능을 제공합니다.
 
-# 협업 방법
+# 2. 협업 방법
 
 이번 파일럿 프로젝트는 3명이 같이 진행했기 때문에 협업을 하는 방법도 중요했습니다. 어떤 방식과 도구를 사용해서 협업을 진행했는지 소개하고자 합니다.
 
@@ -331,8 +312,7 @@ author: karl
 프로젝트 진행 중 서로 공유할 사항이 생기면 문서로 기록해두었습니다. 문서를 작성하면서 작성하는 사람도 한 번 더 내용을 정리할 수 있었고, 타입을 나눠서 보는 사람들도 나중에 편하게 볼 수 있었습니다.
 
 ![23](/images/front/post/2021-07-21-zum-front-investing-clone/23.png)
-
-작성한 스터디, 참고자료 문서들
+*작성한 스터디, 참고자료 문서들*
 
 ### 모노레포
 
@@ -341,18 +321,17 @@ author: karl
 그리고 마이크로서비스 아키텍처를 구성하면서 여러 서비스들을 하나의 레포지토리에서 관리할 수 있는 모노레포를 같이 적용했습니다. [yarn workspaces](https://classic.yarnpkg.com/en/docs/workspaces/)로 쉽게 설정할 수 있었는데요, 여러 레포지토리로 구성을 하면 서비스 간의 공통코드를 사용하기가 불편한데 모노레포에서는 이런 점을 쉽게 할 수 있었습니다.
 
 ![24](/images/front/post/2021-07-21-zum-front-investing-clone/24.png)
-
-모노레포의 구조
+*모노레포의 구조*
 
 ### 코드리뷰
 
 이번 프로젝트를 하면서 새로운 기술 스택을 사용하고 서로 기술에 대한 숙련도의 정도도 달랐기 때문에 코드 품질을 비슷하게 맞추기 위해 코드 리뷰를 활발하게 진행했습니다. 다양한 관점에서 피드백을 주고받으면서 혼자 했을 때보다 더 빠르게 성장할 수 있었습니다.
 
-# 전체 프로젝트 구조
+# 3. 프로젝트 구조
 
-![25](/images/front/post/2021-07-21-zum-front-investing-clone/25.png)
+![25](/images/front/post/2021-07-21-zum-front-investing-clone/25.png){: width="40%" height="40%"}
 
-## 프로젝트 전체 구조
+## 3.1. 프로젝트 전체 구조
 
 앞서 협업 관련해서 모노레포에 대해 설명 드렸는데요,
 
@@ -362,43 +341,34 @@ author: karl
 
 ---
 
-## 패키지별 구조
+## 3.2 패키지별 구조
 
 본격적인 구현물은 `packages` 안에 있는데요, 각자의 이름을 걸고(...?) 구현한 패키지들과 공용으로 사용할 `common` 패키지로 구성되어 있습니다.
 
-### 개별 서비스 패키지
+### 3.2.1 개별 서비스 패키지
 
 팀 프로젝트이기 때문에 큰 틀은 유사하게 가져가지만, 신입사원 파일럿 프로젝트인 만큼 **각자의 코드에는 각자의 개성이 드러났으면 좋겠다는 요구사항**이 있었습니다. 이러한 개성은 파일 구조를 구성하는 데에서도 볼 수 있었습니다.
 
-### 도경
-
-![26](/images/front/post/2021-07-21-zum-front-investing-clone/26.png)
-
-### 재민
-
-![27](/images/front/post/2021-07-21-zum-front-investing-clone/27.png)
-
-### 정훈
-
-![28](/images/front/post/2021-07-21-zum-front-investing-clone/28.png)
+![26](/images/front/post/2021-07-21-zum-front-investing-clone/26.png){:width="30%" height="30%" style="display:inline-block;box-shadow:0 0 10px #ddd;padding:0"}
+![27](/images/front/post/2021-07-21-zum-front-investing-clone/27.png){:width="30%" height="30%" style="display:inline-block;box-shadow:0 0 10px #ddd;padding:0"}
+![28](/images/front/post/2021-07-21-zum-front-investing-clone/28.png){:width="30%" height="30%" style="display:inline-block;box-shadow:0 0 10px #ddd;padding:0"}
+*도경 님, 재민 님, 정훈 님 순입니다.*
 
 크게 `backend` - `frontend` 로 나누어 서버단에서 필요한 작업은 `backend`에서, 클라이언트에서 필요한 작업은 `frontend`에서 담당하도록 했습니다. domain 으로 된 부분은 `axios` 응답 데이터처럼 backend-frontend에서 공통으로 사용될 수 있는 인터페이스를 모아 두었습니다.
 
-![29](/images/front/post/2021-07-21-zum-front-investing-clone/29.png)
-
-![30](/images/front/post/2021-07-21-zum-front-investing-clone/30.png)
+![29](/images/front/post/2021-07-21-zum-front-investing-clone/29.png){:width="40%" height="40%" style="display:inline-block;box-shadow:0 0 10px #ddd;padding:0"}
+![30](/images/front/post/2021-07-21-zum-front-investing-clone/30.png){:width="40%" height="40%" style="display:inline-block;box-shadow:0 0 10px #ddd;padding:0"}
 
 도경 님과 정훈 님은 DB 사용을 위해 docker를 사용했는데요, 도경 님은 docker 관련 설정을 별도로 분리하고 나머지 프로젝트 로직에 대한 부분은 `src` 폴더로 모은 반면, 정훈 님은 그냥 `wiii` package 루트에 `docker-compose.yml` 만 넣었습니다. ~~_정훈 님 패키지에는 `__tests__` 폴더도 보이긴 하는데요, `흔적기관` 같은 거라 보시면 될 것 같아요..._~~
 
 ---
 
-### Backend 구조
+## 3.3 Backend 구조
 
 `backend` 에는 여느 백엔드 프로젝트처럼 `controller` - `service` - db(`repository` - `model`) 로 기능을 분리했습니다. API Key 등 설정 관련 상수는 `config`에 모았습니다. 도경 님은 특별히 `middlewares`를 추가해서, 사용자 인증 관련 미들웨어를 구현했네요.
 
-![31](/images/front/post/2021-07-21-zum-front-investing-clone/31.png)
-
-![32](/images/front/post/2021-07-21-zum-front-investing-clone/32.png)
+![31](/images/front/post/2021-07-21-zum-front-investing-clone/31.png){:width="40%" height="40%" style="display:inline-block;box-shadow:0 0 10px #ddd;padding:0"}
+![32](/images/front/post/2021-07-21-zum-front-investing-clone/32.png){:width="40%" height="40%" style="display:inline-block;box-shadow:0 0 10px #ddd;padding:0"}
 
 DB는 저희 모두 `MongoDB`를 사용했는데, ORM으로 도경, 재민 님은 `Mongoose`를, 정훈 님은 `TypeORM`을 사용했습니다. 두 분은 `model`에서 필요한 `schema`만 작성하고 해당 `schema`를 이용하는 로직은 각 Service에서 `mongoose` 기본 API를 활용하는 방식으로 구현했습니다.
 
@@ -406,15 +376,14 @@ DB는 저희 모두 `MongoDB`를 사용했는데, ORM으로 도경, 재민 님�
 
 ---
 
-### Frontend 구조
+## 3.4 Frontend 구조
 
 저희가 프론트엔드 개발자들이고, 프로젝트 또한 프론트엔드 작업이 중요한 프로젝트이기 때문에 프론트엔드 구조에 대해서는 좀 더 자세히 설명해 드리는 것이 좋을 것 같습니다.
 
-![33](/images/front/post/2021-07-21-zum-front-investing-clone/33.png)
-
-![34](/images/front/post/2021-07-21-zum-front-investing-clone/34.png)
-
-![35](/images/front/post/2021-07-21-zum-front-investing-clone/35.png)
+![33](/images/front/post/2021-07-21-zum-front-investing-clone/33.png){:width="30%" height="30%" style="display:inline-block;box-shadow:0 0 10px #ddd;padding:0"}
+![34](/images/front/post/2021-07-21-zum-front-investing-clone/34.png){:width="30%" height="30%" style="display:inline-block;box-shadow:0 0 10px #ddd;padding:0"}
+![35](/images/front/post/2021-07-21-zum-front-investing-clone/35.png){:width="30%" height="30%" style="display:inline-block;box-shadow:0 0 10px #ddd;padding:0"}
+*도경 님, 재민 님, 정훈 님 순입니다.*
 
 프론트엔드 역시 큰 구조는 유사합니다. Vue 컴포넌트가 들어가는 `components`, 각 페이지를 구성하는 `views`, Vuex 사용을 위한 `stores`, Vue-router 사용을 위한 `router`, 전역에서 사용할 SCSS 변수, 클래스를 위한 `styles`, Axios 등 서버와의 통신 기능을 담당하는 `service`/`api` 등 프로젝트에 필수적인 부분들은 유사하게 구조를 잡았습니다.
 
@@ -428,9 +397,9 @@ DB는 저희 모두 `MongoDB`를 사용했는데, ORM으로 도경, 재민 님�
 
 ---
 
-![38](/images/front/post/2021-07-21-zum-front-investing-clone/38.png)
+![38](/images/front/post/2021-07-21-zum-front-investing-clone/38.png){: width="40%" height="40%"}
 
-### `common`
+## 3.5 `common` 구조
 
 `common` 패키지는 개별 서비스 패키지 구조와 유사하지만, 모두가 공통으로 사용할 컴포넌트와 서비스 로직을 모아둔 패키지입니다. 업무 분배를 통해 담당자가 뉴스, 댓글 등 기능과 컴포넌트를 구현하고, 각자의 서비스에서 마치 `node_modules`의 패키지를 불러와서 사용하는 것처럼 담당 기능을 사용할 수 있도록 했습니다.
 
@@ -440,17 +409,17 @@ DB는 저희 모두 `MongoDB`를 사용했는데, ORM으로 도경, 재민 님�
 
 프로젝트 전반에 대한 소개는 이 정도로 마무리하고, 각자가 구현하면서 고민했던 내용들에 대해 말씀드리겠습니다.
 
-# 기술적 고민
+# 4. 기술적 고민
 
-# 재민 님의 고민
+## 4.1 재민 님의 고민
 
-## 실시간성 보장을 위한 기술 선택 고민
+### 4.1.1 실시간성 보장을 위한 기술 선택 고민
 
 사용자 편의를 위해 마켓 페이지와 종목 상세페이지 내의 가격 정보 변화를 실시간으로 제공해야 했습니다.
 
 이렇게 외부 정보를 받아 동적으로 반영하기 위한 최선의 방법이 무엇일지 고민했습니다.
 
-## 여러 선택지
+### 4.1.2 여러 선택지
 
 ### WebSocket
 
@@ -473,7 +442,7 @@ DB는 저희 모두 `MongoDB`를 사용했는데, ORM으로 도경, 재민 님�
 - 사실 한번 커넥션을 열어두면 서버는 계속 가격 정보를 보내주면 되기 때문에, 가장 로직이 깔끔할 것이라는 생각이 들었습니다.
 - `IE` 미지원, `HTTP` 연결 횟수 제한 등으로 결국 실무에선 쓰기 어려울 것으로 생각해 제외하였습니다.
 
-## 결국 Long Polling
+### 4.1.3 결국 Long Polling
 
 - `WebSocket`은 강력하나 본 프로젝트엔 과한 감이 있었습니다. 그리고 `Regular Polling`은 단순하나 자칫하면 실시간성을 보장하기 어려울 수 있었습니다.
 - 결국 절충하여 `Long Polling` 기법을 사용하도록 결정했고, 비교적 간단하게 실시간성을 확보할 수 있었습니다.
@@ -481,8 +450,7 @@ DB는 저희 모두 `MongoDB`를 사용했는데, ORM으로 도경, 재민 님�
 ### Long Polling 이란?
 
 ![39](/images/front/post/2021-07-21-zum-front-investing-clone/39.png)
-
-출처 : [Modern Javascript Tutorials](https://ko.javascript.info/long-polling)
+*출처 : [Modern Javascript Tutorials](https://ko.javascript.info/long-polling)*
 
 - 본래 `HTTP` 인프라에선 양방향 통신을 지원하지 않습니다.
 - 그러므로 클라이언트 측에서 서버와 커넥션이 끊기자마자 바로 재요청하여 커넥션을 엶으로써 양방향 통신을 모사합니다.
@@ -492,20 +460,18 @@ DB는 저희 모두 `MongoDB`를 사용했는데, ORM으로 도경, 재민 님�
 ### 코드
 
 ![40](/images/front/post/2021-07-21-zum-front-investing-clone/40.png)
-
-클라이언트에서 계속 재귀적으로 서버로 주식 관련 데이터를 요청하는 코드
+*클라이언트에서 계속 재귀적으로 서버로 주식 관련 데이터를 요청하는 코드*
 
 - `subscribeStocks` 메소드는 응답을 기다린 후 커넥션이 끊기자마자 자신을 재귀적으로 호출함으로써 실시간성을 모사하려고 합니다.
 - 일단 에러(timeout 등 일반 에러, 커스텀 에러)가 발생하더라도 1초 정도의 유예를 갖고 다시 재귀적 호출합니다.
 
 ![41](/images/front/post/2021-07-21-zum-front-investing-clone/41.png)
-
-주식 관련 데이터를 가져오는 `store` 내 `action`
+*주식 관련 데이터를 가져오는 `store` 내 `action`*
 
 - `action` 내에서 `trycatch`를 통해 에러처리를 맡아서 합니다.
 - 에러가 발생하면 `setStocksIsError` 플래그를 활성화해 에러 관련 비동기 컴포넌트를 사용자에게 보여줍니다.
 
-# 도경 님의 고민
+## 4.2 도경 님의 고민
 
 협업을 위해 코드리뷰를 진행하면서 몇 가지 고민들이 생겼습니다.
 
@@ -525,9 +491,9 @@ PR의 코드가 적으면 코드 내의 이슈를 찾기가 쉽습니다. 하지
 
    기능 브랜치를 여러 개의 서브 브랜치로 나눠서 작업한 다음 기존 기능 브랜치로 PR를 만들게 되면 작은 PR을 만드는 데 도움이 됩니다.
 
-# 정훈 님의 고민
+## 4.3 정훈 님의 고민
 
-## Server Sent Events 적용과 실패 그 사이..
+### Server Sent Events 적용과 실패 그 사이..
 
 종목별 상세페이지에 있는 차트 컴포넌트를 동적으로 만들어보고자 Server Sent Events(이하 `SSE`)를 적용해보았습니다.
 
@@ -536,8 +502,7 @@ PR의 코드가 적으면 코드 내의 이슈를 찾기가 쉽습니다. 하지
 `SSE`는 아래 도표를 보고 설명을 보시면 좀 더 이해하기 쉬우실 것 같아요
 
 ![42](/images/front/post/2021-07-21-zum-front-investing-clone/42.png)
-
-(이미지 출처: [https://subscription.packtpub.com/book/web_development/9781782166320/6/ch06lvl1sec43/listening-for-server-sent-events](https://subscription.packtpub.com/book/web_development/9781785888960/6/ch06lvl1sec48/listening-for-server-sent-events))
+*출처: [https://subscription.packtpub.com/book/web_development/9781782166320/6/ch06lvl1sec43/listening-for-server-sent-events](https://subscription.packtpub.com/book/web_development/9781785888960/6/ch06lvl1sec48/listening-for-server-sent-events)*
 
 간단히 설명해 드리면,
 
@@ -736,9 +701,9 @@ export default class EsService {
 
 앞으로 다른 프로젝트에서 적용하기는 어려울 것 같아 아쉽긴 하지만, SSE라는 신박한 기술을 적용해보기 위해 JS의 Proxy도 써보고, HTTP에 대한 고민도 해봤던 재밌는 경험이었습니다.
 
-# 회고
+# 5. 회고
 
-## 재민 님의 회고
+## 5.1 재민 님의 회고
 
 ### 실무를 앞두고 필요한 기술 스택 및 도메인 압축적 습득
 
@@ -757,14 +722,12 @@ export default class EsService {
 협업 관련해서 도경 님이 이미 설명해주셨지만, 제가 느낀 바도 적어보겠습니다!
 
 ![45](/images/front/post/2021-07-21-zum-front-investing-clone/45.png)
-
-매일 10시 데일리 스크럼 내용 정리
+*매일 10시 데일리 스크럼 내용 정리*
 
 데일리 스크럼을 통해 서로의 진척도, 나아가 전체 프로젝트의 진척도를 추적, 가늠해볼 수 있었습니다. '프로젝트가 진행되고 있다' 라는 확신을 갖고 일할 수 있었습니다. 이슈 공유하여 같이 고민해보면서 해결책을 찾는 창조적 논의의 경험도 해볼 수 있었습니다. 혼자 고민하는 것보다 같이 고민하는 것이 낫다는 당연한 진리를 재확인할 수 있었습니다.
 
 ![46](/images/front/post/2021-07-21-zum-front-investing-clone/46.png)
-
-코드리뷰를 받은 후 MERGE된 PR들
+*코드리뷰를 받은 후 MERGE된 `PR`들*
 
 하루 동안 작업한 내용을 `PR`로 올리면 다음 날 코드리뷰를 진행하고 머지하였습니다. 매일 꾸준히 하면서 리뷰안된 `PR`이 남지 않도록 노력했습니다.
 
@@ -772,13 +735,13 @@ export default class EsService {
 
 무엇보다 피드백루프를 데일리로 짧게 가져감으로써 좀 더 프로젝트를 가볍고 민첩하게 수행할 수 있다는 점이 매력적이었습니다!
 
-## 도경 님의 회고
+## 5.2 도경 님의 회고
 
 업무에 필요한 기술 셋을 공부하고 다른 사람들과 협업하면서 내가 지금 부족한게 무엇이고 앞으로 어떤 것을 공부해야 하는지 알게 되었던 좋은 시간이었습니다. 부족한 점들이 느껴질 때마다 아직 갈 길이 멀었구나를 일깨워주면서 더욱 빠르게 성장하고 싶은 욕심을 불어넣어 주었던 시간이기도 했습니다.
 
 이제 파일럿 프로젝트를 마치고 실무에 참여하게 되는데요, 좋은 기회를 만들어주신 팀원분들께 감사드리고 앞으로 좋은 모습 보여드릴 수 있도록 하겠습니다.
 
-## 정훈 님의 회고
+## 5.3 정훈 님의 회고
 
 입사 전에는 `React`로 프로젝트 경험을 했기 때문에 `Vue` 생태계에 익숙해지는 것이, 이 프로젝트에서 가장 중요한 목표 중 하나였습니다. 프론트엔드만 구현하는 프로젝트였다면 데이터 흐름을 완전히 파악하지 못했을 수도 있는데, (거의) 풀스택으로 진행한 프로젝트였기 때문에 오히려 `Vue` 라이프사이클과 `Vuex` 같은 상태관리 라이브러리를 통한 데이터 흐름을 좀 더 잘 이해할 수 있었던 것 같습니다. 어떤 데이터를 가공하고 정제할 때 이걸 브라우저에서 하는 게 좋을지, 서버에서 하는 게 좋을지, 컴포넌트 안에서 하는 게 좋을지 `Vuex`에서 하는 게 좋을지 고민하는 과정도 재미있었어요.
 
@@ -786,7 +749,7 @@ export default class EsService {
 
 또 다른 한 가지는 앞서 `SSE` 적용기에서도 아쉬웠다고 말씀드린 부분인데요, `MongoDB`에 `TypeORM` 적용했던 부분, `Vuex`에 `Vuex-Module-Decorators` 적용했던 부분들도 레퍼런스가 충분치 않아서 많이 헤맸던 부분들입니다. 물론 제가 검색을 잘 못 했을 수도 있겠지만, `RDBMS`에서 사용할 수 있는 많은 `TypeORM API`들이 `MongoDB`에서는 지원되지 않는 것들이 많다든지, `Vuex-Module-Decorators`를 제대로 사용하려면 `class-validator` 같은 추가적인 패키지 설치가 필요하다든지 이런 내용들이 공식 문서에는 명확하게 나타나지 않더라고요. 그래서 좋아 보이는 신기술을 사용해보는 것도 좋지만, 일단 모두가 익숙한 기술을 잘 써보고 나서 조금씩 바꿔보는 것이 좋겠다는 생각을 많이 하게 되었습니다.
 
-# 마치며
+# 6. 마치며
 
 저희 신입 개발자 3인방은 실무에서 고군분투하고 있습니다. 그렇다고 다들 버겁다고 느끼기보단 재미나게 일하고 있습니다.
 
