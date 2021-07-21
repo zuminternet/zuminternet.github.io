@@ -11,11 +11,38 @@ author: karl
 
 > **파일럿 프로젝트** <br>줌인터넷 서비스개발팀 프론트엔드 파트 주니어 개발자들(재민, 도경, 정훈)이 수습 기간 동안진행했던 파일럿 프로젝트 입니다. 진행된 프로젝트는 [GitHub 레포지토리](https://github.com/zuminternet/investing-app-clone)에서 확인하실 수 있습니다.
 
-<br>
 
 <p style="text-align: right">
   <img style="margin: 0; display: inline-block;" src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=http%3A%2F%2Flocalhost%3A4000%2Fzum-front-investing-clone%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false" alt="조회수" />
 </p>
+
+# 목차
+1. 프로젝트 개요<br>
+  1.1 프로젝트 주제<br>
+  1.2 요구사항<br>
+  1.3 프로젝트 기능소개
+
+2. 협업 방법
+
+3. 프로젝트 구조<br>
+  3.1 프로젝트 전체 구조<br>
+  3.2 패키지별 구조<br>
+  3.3 Backend 구조<br>
+  3.4 Frontend 구조<br>
+  3.5 common 구조
+
+4. 기술적 고민<br>
+  4.1 재민 님의 고민<br>
+  4.2 도경 님의 고민<br>
+  4.3 정훈 님의 고민
+
+5. 회고<br>
+  5.1 재민 님의 회고<br>
+  5.2 도경 님의 회고<br>
+  5.3 정훈 님의 회고
+
+6. 마치며
+
 
 # 1. 프로젝트 개요
 
@@ -51,6 +78,7 @@ author: karl
 - 필수
   - 공통
     - `zum-portal-core-js` (사내 라이브러리) 완벽 이해 및 사용
+    
   - Front-end
     - `Vue.js 2`
     - `Webpack`
@@ -371,7 +399,7 @@ DB는 저희 모두 `MongoDB`를 사용했는데, ORM으로 도경, 재민 님�
 
 ![38](/images/front/post/2021-07-21-zum-front-investing-clone/38.png){: width="40%" height="40%"}
 
-## 3.5 `common`
+## 3.5 `common` 구조
 
 `common` 패키지는 개별 서비스 패키지 구조와 유사하지만, 모두가 공통으로 사용할 컴포넌트와 서비스 로직을 모아둔 패키지입니다. 업무 분배를 통해 담당자가 뉴스, 댓글 등 기능과 컴포넌트를 구현하고, 각자의 서비스에서 마치 `node_modules`의 패키지를 불러와서 사용하는 것처럼 담당 기능을 사용할 수 있도록 했습니다.
 
