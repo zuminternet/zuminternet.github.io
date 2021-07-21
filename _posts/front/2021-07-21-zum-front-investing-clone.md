@@ -5,7 +5,7 @@ description: 신입 프론트엔드 개발자들이 파일럿 프로젝트로 �
 image: /images/front/post/2021-07-21-zum-front-investing-clone/0-thumbnail.png
 introduction: 신입 프론트엔드 개발자들이 파일럿 프로젝트로 진행한 INVESTING.COM 클론 코딩 경험을 공유합니다.
 category: portal/tech
-tag: [Frontend, pilot, 회고, javascript, Vue.js, CANVAS API, SSR, Typescript]
+tag: [Frontend, pilot, 회고, javascript, typescript, Vue.js, CANVAS API, SSR,]
 author: karl
 ---
 
@@ -186,7 +186,7 @@ author: karl
 
 ### 차트
 
-![11](/images/front/post/2021-07-21-zum-front-investing-clone/11.gif){: width="50%" height="50%"}
+![11](/images/front/post/2021-07-21-zum-front-investing-clone/11.gif){: width="80%" height="80%"}
 *도경 님 프로젝트*
 
 ![12](/images/front/post/2021-07-21-zum-front-investing-clone/12.gif)
@@ -301,7 +301,7 @@ author: karl
 
 # 3. 프로젝트 구조
 
-![25](/images/front/post/2021-07-21-zum-front-investing-clone/25.png){: width="30%" height="30%"}
+![25](/images/front/post/2021-07-21-zum-front-investing-clone/25.png){: width="40%" height="40%"}
 
 ## 3.1. 프로젝트 전체 구조
 
@@ -321,16 +321,15 @@ author: karl
 
 팀 프로젝트이기 때문에 큰 틀은 유사하게 가져가지만, 신입사원 파일럿 프로젝트인 만큼 **각자의 코드에는 각자의 개성이 드러났으면 좋겠다는 요구사항**이 있었습니다. 이러한 개성은 파일 구조를 구성하는 데에서도 볼 수 있었습니다.
 
-![26](/images/front/post/2021-07-21-zum-front-investing-clone/26.png){:style="display:inline-block;box-shadow:0 0 10px #ddd;padding:0"}
-![27](/images/front/post/2021-07-21-zum-front-investing-clone/27.png){:style="display:inline-block;box-shadow:0 0 10px #ddd;padding:0"}
-![28](/images/front/post/2021-07-21-zum-front-investing-clone/28.png){:style="display:inline-block;box-shadow:0 0 10px #ddd;padding:0"}
+![26](/images/front/post/2021-07-21-zum-front-investing-clone/26.png){:width="30%" height="30%" style="display:inline-block;box-shadow:0 0 10px #ddd;padding:0"}
+![27](/images/front/post/2021-07-21-zum-front-investing-clone/27.png){:width="30%" height="30%" style="display:inline-block;box-shadow:0 0 10px #ddd;padding:0"}
+![28](/images/front/post/2021-07-21-zum-front-investing-clone/28.png){:width="30%" height="30%" style="display:inline-block;box-shadow:0 0 10px #ddd;padding:0"}
 *도경 님, 재민 님, 정훈 님 순입니다.*
 
 크게 `backend` - `frontend` 로 나누어 서버단에서 필요한 작업은 `backend`에서, 클라이언트에서 필요한 작업은 `frontend`에서 담당하도록 했습니다. domain 으로 된 부분은 `axios` 응답 데이터처럼 backend-frontend에서 공통으로 사용될 수 있는 인터페이스를 모아 두었습니다.
 
-![29](/images/front/post/2021-07-21-zum-front-investing-clone/29.png)
-
-![30](/images/front/post/2021-07-21-zum-front-investing-clone/30.png){: width="30%" height="30%"}
+![29](/images/front/post/2021-07-21-zum-front-investing-clone/29.png){:width="40%" height="40%" style="display:inline-block;box-shadow:0 0 10px #ddd;padding:0"}
+![30](/images/front/post/2021-07-21-zum-front-investing-clone/30.png){:width="40%" height="40%" style="display:inline-block;box-shadow:0 0 10px #ddd;padding:0"}
 
 도경 님과 정훈 님은 DB 사용을 위해 docker를 사용했는데요, 도경 님은 docker 관련 설정을 별도로 분리하고 나머지 프로젝트 로직에 대한 부분은 `src` 폴더로 모은 반면, 정훈 님은 그냥 `wiii` package 루트에 `docker-compose.yml` 만 넣었습니다. ~~_정훈 님 패키지에는 `__tests__` 폴더도 보이긴 하는데요, `흔적기관` 같은 거라 보시면 될 것 같아요..._~~
 
@@ -340,9 +339,8 @@ author: karl
 
 `backend` 에는 여느 백엔드 프로젝트처럼 `controller` - `service` - db(`repository` - `model`) 로 기능을 분리했습니다. API Key 등 설정 관련 상수는 `config`에 모았습니다. 도경 님은 특별히 `middlewares`를 추가해서, 사용자 인증 관련 미들웨어를 구현했네요.
 
-![31](/images/front/post/2021-07-21-zum-front-investing-clone/31.png){: width="50%" height="50%"}
-
-![32](/images/front/post/2021-07-21-zum-front-investing-clone/32.png){: width="50%" height="50%"}
+![31](/images/front/post/2021-07-21-zum-front-investing-clone/31.png){:width="40%" height="40%" style="display:inline-block;box-shadow:0 0 10px #ddd;padding:0"}
+![32](/images/front/post/2021-07-21-zum-front-investing-clone/32.png){:width="40%" height="40%" style="display:inline-block;box-shadow:0 0 10px #ddd;padding:0"}
 
 DB는 저희 모두 `MongoDB`를 사용했는데, ORM으로 도경, 재민 님은 `Mongoose`를, 정훈 님은 `TypeORM`을 사용했습니다. 두 분은 `model`에서 필요한 `schema`만 작성하고 해당 `schema`를 이용하는 로직은 각 Service에서 `mongoose` 기본 API를 활용하는 방식으로 구현했습니다.
 
@@ -371,7 +369,7 @@ DB는 저희 모두 `MongoDB`를 사용했는데, ORM으로 도경, 재민 님�
 
 ---
 
-![38](/images/front/post/2021-07-21-zum-front-investing-clone/38.png){: width="30%" height="30%"}
+![38](/images/front/post/2021-07-21-zum-front-investing-clone/38.png){: width="40%" height="40%"}
 
 ## 3.5 `common`
 
@@ -696,14 +694,12 @@ export default class EsService {
 협업 관련해서 도경 님이 이미 설명해주셨지만, 제가 느낀 바도 적어보겠습니다!
 
 ![45](/images/front/post/2021-07-21-zum-front-investing-clone/45.png)
-
-매일 10시 데일리 스크럼 내용 정리
+*매일 10시 데일리 스크럼 내용 정리*
 
 데일리 스크럼을 통해 서로의 진척도, 나아가 전체 프로젝트의 진척도를 추적, 가늠해볼 수 있었습니다. '프로젝트가 진행되고 있다' 라는 확신을 갖고 일할 수 있었습니다. 이슈 공유하여 같이 고민해보면서 해결책을 찾는 창조적 논의의 경험도 해볼 수 있었습니다. 혼자 고민하는 것보다 같이 고민하는 것이 낫다는 당연한 진리를 재확인할 수 있었습니다.
 
 ![46](/images/front/post/2021-07-21-zum-front-investing-clone/46.png)
-
-코드리뷰를 받은 후 MERGE된 PR들
+*코드리뷰를 받은 후 MERGE된 `PR`들*
 
 하루 동안 작업한 내용을 `PR`로 올리면 다음 날 코드리뷰를 진행하고 머지하였습니다. 매일 꾸준히 하면서 리뷰안된 `PR`이 남지 않도록 노력했습니다.
 
