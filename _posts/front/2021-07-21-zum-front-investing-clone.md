@@ -41,6 +41,8 @@ author: karl
 
 이러한 이유로 [INVESTING.COM](http://investing.COM) 을 클론 코딩 하기로 했습니다.
 
+개발은 5. 10 ~ 6. 24 까지 약 7주간 이루어졌습니다.
+
 ## 요구사항
 
 ### 기술적 요구사항
