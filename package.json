@@ -27,7 +27,7 @@
   "homepage": "https://github.com/thiagorossener/thiagorossener.github.io#readme",
   "devDependencies": {
     "autoprefixer-stylus": "^0.14.0",
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "browser-sync": "^2.26.5",
     "child_process": "^1.0.2",
     "gulp": "~4.0.2",
