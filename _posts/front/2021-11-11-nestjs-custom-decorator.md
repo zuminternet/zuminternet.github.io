@@ -250,7 +250,7 @@ export class DataService {
 
       // 캐싱된 데이터가 없을 경우, 데이터를 가져온 후, 캐싱을 한 다음에 반환
       const {data} = await adapter.get<HomeCategoryNewsResponse>({ url, params });
-      cacheManager.set(cachedData, data, {
+      cacheManager.set(cacheKey, data, {
         ttl: 60 // 캐시 유효기간을 60초로 설정
       });
       return data;
