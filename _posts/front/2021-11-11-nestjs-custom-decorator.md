@@ -14,7 +14,7 @@ author: junilhwang
   <img style="margin: 0; display: inline-block;" src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fzuminternet.github.io%2Fnestjs-custom-decorator%2F&count_bg=%230099FF&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=%EC%A1%B0%ED%9A%8C%EC%88%98&edge_flat=true" alt="조회수" />
 </p>
 
-> 본 포스트는 NestJS에 호환 되는 Chaching Decorator 를 만들기 위한 삽질 과정을 담고 있습니다.
+> 본 포스트는 NestJS에 호환 되는 Caching Decorator 를 만들기 위한 삽질 과정을 담고 있습니다.
 
 안녕하세요! 약 한 달 만에 기술블로그에 투고를 합니다.
 조금 더 자주 해야 할텐데.. 글쓰기는 항상 어렵네요 😭
