@@ -38,7 +38,7 @@ tag: [experience, Frontend, Vue.js, Webpack4]
 최근 [Github 트렌드 Javascript](https://github.com/trending/javascript?since=monthly)를 보면 번들링 툴은 [Webpack](https://github.com/webpack/webpack)이 압도적인 자리를 차지합니다.
 많은 프레임워크와 라이브러리가 이미 Webpack을 기반으로 하고 있고, 계속된 업데이트로 기능을 더해나가고 있기 때문일 것입니다.
 
-![Webpack](images/front/post/2019-07-08-ZUM-Webpack-dev-proxy-part1/webpack.png)
+![Webpack](/images/front/post/2019-07-08-ZUM-Webpack-dev-proxy-part1/webpack.png)
 *웹팩은 언제까지 갈런지?*
 
 줌인터넷에서도 Webpack을 기반으로 프론트엔드 개발을 진행합니다.
@@ -65,7 +65,7 @@ tag: [experience, Frontend, Vue.js, Webpack4]
    기획 및 개발 일정이 계속 변경되면서 각 서브 도메인의 API 개발이 언제 마무리될지 알 수 없게 되었습니다.
    일단 데이터 규격을 맞추는 것으로 급한 불은 껐지만, API로 직접 개발이 가능해질때까지 기다릴 수는 없었습니다.
    
-![time](images/front/post/2019-07-08-ZUM-Webpack-dev-proxy-part1/what.jpg)
+![time](/images/front/post/2019-07-08-ZUM-Webpack-dev-proxy-part1/what.jpg)
 *갈 길이 멀다...*
 
 이렇게 한정된 리소스와 개발 기간을 해결하기 위해 **stub 데이터만을 이용하는 프론트엔드 개발** 모드와 
@@ -73,7 +73,7 @@ tag: [experience, Frontend, Vue.js, Webpack4]
 말 그대로 **눈에 보이는 부분**의 개발과 **데이터를 다루는 부분**의 개발을 분리하여 동시에 진행하고자 한 것입니다.
 
 
-![목표 개발 프로세스](images/front/post/2019-07-08-ZUM-Webpack-dev-proxy-part1/goal.png)
+![목표 개발 프로세스](/images/front/post/2019-07-08-ZUM-Webpack-dev-proxy-part1/goal.png)
 *결과적으로 위 그림과 같은 프로세스로 개발을 진행할 수 있었습니다*  
   
   
@@ -109,14 +109,14 @@ package.json 파일은 Vue-CLI2가 만들어 주는 형태와 크게 다르지 �
 
 각 모드의 특징은 아래와 같습니다.
 1. **publish**    
-![publish 모드](images/front/post/2019-07-08-ZUM-Webpack-dev-proxy-part1/publish.png)
+![publish 모드](/images/front/post/2019-07-08-ZUM-Webpack-dev-proxy-part1/publish.png)
   - 프론트엔드 단독 실행 모드. 백엔드 불필요.
   - `/api/...` 경로로 AJAX 호출시 `/stub` 폴더 내의 JS 파일(JSON 데이터)을 응답
   - API 추가시 경로에 해당하는 폴더에 JS 파일을 추가하여 적용
   - JS 파일 수정으로 글자 수 변경, 이미지 링크 깨짐, 데이터 형식 등 다양한 UI 테스트/개발 진행
   
 2. **dev**  
-![dev 모드](images/front/post/2019-07-08-ZUM-Webpack-dev-proxy-part1/dev.png)
+![dev 모드](/images/front/post/2019-07-08-ZUM-Webpack-dev-proxy-part1/dev.png)
   - 프론트엔드와 백엔드 연동 모드.  
   하나의 웹앱으로 빌드하고 배포한 상태와 유사함. 
   - 모든 요청이 백엔드로 bypass
@@ -248,7 +248,7 @@ export할 객체에는 Http 요청 Method에 해당하는 함수를 구현합니
 요청 URL과 일치하는 JS 파일을 찾아 import하고, 객체의 메소드를 실행하여 결과를 반환합니다. 
 간단하지만 아주 강력한 코드죠. 
 
-![파일 로드 방식](images/front/post/2019-07-08-ZUM-Webpack-dev-proxy-part1/file-load.png)
+![파일 로드 방식](/images/front/post/2019-07-08-ZUM-Webpack-dev-proxy-part1/file-load.png)
 
 이제 Webpack Dev Server에서 사용할 응답 데이터 파일이 준비되었습니다.
 
@@ -283,7 +283,7 @@ post 요청 처리를 위해 미들웨어를 등록하고
 Axios 패칭 구문에서 설정한대로 `/stub/**` URL로 온 요청의 path를 파일 위치로 변경한 후
 JS 파일을 import 하고 실행하는 로직을 수행합니다.
 
-![before hook 로직](images/front/post/2019-07-08-ZUM-Webpack-dev-proxy-part1/req-res.png)
+![before hook 로직](/images/front/post/2019-07-08-ZUM-Webpack-dev-proxy-part1/req-res.png)
 *post 요청이라면 b.post(request)가 호출됩니다*
 
 이제 public 모드 설정이 끝났습니다.  
@@ -341,7 +341,7 @@ JS 파일로 응답하는 publish 모드에 대해 설명드렸습니다.
 근본적으로 다르지 않습니다. 하지만 직접 Node 서버를 구성한다면 개발 환경에 어울리지 않는 의미없고 귀찮은 설정이 필요합니다. 
 대표적으로 [CORS](https://developer.mozilla.org/ko/docs/Web/HTTP/Access_control_CORS) 설정과 [Nodemon](https://www.npmjs.com/package/nodemon) 설정이 있겠네요.
 
-![굿](images/front/post/2019-07-08-ZUM-Webpack-dev-proxy-part1/good.jpg)
+![굿](/images/front/post/2019-07-08-ZUM-Webpack-dev-proxy-part1/good.jpg)
 *귀찮은건 질색*
   
 이어질 Part2에서는 리버스 프록시 설정을 이용하여 모든 요청을 백엔드 서버로 bypass하면서도

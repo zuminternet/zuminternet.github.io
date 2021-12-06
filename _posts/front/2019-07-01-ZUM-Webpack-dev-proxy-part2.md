@@ -75,10 +75,10 @@ dev 모드는 크게 세 가지 기능 지원을 목표로 합니다.
 
 그림으로 보면 아래와 같습니다.
 
-![dev-spa](images/front/post/2019-07-08-ZUM-Webpack-dev-proxy-part2/dev_spa.png)
+![dev-spa](/images/front/post/2019-07-08-ZUM-Webpack-dev-proxy-part2/dev_spa.png)
 *SPA를 지원하는 URL로 요청한 경우.  템플릿 엔진에서 만들어진 HTML에 스크립트 태그를 삽입한다.*
 
-![dev-other](images/front/post/2019-07-08-ZUM-Webpack-dev-proxy-part2/dev_other.png)
+![dev-other](/images/front/post/2019-07-08-ZUM-Webpack-dev-proxy-part2/dev_other.png)
 *그 외 요청.  백엔드에서 온 응답 그대로 반환한다.*
 
 
@@ -296,7 +296,7 @@ Webpack Dev Server인 3000포트로 요청한 응답입니다.
 Webpack 프로젝트 기본 룰과 마찬가지로 css/js 태그가 없는 템플릿 파일*(ex: _index.peb)*을 만들어 놓고, 
 번들링할 때 그 템플릿 파일을 로드, 웹팩이 생성한 css/js를 삽입한 템플릿 파일*(ex: index.peb)*을 생성하게 하는 것입니다.  
 
-![생성되는 템플릿](images/front/post/2019-07-08-ZUM-Webpack-dev-proxy-part2/generate_template.png)
+![생성되는 템플릿](/images/front/post/2019-07-08-ZUM-Webpack-dev-proxy-part2/generate_template.png)
 *위 그림과 같은 순서를 따릅니다*
 
 이 방법을 적용하려면 HtmlWebpackPlugin이 지원하는 String interpolation과 관련된 문제가 조금 있지만 꽤나 훌륭하게 작동합니다.
