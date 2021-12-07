@@ -9,8 +9,11 @@ tag: [프론트엔드, Front-end, FE, zum, zum-fe, core, yarn, mono-repo, nodejs
 author: junilhwang
 ---
 
+<p style="text-align: right">
+  <img style="margin: 0; display: inline-block;" src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fzuminternet.github.io%2Fzum-portal-core-js%2F&count_bg=%230099FF&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=%EC%A1%B0%ED%9A%8C%EC%88%98&edge_flat=true" alt="조회수" />
+</p>
+
 > 본 포스트는 줌인터넷 포털개발팀 프론트엔드 파트에서 사용되고 있는 표준화 core package 에 대해 다루고 있습니다.
->
 
 안녕하세요! 다시 한 달 만에 블로그 포스트를 작성하게 되었습니다.
 이번에는 저희 프론트엔드 파트에서 사용하고 있는 `zum-portal-core-js`에 대해 다뤄볼 생각입니다.
