@@ -25,3 +25,10 @@ dogyeong:
   description: '?!'
   profileImage: https://ca.slack-edge.com/TD73N32SZ-U012XRL919Q-bf9559d5fe56-192
   outlink: https://github.com/junilhwang
+
+hgstudy:
+  org: 개발실 핀테크팀 서버파트
+  name : 현건수
+  description: 흉내내는 사람이 아닌, 이해하는 사람이 되자
+  profileImage: https://avatars.githubusercontent.com/u/76584547?v=4
+  outlink : https://github.com/hgs-study

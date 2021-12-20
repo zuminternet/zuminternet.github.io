@@ -4,3 +4,5 @@ gem 'rouge'
 gem 'jekyll'
 gem 'jemoji'
 gem 'nokogiri'
+
+gem "webrick", "~> 1.7"
