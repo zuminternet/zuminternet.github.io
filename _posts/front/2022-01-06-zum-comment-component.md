@@ -6,7 +6,7 @@ image: /images/front/post/2022-01-10-zum-comment-component/00_thumbnail.png
 introduction: 서브도메인에서 사용되는 댓글 모듈의 레거시코드를 걷어내고 Vue, TypeScript, 그리고 Jest를 사용하여 효율적인 유지보수가 가능한 댓글 컴포넌트를 만들어 사내에 배포한 과정을 소개합니다.
 category: portal/tech
 tag: [프론트엔드, Front-end, FE, zum, zum-fe, Vue, TypeScript, Jest, 테스트코드, TDD, 리팩토링]
-author: Seonkyu Kim
+author: somedaycode
 ---
 
 <p style="text-align: right">
