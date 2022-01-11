@@ -587,12 +587,12 @@ describe('CommentFilterTab.vue', () => {
       },
     });
     const likeTab = wrapper.find('.like');
-		// 버튼이 브라우저에 존재하는지 확인하는 테스트는 통과합니다.
-		expect(likeTab.exists()).toBe(true);
+    // 버튼이 브라우저에 존재하는지 확인하는 테스트는 통과합니다.
+    expect(likeTab.exists()).toBe(true);
 	  
     await likeTab.trigger('click');
 
-		// 실패
+    // 실패
     expect(wrapper.vm.$data.filters).toEqual({
       newest: false,
       past: false,
@@ -645,7 +645,7 @@ export default Vue.extend({
   methods: {
     handleClickCommentFilterTab(e: MouseEvent) {
       const target = e.target as HTMLLIElement;
-			if (!target.closest('LI')) return;
+      if (!target.closest('LI')) return;
 
       const filterName = target.className;
       this.resetFiltersData();
