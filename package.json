@@ -39,7 +39,7 @@
     "jeet": "^7.2.0",
     "kouto-swiss": "^1.1.0",
     "lodash": "^4.17.21",
-    "minimist": "^1.2.3",
+    "minimist": "^1.2.6",
     "rupture": "^0.7.1"
   }
 }
