@@ -12,6 +12,10 @@ author: JJungwoo
 
 ---
 
+<p style="text-align: right">
+  <img style="margin: 0; display: inline-block;" src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fzuminternet.github.io%2FSearchPilotProject%2F&count_bg=%230099FF&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=%EC%A1%B0%ED%9A%8C%EC%88%98&edge_flat=true" alt="조회수" />
+</p>
+
 > 사용자에게 검색 서비스를 제공하려면 검색 대상이 될 문서에 대한 색인(indexing) 과정과 사용자가 요청하는 쿼리(query), 즉 검색 내용에 대해 일치하는 결과 문서를 제공해야 합니다. 이때 사용자에게는 언제든지 문제 없이 실시간 서비스를 제공해야 합니다. 이러한 검색 서비스를 제공하기 위해 진행했던 개발 과정에 대해 소개합니다.
 
 <br>
