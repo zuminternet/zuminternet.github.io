@@ -9,6 +9,10 @@ tag: [프론트엔드 개발자, 줌인터넷 개발자, 줌인터넷 회고, �
 author: junilhwang
 ---
 
+<p style="text-align: right">
+  <img style="margin: 0; display: inline-block;" src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fzuminternet.github.io%2Fzuminternet-review%2F&count_bg=%230099FF&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=%EC%A1%B0%ED%9A%8C%EC%88%98&edge_flat=true" alt="조회수" />
+</p>
+
 > 안녕하세요! 줌인터넷 포털개발팀의 프론트엔드 파트리더 황준일입니다. 이 글은 줌인터넷이라는 회사에 제가 남기는 마지막 족적이고, **스스로를 위한 회고이며 앞으로 이 회사에 합류하게될 분들과 근무 하시는 분들을 위한 글**입니다.
 
 ***
