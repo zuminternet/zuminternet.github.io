@@ -42,5 +42,5 @@
         <li><a class="feed" href="{{ site.url }}{{site.baseurl}}/feed.xml" title="Atom/RSS feed">Feed</a></li>
     </ul>
 </footer>
-<script src="{{ "/assets/js/main.js" | prepend: site.baseurl }}"></script>
+<script src="{{ "/assets/js/main.js" | prepend: site.baseurl }}?_={{ site.time | date: "%s" }}"></script>
 {% include stats.html %}
