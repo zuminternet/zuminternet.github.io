@@ -18,13 +18,10 @@ author : kihwankim
 # 목차
 
 1. Batch Test Code 작성
-
 <br/>   1.1 Batch 통합 테스트
 <br/>   1.2 SpringBatch Test Lib
 <br/>   1.3 Spring Batch Test Code 작성
-
 2. Batch Test Code 문제점과 해결 방법
-
 <br/>   2.1 Job Bean 주입 이슈
 <br/>   2.2 Dirty Context 이슈
 <br/>   2.3 해결책
