@@ -2,7 +2,7 @@
 layout: post
 title: Spring Batch Test Code 성능 개선
 description: Spring Batch Test Code 작성하면서 경험한 성능 이슈 문제를 해결하는 과정을 공유합니다.
-image: /images/portal/post/2022-11-01-VOTE-ARCHITECTURE/thumbnail.png
+image: /images/portal/post/2022-11-13-batch-test/thumbnail.png
 introduction: Spring Batch Test Code 작성하면서 경험한 성능 이슈 문제를 해결하는 과정을 공유합니다.
 category: portal/tech
 tag:  [Spring Batch, Test Code]
