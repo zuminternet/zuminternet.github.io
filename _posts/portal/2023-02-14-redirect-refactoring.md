@@ -11,6 +11,8 @@ author : parkje0927
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fzuminternet.github.io%2Fredirect-refactoring%2F&count_bg=%233060D3&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 ![thumbnail.png](/images/portal/post/2023-02-14-redirect-refactoring/thumbnail.png)
 
+<br>
+
 > 안녕하세요. 포털개발팀 포털백엔드 개발파트의 박정현(Kate) 입니다.     
 파일럿 프로젝트로 URL 리다이렉트 서버 레거시 시스템 개선 및 AWS 로 이관하는 업무를 맡게 되어 관련 내용을 공유드리려고 합니다.
 > 
