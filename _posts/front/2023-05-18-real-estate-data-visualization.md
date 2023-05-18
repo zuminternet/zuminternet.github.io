@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 부동산 데이터 시각화 - 파일럿 프로젝트
+title: Next, d3로 서버 사이드 지도 렌더링하기
 description: 파일럿 프로젝트로 진행한 데이터 시각화와 서버 사이드에서 활용할 수 있도록 개선한 과정을 소개합니다.
 image: /images/front/post/2023-05-18-real-estate-data-visualization/thumbnail.png
 introduction: 파일럿 프로젝트로 진행한 데이터 시각화와 서버 사이드에서 활용할 수 있도록 개선한 과정을 소개합니다.
