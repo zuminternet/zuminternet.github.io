@@ -17,6 +17,8 @@ author: namsoo5
 
 ---
 
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fzuminternet.github.io%2FiOS-tuist-module%2F&count_bg=%235D5F5C&title_bg=%235D5F5C&icon=swift.svg&icon_color=%23FF9800&title=++++%F0%9F%A7%A1&edge_flat=false)](https://hits.seeyoufarm.com)
+
 ![graph5](/images/ios/2023-05-09-iOS-tuist-module/기술블로그이미지.svg)
 
 > 안녕하세요 ZUM iOS개발자 김남수(Enes)입니다.
@@ -418,7 +420,7 @@ Domain모듈에 Repository인터페이스를 두고 Repository모듈에서 Domai
 | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
 | <img src="/images/ios/2023-05-09-iOS-tuist-module/moduleDiagram_before.png" width="500" height="600"> | <img src="/images/ios/2023-05-09-iOS-tuist-module/linking_before.png" width="500" height="300"> |
 
-위의 사진같이 변겅전 아키텍처일 때
+위의 사진같이 변경전 아키텍처일 때
 
 링킹시 하위 모듈의 모든 빌드가 끝나야 이뤄지는 링킹 과정때문에 공백이 크게 있는 것을 확인 할 수 있었습니다.
 
@@ -487,9 +489,11 @@ Repository -> Domain
 
 ## 끝내며...
 
-한 덩어리의 프로젝트일 땐 개발하며 코드의 위치나 관계에 많은 신경을 쓰지 않았던 것 같습니다.
+하나의 모듈로 구성된 프로젝트일 땐 개발하며 코드의 위치나 관계에 많은 신경을 쓰지 않았던 것 같습니다.
 
 파일이나 코드가 어디에 위치하더라도 사용할 수 있기 때문에 신경을 쓰더라도 놓친 부분도 있었을 겁니다.
+
+보통 private과 internal정도의 구분을 고려하며 개발한다면 모듈화를 하면서 public과 internal의 구분도 고려하게 됩니다.
 
 모듈화를 진행하면서부터는 다른 모듈에 접근해야 하므로 위치를 신경 썼고 기능들이 잘 분리되도록 고민했습니다.
 
@@ -500,6 +504,8 @@ Repository -> Domain
 아직도 현재 구성한 구조가 좋은 구조라는 확신은 없습니다.
 
 다음에 개선할 점이 보이거나 더 좋은 인사이트를 접하게 된다면 열린 마음으로 수정할 예정입니다.
+
+<br/>
 
 Tuist사용과 모듈화를 어떻게 시작해서 변경시켜 왔는지 의식의 흐름처럼 글을 써가서 말이 이상하거나 부족한 부분이 있을 수 있습니다.
 
