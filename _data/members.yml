@@ -22,30 +22,30 @@ wiii:
 dogyeong:
   org: 개발실 포털개발팀 프론트엔드파트
   name: 이도경
-  description: '?!'
+  description: "?!"
   profileImage: https://ca.slack-edge.com/TD73N32SZ-U012XRL919Q-bf9559d5fe56-192
   outlink: https://github.com/junilhwang
 
 hgstudy:
   org: 개발실 핀테크팀 서버파트
-  name : 현건수
+  name: 현건수
   description: 흉내내는 사람이 아닌, 이해하는 사람이 되자
   profileImage: https://avatars.githubusercontent.com/u/76584547?v=4
-  outlink : https://github.com/hgs-study
+  outlink: https://github.com/hgs-study
 
 somedaycode:
   org: 개발실 포털개발팀 프론트엔드파트
-  name : 김선규
+  name: 김선규
   description: 오늘도 코드 한 줄
-  profileImage: 'https://avatars.githubusercontent.com/u/71962505?v=4'
-  outlink : https://github.com/somedaycode
+  profileImage: "https://avatars.githubusercontent.com/u/71962505?v=4"
+  outlink: https://github.com/somedaycode
 
 jaylnne:
   org: 개발실 부설연구소 & 빅데이터팀 DI 파트
-  name : 류혜정
+  name: 류혜정
   description: ENTJ 데이터 사이언티스트
-  profileImage: 'https://avatars.githubusercontent.com/u/71648550?v=4'
-  outlink : https://github.com/jaylnne
+  profileImage: "https://avatars.githubusercontent.com/u/71648550?v=4"
+  outlink: https://github.com/jaylnne
 
 JJungwoo:
   org: 개발실 플랫폼개발팀 검색엔진파트
@@ -74,3 +74,10 @@ parkje0927:
   description: 천천히, 열심히!
   profileImage: https://avatars.githubusercontent.com/u/59729616?v=4
   outlink: https://github.com/parkje0927
+
+dohun31:
+  org: 개발실 프론트엔드개발팀
+  name: 백도훈
+  description: 느리더라도 단단하게
+  profileImage: https://avatars.githubusercontent.com/u/65100540?v=4
+  outlink: https://github.com/dohun31
