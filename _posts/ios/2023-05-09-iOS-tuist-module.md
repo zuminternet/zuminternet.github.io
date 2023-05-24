@@ -19,7 +19,7 @@ author: namsoo5
 
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fzuminternet.github.io%2FiOS-tuist-module%2F&count_bg=%235D5F5C&title_bg=%235D5F5C&icon=swift.svg&icon_color=%23FF9800&title=++++%F0%9F%A7%A1&edge_flat=false)](https://hits.seeyoufarm.com)
 
-![graph5](/images/ios/2023-05-09-iOS-tuist-module/기술블로그이미지.svg)
+![표지이미지](/images/ios/2023-05-09-iOS-tuist-module/기술블로그이미지.png)
 
 > 안녕하세요 ZUM iOS개발자 김남수(Enes)입니다.
 > 
