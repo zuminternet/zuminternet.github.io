@@ -5,7 +5,7 @@ title: Tuist 도입부터 적용까지 알려ZUM요! (feat. 모듈화)
 
 description: ZUM에서 Tuist를 iOS프로젝트에 어떻게 적용하고 있는지 공유합니다.
 
-image: /images/ios/2023-05-09-iOS-tuist-module/기술블로그이미지.svg
+image: /images/ios/2023-05-09-iOS-tuist-module/titleImage.svg
 
 introduction: ZUM에서 Tuist를 iOS프로젝트에 어떻게 적용하고 있는지 공유합니다.
 
@@ -19,7 +19,7 @@ author: namsoo5
 
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fzuminternet.github.io%2FiOS-tuist-module%2F&count_bg=%235D5F5C&title_bg=%235D5F5C&icon=swift.svg&icon_color=%23FF9800&title=++++%F0%9F%A7%A1&edge_flat=false)](https://hits.seeyoufarm.com)
 
-![표지이미지](/images/ios/2023-05-09-iOS-tuist-module/기술블로그이미지.png)
+![표지이미지](/images/ios/2023-05-09-iOS-tuist-module/titleImage.svg)
 
 > 안녕하세요 ZUM iOS개발자 김남수(Enes)입니다.
 > 
