@@ -476,7 +476,7 @@ Service와 Domain의 모듈 관계를 제거하고 Repository가 바로 Domain�
 
 <img src="/images/ios/2023-05-09-iOS-tuist-module/moduleDiagram_domain.png" width="700" height="300">
 
-Feature -> Domain <- Repository -> Service 형태인 이상적인 의존관계가 됐습니다.
+Feature -> Domain <- Repository -> Service 형태인 이상적인 의존관계가 됐습니다.
 
 도메인 모델이 변경되더라도 Service모듈에 영향이 없어졌습니다.
 
