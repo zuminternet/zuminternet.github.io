@@ -5,7 +5,7 @@ title: Tuist 도입부터 적용까지 알려ZUM요! (feat. 모듈화)
 
 description: ZUM에서 Tuist를 iOS프로젝트에 어떻게 적용하고 있는지 공유합니다.
 
-image: /images/ios/2023-05-09-iOS-tuist-module/titleImage.svg
+image: /images/ios/2023-05-24-iOS-tuist-module/titleImage.svg
 
 introduction: ZUM에서 Tuist를 iOS프로젝트에 어떻게 적용하고 있는지 공유합니다.
 
@@ -19,7 +19,7 @@ author: namsoo5
 
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fzuminternet.github.io%2FiOS-tuist-module%2F&count_bg=%235D5F5C&title_bg=%235D5F5C&icon=swift.svg&icon_color=%23FF9800&title=++++%F0%9F%A7%A1&edge_flat=false)](https://hits.seeyoufarm.com)
 
-![표지이미지](/images/ios/2023-05-09-iOS-tuist-module/titleImage.svg)
+![표지이미지](/images/ios/2023-05-24-iOS-tuist-module/titleImage.svg)
 
 > 안녕하세요 ZUM iOS개발자 김남수(Enes)입니다.
 > 
@@ -137,7 +137,7 @@ private func targetWithMode(_ mode: TuistMode) -> Target {
 
 터미널에서 생성 시에 해당 프로젝트가 어떤 모드로 생성되는지 눈으로 쉽게 확인할 수 있도록 로그도 추가해 줬습니다.
 
-![tuistModeLog](/images/ios/2023-05-09-iOS-tuist-module/tuistModeLog.png)
+![tuistModeLog](/images/ios/2023-05-24-iOS-tuist-module/tuistModeLog.png)
 
 위와 같이 터미널에서 확인하실 수 있습니다.
 
@@ -302,7 +302,7 @@ let featureTemplate = Template(
 
 위의 코드는 Feature모듈을 만들 때 사용되는 템플릿입니다.
 
-![stencil_feature](/images/ios/2023-05-09-iOS-tuist-module/stencil_feature.png)
+![stencil_feature](/images/ios/2023-05-24-iOS-tuist-module/stencil_feature.png)
 
 stencil파일을 사용하여 Project파일을 만들어 주고
 
@@ -312,7 +312,7 @@ stencil파일을 사용하여 Project파일을 만들어 주고
 
 명령어 실행 시 feature모듈을 생성할 때마다 입력해 줬던 코드와 동일하게 작성됩니다.
 
-![stencil_feature](/images/ios/2023-05-09-iOS-tuist-module/stencilFilter.png)
+![stencil_feature](/images/ios/2023-05-24-iOS-tuist-module/stencilFilter.png)
 
 stencil파일을 보면 이상한 문법의 코드가 하나 보이는데
 
@@ -336,7 +336,7 @@ stencil파일을 보면 이상한 문법의 코드가 하나 보이는데
 
 시작은 아래 의존 그래프와 같습니다.
 
-![graph4](/images/ios/2023-05-09-iOS-tuist-module/graph4.png)
+![graph4](/images/ios/2023-05-24-iOS-tuist-module/graph4.png)
 
 기능별로 피쳐를 나누고 공통 모델을 Domain모듈로 빼고 UI, Core를 관심사에 맞게 분리했습니다.
 
@@ -350,7 +350,7 @@ FeatureAuth모듈에는 Auth관련 뷰와 AuthUseCase, AuthRepository, AuthServi
 
 적용한 그림은 아래의 그래프와 같습니다.
 
-![graph5](/images/ios/2023-05-09-iOS-tuist-module/graph5.png)
+![graph5](/images/ios/2023-05-24-iOS-tuist-module/graph5.png)
 
 CommonLogic모듈에 공통으로 사용하는 UseCase를 넣어두고 사용하도록 했습니다.
 
@@ -366,7 +366,7 @@ CommonLogic모듈에 공통으로 사용하는 UseCase를 넣어두고 사용하
 
 나눈 뒤의 모듈의 그래프는 아래의 다이어그램과 같습니다.
 
-<img src="/images/ios/2023-05-09-iOS-tuist-module/graph15.png" width="400" height="600">
+<img src="/images/ios/2023-05-24-iOS-tuist-module/graph15.png" width="400" height="600">
 
 Feature모듈에서 코디네이터를 이용해서 UseCase, Repository, Service 인스턴스 DI가 이뤄지기 때문에 모두 알아야 한다고 생각했습니다.
 
@@ -418,7 +418,7 @@ Domain모듈에 Repository인터페이스를 두고 Repository모듈에서 Domai
 
 | 변경 전 아키텍처                                                                                             | 변경 전 빌드 타임로그                                                                                    |
 | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| <img src="/images/ios/2023-05-09-iOS-tuist-module/moduleDiagram_before.png" width="500" height="600"> | <img src="/images/ios/2023-05-09-iOS-tuist-module/linking_before.png" width="500" height="300"> |
+| <img src="/images/ios/2023-05-24-iOS-tuist-module/moduleDiagram_before.png" width="500" height="600"> | <img src="/images/ios/2023-05-24-iOS-tuist-module/linking_before.png" width="500" height="300"> |
 
 위의 사진같이 변경전 아키텍처일 때
 
@@ -438,7 +438,7 @@ Domain모듈에 Repository인터페이스를 두고 Repository모듈에서 Domai
 
 | 변경 후 아키텍처                                                                                            | 변경 후 빌드 타임로그                                                                                   |
 | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| <img src="/images/ios/2023-05-09-iOS-tuist-module/moduleDiagram_after.png" width="700" height="400"> | <img src="/images/ios/2023-05-09-iOS-tuist-module/linking_after.png" width="300" height="300"> |
+| <img src="/images/ios/2023-05-24-iOS-tuist-module/moduleDiagram_after.png" width="700" height="400"> | <img src="/images/ios/2023-05-24-iOS-tuist-module/linking_after.png" width="300" height="300"> |
 
 Feature -> Domain
 
@@ -474,7 +474,7 @@ Service가 Domain을 알아야 하는가? 에 대한 의문이 들었습니다.
 
 Service와 Domain의 모듈 관계를 제거하고 Repository가 바로 Domain을 의존하도록 변경하였고, DTO모델을 도메인 모델로 변경하는 Extension을 Repository모듈에 두고 사용하도록 개선했습니다.
 
-<img src="/images/ios/2023-05-09-iOS-tuist-module/moduleDiagram_domain.png" width="700" height="300">
+<img src="/images/ios/2023-05-24-iOS-tuist-module/moduleDiagram_domain.png" width="700" height="300">
 
 Feature -> Domain <- Repository -> Service 형태인 이상적인 의존관계가 됐습니다.
 
@@ -484,8 +484,8 @@ Feature -> Domain <- Repository -> Service 형태인 이상적인 의존관계�
 
 모듈구조 변경 전 빌드속도와 변경 후 빌드속도를 체크했을 때
 
-![buildtime_beforeMax](/images/ios/2023-05-09-iOS-tuist-module/buildtime_beforeMax.png)
-![buildtime_afterMax](/images/ios/2023-05-09-iOS-tuist-module/buildtime_afterMin.png)
+![buildtime_beforeMax](/images/ios/2023-05-24-iOS-tuist-module/buildtime_beforeMax.png)
+![buildtime_afterMax](/images/ios/2023-05-24-iOS-tuist-module/buildtime_afterMin.png)
 
 빌드 유휴시간을 줄임으로써
 
