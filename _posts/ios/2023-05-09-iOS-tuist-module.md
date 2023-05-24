@@ -1,7 +1,7 @@
 ---
 layout: post
 
-title: Tuist 도입부터 적용까지 알려ZUM요! (feat. iOS프로젝트)
+title: Tuist 도입부터 적용까지 알려ZUM요! (feat. 모듈화)
 
 description: ZUM에서 Tuist를 iOS프로젝트에 어떻게 적용하고 있는지 공유합니다.
 
@@ -442,7 +442,7 @@ Domain모듈에 Repository인터페이스를 두고 Repository모듈에서 Domai
 
 Feature -> Domain
 
-Repository -> Domain
+Repository -> Service -> Domain
 
 식의 의존 형태입니다.
 
@@ -450,12 +450,44 @@ Repository -> Domain
 
 변경 후에는 Repository와 Feature상관없이 먼저 빌드가 끝나는 대로 링킹되는 걸 확인 할 수 있었습니다.
 
-구조를 변경하여 빌드 진행시 유휴시간을 줄임으로써
+사실 의존 그래프를 정확히 보면
 
-변경 전 빌드속도와 변경 후 빌드속도를 체크했을 때
+Feature -> Domain <- Service <- Repository 이런 형태일 것입니다.
+
+보통 알던 클린아키텍쳐의 구조와는 좀 다른 의존관계였습니다.
+
+Service가 Domain을 의존하게 둬서 Repository가 접근하는 형태입니다.
+
+이미지상 단방향 같아서 보기에는 좋지만, 의존관계를 따져봤을 때는 개선할 부분이 보였습니다.
+
+주목할 점은 Service -> Domain 관계입니다.
+
+Service가 Domain을 알아야 하는가? 에 대한 의문이 들었습니다.
+
+현 상황에서는 통신 모델(이하 DTO)을 도메인 모델로 변경해 주는 Extension을 Service 모듈에 두고 있습니다.
+
+이 Extension을 Repository에서 사용하고 있습니다.
+
+따라서 도메인모델이 변경된다면 Service모듈에도 영향을 미치는 상태입니다.
+
+도메인 모델의 변환은 Repository모듈이 담당하고 있기 때문에 도메인모델이 변한다면 Repository모듈 쪽에 영향이 가야 하지만 Service쪽에 영향이 가는 상태입니다.
+
+Service와 Domain의 모듈 관계를 제거하고 Repository가 바로 Domain을 의존하도록 변경하였고, DTO모델을 도메인 모델로 변경하는 Extension을 Repository모듈에 두고 사용하도록 개선했습니다.
+
+<img src="/images/ios/2023-05-09-iOS-tuist-module/moduleDiagram_domain.png" width="700" height="300">
+
+Feature -> Domain <- Repository -> Service 형태인 이상적인 의존관계가 됐습니다.
+
+도메인 모델이 변경되더라도 Service모듈에 영향이 없어졌습니다.
+
+<br/>
+
+모듈구조 변경 전 빌드속도와 변경 후 빌드속도를 체크했을 때
 
 ![buildtime_beforeMax](/images/ios/2023-05-09-iOS-tuist-module/buildtime_beforeMax.png)
 ![buildtime_afterMax](/images/ios/2023-05-09-iOS-tuist-module/buildtime_afterMin.png)
+
+빌드 유휴시간을 줄임으로써
 
 **빌드속도가 최대 38초로 약 25% 향상**된 것을 확인할 수 있었습니다.
 
