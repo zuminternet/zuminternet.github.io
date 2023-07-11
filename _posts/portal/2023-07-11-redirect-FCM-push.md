@@ -2,7 +2,7 @@
 layout: post
 title: 리다이렉트 서버와 FCM 푸시 연동
 description: 리다이렉트 서버와 FCM 푸시 연동과정을 정리해보았습니다.
-image: /images/portal/post/2023-02-14-redirect-refactoring/thumbnail.png
+image: /images/portal/post/2023-07-11-redirect-FCM-push/thumbnail.png
 introduction: 리다이렉트 서버와 FCM 푸시 연동과정을 정리해보았습니다.
 category: portal/tech
 tag:  [Spring Boot, Firebase, Logback]
